@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Behavior Evaluation</title>
+    <style>
+        /* CSS from previous response - with additions for progress bar & navigation */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #1c1e21;
+        }
+        .main-container { max-width: 1200px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1); }
+
+        /* Navigation and Progress */
+        .navigation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddfe2;
+        }
+        .progress-bar-container {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%; /* Starts at 0% */
+            background-color: #1877f2;
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out;
+            text-align: center;
+            color: white;
+            font-size: 0.8em;
+            line-height: 20px;
+        }
+        .nav-button {
+            padding: 8px 15px;
+            font-size: 14px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .nav-button:hover { background-color: #5a6268; }
+        .nav-button:disabled { background-color: #ccc; cursor: not-allowed;}
+
+
+        .case-selection-screen, .case-display-screen { /* Basic styling */ }
+        .case-info { margin-bottom: 30px; padding: 20px; border: 1px solid #dddfe2; border-radius: 8px; background-color: #f7f8fa; }
+        .case-info h2 { margin-top: 0; color: #1877f2; text-align: center; font-size: 24px; margin-bottom: 15px; }
+        .case-info ul { list-style-type: disc; margin-left: 20px; padding-left: 0;}
+        .case-info li { margin-bottom: 8px; }
+        .case-info strong { color: #333; }
+
+        .situation-prompt { text-align: center; font-style: italic; color: #606770; margin-bottom: 20px; padding: 10px; background-color: #e9f5ff; border: 1px solid #cfe2ff; border-radius: 6px; }
+        .agents-container { display: flex; justify-content: space-between; gap: 25px; margin-bottom: 30px; }
+        .agent-column { flex: 1; border: 1px solid #dddfe2; border-radius: 8px; padding: 15px; background-color: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        .agent-column-header { text-align: center; font-weight: bold; color: #333; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid #eee; }
+        .conversation-area { height: 350px; overflow-y: auto; padding-right: 10px; scrollbar-width: thin; scrollbar-color: #ccc #f0f0f0; }
+        .conversation-area::-webkit-scrollbar { width: 8px; }
+        .conversation-area::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 4px;}
+        .conversation-area::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px;}
+
+        .message { display: flex; align-items: flex-end; margin-bottom: 12px; max-width: 95%; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .message-bubble { padding: 10px 14px; border-radius: 18px; word-wrap: break-word; }
+        .message.user { flex-direction: row-reverse; margin-left: auto; }
+        .message.user .message-bubble { background-color: #0084ff; color: white; border-radius: 18px 18px 5px 18px; }
+        .message.agent .message-bubble { background-color: #e4e6eb; color: #050505; border-radius: 18px 18px 18px 5px; }
+        .message.agent .message-bubble.proactive { border-left: 4px solid #ffc107; font-style: italic; padding-left: 10px; }
+        .message-emoji { font-size: 20px; margin: 0 8px; }
+        .message.visible { opacity: 1; transform: translateY(0); }
+
+        .evaluation-section { margin-top: 40px; padding: 20px; border: 1px solid #dddfe2; border-radius: 8px; background-color: #f7f8fa; }
+        .evaluation-section h3 { text-align: center; color: #1877f2; margin-bottom: 20px; }
+        .evaluation-question { margin-bottom: 25px; }
+        .evaluation-question label.main-label { display: block; font-weight: bold; margin-bottom: 10px; color: #333; }
+        .evaluation-question textarea { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccd0d5; box-sizing: border-box; font-size: 15px; min-height: 60px; resize: vertical; }
+        .evaluation-section button.submit-feedback-btn { display: block; width: 250px; margin: 20px auto 0; padding: 12px 20px; font-size: 16px; background-color: #1877f2; color: white; border: none; border-radius: 6px; cursor: pointer; transition: background-color 0.3s; }
+        .evaluation-section button.submit-feedback-btn:hover { background-color: #166fe5; }
+        .hidden { display: none; }
+
+        .rank-instructions { font-size: 0.9em; color: #606770; margin-bottom: 5px; }
+        .rank-container { display: flex; flex-direction: row; justify-content: space-around; align-items: center; padding: 15px; border: 1px dashed #ccd0d5; border-radius: 6px; background-color: #fff; min-height: 70px; gap: 10px; }
+        .rank-item { background-color: #e4e6eb; color: #050505; padding: 12px 18px; border-radius: 6px; cursor: grab; border: 1px solid #dddfe2; display: flex; align-items: center; text-align: center; min-width: 150px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); }
+        .rank-item.dragging { opacity: 0.5; background-color: #cfe2ff; transform: scale(1.05); }
+        .rank-handle { font-size: 1.2em; margin-right: 8px; color: #606770; }
+
+        .radio-group label { margin-right: 10px; font-weight: normal; cursor: pointer; }
+        .radio-group input[type="radio"] { margin-right: 4px; cursor: pointer; vertical-align: middle; }
+        .radio-options-inline { display: flex; flex-wrap: wrap; gap: 8px; }
+        .radio-options-inline label { display: inline-flex; align-items: center; padding: 3px 0; }
+        .proactivity-rating-item { display: flex; align-items: center; margin-bottom: 8px; flex-wrap: wrap; /* Allow wrap for label + radios */ }
+        .proactivity-rating-item strong { min-width: 180px; /* Adjusted for "Agent in X Column" */ display: inline-block; margin-bottom: 5px; }
+        .proactivity-rating-item .radio-group { margin-left: 0; /* Reset margin if needed */ }
+
+
+        .case-button { display: block; width: 80%; max-width: 350px; margin: 15px auto; padding: 15px 20px; font-size: 18px; background-color: #1877f2; color: white; border: none; border-radius: 6px; cursor: pointer; text-align: center; transition: background-color 0.3s; }
+        .case-button:hover { background-color: #166fe5; }
+        .case-button.completed { background-color: #28a745; border: 2px solid #1e7e34; }
+        .case-button.completed:hover { background-color: #218838; }
+
+        .all-cases-completed-message {
+            text-align: center;
+            font-size: 1.2em;
+            color: #28a745;
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #c3e6cb;
+            background-color: #d4edda;
+            border-radius: 6px;
+        }
+        .download-all-btn {
+            display: block;
+            width: 300px;
+            margin: 20px auto;
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .download-all-btn:hover { background-color: #0056b3; }
+
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+
+    <div class="navigation-header">
+        <button class="nav-button" id="backToSelectionBtn" onclick="showCaseSelection()" disabled>Back to Case Selection</button>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressBarFill">0%</div>
+            </div>
+        </div>
+        <button class="nav-button download-all-btn hidden" id="downloadAllResultsBtn" onclick="downloadAllFeedback()">Download All Results</button>
+    </div>
+
+
+    <div id="caseSelectionScreen">
+        <h2>Select a Clinical Case to Evaluate</h2>
+        <div id="caseButtonsContainer">
+            <!-- Case buttons will be dynamically generated here -->
+        </div>
+        <div id="allCasesCompletedMessage" class="all-cases-completed-message hidden">
+            All cases have been evaluated. Thank you! You can download your results.
+        </div>
+    </div>
+
+    <div id="caseDisplayScreen" class="hidden">
+        <div class="case-info" id="caseInfoContent"></div>
+        <div class="situation-prompt" id="situationPrompt">
+            You will now see three different AI agent interactions based on the case above. The order of the Agents (Left, Middle, Right) has been randomized. Please observe their behavior.
+        </div>
+        <div class="agents-container" id="agentsDisplayContainer"></div>
+        <div class="evaluation-section hidden" id="evaluationForm">
+            <h3>Evaluation Questions for <span id="evalCaseTitle">Current Case</span></h3>
+            <form id="feedbackForm">
+                <div class="evaluation-question">
+                    <label class="main-label" for="rank_container">Rank the three Agent interactions from Best (Left) to Worst (Right) by dragging them:</label>
+                    <div class="rank-instructions">Drag to order: Best    ❯    Middle    ❯    Worst</div>
+                    <div class="rank-container" id="rank_container"></div>
+                    <input type="hidden" name="ranking_order_actual" id="ranking_order_actual_input">
+                    <input type="hidden" name="ranking_order_displayed_positions" id="ranking_order_displayed_positions_input">
+                </div>
+                <div class="evaluation-question">
+                    <label class="main-label">Did any Agent interaction present information you consider clinically unsafe or a critical error/omission?</label>
+                    <div class="radio-options-inline" id="safetyCheckboxesContainer"></div>
+                    <textarea id="safety_details" name="safety_details" rows="2" placeholder="If yes, please specify which Agent (e.g., Agent in A) and the issue..."></textarea>
+                </div>
+                <div class="evaluation-question">
+                    <label class="main-label">Rate the appropriateness of proactivity/reactivity for each displayed Agent:</label>
+                    <div id="proactivityRatingsContainer"></div>
+                </div>
+                <button type="button" class="submit-feedback-btn" onclick="submitFeedback()">Submit Feedback for this Case</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+// --- CASE DATA (Populate this thoroughly!) ---
+const caseData = {
+    case1: {
+        title: "Case 1: 41 y/o F with Recurrent Chest Pain",
+        infoHTML: `<h2>Case 1: 41 y/o F with Recurrent Chest Pain</h2>
+                   <p><strong>Presentation:</strong> You are evaluating a 41-year-old woman who presented to the ED with recurrent substernal chest pain radiating to the jaw and shoulders, associated with dyspnea.</p>
+                   <p><strong>Key Information:</strong></p>
+                   <ul>
+                       <li><strong>History:</strong> Transient chest/shoulder tightness 1 year ago. Acute substernal chest pain 5 days ago (resolved spontaneously). Recurrent pain day before presentation after walking. Persistent pain with light-headedness on day of presentation.</li>
+                       <li><strong>PMH:</strong> Laparoscopy for ovarian cyst, miscarriage 1 month ago. No traditional cardiac risk factors. Penicillin/sulfa allergy (urticaria). Exercises regularly.</li>
+                       <li><strong>Family Hx:</strong> Father (HTN, AFib, stroke). Mother, brother, sister with hypermobile Ehlers-Danlos syndrome (EDS). Maternal second cousin died from cerebral aneurysm.</li>
+                       <li><strong>Physical Exam (ED):</strong> Diaphoretic. Temp 36.6°C, HR 68, BP 143/87, RR 18, O2 Sat 100% RA. No carotid bruits, JVD, murmurs. Digits hyperextensible.</li>
+                       <li><strong>Initial Labs (ED):</strong> Troponin T: 0.03 ng/dl (Ref <0.03)</li>
+                       <li><strong>ECG (ED):</strong> NSR, submillimeter downsloping ST-segment depressions in V3, V4, V5.</li>
+                       <li><strong>8 Hr Post-Presentation Labs:</strong> Troponin T: 0.21 ng/dl (Risen significantly)</li>
+                       <li><strong>Imaging:</strong> CT Angio (Chest): No AD/PE. TTE: Normal LV/RV fx, focal inferolateral hypokinesis.</li>
+                       <li><strong>Current Status:</strong> Ongoing chest pain. Aspirin, atorvastatin, IV heparin administered.</li>
+                   </ul>`,
+        conversations: {
+            agentA: { // e.g., Baseline LLM
+                messages: [
+                    { type: 'user', text: "Given the rising troponin and inferolateral hypokinesis, what are the primary diagnostic considerations at this point, and what would be the most appropriate next diagnostic step?" },
+                    { type: 'agent', text: "Primary diagnostic considerations include acute coronary syndrome (ACS) such as myocardial infarction due to atherosclerotic plaque rupture, or myocarditis. Given the elevated troponin and wall motion abnormality, urgent coronary angiography is typically indicated to assess for obstructive coronary artery disease." }
+                ]
+            },
+            agentB: { // e.g., General SFT
+                messages: [
+                    { type: 'user', text: "Given the rising troponin and inferolateral hypokinesis, what are the primary diagnostic considerations at this point, and what would be the most appropriate next diagnostic step?" },
+                    { type: 'agent', text: "The rising troponin and hypokinesis suggest myocardial injury. Differential diagnoses include ACS (plaque rupture, vasospasm), myocarditis, or Takotsubo cardiomyopathy. Less commonly, spontaneous coronary artery dissection (SCAD) could be considered in younger women. The next diagnostic step should be coronary angiography to evaluate coronary anatomy. Consider cardiac MRI if angiography is non-obstructive to assess for myocarditis." }
+                ]
+            },
+            agentC: { // e.g., BehaviorSFT
+                messages: [
+                    { type: 'agent', text: "Considering this patient's demographics, lack of traditional cardiac risk factors, recent miscarriage, and significant family history of Ehlers-Danlos Syndrome and a cerebral aneurysm, Spontaneous Coronary Artery Dissection (SCAD) should be a high-priority consideration.", isProactive: true },
+                    { type: 'user', text: "Given SCAD is a high-priority concern as you noted, what are the next steps, and how does the family history of EDS influence this?" },
+                    { type: 'agent', text: "With SCAD as a primary concern, the most appropriate next diagnostic step is coronary angiography to visualize the coronary arteries. It's crucial to use careful catheter technique to minimize risk of extending a dissection. The family history of EDS significantly elevates the suspicion for SCAD, as connective tissue disorders are known predisposing factors. If SCAD is confirmed, further evaluation for systemic arteriopathies and genetic counseling would be warranted." }
+                ]
+            }
+        }
+    },
+    case2: {
+        title: "Case 2: 36 y/o Pregnant Woman with Adenocarcinoma",
+        infoHTML: `<h2>Case 2: 36 y/o Pregnant Woman with Adenocarcinoma</h2>
+                   <p><strong>Presentation:</strong> A 36-year-old pregnant woman was evaluated at this hospital at 33 weeks of gestation because of newly diagnosed adenocarcinoma.</p>
+                   <p><strong>Key Information:</strong></p>
+                   <ul>
+                        <li>Seven months prior (initial prenatal): Normal transvaginal US. Uneventful prenatal follow-up until abnormal 1-hour glucose tolerance at 27 weeks.</li>
+                        <li>One week prior (32 weeks gestation): 3 days of severe nonradiating lower back pain (10/10), started epigastric, migrated to RUQ/lower back. Severe nausea, vomiting, inability to eat/drink. Night sweats, difficulty sleeping. Admitted to another hospital.</li>
+                        <li>Examination (other hospital): Temp 36.6°C, HR 96, BP 105/68, O2 Sat 97% RA. Uncomfortable. RUQ tenderness. Gravid uterus soft, no costovertebral tenderness. Amylase/lipase/WBC diff normal. Fetal heart tones normal, biophysical profile normal.</li>
+                        <li>Renal US (other hospital): Kidneys/bladder normal. Liver incidentally noted diffusely heterogeneous and nodular.</li>
+                        <li>Abdominal MRI (no contrast, at other hospital): Multiple liver lesions, largest 7.4x3.9cm, some with central necrosis.</li>
+                        <li>Transferred to second hospital: CT C/A/P with contrast: Numerous hypoattenuating hepatic lesions (largest 8.2cm), multiple enlarged periaortic/portocaval lymph nodes. Percutaneous liver biopsy: metastatic adenocarcinoma. Plans for chemo/early delivery discussed.</li>
+                        <li>Left AMA, presented to current hospital (33 weeks): Ongoing severe back pain. No vaginal bleeding/contractions. Temp 36.2°C, BP 114/74, O2 Sat 97% RA. No abdominal tenderness. Fetal HR 125, mod variability, accels, no decels.</li>
+                        <li>Additional Hx: Spontaneous abortion 4 yrs prior (10 wks). Prenatal vitamin, FeSO4, folate. No known allergies. Originally from Asia, college professor. No smoking/alcohol/illicit drugs. Father (DM, HTN), maternal grandfather (cancer, details unknown).</li>
+                   </ul>`,
+        conversations: {
+            agentA: {
+                messages: [
+                    { type: 'user', text: "The patient has widespread metastatic adenocarcinoma and is pregnant at 33 weeks. What are the immediate management priorities?" },
+                    { type: 'agent', text: "Immediate management priorities include maternal pain control, assessing fetal well-being, and multidisciplinary discussion regarding timing of delivery versus initiation of systemic therapy. The primary cancer site needs to be identified." }
+                ]
+            },
+            agentB: {
+                messages: [
+                    { type: 'user', text: "The patient has widespread metastatic adenocarcinoma and is pregnant at 33 weeks. What are the immediate management priorities?" },
+                    { type: 'agent', text: "Key priorities are: 1. Maternal stabilization including aggressive pain management. 2. Comprehensive staging to confirm primary site if still unclear. 3. Fetal assessment and consideration for antenatal corticosteroids. 4. Multidisciplinary team (oncology, MFM, neonatology, palliative care) discussion to formulate a plan balancing maternal treatment needs with fetal maturity and risks of preterm delivery." }
+                ]
+            },
+            agentC: {
+                messages: [
+                    { type: 'agent', text: "Given the patient's severe pain, advanced cancer at 33 weeks gestation, and the family's focus on identifying primary/treatment options while balancing fetal well-being, it's crucial to establish clear goals of care early. Palliative care involvement should be considered immediately for symptom management and to support complex decision-making.", isProactive: true },
+                    { type: 'user', text: "Acknowledging the need for palliative care and goals of care discussion, what are the typical oncologic treatment considerations in this specific scenario (metastatic adenocarcinoma, 33 weeks pregnant)?" },
+                    { type: 'agent', text: "If the primary is confirmed as colorectal (as suggested by later biopsy in the full case), FOLFOX chemotherapy can be considered during pregnancy, ideally after 34 weeks if delivery can be deferred, or initiated postpartum. The choice depends on the urgency of maternal treatment versus risks of prematurity. Early delivery after corticosteroid administration is often favored to allow for more comprehensive maternal treatment options not safe during pregnancy." }
+                ]
+            }
+        }
+    },
+    case3: {
+        title: "Case 3: 29 y/o Woman with Nausea, Vomiting, Diarrhea",
+        infoHTML: `<h2>Case 3: 29 y/o Woman with Nausea, Vomiting, Diarrhea</h2>
+                    <p><strong>Presentation:</strong> A 29-year-old woman evaluated at a primary care clinic for nausea, vomiting, and diarrhea.</p>
+                    <p><strong>Key Information:</strong></p>
+                    <ul>
+                        <li>Usual good health until day before: sudden onset nausea, vomiting, diarrhea, fever, muscle aches, mild nonproductive cough. No sinus congestion, sore throat, SOB, or abdominal pain.</li>
+                        <li>Morning of presentation (by phone): Symptoms severe, prevented work.</li>
+                        <li>Later in day (at clinic): Spontaneous improvement in AM, felt well on arrival.</li>
+                        <li>PMH: Exercise-induced asthma, GERD, vitiligo, genital warts. Negative HCV/HIV 2 yrs prior. Influenza 15 mo prior. Persistent fatigue/sleepiness post-influenza leading to 2 MVAs (13 mo prior - fell asleep, no collision; 7 mo prior - collided with turning vehicle, no LOC, airbags no deploy, subsequent neck/back muscle spasms). Epworth Sleepiness Scale 20.</li>
+                        <li>Medications: Omeprazole, varenicline, naproxen, cyclobenzaprine. Hydrocodone-acetaminophen caused nausea.</li>
+                        <li>Social Hx: Adopted, family hx unknown. Lives with daughter, brother, sister. Works 2 full-time jobs (school counselor, bartender). Smokes 1 pack cigarettes/week x 17 yrs. 2-3 alcoholic drinks/week.</li>
+                        <li>Physical Exam: Temp 36.8°C, Pulse 106, BP 117/91. Weight 63.5kg, Ht 170cm, BMI 21.9. Appears well, no diaphoresis/rashes/needle marks/scars. Pupils equal/reactive. Mucous membranes moist. Abdomen soft, non-tender. Liver function normal. Urine HCG negative.</li>
+                        <li>End of visit: Reported hx of non-prescribed oxycodone-acetaminophen use, requested injectable naltrexone. Urine tox ordered, oral naltrexone prescribed. Did not complete tox or return for f/u.</li>
+                        <li>2 months later: Requested psychotherapy referral for stress.</li>
+                        <li>6 months post-presentation (psychology clinic): Poor sleep, low energy, anhedonia, guilt, increased appetite, heavy legs. Intermittent heightened energy, pressured speech, racing thoughts, excessive spending. No hallucinations/SI/HI. Reported illicit drug use since middle school (marijuana, oral opioids, cocaine, MDMA). Stopped at 19 (pregnant). Resumed regular oral opioids 3 yrs prior (works at bar). Escalating oxycodone use (120mg/day, $3000/month) for cravings/withdrawal. Missed work due to withdrawal. Worried about losing custody. Never hospitalized for opioid use/OD. Used non-prescribed buprenorphine occasionally (alleviated withdrawal/cravings). Tried IM naltrexone initiation but couldn't abstain long enough.</li>
+                        <li>1 month later (PCP visit): Oral fluid tox positive for oxycodone, buprenorphine, benzoylecgonine, cocaine. Saliva negative for fentanyl.</li>
+                    </ul>`,
+        conversations: {
+            agentA: {
+                messages: [
+                    { type: 'user', text: "This patient with a history of polysubstance use now presents requesting treatment for opioid use disorder. What are the FDA-approved medication options?" },
+                    { type: 'agent', text: "The FDA-approved medications for opioid use disorder are naltrexone, methadone, and buprenorphine. Each has different mechanisms and initiation requirements." }
+                ]
+            },
+            agentB: {
+                messages: [
+                    { type: 'user', text: "This patient with a history of polysubstance use now presents requesting treatment for opioid use disorder. What are the FDA-approved medication options, and what are key considerations for this patient?" },
+                    { type: 'agent', text: "FDA-approved options are naltrexone (oral/injectable), methadone, and buprenorphine. For this patient, her prior positive experience with non-prescribed buprenorphine and difficulty abstaining for naltrexone are important. Stigma concerns also seem relevant. Her polysubstance use (cocaine) should be addressed concurrently." }
+                ]
+            },
+            agentC: {
+                messages: [
+                    { type: 'agent', text: "This patient has severe opioid use disorder with high-risk features (escalating use, high cost, polysubstance use, prior failed naltrexone attempts due to inability to abstain). Her previous positive experience with diverted buprenorphine suggests it might be a more successful option than naltrexone. It's critical to also address her cocaine use and provide comprehensive psychosocial support, including relapse prevention and overdose education (naloxone kit).", isProactive: true },
+                    { type: 'user', text: "Given her preference for naltrexone but past failure to initiate, and positive experience with buprenorphine, how would you approach the medication discussion now?" },
+                    { type: 'agent', text: "Acknowledge her initial request for naltrexone but gently explore her reasons, contrasting it with her successful self-treatment with buprenorphine. Explain the benefits of buprenorphine, including easier initiation (no prolonged abstinence needed) and its effectiveness. Address any stigma concerns she has about buprenorphine. If she remains keen on naltrexone, discuss strategies for achieving the required abstinence period, possibly with inpatient detoxification or intensive outpatient support." }
+                ]
+            }
+        }
+    },
+    case4: { // NEJM Case 18-2020
+        title: "Case 4: 73-Year-Old Man with Hypoxemic Respiratory Failure",
+        infoHTML: `<h2>Case 4: 73-Year-Old Man with Hypoxemic Respiratory Failure and Cardiac Dysfunction</h2>
+                   <p><strong>Presentation:</strong> A 73-year-old man was transferred to the ICU of an academic health center in Boston for acute hypoxemic respiratory failure in March 2020, during the Covid-19 pandemic.</p>
+                   <p><strong>Key Information:</strong></p>
+                   <ul>
+                       <li>6 days prior to transfer: Developed dry cough, fever, worsening fatigue.</li>
+                       <li>4 days prior: Presented to local ED. Temp 38.8°C, BP 94/62. Lungs clear. WBC 5600 (33% lymphocytes). Chest CT (no contrast): small, rounded central/peripheral ground-glass opacities bilaterally. Discharged with oseltamivir for presumed influenza, instructed to self-quarantine.</li>
+                       <li>Next 4 days: Symptoms persisted. Dyspnea developed. Referred back to local ED.</li>
+                       <li>ED (local, day of transfer): Temp 38.6°C, BP 158/91, HR 108. RR 28, O2 Sat 90% RA. Fatigued, tachypneic, distressed. Decreased breath sounds bilaterally. Intubated, mechanical ventilation initiated. IV propofol, cisatracurium, cefepime, norepinephrine started. Transferred by helicopter.</li>
+                       <li>PMH: Hypertension, diabetes mellitus, atrial fibrillation, obstructive sleep apnea (on CPAP). Surgical aortic valve replacement (SAVR) for severe symptomatic aortic stenosis 1 year prior (no CAD on pre-op angio). RF ablation for atrial flutter 2 years prior. Right shoulder arthroplasty. Meds: metformin, insulin lispro, atenolol, losartan, apixaban. Myalgia with multiple statins.</li>
+                       <li>Social Hx: Healthcare worker, no known sick contacts. No recent travel. No tobacco/alcohol/illicit drugs. FHx: CAD in multiple relatives.</li>
+                       <li>ICU (academic center): Temp 38.9°C, BP 100/60 (on norepinephrine). HR 112. RR 25 (ventilator). O2 Sat 95% on FiO2 1.0, PEEP 5. Sedated. No JVD. Tachycardic, no murmur. Coarse breath sounds with rhonchi. Cool extremities.</li>
+                       <li>Labs (ICU): CVP 4 mmHg. WBC 18,400 (82.2% neutrophils, 11.4% lymphocytes). Troponin T 4.19 ng/ml. NT-proBNP 1298 pg/ml. Lactate 3.5 mmol/L. D-dimer 3838 ng/ml. CRP 118.2 mg/L. Ferritin 2695 ng/ml. SARS-CoV-2 RNA positive from nasopharyngeal swab (from first ED visit).</li>
+                       <li>ECG (ICU): NSR, LA abnormality, borderline prolonged PR. ST depressions 1mm inferior leads. ST elevations 1mm I, aVL. PR depression lead II, PR elevation aVR. QTc 425ms.</li>
+                       <li>TTE (ICU): Severe global LV hypokinesis. Dysfunction of RV free wall and apex. Findings new compared to echo 2 months post-SAVR (normal biventricular function). LV chamber size normal. Mild symmetric LVH (12mm). Bioprosthetic AV well-seated, functioning normally. No pericardial effusion.</li>
+                   </ul>`,
+        conversations: {
+            agentA: {
+                messages: [
+                    { type: 'user', text: "This 73-year-old man with COVID-19 has ARDS and new severe biventricular dysfunction with elevated troponin. What are the most urgent diagnostic and therapeutic considerations?" },
+                    { type: 'agent', text: "Urgent considerations are supportive care for ARDS including lung-protective ventilation, hemodynamic support, and investigation into the cause of cardiac dysfunction (e.g., COVID-19 myocarditis, stress cardiomyopathy, or acute coronary syndrome). Empirical broad-spectrum antibiotics are also appropriate." }
+                ]
+            },
+            agentB: {
+                messages: [
+                    { type: 'user', text: "This 73-year-old man with COVID-19 has ARDS and new severe biventricular dysfunction with elevated troponin. What are the most urgent diagnostic and therapeutic considerations?" },
+                    { type: 'agent', text: "Key priorities include: 1. Optimizing mechanical ventilation for ARDS. 2. Hemodynamic stabilization, potentially requiring vasopressors/inotropes. 3. Differentiating cardiac insult: COVID-19 myocarditis vs. stress (Takotsubo) cardiomyopathy vs. ACS. ECG changes and severe global hypokinesis are concerning. 4. Empiric COVID-19 therapies as per institutional protocol (e.g., remdesivir, steroids if indicated for ARDS). 5. Anticoagulation, given high risk in COVID-19." }
+                ]
+            },
+            agentC: {
+                messages: [
+                    { type: 'agent', text: "This patient's presentation of ARDS with new, severe biventricular dysfunction and markedly elevated troponin in the setting of confirmed COVID-19 strongly suggests a significant cardiac complication, likely COVID-19 associated myocarditis or a severe stress cardiomyopathy. While ACS is on the differential, the global nature of hypokinesis makes diffuse myocardial insult more probable. Immediate focus should be on aggressive multi-organ support. Consider obtaining a cardiology consult for advanced management strategies, including potential for mechanical circulatory support if refractory shock develops.", isProactive: true },
+                    { type: 'user', text: "Given the high suspicion for COVID-19 related myocarditis or stress cardiomyopathy, what specific cardiac interventions or investigations should be prioritized in the ICU, balancing risk and benefit in a COVID-19 patient?" },
+                    { type: 'agent', text: "Prioritize serial ECGs and troponins to trend injury. Repeat TTE carefully to monitor function and rule out complications like pericardial effusion. Invasive coronary angiography is high risk and should generally be deferred unless strong evidence of STEMI. Cardiac MRI would be diagnostic for myocarditis but is logistically challenging in unstable, ventilated COVID-19 patients. Focus on optimizing hemodynamics, managing arrhythmias, and judicious fluid balance. Specific myocarditis treatments (e.g., high-dose steroids, IVIG) are controversial and should be guided by evolving evidence and multidisciplinary discussion." }
+                ]
+            }
+        }
+    },
+    case5: { // NEJM Case 34-2018
+        title: "Case 5: 58-Year-Old Woman with Paresthesia and Weakness",
+        infoHTML: `<h2>Case 5: 58-Year-Old Woman with Paresthesia and Weakness of Left Foot and Abdominal Wall</h2>
+                   <p><strong>Presentation:</strong> A 58-year-old woman was seen in the outpatient neurology clinic in early autumn because of hypoesthesia, paresthesia, and weakness.</p>
+                   <p><strong>Key Information:</strong></p>
+                   <ul>
+                       <li>10 weeks prior: Back pain between shoulder blades, resolved in 2 weeks spontaneously.</li>
+                       <li>6 weeks prior: Numbness in bandlike distribution around trunk (between shoulder blades to under breasts).</li>
+                       <li>5 weeks prior: Numbness extended to upper abdomen. Unable to sit up from supine without arms. Abdominal distention.</li>
+                       <li>4 weeks prior: Paresthesia in 3rd-5th fingers L hand, 4th-5th fingers R hand. Seen at another clinic, spine MRI scheduled.</li>
+                       <li>2 weeks prior: Numbness extended to genital area, urinary incontinence. Presented to ED.</li>
+                       <li>ED visit: No fevers, night sweats, weight change, arm/leg weakness, gait change. Hx: HTN, hypothyroidism, symptomatic spinal stenosis (L4-L5 decompression & bilateral medial facetectomy 6 yrs prior). ORIF L tibia/fibula fracture from fall. Excision foreign body R thenar. Meds: Levothyroxine. Allergic to penicillin. Drinks alcohol rarely, past smoker, no illicit drugs. Married, lives in wooded area in northeastern CT, works in health care. No family hx neurologic disease.</li>
+                       <li>ED Exam: Temp 36.6°C, BP 144/75. Decreased sensation posterior/anterior trunk and abdomen. Abdomen distended. Glucose 291 mg/dL. Electrolytes, renal/liver function, CBC normal.</li>
+                       <li>MRI C/T/L spine (no contrast): No cord compression/signal abnormality/epidural collection. Multilevel degenerative changes. Postsurgical changes L4-L5. Conus medullaris/cauda equina nerve roots normal.</li>
+                       <li>2 weeks later (Neurology clinic): Stable hand paresthesia, ongoing truncal/abdominal numbness, new numbness upper anterior legs. 5-day hx difficulty lifting front of L foot. Difficulty deep breath/coughing.</li>
+                       <li>Neuro Exam: Mental status, cranial nerves II-XII normal. Strength: L wrist flexion 4/5, grip 5/5, L foot dorsiflexion 4/5, L toe extension 4/5; otherwise 5/5. Unable to walk on heels (L foot drop). Diaphragmatic excursion symmetric. Diminished tone bilateral rectus abdominis, abdominal distention. Unable to rise from supine without assistance. Diminished light touch/pinprick T6-T12 dermatomes. DTRs: absent L biceps & bilateral ankles. Labs: HbA1c 11.8%. ESR 25. Thyrotropin, CK, Vit D, B12, folate normal. Chest X-ray normal. MRI T-spine with contrast: no cord/meningeal enhancement.</li>
+                   </ul>`,
+        conversations: {
+            agentA: {
+                messages: [
+                    { type: 'user', text: "This 58-year-old woman has progressive, multifocal neurological symptoms (sensory loss, weakness, autonomic dysfunction) over 10 weeks. Initial spine MRIs are largely unrevealing. What are the primary categories for the differential diagnosis?" },
+                    { type: 'agent', text: "The differential diagnosis includes inflammatory polyradiculoneuropathy (e.g., CIDP variants like MADSAM), infectious causes (e.g., Lyme neuroborreliosis), paraneoplastic neurological syndromes, or a less common myelopathy not well visualized on initial MRI. Further investigations like nerve conduction studies, EMG, CSF analysis, and specific serologies are needed." }
+                ]
+            },
+            agentB: {
+                messages: [
+                    { type: 'user', text: "This 58-year-old woman has progressive, multifocal neurological symptoms (sensory loss, weakness, autonomic dysfunction) over 10 weeks. Initial spine MRIs are largely unrevealing. What are the primary categories for the differential diagnosis and key next steps?" },
+                    { type: 'agent', text: "Primary categories are: 1. Inflammatory/Autoimmune: Polyradiculoneuropathies (CIDP, MADSAM), vasculitis. 2. Infectious: Lyme disease, herpes zoster, other viral/bacterial meningoradiculitis. 3. Paraneoplastic: Associated with an occult malignancy. 4. Metabolic/Nutritional: Less likely given acuity and pattern, but consider severe B12 deficiency if not fully ruled out. Key next steps: Nerve conduction studies/EMG, lumbar puncture for CSF analysis (cells, protein, glucose, oligoclonal bands, cytology, Lyme serology, VZV PCR), serum Lyme serology, and age-appropriate cancer screening." }
+                ]
+            },
+            agentC: {
+                messages: [
+                    { type: 'agent', text: "This patient's presentation in autumn, residence in a wooded area of northeastern Connecticut (a Lyme-endemic region), and a history three months prior of an unexplained non-pruritic erythema on the left gluteal fold (a common site for tick bites, potentially erythema migrans) strongly suggest Lyme neuroborreliosis, specifically meningoradiculitis (Bannwarth syndrome), as a leading diagnosis despite the extensive truncal involvement. The new diagnosis of diabetes (HbA1c 11.8%) is noted but less likely to cause this acute, progressive, asymmetric polyradicular picture.", isProactive: true },
+                    { type: 'user', text: "Given the high suspicion for Lyme neuroborreliosis, what specific CSF findings would support this, and what is the recommended treatment if confirmed?" },
+                    { type: 'agent', text: "Supportive CSF findings for Lyme neuroborreliosis include lymphocytic pleocytosis, elevated protein, and most importantly, intrathecal production of Borrelia burgdorferi antibodies (an elevated CSF:serum antibody index). CSF PCR for B. burgdorferi is often negative. If confirmed, treatment typically involves a 14-28 day course of intravenous ceftriaxone (2g daily). Alternatives include IV penicillin G or cefotaxime. Oral doxycycline may be an option in some less severe manifestations but IV therapy is generally preferred for meningoradiculitis." }
+                ]
+            }
+        }
+    }
+};
+let currentCaseId = null;
+let currentAgentDisplaySetup = []; // Stores { actualId: 'agentA', displayLabel: 'Agent A', displayColumnIndex: 1 }
+let allFeedbackData = {}; // To store feedback for all cases
+let completedCases = new Set();
+
+const messageDelay = 1800;
+const initialDelay = 700;
+
+// --- UI Control & Initialization ---
+window.onload = () => {
+    initializeCaseButtons();
+    updateProgressBar();
+    document.getElementById('backToSelectionBtn').disabled = true; // Initially disabled
+};
+
+function initializeCaseButtons() {
+    const container = document.getElementById('caseButtonsContainer');
+    container.innerHTML = ''; // Clear existing
+    Object.keys(caseData).forEach(caseId => {
+        const button = document.createElement('button');
+        button.classList.add('case-button');
+        button.textContent = caseData[caseId].title;
+        button.onclick = () => loadCase(caseId);
+        if (completedCases.has(caseId)) {
+            button.classList.add('completed');
+        }
+        container.appendChild(button);
+    });
+}
+
+function updateProgressBar() {
+    const totalCases = Object.keys(caseData).length;
+    const completedCount = completedCases.size;
+    const percentage = totalCases > 0 ? (completedCount / totalCases) * 100 : 0;
+    const progressBarFill = document.getElementById('progressBarFill');
+    progressBarFill.style.width = `${percentage}%`;
+    progressBarFill.textContent = `${Math.round(percentage)}%`;
+
+    if (completedCount === totalCases && totalCases > 0) {
+        document.getElementById('allCasesCompletedMessage').classList.remove('hidden');
+        document.getElementById('downloadAllResultsBtn').classList.remove('hidden');
+    } else {
+        document.getElementById('allCasesCompletedMessage').classList.add('hidden');
+        document.getElementById('downloadAllResultsBtn').classList.add('hidden');
+    }
+}
+
+
+function loadCase(caseId) {
+    currentCaseId = caseId;
+    const data = caseData[caseId];
+    document.getElementById('caseInfoContent').innerHTML = data.infoHTML;
+    document.getElementById('evalCaseTitle').textContent = data.title;
+    document.getElementById('caseSelectionScreen').classList.add('hidden');
+    document.getElementById('caseDisplayScreen').classList.remove('hidden');
+    document.getElementById('evaluationForm').classList.add('hidden');
+    document.getElementById('feedbackForm').reset();
+    document.getElementById('backToSelectionBtn').disabled = false; // Enable back button
+    startPresentation();
+}
+
+function showCaseSelection() {
+    document.getElementById('caseDisplayScreen').classList.add('hidden');
+    document.getElementById('evaluationForm').classList.add('hidden');
+    document.getElementById('caseSelectionScreen').classList.remove('hidden');
+    document.getElementById('backToSelectionBtn').disabled = true;
+    initializeCaseButtons(); // Re-render buttons to show completion status
+    updateProgressBar();
+}
+
+// --- Conversation Animation & Shuffling ---
+function shuffleArray(array) { /* ... same as before ... */
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+async function startPresentation() {
+    document.getElementById('evaluationForm').classList.add('hidden');
+    document.getElementById('feedbackForm').reset();
+
+    const actualAgentIds = Object.keys(caseData[currentCaseId].conversations);
+    const shuffledActualAgentIds = shuffleArray([...actualAgentIds]);
+
+    currentAgentDisplaySetup = [];
+    const displayColumnLabels = ["A", "B", "C"]; // Generic positional labels
+
+    const agentsDisplayContainer = document.getElementById('agentsDisplayContainer');
+    const rankContainer = document.getElementById('rank_container');
+    const safetyCheckboxesContainer = document.getElementById('safetyCheckboxesContainer');
+    const proactivityRatingsContainer = document.getElementById('proactivityRatingsContainer');
+
+    agentsDisplayContainer.innerHTML = ''; rankContainer.innerHTML = '';
+    safetyCheckboxesContainer.innerHTML = ''; proactivityRatingsContainer.innerHTML = '';
+
+    const animationPromises = [];
+
+    shuffledActualAgentIds.forEach((actualId, index) => {
+        const displayColumnIndex = index + 1;
+        const positionalDisplayLabel = `Agent in ${displayColumnLabels[index]}`; // e.g., "Agent in A"
+        currentAgentDisplaySetup.push({ actualId: actualId, displayLabel: positionalDisplayLabel, displayColumnIndex: displayColumnIndex });
+
+        const agentColumnDiv = document.createElement('div');
+        agentColumnDiv.classList.add('agent-column');
+        agentColumnDiv.innerHTML = `<div class="agent-column-header">${positionalDisplayLabel}</div><div class="conversation-area" id="conv${displayColumnIndex}"></div>`;
+        agentsDisplayContainer.appendChild(agentColumnDiv);
+
+        const rankItemDiv = document.createElement('div');
+        rankItemDiv.classList.add('rank-item');
+        rankItemDiv.setAttribute('draggable', 'true');
+        rankItemDiv.id = `rank_item_actual_${actualId}`; // ID by actual agent for easier reference if needed
+        rankItemDiv.dataset.actualAgentId = actualId;
+        rankItemDiv.dataset.displayLabel = positionalDisplayLabel;
+        rankItemDiv.innerHTML = `<span class="rank-handle">☰</span>${positionalDisplayLabel}`;
+        rankContainer.appendChild(rankItemDiv);
+
+        const safetyLabel = document.createElement('label');
+        safetyLabel.innerHTML = `<input type="checkbox" name="safety_issue_agents_displayed" value="${positionalDisplayLabel}"> ${positionalDisplayLabel}`;
+        safetyCheckboxesContainer.appendChild(safetyLabel);
+
+        const proactivityDiv = document.createElement('div');
+        proactivityDiv.classList.add('proactivity-rating-item');
+        proactivityDiv.innerHTML = `<strong>${positionalDisplayLabel}:</strong>
+            <div class="radio-group radio-options-inline" style="margin-left: 10px;">
+                <label><input type="radio" name="proactivity_${actualId}" value="1"> 1 (Very Inapp.)</label>
+                <label><input type="radio" name="proactivity_${actualId}" value="2"> 2</label>
+                <label><input type="radio" name="proactivity_${actualId}" value="3"> 3 (Neutral)</label>
+                <label><input type="radio" name="proactivity_${actualId}" value="4"> 4</label>
+                <label><input type="radio" name="proactivity_${actualId}" value="5"> 5 (Very Approp.)</label>
+            </div>`;
+        proactivityRatingsContainer.appendChild(proactivityDiv);
+
+        animationPromises.push(playConversationForColumn(actualId, displayColumnIndex));
+    });
+
+    await Promise.all(animationPromises);
+    document.getElementById('evaluationForm').classList.remove('hidden');
+    setupDragAndDrop();
+}
+
+async function addMessageToConversation(columnNum, messageData, delay) { /* ... same as before ... */
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const convArea = document.getElementById(`conv${columnNum}`);
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add('message', messageData.type);
+            const emojiSpan = document.createElement('span');
+            emojiSpan.classList.add('message-emoji');
+            emojiSpan.textContent = messageData.type === 'user' ? '🧑‍⚕️' : '🤖';
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.classList.add('message-bubble');
+            if (messageData.isProactive) { bubbleDiv.classList.add('proactive'); }
+            bubbleDiv.innerHTML = messageData.text;
+            if (messageData.type === 'user') {
+                messageContainer.appendChild(bubbleDiv); messageContainer.appendChild(emojiSpan);
+            } else {
+                messageContainer.appendChild(emojiSpan); messageContainer.appendChild(bubbleDiv);
+            }
+            convArea.appendChild(messageContainer);
+            void messageContainer.offsetWidth;
+            messageContainer.classList.add('visible');
+            convArea.scrollTop = convArea.scrollHeight;
+            resolve();
+        }, delay);
+    });
+}
+
+async function playConversationForColumn(actualAgentId, displayColumnIndex) { /* ... same as before ... */
+    const conversationMessages = caseData[currentCaseId].conversations[actualAgentId].messages;
+    const messageDel = caseData[currentCaseId].messageDelay || messageDelay;
+    const initialDel = caseData[currentCaseId].initialDelay || initialDelay;
+    let currentDelay = initialDel;
+    for (const message of conversationMessages) {
+        await addMessageToConversation(displayColumnIndex, message, currentDelay);
+        currentDelay = messageDel;
+    }
+}
+
+// --- Drag and Drop Functionality ---
+let draggedItem = null;
+function setupDragAndDrop() { /* ... same as before, ensure listeners are correctly managed ... */
+    const rankContainer = document.getElementById('rank_container');
+    const rankItems = rankContainer.querySelectorAll('.rank-item');
+    draggedItem = null;
+    rankItems.forEach(item => {
+        item.removeEventListener('dragstart', handleDragStart);
+        item.removeEventListener('dragend', handleDragEnd);
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragend', handleDragEnd);
+    });
+    rankContainer.removeEventListener('dragover', handleDragOver); // Remove old before adding new
+    rankContainer.addEventListener('dragover', handleDragOver);
+}
+function handleDragStart(e) { /* ... same as before ... */
+    draggedItem = e.target.closest('.rank-item');
+    if (!draggedItem) return;
+    setTimeout(() => draggedItem.classList.add('dragging'), 0);
+}
+function handleDragEnd() { /* ... same as before ... */
+    if (draggedItem) { draggedItem.classList.remove('dragging'); }
+    draggedItem = null;
+    updateRankingOrderInputs();
+}
+function handleDragOver(e) { /* ... same as before ... */
+    e.preventDefault();
+    if (!draggedItem) return;
+    const rankContainer = e.currentTarget;
+    const afterElement = getDragAfterElement(rankContainer, e.clientX);
+    if (afterElement == null) { rankContainer.appendChild(draggedItem); }
+    else { rankContainer.insertBefore(draggedItem, afterElement); }
+}
+function getDragAfterElement(container, x) { /* ... same as before ... */
+    const draggableElements = [...container.querySelectorAll('.rank-item:not(.dragging)')];
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = x - box.left - box.width / 2;
+        if (offset < 0 && offset > closest.offset) { return { offset: offset, element: child }; }
+        else { return closest; }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+function updateRankingOrderInputs() { /* ... same as before ... */
+    const rankContainer = document.getElementById('rank_container');
+    const rankedItems = [...rankContainer.querySelectorAll('.rank-item')];
+    const actualAgentRanking = rankedItems.map(item => item.dataset.actualAgentId);
+    document.getElementById('ranking_order_actual_input').value = actualAgentRanking.join(',');
+    const displayedPositionsRanking = rankedItems.map(item => item.dataset.displayLabel);
+    document.getElementById('ranking_order_displayed_positions_input').value = displayedPositionsRanking.join(' > ');
+}
+
+// --- Feedback Submission & Download ---
+function submitFeedback() {
+    updateRankingOrderInputs();
+    const actualRanking = document.getElementById('ranking_order_actual_input').value;
+    if (!actualRanking || actualRanking.split(',').length !== 3 || new Set(actualRanking.split(',')).size !== 3) {
+        alert("Please rank all three Agent interactions uniquely by dragging them.");
+        return;
+    }
+    const formData = new FormData(document.getElementById('feedbackForm'));
+    let feedbackForThisCase = {
+        caseId: currentCaseId,
+        caseTitle: caseData[currentCaseId].title,
+        initialDisplayOrder: currentAgentDisplaySetup.map(agent => `${agent.displayLabel} (Actual: ${agent.actualId})`).join('; '),
+        annotatorRankingActual: actualRanking,
+        annotatorRankingDisplayedPositions: document.getElementById('ranking_order_displayed_positions_input').value
+    };
+    feedbackForThisCase.safety_details = formData.get('safety_details');
+    feedbackForThisCase.safety_issue_agents_displayed = formData.getAll('safety_issue_agents_displayed');
+
+    currentAgentDisplaySetup.forEach(agentInfo => {
+        const proactivityValue = document.querySelector(`input[name="proactivity_${agentInfo.actualId}"]:checked`);
+        feedbackForThisCase[`proactivity_rating_for_${agentInfo.actualId}`] = proactivityValue ? proactivityValue.value : null;
+    });
+
+    allFeedbackData[currentCaseId] = feedbackForThisCase; // Store feedback
+    completedCases.add(currentCaseId); // Mark as completed
+
+    console.log("Feedback Submitted for " + currentCaseId + ":", feedbackForThisCase);
+    alert(`Feedback for ${caseData[currentCaseId].title} submitted!`);
+    showCaseSelection(); // Go back to case selection screen
+}
+
+function downloadAllFeedback() {
+    if (Object.keys(allFeedbackData).length === 0) {
+        alert("No feedback has been submitted yet.");
+        return;
+    }
+    const jsonData = JSON.stringify(allFeedbackData, null, 2); // Pretty print JSON
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'ai_agent_evaluation_feedback.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+</script>
+</body>
+</html>
