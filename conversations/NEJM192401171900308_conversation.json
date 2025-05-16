@@ -1,0 +1,729 @@
+{
+    "case_metadata": {
+        "case_id": "10032",
+        "title": "Case 10032: Infant with Vomiting and Meningitis",
+        "source": {
+            "journal": "New England Journal of Medicine",
+            "publication_date": "Unspecified, text likely from early 20th century",
+            "volume": "Unspecified",
+            "issue": "Unspecified",
+            "pages": "Unspecified",
+            "doi": "Unspecified"
+        }
+    },
+    "patient_info": {
+        "age": 10,
+        "gender": "Female",
+        "demographics": {
+            "ethnicity": "American",
+            "occupation": "Infant",
+            "living_arrangement": "With parents"
+        },
+        "social_history": {
+            "alcohol_use": "N/A",
+            "tobacco_use": "N/A",
+            "substance_use": "N/A",
+            "other": "Breastfed for 3 months, then on imperial granum, milk, water and cane sugar."
+        },
+        "medical_history": {
+            "allergies": "None mentioned",
+            "past_medical_conditions": "Recurrent blotchy skin eruption at intervals.",
+            "medications": "None mentioned"
+        },
+        "surgical_history": {}
+    },
+    "participants": {
+        "clinicians": {
+            "Dr. Talbot": {
+                "specialty": "Pediatrics (Discussion)",
+                "role": "Discussant",
+                "real_name": "Fritz B. Talbot"
+            },
+            "Dr. Richardson": {
+                "specialty": "Pathology (Anatomical Diagnosis)",
+                "role": "Pathologist",
+                "real_name": "Dr. Richardson"
+            },
+            "Dr. Smith": {
+                "specialty": "Microscopy",
+                "role": "Microscopist",
+                "real_name": "William H. Smith"
+            },
+            "Dr. Steele": {
+                "specialty": "Photomicrography",
+                "role": "Photomicrographer",
+                "real_name": "Albert E. Steele"
+            },
+            "Nurse A": {
+                "specialty": "Nursing",
+                "role": "Admission Nurse",
+                "real_name": "N/A"
+            },
+            "Doctor A": {
+                "specialty": "Pediatrics",
+                "role": "Admitting/Examining Physician",
+                "real_name": "N/A"
+            }
+        },
+        "others": {
+            "Caregiver": {
+                "role": "Mother",
+                "identifier": "Mother"
+            },
+            "Patient": {
+                "role": "Patient",
+                "identifier": "Baby Girl"
+            }
+        }
+    },
+    "conversation": {
+        "turn_1": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Caregiver",
+                "Patient"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, Upon Admission",
+            "message": "Good morning, welcome to the hospital. I see you have brought your baby girl in today. What brings you in?",
+            "intention": "Greeting and initiating patient intake.",
+            "context": "Admission to hospital.",
+            "source_reference": "Page 1: 'CASE 10032 An American girl baby ten months old entered September 28, 1923.'"
+        },
+        "turn_2": {
+            "speaker": "Caregiver",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Mother",
+            "timestamp": "September 28, 1923, Upon Admission, immediately after Nurse's greeting",
+            "message": "Yes, doctor. It's about her vomiting. It's been going on for three weeks now, and it's getting worse.",
+            "intention": "Stating the chief complaint.",
+            "context": "Responding to nurse's question about reason for admission.",
+            "source_reference": "Page 1: 'The complaint was vomiting of three weeks' duration.'"
+        },
+        "turn_3": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver",
+                "Nurse A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, During Initial Examination, shortly after admission and nurse intake",
+            "message": "Hello there. Tell me more about this vomiting. When did it start and what's it like?",
+            "intention": "Gathering history of present illness.",
+            "context": "Beginning of medical history taking.",
+            "source_reference": "Page 1: 'The complaint was vomiting of three weeks' duration.'"
+        },
+        "turn_4": {
+            "speaker": "Caregiver",
+            "listeners": [
+                "Doctor A",
+                "Nurse A"
+            ],
+            "real_name": "Mother",
+            "timestamp": "September 28, 1923, During Initial Examination, immediately after Doctor's question",
+            "message": "It started about three weeks ago. It wasn't too bad at first, but for the past two weeks, it's after every meal and it's forceful. She\u2019s also become very fretful and seems tender to touch. And she's been so drowsy lately, and losing weight.",
+            "intention": "Describing the progression and characteristics of vomiting and other symptoms.",
+            "context": "Providing details about the vomiting and associated symptoms.",
+            "source_reference": "Page 1: 'Three weeks before admission... That night she vomited once, curdled milk. ... For the past two weeks she had had forceful vomiting after each meal, had become fretful, and seemed tender to touch. For the past five days she had become very drowsy and had lost weight.'"
+        },
+        "turn_5": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, During Initial Examination, continuing history taking",
+            "message": "Has anything else been going on? Any changes in her bowel movements or anything unusual in her stools?",
+            "intention": "Inquiring about bowel habits and stool abnormalities.",
+            "context": "Broadening the symptom inquiry.",
+            "source_reference": "Page 1: 'For three weeks her bowels had been more constipated than usual.'"
+        },
+        "turn_6": {
+            "speaker": "Caregiver",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Mother",
+            "timestamp": "September 28, 1923, During Initial Examination, in response to Doctor's question",
+            "message": "Yes, her bowels have been more constipated. And about four days ago, on September 24th, she passed something in her stool that looked like flesh.",
+            "intention": "Reporting constipation and abnormal stool.",
+            "context": "Providing information about bowel changes and stool appearance.",
+            "source_reference": "Page 1: 'For three weeks her bowels had been more constipated than usual. September 24 she passed something in the stool that looked like flesh.'"
+        },
+        "turn_7": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, During Initial Examination, further probing symptoms",
+            "message": "Spasms of the extremities? Can you describe these 'spasms' you mentioned?",
+            "intention": "Seeking clarification on reported spasms.",
+            "context": "Detailing neurological symptoms.",
+            "source_reference": "Page 1: 'She had had four or five 'spasms' of the extremities lately.'"
+        },
+        "turn_8": {
+            "speaker": "Caregiver",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Mother",
+            "timestamp": "September 28, 1923, During Initial Examination, describing spasms",
+            "message": "Yes, she's had a few times where her arms and legs jerked. And last night, it was really bad, a severe spasm. We had to give her chloroform at home to calm her down.",
+            "intention": "Describing the nature and severity of spasms.",
+            "context": "Providing details about recent spasm events and home treatment.",
+            "source_reference": "Page 1: 'She had had four or five 'spasms' of the extremities lately. The night before admission she had a severe spasm requiring chloroform for relaxation.'"
+        },
+        "turn_9": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, Before Physical Exam, summarizing history",
+            "message": "Alright, so three weeks of vomiting, getting progressively worse, forceful, associated with fretfulness, drowsiness, weight loss, constipation, possible abnormal stool, and spasms. Let's take a look at her now.",
+            "intention": "Summarizing the patient's history before physical examination.",
+            "context": "Transition to physical examination.",
+            "source_reference": "Pages 1"
+        },
+        "turn_10": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver",
+                "Nurse A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, During Physical Exam",
+            "message": "She is indeed drowsy.  Notice the flushed cheeks. Let's check her ears... yes, the left eardrum is a bit injected. And there's a slight injection in her throat too. Also, some right internal strabismus.",
+            "intention": "Describing findings from physical examination - general appearance, ears, throat, eyes.",
+            "context": "Performing and narrating the physical exam.",
+            "source_reference": "Page 1: 'P. E. A well nourished baby, semicomatose, with flushed cheeks. Left ear drum slightly injected in the postero-superior portion. Right internal strabismus. Throat slightly injected.'"
+        },
+        "turn_11": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver",
+                "Nurse A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, Continuing Physical Exam",
+            "message": "Her hands are clenched firmly and I can feel a moderate tremor. Let's check her pupils... the left one is slightly larger than the right, and their reaction to light is sluggish. Reflexes... knee-jerks are normal, no Kernig's sign, but Brudzinski's sign is present.",
+            "intention": "Describing neurological findings during physical examination - extremities, pupils, reflexes.",
+            "context": "Neurological part of physical exam.",
+            "source_reference": "Page 1: 'Extremities. Hands clenched firmly. Moderate tremor. Pupils. Left slightly larger than right. Reactions of both to light sluggish. Reflexes. Knee-jerks normal. No Kernig. Brudzinski present.'"
+        },
+        "turn_12": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, After Physical Exam, initial diagnosis",
+            "message": "Based on her symptoms and these findings, especially the vomiting, drowsiness, and Brudzinski sign, it's concerning for increased intracranial pressure, possibly due to an infection in the cerebrospinal canal. We need to do a lumbar puncture to check the fluid around her brain and spine.",
+            "intention": "Providing preliminary diagnosis and plan for lumbar puncture.",
+            "context": "Post-examination diagnostic impression and plan.",
+            "source_reference": "Page 1: 'The symptom, however, may be due to increasing intracranial pressure. The fact that it has become progressively more pronounced is in favor of this explanation. Evidence in the physical examination confirms this assumption. One pupil is larger than the other. There is strabismus. Despite the fact that there is no Kernig sign, the Brudzinski sign is positive.'"
+        },
+        "turn_13": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver",
+                "Nurse A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, 9:00 AM, Lumbar Puncture",
+            "message": "Nurse, please prepare for a lumbar puncture. We'll get a sample of cerebrospinal fluid to examine. [To the mother] This will help us understand what's going on inside her head.",
+            "intention": "Ordering and explaining the lumbar puncture procedure.",
+            "context": "Preparing for diagnostic procedure.",
+            "source_reference": "Page 1: 'Lumbar puncture September 28, 9 a. m., 18 c.c. clear fluid under moderately increased pressure.'"
+        },
+        "turn_14": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver",
+                "Nurse A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, 9:30 AM, After Lumbar Puncture",
+            "message": "We got 18 c.c. of clear fluid. It was under moderately increased pressure. Let's send it to the lab for analysis. We'll also do some blood work and check her urine.",
+            "intention": "Reporting initial findings of lumbar puncture and ordering further tests.",
+            "context": "Post-lumbar puncture procedure and further diagnostic planning.",
+            "source_reference": "Page 1: 'Lumbar puncture September 28, 9 a. m., 18 c.c. clear fluid under moderately increased pressure... Blood. Hgb. 70 per cent., leucocytes 25,400, polynuclears 77 per cent... Urine... alkaline at one of two examinations, the slightest possible trace of albumin at one, occasional leucocytes at one.'"
+        },
+        "turn_15": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, Afternoon, Reviewing initial lab results",
+            "message": "The lab results are back. The cerebrospinal fluid has 75 cells and is globulin positive. Her white blood cell count is high, 25,400, with 77% polynuclears.  Hemoglobin is a bit low at 70%.  Urine was alkaline with some leucocytes.  These results support our suspicion of an infection.",
+            "intention": "Discussing initial lab results with caregiver.",
+            "context": "Reviewing lab results and reinforcing suspicion of infection.",
+            "source_reference": "Page 1: '75 cells. Globulin positive... Hgb. 70 per cent., leucocytes 25,400, polynuclears 77 per cent... alkaline at one of two examinations, the slightest possible trace of albumin at one, occasional leucocytes at one.'"
+        },
+        "turn_16": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 28, 1923, Late Evening, Therapeutic Lumbar Puncture",
+            "message": "We are going to do another lumbar puncture now, a therapeutic one, to relieve some of the pressure in her head. We'll take out some more fluid.",
+            "intention": "Explaining therapeutic lumbar puncture.",
+            "context": "Performing therapeutic intervention.",
+            "source_reference": "Page 1: 'September 28, 11 p. m., (therapeutic puncture.) 15 c.c. clear fluid under no pressure.'"
+        },
+        "turn_17": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 29, 1923, Morning",
+            "message": "Doctor's orders are to force fluids and start her on a boiled milk diet.  We also need to give her castor oil and morphine for any further convulsions. And we'll be irrigating her eyes with warm boric solution.",
+            "intention": "Explaining treatment orders.",
+            "context": "Implementing initial treatment plan.",
+            "source_reference": "Page 1: 'Orders. September 28. Force fluids. Boiled milk diet. Castor oil 3 teaspoonfuls. Morphia gr. 1/80 s.c. once for convulsions. Individual precautions. Irrigate eyes with warm boric.'"
+        },
+        "turn_18": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 29, 1923, Afternoon",
+            "message": "We're also giving her saline intraperitoneally, 450 c.c. of saline, as per doctor's orders.",
+            "intention": "Informing about intraperitoneal saline administration.",
+            "context": "Administering supportive treatment.",
+            "source_reference": "Page 1: 'September 29 450 c.c. of saline was given intraperitoneally.'"
+        },
+        "turn_19": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 30, 1923, Morning",
+            "message": "Doctor, I noticed slight lagging of the right angle of her mouth this morning.",
+            "intention": "Reporting new clinical finding.",
+            "context": "Observing and reporting neurological change.",
+            "source_reference": "Page 1: 'September 30 slight lagging of the right angle of the mouth was noted.'"
+        },
+        "turn_20": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "September 30, 1923, Morning",
+            "message": "We'll also be doing warm saline irrigations of both ears every four hours, as ordered.",
+            "intention": "Explaining ear irrigation treatment.",
+            "context": "Continuing treatment plan including ear care.",
+            "source_reference": "Page 1: 'September 30. Warm saline irrigations botb ears every four hours.'"
+        },
+        "turn_21": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver",
+                "Nurse A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "October 1, 1923, Morning",
+            "message": "She seems more stuporous today. And she refused her night feeding last night.  Also, I'm noting slight turgor.",
+            "intention": "Reporting worsening clinical condition - stupor, feeding refusal, turgor.",
+            "context": "Assessing patient's condition and noting deterioration.",
+            "source_reference": "Page 1: 'October 1 the baby was more stuporous, refused a night feeding, and showed slight turgor.'"
+        },
+        "turn_22": {
+            "speaker": "Nurse A",
+            "listeners": [],
+            "real_name": "N/A",
+            "timestamp": "October 1, 1923, Night, 11:00 PM",
+            "message": "Doctor! She's having a continuous convulsion!",
+            "intention": "Alerting doctor to emergency situation - convulsion.",
+            "context": "Acute convulsion event.",
+            "source_reference": "Page 1: 'From eleven to twelve o'clock that night she had a continuous convulsion...'"
+        },
+        "turn_23": {
+            "speaker": "Nurse A",
+            "listeners": [],
+            "real_name": "N/A",
+            "timestamp": "October 1, 1923, Night, 12:00 AM, after Lumbar Puncture",
+            "message": "She had profuse perspiration and labored breathing after the convulsion. We did another lumbar puncture, and she's quiet now for the rest of the night.",
+            "intention": "Reporting post-convulsion symptoms, intervention (lumbar puncture) and immediate response.",
+            "context": "Post-convulsion management and temporary relief.",
+            "source_reference": "Page 1: '...followed at twelve by profuse perspiration with labored and irregular respirations. After a lumbar puncture she was quiet for the rest of the night.'"
+        },
+        "turn_24": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "October 2, 1923, Afternoon",
+            "message": "Doctor, similar symptoms returned this afternoon. Another lumbar puncture seemed to relieve them again.",
+            "intention": "Reporting recurrence of symptoms and effectiveness of repeated lumbar puncture.",
+            "context": "Recurring symptoms and repeated intervention.",
+            "source_reference": "Page 1: 'The following afternoon similar symptoms were again relieved in the same way.'"
+        },
+        "turn_25": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "October 2, 1923, Throughout the Day",
+            "message": "She's also having atypical Cheyne-Stokes breathing at intervals today.",
+            "intention": "Reporting new concerning respiratory pattern.",
+            "context": "Observation of Cheyne-Stokes respiration.",
+            "source_reference": "Page 1: 'She had atypical Cheyne-Stokes breathing at intervals during that day.'"
+        },
+        "turn_26": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "October 2, 1923, Afternoon, before another procedure",
+            "message": "We're going to give her another 500 c.c. of saline intraperitoneally today to support her.",
+            "intention": "Informing about repeated intraperitoneal saline administration.",
+            "context": "Continuing supportive treatment.",
+            "source_reference": "Page 1: 'October 2 500 c.c. of saline was given intraperitoneally.'"
+        },
+        "turn_27": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver"
+            ],
+            "real_name": "N/A",
+            "timestamp": "October 3-4, 1923, Over next two days",
+            "message": "Over the last two days, she's been in a coma and seems to be getting worse steadily.",
+            "intention": "Describing progressive deterioration into coma.",
+            "context": "Patient's condition worsening despite treatment.",
+            "source_reference": "Page 1: 'During the next two days she was in coma, and seemed to grow steadily worse.'"
+        },
+        "turn_28": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "October 4, 1923, Afternoon",
+            "message": "Doctor, she had two more convulsions this afternoon. Lumbar punctures seemed to give some relief again.",
+            "intention": "Reporting recurrent convulsions and temporary relief from lumbar puncture.",
+            "context": "Continued convulsions despite interventions.",
+            "source_reference": "Page 1: 'The afternoon of October 4 she had two convulsions, somewhat relieved by lumbar punctures...'"
+        },
+        "turn_29": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "October 4, 1923, Evening",
+            "message": "And she had a third convulsion this evening. Another lumbar puncture was done, yielding 30 c.c. of slightly cloudy fluid.",
+            "intention": "Reporting further convulsion and lumbar puncture findings.",
+            "context": "Persistent convulsions and changing CSF appearance.",
+            "source_reference": "Page 1: '...and that evening a third. A third puncture gave 30 c.c. of slightly cloudy fluid.'"
+        },
+        "turn_30": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "October 4, 1923, Early Evening",
+            "message": "Her respirations are rapid and difficult now, and I can hear r\u00e2les throughout her chest.",
+            "intention": "Reporting worsening respiratory distress and auscultation findings.",
+            "context": "Developing respiratory compromise.",
+            "source_reference": "Page 1: 'The respirations in the early evening were rapid and difficult, and there were r\u00e2les throughout the chest.'"
+        },
+        "turn_31": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "N/A",
+            "timestamp": "October 4, 1923, Night",
+            "message": "She's lying very quietly all night, but she becomes very stiff when we try to move her.",
+            "intention": "Reporting quiet demeanor and increased muscle tone.",
+            "context": "Pre-terminal state - quietness and stiffness.",
+            "source_reference": "Page 1: 'She lay very quietly all night, becom- ing very stiff when disturbed.'"
+        },
+        "turn_32": {
+            "speaker": "Nurse A",
+            "listeners": [],
+            "real_name": "N/A",
+            "timestamp": "October 5, 1923, Early Morning",
+            "message": "Doctor, she has passed away.",
+            "intention": "Reporting patient's death.",
+            "context": "Patient expiration.",
+            "source_reference": "Page 1: 'Early the morn- ing of October 5 she died.'"
+        },
+        "turn_33": {
+            "speaker": "Dr. Talbot",
+            "listeners": [],
+            "real_name": "Fritz B. Talbot",
+            "timestamp": "Post-mortem discussion",
+            "message": "The history of progressive, forceful vomiting, the neurological signs like unequal pupils, strabismus, positive Brudzinski, and the CSF findings all pointed strongly towards tuberculous meningitis. The course of the illness also fits, ruling out acute bacterial infections and encephalitis.",
+            "intention": "Summarizing clinical reasoning for diagnosis of tuberculous meningitis.",
+            "context": "Clinical discussion and diagnostic reasoning.",
+            "source_reference": "Page 2: 'The history and the clinical findings are typi- cal of tuberculous meningitis. The leucocyte count and the differential count may be explained by the otitis media. Toward the end Cheyne- Stokes breathing confirms the assumption of intracranial pressure.'"
+        },
+        "turn_34": {
+            "speaker": "Dr. Talbot",
+            "listeners": [],
+            "real_name": "Fritz B. Talbot",
+            "timestamp": "Post-mortem discussion, considering other diagnoses",
+            "message": "We considered indigestion and pyloric stenosis, but those didn't quite fit the timeline and presentation, especially at this age. Cyclic vomiting is also less likely in infancy.",
+            "intention": "Discussing differential diagnoses considered and ruled out.",
+            "context": "Differential diagnosis discussion.",
+            "source_reference": "Page 2: 'If the symp- tom of vomiting alone were taken into considera- tion, the following causes should be ruled out. (1) Indigestion... (2) Recurrent vomiting (cyclic vomit- ing)... It never comes at this age. (3) Pyloric stenosis and spasm... Vomiting from these causes hardly ever commences as late as ten months of age.'"
+        },
+        "turn_35": {
+            "speaker": "Dr. Richardson",
+            "listeners": [],
+            "real_name": "Dr. Richardson",
+            "timestamp": "Post-mortem, Anatomical Diagnosis",
+            "message": "The anatomical diagnosis confirms tuberculous meningitis. We found a grayish-yellow exudate on the pia along the medulla, pons, Sylvian fissures, and between the frontal lobes. There was also a granular area with a blood clot on the right frontal lobe.",
+            "intention": "Presenting anatomical findings confirming tuberculous meningitis in the brain.",
+            "context": "Pathological confirmation of diagnosis.",
+            "source_reference": "Page 2: 'Dr. Richardson : The pia along the medulla, up along the pons, out the fissures of Sylvius, and between the frontal lobes showed a layer o\u00ed grayish-yellow diffuse ex\u00fadate, in places gran- ular, which stuck the lobes together. On the right side of the brain...'"
+        },
+        "turn_36": {
+            "speaker": "Dr. Richardson",
+            "listeners": [],
+            "real_name": "Dr. Richardson",
+            "timestamp": "Post-mortem, Anatomical Diagnosis, continued",
+            "message": "We also found a caseous mesenteric gland, and miliary tuberculosis in the spleen, liver, and lungs. The lung findings were microscopic, not macroscopic.",
+            "intention": "Presenting anatomical findings of tuberculosis in other organs, indicating miliary spread.",
+            "context": "Pathological findings beyond the brain.",
+            "source_reference": "Page 3: 'Tuberculosis of a mesenteric gland... Miliary tuberculosis of the spleen, liver and lung... Macroscopically there were no definite tuber- cles made out macroscopically, but microscopically there were a few tubercles.'"
+        },
+        "turn_37": {
+            "speaker": "Dr. Talbot",
+            "listeners": [],
+            "real_name": "Fritz B. Talbot",
+            "timestamp": "Post-mortem discussion, Etiology",
+            "message": "This case strongly suggests gastrointestinal infection, likely of bovine origin. The mesenteric gland lesion seemed older than the lung lesions, suggesting that as the primary site of infection, and then it spread.",
+            "intention": "Discussing the probable origin and route of tuberculous infection.",
+            "context": "Etiological discussion.",
+            "source_reference": "Page 3: 'This case is an example which can be taken as evidence in favor of gastro-intestinal infection, probably of bovine origin. The caseous mesenteric gland was apparently older than any lesion in the lungs.'"
+        },
+        "turn_38": {
+            "speaker": "Dr. Talbot",
+            "listeners": [],
+            "real_name": "Fritz B. Talbot",
+            "timestamp": "Post-mortem discussion, Prevention",
+            "message": "This case highlights the importance of preventing tuberculous infection in children, especially infants. It's because of cases like this that we now pasteurize or sterilize cow's milk, which was not common practice just a decade ago.",
+            "intention": "Concluding with a public health message about prevention of tuberculous infection through milk pasteurization.",
+            "context": "Public health implication and lesson learned.",
+            "source_reference": "Page 3: 'The lesson that such a case as this teaches is prevention of infection in children, especially during infancy. It is due to fear of such in- fections that cows' milk is generally either pas- teurized or sterilized today...'"
+        }
+    },
+    "clinical_data": {
+        "presentation": {
+            "chief_complaint": "Vomiting of three weeks' duration.",
+            "history_of_present_illness": "Progressive, forceful vomiting after each meal for two weeks, preceded by occasional vomiting and possible ingestion of pebble. Associated with fretfulness, tenderness to touch, drowsiness, weight loss, constipation, and spasms of extremities. Recent severe spasm requiring chloroform.",
+            "physical_exam": "Well-nourished, semicomatose baby with flushed cheeks. Left ear drum injected, slight throat injection, right internal strabismus. Hands clenched, moderate tremor. Left pupil larger, sluggish light reflex. Brudzinski sign positive, Kernig sign negative.",
+            "vital_signs": "Not explicitly stated, but charted (chart not provided in text)."
+        },
+        "diagnostics": {
+            "laboratory_data": [
+                {
+                    "test": "Lumbar Puncture CSF (September 28, 9 AM)",
+                    "value": "Clear fluid, 18 c.c., moderately increased pressure, 75 cells, globulin positive, protein normal, sugar 0.054.",
+                    "units": "c.c., cells",
+                    "reference_range": "Not available in text."
+                },
+                {
+                    "test": "Lumbar Puncture CSF (September 28, 11 PM, therapeutic)",
+                    "value": "Clear fluid, 15 c.c., no pressure.",
+                    "units": "c.c.",
+                    "reference_range": "Not available in text."
+                },
+                {
+                    "test": "Lumbar Puncture CSF (October 1)",
+                    "value": "Clear fluid, 18 c.c., increased pressure.",
+                    "units": "c.c.",
+                    "reference_range": "Not available in text."
+                },
+                {
+                    "test": "Lumbar Puncture CSF (October 2)",
+                    "value": "Clear fluid, 20 c.c., increased pressure.",
+                    "units": "c.c.",
+                    "reference_range": "Not available in text."
+                },
+                {
+                    "test": "Lumbar Puncture CSF (October 4)",
+                    "value": "Slightly cloudy fluid, 30 c.c., increased pressure.",
+                    "units": "c.c.",
+                    "reference_range": "Not available in text."
+                },
+                {
+                    "test": "Wassermann and Gold Solution (CSF)",
+                    "value": "Negative",
+                    "units": "N/A",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Total Protein (CSF, October 2)",
+                    "value": "91",
+                    "units": "mg/dL?",
+                    "reference_range": "Normal range not specified."
+                },
+                {
+                    "test": "Sugar (CSF, October 2)",
+                    "value": "0.054",
+                    "units": "g/dL?",
+                    "reference_range": "Normal range not specified."
+                },
+                {
+                    "test": "Hemoglobin (Blood)",
+                    "value": "70",
+                    "units": "%",
+                    "reference_range": "Normal range not specified."
+                },
+                {
+                    "test": "Leukocytes (Blood)",
+                    "value": "25,400",
+                    "units": "/mm\u00b3",
+                    "reference_range": "Normal range not specified."
+                },
+                {
+                    "test": "Polynuclears (Blood)",
+                    "value": "77",
+                    "units": "%",
+                    "reference_range": "Normal range not specified."
+                },
+                {
+                    "test": "Urine",
+                    "value": "Alkaline (one of two exams), trace albumin (one exam), occasional leucocytes (one exam).",
+                    "units": "Qualitative",
+                    "reference_range": "Normal range not specified."
+                },
+                {
+                    "test": "Stools",
+                    "value": "Negative",
+                    "units": "Qualitative",
+                    "reference_range": "Normal range not specified."
+                }
+            ],
+            "imaging": []
+        }
+    },
+    "procedures": [
+        {
+            "procedure": "Lumbar Puncture (Diagnostic)",
+            "description": "Cerebrospinal fluid analysis.",
+            "time": "September 28, 9 AM; October 1; October 2; October 4"
+        },
+        {
+            "procedure": "Lumbar Puncture (Therapeutic)",
+            "description": "To relieve intracranial pressure.",
+            "time": "September 28, 11 PM"
+        },
+        {
+            "procedure": "Intraperitoneal Saline Administration",
+            "description": "Fluid resuscitation.",
+            "time": "September 29, September 30, October 2"
+        },
+        {
+            "procedure": "Ear Irrigations (Saline)",
+            "description": "Warm saline irrigations for otitis media.",
+            "time": "September 30, October 2"
+        },
+        {
+            "procedure": "Eye Irrigations (Boric)",
+            "description": "Warm boric solution irrigations for eyes.",
+            "time": "September 28 onwards"
+        },
+        {
+            "procedure": "Medication Administration",
+            "description": "Castor oil, Morphine, Potassium boro-tartrate.",
+            "time": "Various dates"
+        }
+    ],
+    "timeline_events": [
+        {
+            "time": "Three weeks before admission",
+            "event": "Possible ingestion of pebble outdoors."
+        },
+        {
+            "time": "Three weeks before admission",
+            "event": "Onset of vomiting (initially mild)."
+        },
+        {
+            "time": "Two weeks before admission",
+            "event": "Vomiting becomes forceful and after each meal, fretfulness, tender to touch."
+        },
+        {
+            "time": "Five days before admission",
+            "event": "Onset of drowsiness and weight loss."
+        },
+        {
+            "time": "Three weeks before admission",
+            "event": "Onset of constipation."
+        },
+        {
+            "time": "September 24, 1923",
+            "event": "Passage of stool resembling flesh."
+        },
+        {
+            "time": "Lately before admission",
+            "event": "Four to five spasms of extremities."
+        },
+        {
+            "time": "Night before admission",
+            "event": "Severe spasm requiring chloroform."
+        },
+        {
+            "time": "September 28, 1923, Admission",
+            "event": "Admission to hospital, initial examination, lumbar puncture (diagnostic and therapeutic)."
+        },
+        {
+            "time": "September 29, 1923",
+            "event": "Intraperitoneal saline, eye irrigations."
+        },
+        {
+            "time": "September 30, 1923",
+            "event": "Slight lagging of mouth, ear irrigations."
+        },
+        {
+            "time": "October 1, 1923",
+            "event": "Increased stupor, refused feeding, slight turgor, continuous convulsion at night, lumbar puncture."
+        },
+        {
+            "time": "October 2, 1923",
+            "event": "Similar symptoms recurred, relieved by lumbar puncture, Cheyne-Stokes breathing, intraperitoneal saline."
+        },
+        {
+            "time": "October 3-4, 1923",
+            "event": "Coma, steadily worsening."
+        },
+        {
+            "time": "October 4, 1923",
+            "event": "Two more convulsions in afternoon, third in evening, lumbar puncture, rapid and difficult respirations, r\u00e2les, stiffness."
+        },
+        {
+            "time": "October 5, 1923, Early Morning",
+            "event": "Death."
+        },
+        {
+            "time": "Post-mortem",
+            "event": "Anatomical diagnosis of tuberculous meningitis, miliary tuberculosis (spleen, liver, lung), tuberculosis of mesenteric gland."
+        }
+    ],
+    "final_diagnoses": [
+        "Tuberculous meningitis",
+        "Miliary tuberculosis (spleen, liver, lung)",
+        "Tuberculosis of mesenteric gland",
+        "Otitis media (clinical diagnosis)"
+    ],
+    "case_id": "NEJM192401171900308",
+    "original_case_number": "NEJM192401171900308",
+    "final_diagnosis": "N/A"
+}

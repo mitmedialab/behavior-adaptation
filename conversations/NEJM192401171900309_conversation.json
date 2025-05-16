@@ -1,0 +1,538 @@
+{
+    "case_metadata": {
+        "case_id": "10033",
+        "title": "Case 10033: English Janitor with Weight Loss and Abdominal Pain",
+        "source": {
+            "journal": "New England Journal of Medicine",
+            "publication_date": "Unspecified",
+            "volume": "Unspecified",
+            "issue": "Unspecified",
+            "pages": "Unspecified"
+        }
+    },
+    "patient_info": {
+        "age": 57,
+        "gender": "M",
+        "demographics": {
+            "ethnicity": "English",
+            "occupation": "Janitor",
+            "living_arrangement": "Unspecified"
+        },
+        "social_history": {
+            "alcohol_use": "Unspecified",
+            "tobacco_use": "Unspecified",
+            "substance_use": "Unspecified",
+            "other": "Unspecified"
+        },
+        "medical_history": {
+            "allergies": "None specified",
+            "past_medical_conditions": "Nycturia 2-3 times",
+            "medications": "None specified"
+        },
+        "surgical_history": {
+            "past_surgeries": "Leg operation 37 years prior to admission"
+        }
+    },
+    "participants": {
+        "clinicians": {
+            "Doctor A": {
+                "specialty": "Internal Medicine/Gastroenterology",
+                "role": "Primary Physician",
+                "real_name": "Dr. Edward L. Young, Jr."
+            },
+            "Doctor B": {
+                "specialty": "Radiology",
+                "role": "Radiologist",
+                "real_name": "Dr. Merrill"
+            },
+            "Doctor C": {
+                "specialty": "General Surgery",
+                "role": "Surgeon (First Operation)",
+                "real_name": "Unspecified"
+            },
+            "Doctor D": {
+                "specialty": "General Surgery",
+                "role": "Surgeon (Second Operation)",
+                "real_name": "Unspecified"
+            },
+            "Doctor E": {
+                "specialty": "Pathology",
+                "role": "Pathologist (Anatomical Diagnosis)",
+                "real_name": "Dr. Richardson"
+            },
+            "Doctor F": {
+                "specialty": "Internal Medicine",
+                "role": "Discussant",
+                "real_name": "Dr. Cabot"
+            },
+            "Nurse A": {
+                "specialty": "Nursing",
+                "role": "Nurse",
+                "real_name": "Miss Painter"
+            }
+        },
+        "others": {
+            "Patient": {
+                "role": "Patient",
+                "real_name": "English Janitor"
+            }
+        }
+    },
+    "conversation": {
+        "turn_1": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "English Janitor",
+            "timestamp": "December 26, Admission Complaint",
+            "message": "I've been losing weight, and for about two years now, I've had this dull pain in my stomach, an hour or so after eating. It lasts a couple of hours. Food doesn't help.",
+            "intention": "Describing chief complaint and history of present illness.",
+            "context": "Initial patient presentation at admission.",
+            "source_reference": "Page 2: 'An English janitor of fifty-seven entered December 26 complaining of loss of weight.' and 'Two years before admission he had dull pain in the epigastrium about an hour after meals lasting two hours, not relieved by food.'"
+        },
+        "turn_2": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Miss Painter",
+            "timestamp": "December 26, Admission History Taking",
+            "message": "And has anything helped with the pain? You mentioned it made you afraid to eat?",
+            "intention": "Gathering more details about pain management and impact on eating.",
+            "context": "Nurse taking patient history at admission.",
+            "source_reference": "Page 2: 'He was afraid to eat on account of pain.'"
+        },
+        "turn_3": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "English Janitor",
+            "timestamp": "December 26, Admission History Taking (Continuing)",
+            "message": "Yes, milk diet in the hospital helped for a bit, but it came back when I ate solid food again. Then castor oil from my doctor seemed to make it go away completely for a while. But lately, I've been getting dizzy spells, feeling like blood rushing to my head, and the weight loss, especially in the last three months.",
+            "intention": "Providing details on past treatments, symptom recurrence, and recent symptoms.",
+            "context": "Nurse taking patient history at admission.",
+            "source_reference": "Page 2: 'After a week the pain disappeared. It returned however after he left the hospital and went back to solid food. After a physician treated him with castor oil the pain disappeared and did not return. During the past few months he had had several attacks of dizziness, and felt as though the blood rushed to his head. Three months ago he began to lose weight.'"
+        },
+        "turn_4": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Miss Painter",
+            "timestamp": "November 27, Out-Patient Department Visit (Prior to Admission)",
+            "message": "And about the back pain, you mentioned it started three months ago as well?",
+            "intention": "Confirming details about back pain onset.",
+            "context": "Nurse reviewing outpatient department records.",
+            "source_reference": "Page 2: 'November 27, after having lost thirty-six pounds, he came to the Out-Patient Department. For the six weeks before admission to the wards he had had continuous dull pain in the lower back extending half way up the back, not affected by movement.'"
+        },
+        "turn_5": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "English Janitor",
+            "timestamp": "November 27, Out-Patient Department Visit (Prior to Admission)",
+            "message": "Yes, continuous dull pain, lower back, going halfway up. Not moving makes no difference. And it\u2019s been tender right below the breastbone, but no pain there, just tenderness. Three weeks ago, sharp back pains, turpentine stupes helped a bit.",
+            "intention": "Describing characteristics of back pain and tenderness.",
+            "context": "Patient recounting outpatient department visit details.",
+            "source_reference": "Page 2: 'There was tenderness to touch just below the ensiform, but no pain in that region. Three weeks before admission he had one or two sharp attacks of pain in the back, relieved by turpentine stupes.'"
+        },
+        "turn_6": {
+            "speaker": "Doctor B",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Dr. Merrill",
+            "timestamp": "December 28, Reviewing X-Ray Findings",
+            "message": "Dr. Young, the x-ray shows a large residue in the stomach even after six hours. Peristalsis is sluggish. We see a small irregular area at the pyloric end.",
+            "intention": "Presenting key findings from the X-ray examination.",
+            "context": "Radiologist reporting findings to Dr. Young.",
+            "source_reference": "Page 3: 'The stomach contained a large residue of the meal at six hours. Peristalsis was sluggish, an occasional deep wave being seen. The extreme pyloric end of the stomach showed a small area of irregularity.'"
+        },
+        "turn_7": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor B",
+                "Doctor F"
+            ],
+            "real_name": "Dr. Edward L. Young, Jr.",
+            "timestamp": "December 28, Diagnostic Discussion",
+            "message": "So, obstruction at the pylorus then? Cancer or ulcer more likely, Dr. Merrill?",
+            "intention": "Seeking differential diagnosis based on radiological findings.",
+            "context": "Dr. Young discussing possible diagnoses with radiologist and Dr. Cabot.",
+            "source_reference": "Page 3: 'In this man we were pretty confident in diagnosing an obstructive lesion involving the pylorus. The two principal lesions we have to bear in mind of course are pyloric ulcer and a small malignant lesion of limited extent.'"
+        },
+        "turn_8": {
+            "speaker": "Doctor B",
+            "listeners": [
+                "Doctor A",
+                "Doctor F"
+            ],
+            "real_name": "Dr. Merrill",
+            "timestamp": "December 28, Diagnostic Discussion (Continuing)",
+            "message": "Given his age, weight loss, and the sluggish peristalsis, I'd lean towards cancer. Though the pain history could fit ulcer. But the x-ray strongly suggests pyloric obstruction, possibly malignant.",
+            "intention": "Expressing diagnostic preference based on combined clinical and radiological picture.",
+            "context": "Radiologist giving opinion on differential diagnosis.",
+            "source_reference": "Page 3: 'So feeling pretty sure that he had a pyloric obstruction I said, more probably cancer than ulcer. One other point influenced me; that was the character of the peristalsis... in malignant disease of the stomach peristalsis is more quiet.'"
+        },
+        "turn_9": {
+            "speaker": "Doctor F",
+            "listeners": [
+                "Doctor A",
+                "Doctor B"
+            ],
+            "real_name": "Dr. Cabot",
+            "timestamp": "December 28, Diagnostic Discussion (Continuing)",
+            "message": "And no vomiting history, right? That\u2019s unusual with such obstruction.",
+            "intention": "Pointing out discrepancy between radiological findings and reported symptoms.",
+            "context": "Dr. Cabot questioning the consistency of clinical and radiological data.",
+            "source_reference": "Page 3: 'There is a flat-footed statement, \"no nausea, no vomiting,\"\u2014perfectly definite.'"
+        },
+        "turn_10": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Dr. Edward L. Young, Jr.",
+            "timestamp": "December 28, Pre-operative Discussion with Patient",
+            "message": "Mr. [Patient's Last Name], we've reviewed your tests, and it seems there's a blockage at the exit of your stomach. It could be an ulcer or something more concerning, like cancer. We need to operate to find out and fix it. We're leaning towards thinking it might be cancer, but we'll know more during surgery.",
+            "intention": "Explaining diagnosis, prognosis, and treatment plan to the patient.",
+            "context": "Dr. Young discussing pre-operative plan with the patient.",
+            "source_reference": "Page 3: 'The patient's condition, its prognosis, and the possibilities of treatment were thoroughly discussed with him. He decided in favor of operation. December 28 it was performed.'"
+        },
+        "turn_11": {
+            "speaker": "Doctor C",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unspecified",
+            "timestamp": "December 28, First Operation - Intraoperative Findings",
+            "message": "Dr. Young, abdomen open. Stomach is dilated, but I can't find anything wrong with the stomach, pylorus, or duodenum. Pyloric ring looks normal. Gallbladder, kidneys, intestines all appear normal. But the appendix... it's long, kinked, adherent, looks chronically inflamed.",
+            "intention": "Reporting intraoperative findings during the first surgery.",
+            "context": "Surgeon updating Dr. Young during the operation.",
+            "source_reference": "Page 4: 'Five inch median epigastric incision. The stomach was distinctly dilated, but the most careful examination failed to show anything wrong with the stomach, the pylorus or the duodenum. The pyloric ring was normal in size and smooth. It seemed that this dilatation was probably due to ptosis and not to the organic lesion that was suspected. The gallbladder, both kidneys and the intestines were normal. The appendix was long, adherent, kinked, and bound down to the brim of the pelvis; very clearly the source of chronic inflammation.'"
+        },
+        "turn_12": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor C"
+            ],
+            "real_name": "Dr. Edward L. Young, Jr.",
+            "timestamp": "December 28, First Operation - Decision",
+            "message": "Alright, remove the appendix then. It sounds like chronic appendicitis. Close up afterward.",
+            "intention": "Directing surgical procedure based on intraoperative findings.",
+            "context": "Dr. Young instructing surgeon during the operation.",
+            "source_reference": "Page 4: 'The appendix was removed with some difficulty and the stump buried. The wound was closed in layers.'"
+        },
+        "turn_13": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor F",
+                "Doctor B"
+            ],
+            "real_name": "Dr. Edward L. Young, Jr.",
+            "timestamp": "December 29, Post-First Operation Discussion",
+            "message": "Well, we operated, and couldn't find any pyloric lesion. Just a chronically inflamed appendix, which we removed. Stomach dilatation, but no obstruction found. Maybe ptosis?",
+            "intention": "Reporting post-operative findings and reconsidering diagnosis.",
+            "context": "Dr. Young discussing the outcome of the first surgery with Dr. Cabot and Dr. Merrill.",
+            "source_reference": "Page 4: 'The stomach was distinctly dilated, but the most careful examination failed to show anything wrong with the stomach, the pylorus or the duodenum...It seemed that this dilatation was probably due to ptosis and not to the organic lesion that was suspected. The appendix was removed...Chronic appendicitis.'"
+        },
+        "turn_14": {
+            "speaker": "Doctor F",
+            "listeners": [
+                "Doctor A",
+                "Doctor B"
+            ],
+            "real_name": "Dr. Cabot",
+            "timestamp": "December 29, Post-First Operation Discussion (Continuing)",
+            "message": "Dilatation from ptosis alone causing this much trouble? Seems unlikely. And we were so sure about the obstruction from the x-ray...",
+            "intention": "Expressing skepticism about the revised diagnosis and recalling previous radiological findings.",
+            "context": "Dr. Cabot questioning the adequacy of appendectomy as the solution.",
+            "source_reference": "Page 4: 'Do we ever get such dilatation due to ptosis?...I think it is only in extreme cases that we get any stomach obstruction in ptosis.'"
+        },
+        "turn_15": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor F",
+                "Doctor B"
+            ],
+            "real_name": "Dr. Edward L. Young, Jr.",
+            "timestamp": "December 31, Patient Deterioration",
+            "message": "Patient's condition worsening. Nausea, vomiting, distention. Pulse up to 120. Abdominal pain is intense, not relieved by anything. Sounds like peritonitis.",
+            "intention": "Describing patient's deteriorating condition and suspecting a complication.",
+            "context": "Dr. Young reporting on the patient's worsening state.",
+            "source_reference": "Page 2: 'He continued to have nausea and vomiting...The night of December 31 there was moderate distention. About midnight the pulse suddenly rose to 120. Next morning there was great distention. The patient was cyanotic and sweating, with intense abdominal pain, not relieved by enemata, poultices or pituitrin.'"
+        },
+        "turn_16": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor D"
+            ],
+            "real_name": "Dr. Edward L. Young, Jr.",
+            "timestamp": "January 1, Pre-Second Operation",
+            "message": "We need to operate again. Intestinal obstruction, general peritonitis. I think it's a perforated duodenal ulcer we missed. Prepare for a second laparotomy.",
+            "intention": "Ordering a second operation based on worsening condition and revised diagnosis.",
+            "context": "Dr. Young deciding on and preparing for second operation.",
+            "source_reference": "Page 4: 'January 1 a second operation was done...I am going to say he has a perforated duodenal ulcer. I did not see where the gas could come from other than from perforation.'"
+        },
+        "turn_17": {
+            "speaker": "Doctor D",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unspecified",
+            "timestamp": "January 1, Second Operation - Intraoperative Findings",
+            "message": "Second laparotomy done. Gas and turbid fluid in the peritoneum. Still can't pinpoint the cause of peritonitis. Drained the small intestine and placed a drain.",
+            "intention": "Reporting intraoperative findings during the second surgery.",
+            "context": "Surgeon updating Dr. Young during the second operation.",
+            "source_reference": "Page 4: 'Five inch incision below the umbilicus in midline. On opening the peritoneum there was much gas and a small amount of turbid fluid. Careful examination failed to reveal the active cause of the peritonitis. A catheter was sewed into the loop of small intestine which presented in the wound. One cigarette drain to the abdominal cavity.'"
+        },
+        "turn_18": {
+            "speaker": "Doctor A",
+            "listeners": [],
+            "real_name": "Dr. Edward L. Young, Jr.",
+            "timestamp": "January 2, Post-Mortem Discussion",
+            "message": "Patient died at noon today, January 2nd.  Dr. Richardson, what were the findings?",
+            "intention": "Requesting post-mortem findings after patient's death.",
+            "context": "Dr. Young initiating discussion of anatomical diagnosis.",
+            "source_reference": "Page 2 & 5: 'He grew gradually worse during the night and died at noon January 2.' and 'Dr. Richardson: There were the operation wounds mentioned. The abdomen was not distended. The wall yielded, but the peritoneal cavity presented a universal fibrinopurulent peritonitis.'"
+        },
+        "turn_19": {
+            "speaker": "Doctor E",
+            "listeners": [
+                "Doctor A",
+                "Doctor F"
+            ],
+            "real_name": "Dr. Richardson",
+            "timestamp": "January 2, Post-Mortem Findings",
+            "message": "Anatomical diagnosis: perforated duodenal ulcer.  Stomach was normal, but just past the pylorus, on the posterior lateral wall of the duodenum, there was a 12x12mm ulcer with a perforation in its base.  Old adhesions around it.  It was tucked away, easy to miss.",
+            "intention": "Presenting the anatomical diagnosis and explaining why the ulcer was initially missed.",
+            "context": "Dr. Richardson reporting the findings from the anatomical examination.",
+            "source_reference": "Page 5: 'Dr. Richardson: There were the operation wounds mentioned...The stomach was normal; but just below and about at the pylorus\u2014in fact the upper margin of the ulcer was formed by the lower margin of the pylorus\u2014on the right posterior lateral wall was an ulcer twelve by twelve mm., with rounded margins descending to a smooth grayish base, and in that base was a perforation involving about half of it. On the peritoneal side there were some old adhesions. Sometimes these ulcers are tucked away in such a fashion that they are really pretty difficult to find.'"
+        },
+        "turn_20": {
+            "speaker": "Doctor F",
+            "listeners": [
+                "Doctor A",
+                "Doctor E"
+            ],
+            "real_name": "Dr. Cabot",
+            "timestamp": "January 2, Post-Mortem Discussion - Lesson Learned",
+            "message": "So, the lesson here, Dr. Young, is that we should have trusted the history and x-ray more. The surgeon should've known something was still wrong after the first operation. We had more evidence than just 'chronic appendix'.",
+            "intention": "Highlighting the key learning point from the case regarding diagnostic approach.",
+            "context": "Dr. Cabot summarizing the crucial takeaway from the case discussion.",
+            "source_reference": "Page 5: 'Don't you think the important lesson here, Dr. Young, is that the surgeon should have known that he had not found the trouble? There was more there, if he had studied the whole history, than he could account for at the operation.'"
+        }
+    },
+    "clinical_data": {
+        "presentation": {
+            "chief_complaint": "Loss of weight, epigastric pain, back pain",
+            "history_of_present_illness": "2 years of epigastric pain after meals, relieved by milk diet and castor oil initially, returning with solid food. Recent weight loss (36 lbs in 3 months), dizziness, continuous dull lower back pain, tenderness below ensiform. No nausea or vomiting reported initially.",
+            "physical_exam": "Fairly well-developed man showing weight loss. Abdomen protuberant, pendulous, soft; definite tenderness with slight resistance in epigastrium; no masses. Tender point below ensiform, tender point over sacroiliac articulation. Heart and lungs unremarkable. Genitals, extremities, pupils, reflexes normal.",
+            "vital_signs": {
+                "initial": {
+                    "pulse": "Unspecified",
+                    "blood_pressure": "Unspecified",
+                    "respiratory_rate": "Unspecified",
+                    "temperature": "Unspecified"
+                },
+                "pre_second_operation": {
+                    "pulse": "120 bpm (increased)",
+                    "blood_pressure": "Unspecified",
+                    "respiratory_rate": "Unspecified",
+                    "temperature": "Unspecified"
+                }
+            }
+        },
+        "diagnostics": {
+            "laboratory_data": [
+                {
+                    "test": "Wassermann test",
+                    "value": "Negative",
+                    "units": "Unspecified",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Urine specific gravity",
+                    "value": "1.010",
+                    "units": "Unspecified",
+                    "reference_range": "Normal range"
+                },
+                {
+                    "test": "Urine leucocytes",
+                    "value": "3-5 per high power field",
+                    "units": "per high power field",
+                    "reference_range": "Normal range"
+                },
+                {
+                    "test": "Blood hemoglobin",
+                    "value": "70%",
+                    "units": "%",
+                    "reference_range": "Normal range"
+                },
+                {
+                    "test": "Blood leucocytes",
+                    "value": "7,400",
+                    "units": "per mm\u00b3",
+                    "reference_range": "Normal range"
+                },
+                {
+                    "test": "Blood polynuclears",
+                    "value": "69%",
+                    "units": "%",
+                    "reference_range": "Normal range"
+                },
+                {
+                    "test": "Gastric analysis - Fasting contents",
+                    "value": "80 c.c. reddish-brown material",
+                    "units": "c.c.",
+                    "reference_range": "Unspecified"
+                },
+                {
+                    "test": "Gastric analysis - Fasting Guaiac",
+                    "value": "Negative",
+                    "units": "Unspecified",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Gastric analysis - Fasting cells",
+                    "value": "Few leucocytes, moderate mucus, few squamous cells",
+                    "units": "Unspecified",
+                    "reference_range": "Normal range"
+                },
+                {
+                    "test": "Gastric analysis - Fasting Free HCl",
+                    "value": "33/100 c.c.",
+                    "units": "/100 c.c.",
+                    "reference_range": "Unspecified"
+                },
+                {
+                    "test": "Gastric analysis - Fasting Total acid",
+                    "value": "44/100 c.c.",
+                    "units": "/100 c.c.",
+                    "reference_range": "Unspecified"
+                },
+                {
+                    "test": "Gastric analysis - Test meal",
+                    "value": "105 c.c. white material",
+                    "units": "c.c.",
+                    "reference_range": "Unspecified"
+                },
+                {
+                    "test": "Gastric analysis - Test meal Guaiac",
+                    "value": "Negative",
+                    "units": "Unspecified",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Gastric analysis - Test meal contents",
+                    "value": "Large amount of starch, few squamous cells",
+                    "units": "Unspecified",
+                    "reference_range": "Normal range"
+                },
+                {
+                    "test": "Gastric analysis - Test meal Free HCl",
+                    "value": "38/100 c.c.",
+                    "units": "/100 c.c.",
+                    "reference_range": "Unspecified"
+                },
+                {
+                    "test": "Gastric analysis - Test meal Total acid",
+                    "value": "63/100 c.c.",
+                    "units": "/100 c.c.",
+                    "reference_range": "Unspecified"
+                }
+            ],
+            "imaging": [
+                {
+                    "modality": "X-ray",
+                    "description": "Stomach contained large residue at 6 hours, sluggish peristalsis, small irregular area at extreme pyloric end. Appearance of proliferation and slight roughening of vertebrae margins suggesting arthritic process. No definite abnormality in sacroiliac region.",
+                    "findings": [
+                        "Large gastric residue",
+                        "Sluggish peristalsis",
+                        "Pyloric irregularity",
+                        "Possible vertebral arthritis"
+                    ]
+                }
+            ]
+        },
+        "procedures": [
+            {
+                "procedure": "First Operation: Exploratory laparotomy, appendectomy",
+                "description": "Median epigastric incision, appendix removed, stump buried, wound closed in layers.",
+                "time": "December 28"
+            },
+            {
+                "procedure": "Second Operation: Laparotomy with drainage for general peritonitis",
+                "description": "Midline incision below umbilicus, catheter sewed into small intestine loop, cigarette drain placed.",
+                "time": "January 1"
+            }
+        ],
+        "timeline_events": [
+            {
+                "time": "Two years prior to admission",
+                "event": "Onset of dull epigastric pain after meals"
+            },
+            {
+                "time": "Six months after pain onset",
+                "event": "Hospital treatment with milk diet, pain relief, recurrence after solid food"
+            },
+            {
+                "time": "After milk diet treatment",
+                "event": "Castor oil treatment, pain relief"
+            },
+            {
+                "time": "Recent months before admission",
+                "event": "Dizziness attacks, feeling of blood rushing to head"
+            },
+            {
+                "time": "Three months before admission",
+                "event": "Onset of weight loss"
+            },
+            {
+                "time": "November 27",
+                "event": "Out-Patient Department visit, 36 lbs weight loss reported, onset of continuous dull lower back pain six weeks prior, tender point below ensiform"
+            },
+            {
+                "time": "Three weeks before admission",
+                "event": "Sharp back pain attacks, relieved by turpentine stupes"
+            },
+            {
+                "time": "December 26",
+                "event": "Admission to hospital"
+            },
+            {
+                "time": "December 28",
+                "event": "First operation: Exploratory laparotomy, appendectomy"
+            },
+            {
+                "time": "December 30",
+                "event": "Nausea and vomiting, stomach wash produced greenish fluid"
+            },
+            {
+                "time": "December 31",
+                "event": "Continued nausea and vomiting, stomach washings, moderate distention, pulse rose to 120 at midnight"
+            },
+            {
+                "time": "January 1",
+                "event": "Great distention, cyanosis, sweating, intense abdominal pain, second operation: Laparotomy with drainage"
+            },
+            {
+                "time": "January 2, Noon",
+                "event": "Death"
+            }
+        ],
+        "final_diagnoses": [
+            "Clinical pre-operative diagnosis (Dr. Young, December 28): Carcinoma of the stomach, Peptic ulcer",
+            "Pre-operative diagnosis (January 1): Intestinal obstruction, General peritonitis",
+            "Dr. Young's pre-operative diagnosis (January 1): Ulcer of the duodenum with perforation",
+            "Clinical diagnosis (Hospital record): General peritonitis, Chronic dilatation of the stomach, Chronic appendicitis",
+            "Anatomical diagnosis: Primary fatal lesion: Ulcer of the duodenum with perforation. Secondary or terminal lesions: General fibrinopurulent peritonitis. Historical landmarks: Laparotomy, Appendectomy, Slight chronic pleuritis, left, Hemorrhagic edema of the lungs, Cyst of left kidney."
+        ]
+    },
+    "case_id": "NEJM192401171900309",
+    "original_case_number": "NEJM192401171900309",
+    "final_diagnosis": "N/A"
+}
