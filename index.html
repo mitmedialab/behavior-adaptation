@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent Interaction Evaluation (v1.9.1 - Firebase & Selective Tasks)</title>
+    <title>AI Agent Interaction Evaluation (v1.9.2 - Final)</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
     <style>
         body {
@@ -90,7 +90,9 @@
         .evaluation-section h3 { text-align: center; color: #1877f2; margin-bottom: 20px; }
         .evaluation-question { margin-bottom: 25px; }
         .evaluation-question label.main-label { display: block; font-weight: bold; margin-bottom: 10px; color: #333; }
-        .evaluation-question textarea { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccd0d5; box-sizing: border-box; font-size: 15px; min-height: 60px; resize: vertical; }
+        .evaluation-question input[type="text"],
+        .evaluation-question textarea { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccd0d5; box-sizing: border-box; font-size: 15px; }
+        .evaluation-question textarea { min-height: 60px; resize: vertical; }
         .evaluation-section button.submit-feedback-btn { display: block; width: 250px; margin: 20px auto 0; padding: 12px 20px; font-size: 16px; background-color: #1877f2; color: white; border: none; border-radius: 6px; cursor: pointer; transition: background-color 0.3s; }
         .evaluation-section button.submit-feedback-btn:hover { background-color: #166fe5; }
         .hidden { display: none; }
@@ -109,7 +111,7 @@
 
         .proactivity-rating-item { display: flex; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
         .proactivity-rating-item strong { min-width: 180px; display: inline-block; margin-bottom: 5px; font-size: 0.95em; }
-        .proactivity-rating-item .radio-group { margin-left: 0; }
+        .proactivity-rating-item .radio-group { margin-left: 10px; } /* Corrected from margin-A */
 
 
         .selection-button { display: block; width: 90%; max-width: 600px; margin: 10px auto; padding: 12px 18px; font-size: 16px; background-color: #1877f2; color: white; border: none; border-radius: 6px; cursor: pointer; text-align: left; transition: background-color 0.3s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -142,7 +144,7 @@
         .download-all-btn:hover { background-color: #0056b3; }
         .text-danger { color: #dc3545 !important; }
         .text-warning { color: #ffc107 !important; }
-        #firebaseStatus { font-size: 0.8em; text-align: center; margin-top: 5px; }
+        #firebaseStatus { font-size: 0.8em; text-align: center; margin-top: 5px; padding-bottom: 5px; }
 
     </style>
 </head>
@@ -186,6 +188,10 @@
         <div class="evaluation-section hidden" id="evaluationFormContainer">
             <h3>Evaluation Questions for <span id="evalTaskTitle">Current Task</span></h3>
             <form id="feedbackForm">
+                 <div class="evaluation-question">
+                    <label class="main-label" for="annotator_id">Annotator ID:</label>
+                    <input type="text" id="annotator_id" name="annotator_id" placeholder="Enter your unique ID" required>
+                </div>
                 <div class="evaluation-question">
                     <label class="main-label" for="rank_container">Rank the three Agent response from Best to Worst by dragging them:</label>
                     <div class="rank-instructions">Drag to order: Best    ❯    Moderate    ❯    Worst</div>
@@ -219,7 +225,7 @@
       apiKey: "__FIREBASE_API_KEY__", // REPLACE WITH YOUR ACTUAL API KEY
       authDomain: "behavior-adaptation.firebaseapp.com",
       projectId: "behavior-adaptation",
-      storageBucket: "behavior-adaptation.appspot.com", // Corrected: .appspot.com
+      storageBucket: "behavior-adaptation.appspot.com",
       messagingSenderId: "252062583138",
       appId: "1:252062583138:web:69a0d618c676a3a8f2843b",
       measurementId: "G-K93EMQ9EN2"
@@ -246,22 +252,26 @@
            }
     }
 
-    async function sendFeedbackToFirebase(feedbackData) {
+    async function sendFeedbackToFirebase(feedbackData, annotatorId) {
         if (!db) {
             console.error("Firestore DB not initialized. Cannot send feedback.");
             alert("Error: Firebase is not connected. Feedback not saved online.");
             return;
         }
-        if (!currentTaskFileName || !feedbackData.task_id_from_json) {
+        if (!window.currentTaskFileName || !feedbackData.task_id_from_json) {
             console.error("Missing currentTaskFileName or task_id for Firebase document ID.");
             return;
         }
 
-        const docId = `${currentTaskFileName.replace('.json', '')}_${feedbackData.task_id_from_json}`;
+        const docId = `${window.currentTaskFileName.replace('.json', '')}_${feedbackData.task_id_from_json}_${annotatorId}_${new Date().getTime()}`;
+        const collectionPath = "task_evaluations_prod"; // Consider a distinct collection name
+
+        console.log(`Attempting to save to Firebase: Collection='${collectionPath}', DocID='${docId}'`);
+        console.log("Feedback data being sent:", feedbackData);
+
         try {
-            await setDoc(doc(db, "task_evaluations", docId), feedbackData);
-            console.log("Feedback successfully sent to Firebase with ID:", docId);
-            // alert("Feedback also saved to Firebase!"); // Optional: notify user
+            await setDoc(doc(db, collectionPath, docId), feedbackData);
+            console.log("Feedback successfully sent to Firebase with ID:", docId, "by Annotator:", annotatorId);
         } catch (error) {
             console.error("Error sending feedback to Firebase:", error);
             alert("Error: Could not save feedback to Firebase. Please check console. Your feedback is still available for download locally.");
@@ -269,7 +279,7 @@
     }
 
     // --- GLOBAL DATA (accessible to non-module script part) ---
-    window.globalFirebase = { sendFeedbackToFirebase }; // Expose function
+    window.globalFirebase = { sendFeedbackToFirebase };
     window.AGENT_RESPONSE_KEYS_MAP = {
         agentA: 'Type A (Behavior SFT)',
         agentB: 'Type B (General SFT)',
@@ -294,11 +304,10 @@
     window.draggedItem = null;
 
 
-    // --- UI Control & Initialization (moved to be callable after module script) ---
     window.onload = async () => {
-        console.log("Window loaded. Attempting to load manifest...");
-        await loadManifestAndListTaskFiles(); // This function is now defined in the global scope
-        showTaskFileSelectionScreen(); // This function is now defined in the global scope
+        console.log("Window loaded (module script). Attempting to load manifest...");
+        await window.loadManifestAndListTaskFiles(); // Call global function
+        window.showTaskFileSelectionScreen();    // Call global function
         document.getElementById('backToSelectionBtn').disabled = true;
     };
 
@@ -333,13 +342,15 @@ function showScreen(screenId) {
 }
 
 function getSimplifiedCaseName(fileName, index) {
-    // Try to extract a number like "9482" from "refined_9482_tasks_with_llm_responses.json"
-    const match = fileName.match(/_(\d+)_tasks/);
+    const match = fileName.match(/refined_(\d+)_tasks/i); // Case-insensitive match
     if (match && match[1]) {
         return `Case ${match[1]}`;
     }
-    // Fallback if no number found
-    return `Case File ${index + 1}`;
+    const genericMatch = fileName.match(/case_?(\d+)/i) || fileName.match(/(\d+)/);
+    if (genericMatch && genericMatch[1]) {
+        return `Case ${genericMatch[1]}`;
+    }
+    return `File ${index + 1}`; // Fallback
 }
 
 
@@ -356,7 +367,7 @@ function showTaskFileSelectionScreen() {
     window.availableTaskFiles.forEach((fileName, index) => {
         const button = document.createElement('button');
         button.classList.add('selection-button');
-        button.textContent = getSimplifiedCaseName(fileName, index); // Use simplified name
+        button.textContent = getSimplifiedCaseName(fileName, index);
         button.onclick = () => loadTaskFileAndAssociatedConversation(fileName);
         if (window.completedStatus[fileName] && window.completedStatus[fileName].completedDisplayedTasks.size === window.completedStatus[fileName].totalTasksToDisplay && window.completedStatus[fileName].totalTasksToDisplay > 0) {
             button.classList.add('completed');
@@ -373,7 +384,7 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
     console.log("Loading task file from refined_outputs:", taskFileName);
     window.currentTaskFileName = taskFileName;
     const taskFilePath = window.TASKS_OUTPUTS_DIR + taskFileName;
-    window.fullConversationData = null; // Reset
+    window.fullConversationData = null;
 
     try {
         const taskFileResponse = await fetch(taskFilePath);
@@ -383,12 +394,17 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
         window.taskFileMetadata = taskJsonData.metadata || {};
 
         let conversationFileId = null;
-        if (taskJsonData.metadata?.conversation_source_details?.source_file_metadata?.case_id) {
-            conversationFileId = taskJsonData.metadata.conversation_source_details.filename; // Use filename from metadata
+        // Prioritize filename from conversation_source_details if available
+        if (taskJsonData.metadata?.conversation_source_details?.filename) {
+            conversationFileId = taskJsonData.metadata.conversation_source_details.filename;
+        } else if (taskJsonData.metadata?.conversation_source_details?.source_file_metadata?.case_id) {
+            // Fallback to case_id from source_file_metadata to construct filename
+            conversationFileId = `${taskJsonData.metadata.conversation_source_details.source_file_metadata.case_id}_conversation.json`;
         } else if (taskJsonData.metadata?.case_id) {
-             const caseIdMatch = taskJsonData.metadata.case_id.match(/^([^_]+)/); // Get part before first underscore
+             // Fallback to task file's own case_id (less ideal, might need adjustment)
+             const caseIdMatch = taskJsonData.metadata.case_id.match(/^([^_]+)/);
              if (caseIdMatch && caseIdMatch[1]) {
-                conversationFileId = `${caseIdMatch[1]}_conversation.json`; // Construct filename
+                conversationFileId = `${caseIdMatch[1]}_conversation.json`;
              }
         }
 
@@ -403,14 +419,13 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
              console.warn("Could not determine conversation file ID from task file metadata.", taskJsonData.metadata);
         }
 
-
         if (conversationFileId && !window.fullConversationData) {
-            const conversationFilePath = window.CONVERSATIONS_DIR + conversationFileId; // Use the determined ID
+            const conversationFilePath = window.CONVERSATIONS_DIR + conversationFileId;
             console.log("Attempting to load conversation file:", conversationFilePath);
             try {
                 const conversationFileResponse = await fetch(conversationFilePath);
                 if (!conversationFileResponse.ok) {
-                    console.warn(`Conversation file not found at ${conversationFilePath}.`);
+                    console.warn(`Conversation file not found at ${conversationFilePath}. Status: ${conversationFileResponse.status}`);
                 } else {
                     window.fullConversationData = await conversationFileResponse.json();
                     console.log("Successfully loaded conversation file:", conversationFileId);
@@ -420,30 +435,26 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
             }
         }
 
-        // Filter for 1 proactive and 1 reactive task
         const proactiveTask = window.allTasksDataFromCurrentFile.find(task => task.proactive_score >= 0.6);
         const reactiveTask = window.allTasksDataFromCurrentFile.find(task => task.proactive_score < 0.6);
-
         window.displayedTasksData = [];
         if (proactiveTask) window.displayedTasksData.push(proactiveTask);
-        if (reactiveTask && (!proactiveTask || reactiveTask.task_id !== proactiveTask.task_id)) { // Ensure not same task if only one exists
+        if (reactiveTask && (!proactiveTask || reactiveTask.task_id !== proactiveTask.task_id)) {
             window.displayedTasksData.push(reactiveTask);
         }
         
         console.log("Total tasks in file:", window.allTasksDataFromCurrentFile.length);
-        console.log("Selected tasks for display (1 proactive, 1 reactive):", window.displayedTasksData.length, window.displayedTasksData.map(t => t.task_id));
-
+        console.log("Selected tasks for display (max 1 proactive, 1 reactive):", window.displayedTasksData.length, window.displayedTasksData.map(t => t.task_id));
 
         if (!window.completedStatus[window.currentTaskFileName]) {
             window.completedStatus[window.currentTaskFileName] = {
-                totalTasksInFile: window.allTasksDataFromCurrentFile.length, // Still track total for overall file sense
-                totalTasksToDisplay: window.displayedTasksData.length, // Max 2
+                totalTasksInFile: window.allTasksDataFromCurrentFile.length,
+                totalTasksToDisplay: window.displayedTasksData.length,
                 completedDisplayedTasks: new Set()
             };
+        } else { // If re-visiting, ensure totalTasksToDisplay is updated based on current filter
+             window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
         }
-        // Ensure totalTasksToDisplay is correctly set if file was visited before
-        window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
-
 
         if (!window.allFeedbackData[window.currentTaskFileName]) {
             window.allFeedbackData[window.currentTaskFileName] = {
@@ -461,7 +472,6 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
     }
 }
 
-
 function showTaskSelectionScreenForCase() {
     showScreen('taskSelectionScreen');
     const simplifiedFileName = getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName));
@@ -470,21 +480,33 @@ function showTaskSelectionScreenForCase() {
     container.innerHTML = '';
 
     if (!window.displayedTasksData || window.displayedTasksData.length === 0) {
-        container.innerHTML = `<p>No selected (1 proactive, 1 reactive) tasks to display for ${simplifiedFileName}. Check JSON content and proactive_score values.</p>`;
-        // Optionally, allow viewing all tasks if the filtered list is empty
+        let message = `<p>No selected (1 proactive & 1 reactive) tasks to display for ${simplifiedFileName}.`;
         if (window.allTasksDataFromCurrentFile.length > 0) {
+            message += ` This file contains ${window.allTasksDataFromCurrentFile.length} tasks in total. Check proactive_score values if you expected tasks here.`;
+        } else {
+            message += ` The file appears to contain no tasks.`;
+        }
+        message += `</p>`;
+        container.innerHTML = message;
+
+        if (window.allTasksDataFromCurrentFile.length > 0 && window.displayedTasksData.length < window.allTasksDataFromCurrentFile.length) {
             const viewAllButton = document.createElement('button');
             viewAllButton.textContent = `View All ${window.allTasksDataFromCurrentFile.length} Tasks Instead`;
             viewAllButton.classList.add('selection-button');
-            viewAllButton.style.backgroundColor = '#ffc107'; // Warning color
+            viewAllButton.style.backgroundColor = '#ffc107';
             viewAllButton.style.color = '#000';
             viewAllButton.onclick = () => {
-                window.displayedTasksData = [...window.allTasksDataFromCurrentFile]; // Load all
-                window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
-                showTaskSelectionScreenForCase(); // Re-render
+                window.displayedTasksData = [...window.allTasksDataFromCurrentFile];
+                if(window.completedStatus[window.currentTaskFileName]) { // Update if status object exists
+                    window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
+                }
+                showTaskSelectionScreenForCase();
             };
             container.appendChild(viewAllButton);
         }
+        updateProgressBarForCurrentCase(); // Update progress even if no tasks shown initially
+        document.getElementById('backToSelectionBtn').disabled = false;
+        document.getElementById('backToSelectionBtn').onclick = showTaskFileSelectionScreen;
         return;
     }
 
@@ -516,11 +538,11 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
     window.currentTaskData = window.displayedTasksData[indexInDisplayedTasks];
 
     if (!window.currentTaskData) {
-        console.error("CRITICAL: currentTaskData is null or undefined for index:", indexInDisplayedTasks, "from displayedTasksData:", window.displayedTasksData);
+        console.error("CRITICAL: currentTaskData is null or undefined for index:", indexInDisplayedTasks);
         alert("Error: Could not load task data. `currentTaskData` is null. Check console.");
         return;
     }
-    console.log("Current task data for evaluation (task_id: " + window.currentTaskData.task_id + "):", window.currentTaskData);
+    console.log("Current task data for evaluation (task_id: " + window.currentTaskData.task_id + "):", JSON.stringify(window.currentTaskData));
 
     showScreen('taskDisplayScreen');
 
@@ -534,7 +556,7 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
     `;
 
     let fullConversationDisplayHTML = '';
-    if (window.fullConversationData && window.fullConversationData.conversation) {
+    if (window.fullConversationData && window.fullConversationData.conversation && typeof window.fullConversationData.conversation === 'object') {
         fullConversationDisplayHTML += `<h4>Full Conversation Context (for Annotator Reference):</h4>`;
         fullConversationDisplayHTML += `<div class="conversation-turns-display">`;
         
@@ -553,11 +575,15 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
                 const turn = window.fullConversationData.conversation[turnKey];
                 if (turn && typeof turn === 'object') {
                     const turnNumberDisplay = turnKey.replace('turn_', '') || 'N/A';
-                    fullConversationDisplayHTML += `<div class="conversation-turn"><strong>${turn.speaker || 'Unknown Speaker'} (Turn ${turnNumberDisplay}):</strong> ${turn.message || 'No message content.'}</div>`;
-                } else if (turnKey === 'turn_5' && turn === 'turn_5') {
-                     console.warn(`Skipping display for placeholder turnKey '${turnKey}'`);
-                } else if (turn && typeof turn !== 'object') {
+                    const speaker = turn.speaker || 'Unknown Speaker';
+                    const message = turn.message || 'No message content.';
+                    fullConversationDisplayHTML += `<div class="conversation-turn"><strong>${speaker} (Turn ${turnNumberDisplay}):</strong> ${message}</div>`;
+                } else if (turnKey === 'turn_5' && turn === 'turn_5') { // Specific handling for the placeholder
+                     console.warn(`Skipping display for placeholder string turnKey '${turnKey}'`);
+                } else if (turn && typeof turn !== 'object'){
                     console.warn(`Skipping display for turnKey '${turnKey}' as its value is not a valid turn object:`, turn);
+                } else if (!turn) {
+                    console.warn(`Turn data for turnKey '${turnKey}' is null or undefined.`);
                 }
             });
         } else {
@@ -566,8 +592,8 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
         fullConversationDisplayHTML += `</div>`;
     } else {
         fullConversationDisplayHTML = `<h4 class="text-danger">Full Conversation Context (for Annotator Reference):</h4>
-                             <p class="text-danger">Full conversation data not loaded or the 'conversation' object within it is missing. Cannot display conversation.</p>`;
-        console.error("fullConversationData or fullConversationData.conversation is null/undefined.");
+                             <p class="text-danger">Full conversation data not loaded or the 'conversation' object within it is missing/invalid. Cannot display conversation.</p>`;
+        console.error("fullConversationData or fullConversationData.conversation is null, undefined, or not an object.", window.fullConversationData);
     }
     taskInfoHTML += fullConversationDisplayHTML;
 
@@ -579,10 +605,17 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
     document.getElementById('rank_container').innerHTML = '';
     document.getElementById('safetyCheckboxesContainer').innerHTML = '';
     document.getElementById('proactivityRatingsContainer').innerHTML = '';
-    document.getElementById('feedbackForm').reset();
-    document.getElementById('safety_details').value = '';
-    document.getElementById('evaluationFormContainer').classList.add('hidden');
+    document.getElementById('feedbackForm').reset(); // Resets form fields to default
+    document.getElementById('safety_details').value = ''; // Explicitly clear textarea
 
+    // Preserve annotator ID if already entered in this session for this file
+    const annotatorIdField = document.getElementById('annotator_id');
+    if (window.sessionAnnotatorId) {
+        annotatorIdField.value = window.sessionAnnotatorId;
+    }
+
+
+    document.getElementById('evaluationFormContainer').classList.remove('hidden');
     document.getElementById('backToSelectionBtn').disabled = false;
     document.getElementById('backToSelectionBtn').onclick = showTaskSelectionScreenForCase;
 
@@ -622,7 +655,7 @@ function updateOverallProgressAndDownloadButton() {
     let completedFilesCount = 0;
     window.availableTaskFiles.forEach(fileName => {
         if (window.completedStatus[fileName] &&
-            window.completedStatus[fileName].totalTasksToDisplay > 0 && // Ensure there were tasks to display
+            window.completedStatus[fileName].totalTasksToDisplay > 0 &&
             window.completedStatus[fileName].completedDisplayedTasks.size === window.completedStatus[fileName].totalTasksToDisplay) {
             completedFilesCount++;
         }
@@ -645,7 +678,7 @@ function presentAgentInteractions() {
 
     const shuffledInternalAgentKeys = shuffleArray([...window.AGENT_INTERNAL_KEYS]);
     window.currentAgentDisplaySetup = [];
-    const displayColumnLabels = ["A", "B", "C"]; // Changed from Left, Middle, Right
+    const displayColumnLabels = ["A", "B", "C"];
 
     const agentsDisplayContainer = document.getElementById('agentsDisplayContainer');
     const rankContainer = document.getElementById('rank_container');
@@ -664,7 +697,7 @@ function presentAgentInteractions() {
 
     shuffledInternalAgentKeys.forEach((internalKey, index) => {
         const actualResponseTypeKey = window.AGENT_RESPONSE_KEYS_MAP[internalKey];
-        const displayColumnLabelText = displayColumnLabels[index]; // Agent A, B, C
+        const displayColumnLabelText = displayColumnLabels[index];
         const positionalDisplayLabelForEval = `Agent ${displayColumnLabelText}`;
 
         window.currentAgentDisplaySetup.push({
@@ -674,7 +707,6 @@ function presentAgentInteractions() {
 
         const agentColumnDiv = document.createElement('div');
         agentColumnDiv.classList.add('agent-column');
-        // Use Agent A, B, C for column headers
         agentColumnDiv.innerHTML = `<div class="agent-column-header">Agent ${displayColumnLabelText}</div><div class="conversation-area" id="conv${index + 1}"></div>`;
         agentsDisplayContainer.appendChild(agentColumnDiv);
 
@@ -684,7 +716,7 @@ function presentAgentInteractions() {
         rankItemDiv.id = `rank_item_key_${internalKey}`;
         rankItemDiv.dataset.actualAgentKey = internalKey;
         rankItemDiv.dataset.displayLabel = positionalDisplayLabelForEval;
-        rankItemDiv.innerHTML = `<span class="rank-handle">☰</span> ${positionalDisplayLabelForEval}`; // Agent A, B, C
+        rankItemDiv.innerHTML = `<span class="rank-handle">☰</span> ${positionalDisplayLabelForEval}`;
         rankContainer.appendChild(rankItemDiv);
 
         const safetyLabel = document.createElement('label');
@@ -803,7 +835,7 @@ function getDragAfterElement(container, x) {
     const draggableElements = [...container.querySelectorAll('.rank-item:not(.dragging)')];
     return draggableElements.reduce((closest, child) => {
         const box = child.getBoundingClientRect();
-        const offset = x - box.left - box.width / 2; // Corrected: box.left
+        const offset = x - box.left - box.width / 2;
         if (offset < 0 && offset > closest.offset) { return { offset: offset, element: child }; }
         else { return closest; }
     }, { offset: Number.NEGATIVE_INFINITY }).element;
@@ -818,7 +850,7 @@ function updateRankingOrderInputs() {
     document.getElementById('ranking_order_displayed_positions_input').value = displayedPositionsRanking.join(' > ');
 }
 
-async function submitFeedback() { // Made async for Firebase
+async function submitFeedback() {
     updateRankingOrderInputs();
     const actualRankingValue = document.getElementById('ranking_order_actual_keys_input').value;
     if (!actualRankingValue || actualRankingValue.split(',').length !== 3 || new Set(actualRankingValue.split(',')).size !== 3) {
@@ -836,8 +868,20 @@ async function submitFeedback() { // Made async for Firebase
         return;
     }
 
+    const annotatorIdInput = document.getElementById('annotator_id');
+    const annotatorId = annotatorIdInput.value.trim();
+    if (!annotatorId) {
+        alert("Please enter your Annotator ID.");
+        annotatorIdInput.focus();
+        return;
+    }
+    window.sessionAnnotatorId = annotatorId; // Store for the session
+
     const formData = new FormData(document.getElementById('feedbackForm'));
     let feedbackForThisTask = {
+        annotator_id: annotatorId,
+        submission_timestamp: new Date().toISOString(),
+        task_file_evaluated: window.currentTaskFileName,
         task_id_from_json: window.currentTaskData.task_id,
         task_question: window.currentTaskData.question,
         task_type: window.currentTaskData.task_type,
@@ -857,16 +901,15 @@ async function submitFeedback() { // Made async for Firebase
         full_conversation_data_snapshot: {}
     };
 
-    if (window.fullConversationData && window.fullConversationData.conversation) {
+    if (window.fullConversationData && window.fullConversationData.conversation && typeof window.fullConversationData.conversation === 'object') {
         const turnKeys = Object.keys(window.fullConversationData.conversation);
         turnKeys.forEach(turnKey => {
             const turn = window.fullConversationData.conversation[turnKey];
-             if (turn && typeof turn === 'object') { // Only include actual turn objects
+             if (turn && typeof turn === 'object') {
                 feedbackForThisTask.full_conversation_data_snapshot[turnKey] = turn;
             }
         });
     }
-
 
      window.AGENT_INTERNAL_KEYS.forEach(internalKey => {
         const agentResponseTypeKey = window.AGENT_RESPONSE_KEYS_MAP[internalKey];
@@ -881,16 +924,15 @@ async function submitFeedback() { // Made async for Firebase
     window.allFeedbackData[window.currentTaskFileName].tasksFeedback[window.currentTaskData.task_id] = feedbackForThisTask;
     window.completedStatus[window.currentTaskFileName].completedDisplayedTasks.add(window.currentTaskData.task_id);
 
-    console.log(`Feedback Submitted for Task ID ${window.currentTaskData.task_id} in ${window.currentTaskFileName}`);
+    console.log(`Feedback Submitted for Task ID ${window.currentTaskData.task_id} in ${window.currentTaskFileName} by Annotator ${annotatorId}`);
     
-    // Send to Firebase
     if (window.globalFirebase && typeof window.globalFirebase.sendFeedbackToFirebase === 'function') {
-        await window.globalFirebase.sendFeedbackToFirebase(feedbackForThisTask);
+        await window.globalFirebase.sendFeedbackToFirebase(feedbackForThisTask, annotatorId);
     } else {
         console.warn("Firebase sending function not available on window.globalFirebase");
     }
 
-    alert(`Feedback for Task ${window.currentTaskIndexInDisplayed + 1} in ${getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName))} submitted!`);
+    alert(`Feedback for Task ${window.currentTaskIndexInDisplayed + 1} in ${getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName))} submitted by ${annotatorId}!`);
     showTaskSelectionScreenForCase();
 }
 
@@ -899,10 +941,14 @@ function downloadAllFeedback() {
         alert("No feedback has been submitted yet for any task file.");
         return;
     }
+    // Ensure annotator ID is included in the download if it was set for the session
+    let annotatorForFilename = window.sessionAnnotatorId || "UNKNOWN_ANNOTATOR";
+    
     const dataToDownload = {
         evaluationMetadata: {
-            evaluationToolVersion: "1.9.1_Firebase_SelectiveTasks",
+            evaluationToolVersion: "1.9.2_Final",
             evaluationTimestamp: new Date().toISOString(),
+            annotator_id_for_this_submission_file: annotatorForFilename,
             sourceDirectoryTasks: window.TASKS_OUTPUTS_DIR,
             sourceDirectoryConversations: window.CONVERSATIONS_DIR,
             manifestFile: window.MANIFEST_FILE,
@@ -916,7 +962,7 @@ function downloadAllFeedback() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `ai_multi_case_task_evaluations_${new Date().toISOString().slice(0,10).replace(/-/g,'')}.json`;
+    a.download = `evaluations_${annotatorForFilename}_${new Date().toISOString().slice(0,16).replace(/:/g,'')}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
