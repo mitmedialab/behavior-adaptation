@@ -254,25 +254,56 @@
 
     // In the <script type="module">
 
+    // In the <script type="module">
+
     async function sendFeedbackToFirebase(feedbackData, annotatorId) {
         if (!db) {
             console.error("Firestore DB not initialized. Cannot send feedback.");
             alert("Error: Firebase is not connected. Feedback not saved online.");
             return;
         }
-        if (!window.currentTaskFileName || !feedbackData.task_id_from_json) {
-            console.error("Missing currentTaskFileName or task_id for Firebase document ID.");
+        if (!window.currentTaskFileName || !feedbackData.task_id_from_json || !annotatorId) {
+            console.error("Missing currentTaskFileName, task_id, or annotatorId for Firebase document path.");
+            alert("Error: Missing necessary information to save feedback. Annotator ID might be missing.");
             return;
         }
     
-        const docId = `${window.currentTaskFileName.replace('.json', '')}_${feedbackData.task_id_from_json}_${annotatorId}_${new Date().getTime()}`;
-        const collectionPath = "task_evaluations_prod";
+        // --- Construct path according to your existing security rules ---
+        // Extract a case identifier from currentTaskFileName.
+        // This assumes currentTaskFileName might be like "refined_CASE123_tasks_with_llm_responses.json"
+        // or your getSimplifiedCaseName can provide a consistent caseId.
+        // For simplicity, let's assume taskFileMetadata.case_id or similar is available
+        // and represents the {caseId} part of your path.
     
-        // --- NEW: Sanitize the feedbackData object ---
+        let caseIdForPath = "unknown_case"; // Default
+        if (window.taskFileMetadata && window.taskFileMetadata.case_id) {
+            // If taskFileMetadata.case_id is like "9482_task_001", extract "9482"
+            const match = String(window.taskFileMetadata.case_id).match(/^([^_]+)/);
+            if (match && match[1]) {
+                caseIdForPath = match[1];
+            } else {
+                caseIdForPath = String(window.taskFileMetadata.case_id).replace(/[^a-zA-Z0-9_-]/g, '_');
+            }
+        } else {
+            // Fallback: try to derive from filename if taskFileMetadata.case_id is not good
+            const simplifiedName = getSimplifiedCaseName(window.currentTaskFileName, 0); // 0 is just a placeholder index
+            const match = simplifiedName.match(/Case\s*(\S+)/i);
+            if (match && match[1]) {
+                caseIdForPath = match[1];
+            } else {
+                caseIdForPath = window.currentTaskFileName.replace('.json', '').replace(/[^a-zA-Z0-9_-]/g, '_');
+            }
+        }
+    
+    
+        const taskIdForPath = feedbackData.task_id_from_json;
+    
+        const collectionPath = `annotations/${annotatorId}/cases/${caseIdForPath}/tasks`;
+        const docIdForPath = taskIdForPath; // The task_id itself can be the document ID here
+    
+        // --- Sanitize the feedbackData object ---
         let sanitizedFeedbackData;
         try {
-            // This will convert the object to a JSON string and back to a plain JS object,
-            // removing any functions, undefined properties in nested objects, or custom class instances.
             sanitizedFeedbackData = JSON.parse(JSON.stringify(feedbackData));
             console.log("Sanitized feedback data for Firebase:", sanitizedFeedbackData);
         } catch (e) {
@@ -280,18 +311,14 @@
             alert("Error preparing data for Firebase. Feedback not saved. Check console.");
             return;
         }
-        // --- END NEW ---
     
-    
-        console.log(`Attempting to save to Firebase: Collection='${collectionPath}', DocID='${docId}'`);
-        // console.log("Feedback data being sent (original):", feedbackData); // Keep for debugging if needed
+        console.log(`Attempting to save to Firebase: Path='${collectionPath}/${docIdForPath}'`);
     
         try {
-            // Use the sanitized data
-            await setDoc(doc(db, collectionPath, docId), sanitizedFeedbackData);
-            console.log("Feedback successfully sent to Firebase with ID:", docId, "by Annotator:", annotatorId);
+            await setDoc(doc(db, collectionPath, docIdForPath), sanitizedFeedbackData);
+            console.log("Feedback successfully sent to Firebase at path:", `${collectionPath}/${docIdForPath}`, "by Annotator:", annotatorId);
         } catch (error) {
-            console.error("Error sending feedback to Firebase:", error); // This is where your error is likely originating
+            console.error("Error sending feedback to Firebase:", error);
             console.error("Firebase error details:", error.code, error.message);
             if (error.details) console.error("Firebase error additional details:", error.details);
             alert("Error: Could not save feedback to Firebase. Please check console. Your feedback is still available for download locally.");
