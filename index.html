@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent Interaction Evaluation (v1.9.2 - Final)</title>
+    <title>AI Agent Interaction Evaluation (v1.9.4 - PDF Link)</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
     <style>
         body {
@@ -13,64 +13,69 @@
         .main-container { max-width: 1300px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1); }
 
         /* Navigation and Progress */
-        .navigation-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #dddfe2;
-        }
-        .progress-bar-container {
-            flex-grow: 1;
-            margin: 0 20px;
-        }
-        .progress-bar {
-            width: 100%;
-            height: 20px;
-            background-color: #e9ecef;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .progress-bar-fill {
-            height: 100%;
-            width: 0%; /* Starts at 0% */
-            background-color: #1877f2;
-            border-radius: 10px;
-            transition: width 0.5s ease-in-out;
-            text-align: center;
-            color: white;
-            font-size: 0.8em;
-            line-height: 20px;
-        }
-        .nav-button {
-            padding: 8px 15px;
-            font-size: 14px;
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+        .navigation-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #dddfe2; }
+        .progress-bar-container { flex-grow: 1; margin: 0 20px; }
+        .progress-bar { width: 100%; height: 20px; background-color: #e9ecef; border-radius: 10px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; width: 0%; background-color: #1877f2; border-radius: 10px; transition: width 0.5s ease-in-out; text-align: center; color: white; font-size: 0.8em; line-height: 20px; }
+        .nav-button { padding: 8px 15px; font-size: 14px; background-color: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer; }
         .nav-button:hover { background-color: #5a6268; }
         .nav-button:disabled { background-color: #ccc; cursor: not-allowed;}
 
+        /* Screens */
         .selection-screen h2 { margin-bottom: 20px; text-align: center; color: #1877f2;}
+        .hidden { display: none; }
+
+        /* Task Information Display */
         .task-info-display { margin-bottom: 15px; padding: 15px; border: 1px solid #dddfe2; border-radius: 8px; background-color: #f7f8fa; }
-        .task-info-display h4 { margin-top: 0; color: #1c1e21; font-size: 1.1em; margin-bottom: 8px;}
-        .task-info-display h5 { margin-top: 10px; color: #4b4f56; font-size: 1em; margin-bottom: 5px;}
+        .task-info-display h4 { margin-top: 0; color: #1c1e21; font-size: 1.1em; margin-bottom: 8px; padding: 5px; background-color: #e9f5ff; border-radius: 4px;}
+        .task-info-display h5 { margin-top: 10px; color: #4b4f56; font-size: 1em; margin-bottom: 5px;} /* Used within collapsible details */
+        .task-info-display h6 { margin-top: 8px; color: #606770; font-size: 0.95em; margin-bottom: 3px;} /* Used for sub-subsections */
 
-
-        .context-display, .question-display, .conversation-turns-display {
+        .context-display, .question-display, .options-display, .conversation-turns-display, .context-hint-display {
             border: 1px dashed #007bff; padding: 10px; margin-bottom: 10px; background-color: #e9f5ff;
             max-height: 250px; overflow-y: auto; font-size: 0.9em; white-space: pre-wrap; word-break: break-word;
         }
         .question-display { font-weight: bold; background-color: #d1e7fd;}
-        .conversation-turns-display { border-color: #28a745; background-color: #e6ffed; max-height: 400px; } /* Increased max-height */
+        .options-display { background-color: #f8f9fa; border-color: #adb5bd; max-height: 300px; }
+        .context-hint-display { background-color: #fffbe6; border-color: #ffc107; } /* For context_hint */
+        .option-item { margin-bottom: 5px; padding-left: 10px; }
+        .option-item strong { margin-right: 5px; }
+        .correct-option { background-color: #d4edda; color: #155724; padding: 2px 5px; border-radius: 3px; font-weight: bold;}
+
+        .conversation-turns-display { border-color: #28a745; background-color: #e6ffed; max-height: 400px; }
         .conversation-turn { margin-bottom: 8px; padding: 5px; border-left: 3px solid #198754; background-color: #fafffc; }
         .conversation-turn strong { color: #0a58ca; }
 
+        /* Collapsible Sections */
+        .collapsible-section { margin-bottom: 15px; border: 1px solid #dddfe2; border-radius: 6px; background-color: #fdfdfd; }
+        .collapsible-header { background-color: #e9ecef; padding: 10px 15px; cursor: pointer; border-bottom: 1px solid #dddfe2; border-radius: 5px 5px 0 0; display: flex; justify-content: space-between; align-items: center; font-weight: bold; color: #495057; }
+        .collapsible-header:hover { background-color: #dde2e6; }
+        .collapsible-content { padding: 0 15px 15px 15px; display: none; border-top: none; max-height: 400px; overflow-y: auto; }
+        .collapsible-content.show { display: block; }
+        .collapsible-arrow { font-size: 0.8em; transition: transform 0.2s ease-in-out; margin-left: auto; padding-left: 10px; }
+        .collapsible-header.open .collapsible-arrow { transform: rotate(90deg); }
+        .collapsible-content .context-display { margin-top: 10px; } /* Spacing for pre tags inside collapsibles */
 
+        /* PDF Download Link */
+        .pdf-download-link {
+            display: block;
+            margin: 10px 0 15px 0;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white !important; /* Important to override default link color */
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+            max-width: 250px; /* Adjust as needed */
+        }
+        .pdf-download-link:hover {
+            background-color: #0056b3;
+        }
+
+
+        /* Agent Interaction Area */
         .situation-prompt { text-align: center; font-style: italic; color: #606770; margin-bottom: 20px; padding: 10px; background-color: #e9f5ff; border: 1px solid #cfe2ff; border-radius: 6px; }
         .agents-container { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 30px; }
         .agent-column { flex: 1; border: 1px solid #dddfe2; border-radius: 8px; padding: 15px; background-color: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.1); min-width: 0; }
@@ -79,23 +84,20 @@
         .conversation-area::-webkit-scrollbar { width: 8px; }
         .conversation-area::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 4px;}
         .conversation-area::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px;}
-
         .message { display: flex; align-items: flex-start; margin-bottom: 12px; max-width: 98%; }
         .message-bubble { padding: 10px 14px; border-radius: 18px; word-wrap: break-word; line-height: 1.4; }
         .message.agent .message-bubble { background-color: #e4e6eb; color: #050505; border-radius: 18px 18px 18px 5px; }
         .message-emoji { font-size: 18px; margin-right: 8px; margin-top: 5px; }
 
-
+        /* Evaluation Form */
         .evaluation-section { margin-top: 30px; padding: 20px; border: 1px solid #dddfe2; border-radius: 8px; background-color: #f7f8fa; }
         .evaluation-section h3 { text-align: center; color: #1877f2; margin-bottom: 20px; }
         .evaluation-question { margin-bottom: 25px; }
         .evaluation-question label.main-label { display: block; font-weight: bold; margin-bottom: 10px; color: #333; }
-        .evaluation-question input[type="text"],
-        .evaluation-question textarea { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccd0d5; box-sizing: border-box; font-size: 15px; }
+        .evaluation-question input[type="text"], .evaluation-question textarea { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccd0d5; box-sizing: border-box; font-size: 15px; }
         .evaluation-question textarea { min-height: 60px; resize: vertical; }
         .evaluation-section button.submit-feedback-btn { display: block; width: 250px; margin: 20px auto 0; padding: 12px 20px; font-size: 16px; background-color: #1877f2; color: white; border: none; border-radius: 6px; cursor: pointer; transition: background-color 0.3s; }
         .evaluation-section button.submit-feedback-btn:hover { background-color: #166fe5; }
-        .hidden { display: none; }
 
         .rank-instructions { font-size: 0.9em; color: #606770; margin-bottom: 5px; }
         .rank-container { display: flex; flex-direction: row; justify-content: space-around; align-items: center; padding: 15px; border: 1px dashed #ccd0d5; border-radius: 6px; background-color: #fff; min-height: 70px; gap: 10px; }
@@ -106,51 +108,31 @@
         .radio-group label { margin-right: 10px; font-weight: normal; cursor: pointer; font-size: 0.95em; }
         .radio-group input[type="radio"] { margin-right: 4px; cursor: pointer; vertical-align: middle; }
         .radio-options-inline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-        .form-check-inline { margin-right: 1rem; }
-        .form-check { padding-left: 0; }
+        .form-check-inline { margin-right: 1rem; } .form-check { padding-left: 0; }
 
         .proactivity-rating-item { display: flex; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
         .proactivity-rating-item strong { min-width: 180px; display: inline-block; margin-bottom: 5px; font-size: 0.95em; }
-        .proactivity-rating-item .radio-group { margin-left: 10px; } /* Corrected from margin-A */
+        .proactivity-rating-item .radio-group { margin-left: 10px; }
 
-
+        /* Selection Buttons */
         .selection-button { display: block; width: 90%; max-width: 600px; margin: 10px auto; padding: 12px 18px; font-size: 16px; background-color: #1877f2; color: white; border: none; border-radius: 6px; cursor: pointer; text-align: left; transition: background-color 0.3s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .selection-button:hover { background-color: #166fe5; }
         .selection-button.completed { background-color: #28a745; border: 2px solid #1e7e34; }
         .selection-button.completed:hover { background-color: #218838; }
 
-        .all-items-completed-message {
-            text-align: center;
-            font-size: 1.2em;
-            color: #28a745;
-            margin-top: 30px;
-            padding: 20px;
-            border: 1px solid #c3e6cb;
-            background-color: #d4edda;
-            border-radius: 6px;
-        }
-        .download-all-btn {
-            display: block;
-            width: 300px;
-            margin: 20px auto;
-            padding: 12px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+        /* Completion Messages & Utility */
+        .all-items-completed-message { text-align: center; font-size: 1.2em; color: #28a745; margin-top: 30px; padding: 20px; border: 1px solid #c3e6cb; background-color: #d4edda; border-radius: 6px; }
+        .download-all-btn { display: block; width: 300px; margin: 20px auto; padding: 12px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; }
         .download-all-btn:hover { background-color: #0056b3; }
         .text-danger { color: #dc3545 !important; }
         .text-warning { color: #ffc107 !important; }
         #firebaseStatus { font-size: 0.8em; text-align: center; margin-top: 5px; padding-bottom: 5px; }
-
     </style>
 </head>
 <body>
 
-<div class="main-container">
+    <!-- ... (rest of your HTML structure: main-container, navigation-header, firebaseStatus, screens etc.) ... -->
+    <div class="main-container">
 
     <div class="navigation-header">
         <button class="nav-button" id="backToSelectionBtn">Back</button>
@@ -177,7 +159,7 @@
 
     <div id="taskDisplayScreen" class="hidden">
         <div class="task-info-display" id="taskInfoContentGlobal">
-             <!-- Task context and question will be loaded here -->
+             <!-- Dynamically loaded task information -->
         </div>
         <div class="situation-prompt" id="situationPrompt">
             You will now see three different AI agent interactions based on the task above. The order of the Agents (A, B, C) has been randomized.
@@ -193,8 +175,8 @@
                     <input type="text" id="annotator_id" name="annotator_id" placeholder="Enter your unique ID" required>
                 </div>
                 <div class="evaluation-question">
-                    <label class="main-label" for="rank_container">Rank the three Agent response from Best to Worst by dragging them:</label>
-                    <div class="rank-instructions">Drag to order: Best    ❯    Moderate    ❯    Worst</div>
+                    <label class="main-label" for="rank_container">Rank the three Agent responses from Best to Worst by dragging them:</label>
+                    <div class="rank-instructions">Drag to order: Best   ❯   Moderate   ❯   Worst</div>
                     <div class="rank-container" id="rank_container"></div>
                     <input type="hidden" name="ranking_order_actual_keys" id="ranking_order_actual_keys_input">
                     <input type="hidden" name="ranking_order_displayed_positions" id="ranking_order_displayed_positions_input">
@@ -215,23 +197,23 @@
     <div id="allCaseFilesCompletedMessage" class="all-items-completed-message hidden" style="margin-top: 30px;"></div>
 </div>
 
+
 <script type="module">
-    // Import the functions you need from the SDKs you need
+    // Firebase SDK
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
     import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
 
-    // Your web app's Firebase configuration
+    // IMPORTANT: Replace with your actual Firebase configuration
     const firebaseConfig = {
-      apiKey: "__FIREBASE_API_KEY__", // REPLACE WITH YOUR ACTUAL API KEY
-      authDomain: "behavior-adaptation.firebaseapp.com",
-      projectId: "behavior-adaptation",
-      storageBucket: "behavior-adaptation.appspot.com",
-      messagingSenderId: "252062583138",
-      appId: "1:252062583138:web:69a0d618c676a3a8f2843b",
-      measurementId: "G-K93EMQ9EN2"
+      apiKey: "YOUR_API_KEY", // <--- REPLACE THIS
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID",
+      measurementId: "YOUR_MEASUREMENT_ID" // Optional
     };
 
-    // Initialize Firebase
     let app;
     let db;
     const firebaseStatusElement = document.getElementById('firebaseStatus');
@@ -247,14 +229,10 @@
     } catch (error) {
          console.error("Firebase initialization failed:", error);
           if (firebaseStatusElement) {
-               firebaseStatusElement.textContent = "Firebase connection failed: " + error.message;
+               firebaseStatusElement.textContent = "Firebase connection failed. See console for details.";
                firebaseStatusElement.style.color = 'red';
            }
     }
-
-    // In the <script type="module">
-
-    // In the <script type="module">
 
     async function sendFeedbackToFirebase(feedbackData, annotatorId) {
         if (!db) {
@@ -262,71 +240,26 @@
             alert("Error: Firebase is not connected. Feedback not saved online.");
             return;
         }
-        if (!window.currentTaskFileName || !feedbackData.task_id_from_json || !annotatorId) {
-            console.error("Missing currentTaskFileName, task_id, or annotatorId for Firebase document path.");
-            alert("Error: Missing necessary information to save feedback. Annotator ID might be missing.");
+        if (!window.currentTaskFileName || !feedbackData.task_id_from_json) {
+            console.error("Missing currentTaskFileName or task_id for Firebase document ID.");
             return;
         }
-    
-        // --- Construct path according to your existing security rules ---
-        // Extract a case identifier from currentTaskFileName.
-        // This assumes currentTaskFileName might be like "refined_CASE123_tasks_with_llm_responses.json"
-        // or your getSimplifiedCaseName can provide a consistent caseId.
-        // For simplicity, let's assume taskFileMetadata.case_id or similar is available
-        // and represents the {caseId} part of your path.
-    
-        let caseIdForPath = "unknown_case"; // Default
-        if (window.taskFileMetadata && window.taskFileMetadata.case_id) {
-            // If taskFileMetadata.case_id is like "9482_task_001", extract "9482"
-            const match = String(window.taskFileMetadata.case_id).match(/^([^_]+)/);
-            if (match && match[1]) {
-                caseIdForPath = match[1];
-            } else {
-                caseIdForPath = String(window.taskFileMetadata.case_id).replace(/[^a-zA-Z0-9_-]/g, '_');
-            }
-        } else {
-            // Fallback: try to derive from filename if taskFileMetadata.case_id is not good
-            const simplifiedName = getSimplifiedCaseName(window.currentTaskFileName, 0); // 0 is just a placeholder index
-            const match = simplifiedName.match(/Case\s*(\S+)/i);
-            if (match && match[1]) {
-                caseIdForPath = match[1];
-            } else {
-                caseIdForPath = window.currentTaskFileName.replace('.json', '').replace(/[^a-zA-Z0-9_-]/g, '_');
-            }
-        }
-    
-    
-        const taskIdForPath = feedbackData.task_id_from_json;
-    
-        const collectionPath = `annotations/${annotatorId}/cases/${caseIdForPath}/tasks`;
-        const docIdForPath = taskIdForPath; // The task_id itself can be the document ID here
-    
-        // --- Sanitize the feedbackData object ---
-        let sanitizedFeedbackData;
+        const docId = `${window.currentTaskFileName.replace('.json', '')}_${feedbackData.task_id_from_json}_${annotatorId}_${new Date().getTime()}`;
+        const collectionPath = "task_evaluations_prod_v2"; // Use a versioned collection if schema changes
+
         try {
-            sanitizedFeedbackData = JSON.parse(JSON.stringify(feedbackData));
-            console.log("Sanitized feedback data for Firebase:", sanitizedFeedbackData);
-        } catch (e) {
-            console.error("Error sanitizing feedback data:", e, "Original data:", feedbackData);
-            alert("Error preparing data for Firebase. Feedback not saved. Check console.");
-            return;
-        }
-    
-        console.log(`Attempting to save to Firebase: Path='${collectionPath}/${docIdForPath}'`);
-    
-        try {
-            await setDoc(doc(db, collectionPath, docIdForPath), sanitizedFeedbackData);
-            console.log("Feedback successfully sent to Firebase at path:", `${collectionPath}/${docIdForPath}`, "by Annotator:", annotatorId);
+            await setDoc(doc(db, collectionPath, docId), feedbackData);
+            console.log(`Feedback saved to Firebase: Collection='${collectionPath}', DocID='${docId}'`);
         } catch (error) {
             console.error("Error sending feedback to Firebase:", error);
-            console.error("Firebase error details:", error.code, error.message);
-            if (error.details) console.error("Firebase error additional details:", error.details);
             alert("Error: Could not save feedback to Firebase. Please check console. Your feedback is still available for download locally.");
         }
     }
 
-    // --- GLOBAL DATA (accessible to non-module script part) ---
+    // Expose Firebase function to global scope for the non-module script
     window.globalFirebase = { sendFeedbackToFirebase };
+
+    // --- Configuration & Global Data (accessible to non-module script part) ---
     window.AGENT_RESPONSE_KEYS_MAP = {
         agentA: 'Type A (Behavior SFT)',
         agentB: 'Type B (General SFT)',
@@ -335,33 +268,33 @@
     window.AGENT_INTERNAL_KEYS = ['agentA', 'agentB', 'agentC'];
     window.TASKS_OUTPUTS_DIR = "./refined_outputs/";
     window.CONVERSATIONS_DIR = "./conversations/";
+    window.PDFS_DIR = "./pdfs/"; // Added PDF directory
     window.MANIFEST_FILE = window.TASKS_OUTPUTS_DIR + "manifest.json";
 
     window.availableTaskFiles = [];
     window.currentTaskFileName = null;
     window.taskFileMetadata = {};
     window.allTasksDataFromCurrentFile = [];
-    window.displayedTasksData = [];
+    window.displayedTasksData = []; // Filtered tasks (1 proactive, 1 reactive, or all)
     window.currentTaskIndexInDisplayed = -1;
-    window.currentTaskData = null;
-    window.fullConversationData = null;
-    window.currentAgentDisplaySetup = [];
-    window.allFeedbackData = {};
-    window.completedStatus = {};
-    window.draggedItem = null;
-
+    window.currentTaskData = null; // Holds the data for the currently evaluated task
+    window.fullConversationData = null; // Holds the parsed _conversation.json
+    window.currentAgentDisplaySetup = []; // For tracking shuffled agent display
+    window.allFeedbackData = {}; // Stores all feedback for local download
+    window.completedStatus = {}; // Tracks completed tasks/files
+    window.draggedItem = null; // For drag-and-drop ranking
+    window.sessionAnnotatorId = ''; // Persists annotator ID for the session
 
     window.onload = async () => {
-        console.log("Window loaded (module script). Attempting to load manifest...");
-        await window.loadManifestAndListTaskFiles(); // Call global function
-        window.showTaskFileSelectionScreen();    // Call global function
+        console.log("Evaluation Tool v1.9.4 (PDF Link) Initializing...");
+        await window.loadManifestAndListTaskFiles();
+        window.showTaskFileSelectionScreen();
         document.getElementById('backToSelectionBtn').disabled = true;
     };
-
 </script>
 
 <script>
-// This script block contains the rest of your UI logic, now in the global scope.
+// This non-module script block contains the main UI logic.
 
 async function loadManifestAndListTaskFiles() {
     try {
@@ -369,19 +302,17 @@ async function loadManifestAndListTaskFiles() {
         if (!response.ok) throw new Error(`Manifest file not found or unreadable: ${window.MANIFEST_FILE}. Status: ${response.status}`);
         const manifestData = await response.json();
         window.availableTaskFiles = manifestData.case_files || [];
-        console.log("Manifest loaded. Available task files from refined_outputs:", window.availableTaskFiles);
         if (window.availableTaskFiles.length === 0) {
             console.warn("Manifest file loaded, but 'case_files' array is empty or missing.");
         }
     } catch (error) {
         console.error("Error loading manifest file:", error);
-        window.availableTaskFiles = [];
         alert(`Could not load the list of task files from manifest.json. Please ensure it exists at '${window.MANIFEST_FILE}' and is correctly formatted. Error: ${error.message}`);
+        window.availableTaskFiles = [];
     }
 }
 
 function showScreen(screenId) {
-    console.log("Showing screen:", screenId);
     ['caseFileSelectionScreen', 'taskSelectionScreen', 'taskDisplayScreen'].forEach(id => {
         document.getElementById(id).classList.add('hidden');
     });
@@ -389,49 +320,37 @@ function showScreen(screenId) {
 }
 
 function getSimplifiedCaseName(fileName, index) {
-    const match = fileName.match(/refined_(\d+)_tasks/i); // Case-insensitive match
-    if (match && match[1]) {
-        return `Case ${match[1]}`;
-    }
-    const genericMatch = fileName.match(/case_?(\d+)/i) || fileName.match(/(\d+)/);
-    if (genericMatch && genericMatch[1]) {
-        return `Case ${genericMatch[1]}`;
-    }
-    return `File ${index + 1}`; // Fallback
+    const match = fileName.match(/refined_(\d+)_tasks/i) || fileName.match(/case_?(\d+)/i) || fileName.match(/(\d+)/);
+    return match && match[1] ? `Case ${match[1]}` : `File ${index + 1}`;
 }
-
 
 function showTaskFileSelectionScreen() {
     showScreen('caseFileSelectionScreen');
     const container = document.getElementById('caseFileButtonsContainer');
     container.innerHTML = '';
-
     if (window.availableTaskFiles.length === 0) {
         container.innerHTML = `<p>No task files available. Check manifest.json in ${window.TASKS_OUTPUTS_DIR} or console for errors.</p>`;
         return;
     }
-
     window.availableTaskFiles.forEach((fileName, index) => {
         const button = document.createElement('button');
-        button.classList.add('selection-button');
+        button.className = 'selection-button';
         button.textContent = getSimplifiedCaseName(fileName, index);
         button.onclick = () => loadTaskFileAndAssociatedConversation(fileName);
-        if (window.completedStatus[fileName] && window.completedStatus[fileName].completedDisplayedTasks.size === window.completedStatus[fileName].totalTasksToDisplay && window.completedStatus[fileName].totalTasksToDisplay > 0) {
+        if (window.completedStatus[fileName]?.completedDisplayedTasks.size === window.completedStatus[fileName]?.totalTasksToDisplay && window.completedStatus[fileName]?.totalTasksToDisplay > 0) {
             button.classList.add('completed');
         }
         container.appendChild(button);
     });
-
     document.getElementById('backToSelectionBtn').disabled = true;
     document.getElementById('backToSelectionBtn').onclick = null;
     updateOverallProgressAndDownloadButton();
 }
 
 async function loadTaskFileAndAssociatedConversation(taskFileName) {
-    console.log("Loading task file from refined_outputs:", taskFileName);
     window.currentTaskFileName = taskFileName;
     const taskFilePath = window.TASKS_OUTPUTS_DIR + taskFileName;
-    window.fullConversationData = null;
+    window.fullConversationData = null; // Reset for new file
 
     try {
         const taskFileResponse = await fetch(taskFilePath);
@@ -440,227 +359,198 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
         window.allTasksDataFromCurrentFile = taskJsonData.tasks || [];
         window.taskFileMetadata = taskJsonData.metadata || {};
 
-        let conversationFileId = null;
-        // Prioritize filename from conversation_source_details if available
-        if (taskJsonData.metadata?.conversation_source_details?.filename) {
-            conversationFileId = taskJsonData.metadata.conversation_source_details.filename;
-        } else if (taskJsonData.metadata?.conversation_source_details?.source_file_metadata?.case_id) {
-            // Fallback to case_id from source_file_metadata to construct filename
-            conversationFileId = `${taskJsonData.metadata.conversation_source_details.source_file_metadata.case_id}_conversation.json`;
-        } else if (taskJsonData.metadata?.case_id) {
-             // Fallback to task file's own case_id (less ideal, might need adjustment)
-             const caseIdMatch = taskJsonData.metadata.case_id.match(/^([^_]+)/);
-             if (caseIdMatch && caseIdMatch[1]) {
-                conversationFileId = `${caseIdMatch[1]}_conversation.json`;
-             }
-        }
+        let conversationFileId = taskJsonData.metadata?.conversation_source_details?.filename ||
+                                 (taskJsonData.metadata?.conversation_source_details?.source_file_metadata?.case_id ? `${taskJsonData.metadata.conversation_source_details.source_file_metadata.case_id}_conversation.json` : null) ||
+                                 (taskJsonData.metadata?.case_id?.match(/^([^_]+)/)?.[1] ? `${taskJsonData.metadata.case_id.match(/^([^_]+)/)[1]}_conversation.json` : null);
 
         if (!conversationFileId && taskJsonData.metadata?.conversation_source_details?.extracted_text) {
-            try {
-                window.fullConversationData = JSON.parse(taskJsonData.metadata.conversation_source_details.extracted_text);
-                console.log("Parsed embedded conversation text from task file.");
-            } catch (parseError) {
-                console.error("Error parsing embedded conversation text:", parseError);
-            }
+            try { window.fullConversationData = JSON.parse(taskJsonData.metadata.conversation_source_details.extracted_text); }
+            catch (e) { console.error("Error parsing embedded conversation text:", e); }
         } else if (!conversationFileId) {
              console.warn("Could not determine conversation file ID from task file metadata.", taskJsonData.metadata);
         }
 
         if (conversationFileId && !window.fullConversationData) {
-            const conversationFilePath = window.CONVERSATIONS_DIR + conversationFileId;
-            console.log("Attempting to load conversation file:", conversationFilePath);
             try {
-                const conversationFileResponse = await fetch(conversationFilePath);
-                if (!conversationFileResponse.ok) {
-                    console.warn(`Conversation file not found at ${conversationFilePath}. Status: ${conversationFileResponse.status}`);
-                } else {
-                    window.fullConversationData = await conversationFileResponse.json();
-                    console.log("Successfully loaded conversation file:", conversationFileId);
-                }
-            } catch (convError) {
-                console.warn(`Error loading conversation file ${conversationFilePath}:`, convError);
-            }
+                const convResponse = await fetch(window.CONVERSATIONS_DIR + conversationFileId);
+                if (convResponse.ok) window.fullConversationData = await convResponse.json();
+                else console.warn(`Conversation file not found or unreadable: ${window.CONVERSATIONS_DIR + conversationFileId}`);
+            } catch (e) { console.warn(`Error loading conversation file ${conversationFileId}:`, e); }
         }
 
-        const proactiveTask = window.allTasksDataFromCurrentFile.find(task => task.proactive_score >= 0.6);
-        const reactiveTask = window.allTasksDataFromCurrentFile.find(task => task.proactive_score < 0.6);
+        const proactiveTask = window.allTasksDataFromCurrentFile.find(t => t.proactive_score >= 0.6);
+        const reactiveTask = window.allTasksDataFromCurrentFile.find(t => t.proactive_score < 0.6);
         window.displayedTasksData = [];
         if (proactiveTask) window.displayedTasksData.push(proactiveTask);
         if (reactiveTask && (!proactiveTask || reactiveTask.task_id !== proactiveTask.task_id)) {
             window.displayedTasksData.push(reactiveTask);
         }
-        
-        console.log("Total tasks in file:", window.allTasksDataFromCurrentFile.length);
-        console.log("Selected tasks for display (max 1 proactive, 1 reactive):", window.displayedTasksData.length, window.displayedTasksData.map(t => t.task_id));
 
-        if (!window.completedStatus[window.currentTaskFileName]) {
-            window.completedStatus[window.currentTaskFileName] = {
+        if (!window.completedStatus[taskFileName]) {
+            window.completedStatus[taskFileName] = {
                 totalTasksInFile: window.allTasksDataFromCurrentFile.length,
                 totalTasksToDisplay: window.displayedTasksData.length,
                 completedDisplayedTasks: new Set()
             };
-        } else { // If re-visiting, ensure totalTasksToDisplay is updated based on current filter
-             window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
+        } else {
+            window.completedStatus[taskFileName].totalTasksToDisplay = window.displayedTasksData.length;
         }
-
-        if (!window.allFeedbackData[window.currentTaskFileName]) {
-            window.allFeedbackData[window.currentTaskFileName] = {
+        if (!window.allFeedbackData[taskFileName]) {
+            window.allFeedbackData[taskFileName] = {
                 taskFileMetadata: { ...window.taskFileMetadata, originalTaskFileName: taskFileName },
                 tasksFeedback: {}
             };
         }
         showTaskSelectionScreenForCase();
-
     } catch (error) {
-        console.error(`Error loading task file ${taskFileName} or its associated conversation:`, error);
+        console.error(`Error loading task file ${taskFileName} or its conversation:`, error);
         alert(`Failed to load data for ${taskFileName}. Error: ${error.message}`);
-        window.allTasksDataFromCurrentFile = []; window.displayedTasksData = [];
-        window.currentTaskFileName = null; window.fullConversationData = null;
     }
 }
 
 function showTaskSelectionScreenForCase() {
     showScreen('taskSelectionScreen');
-    const simplifiedFileName = getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName));
-    document.getElementById('taskSelectionTitle').textContent = `Select a Task to Evaluate (from ${simplifiedFileName})`;
+    const simplifiedName = getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName));
+    document.getElementById('taskSelectionTitle').textContent = `Select Task (from ${simplifiedName})`;
     const container = document.getElementById('taskButtonsContainer');
     container.innerHTML = '';
 
     if (!window.displayedTasksData || window.displayedTasksData.length === 0) {
-        let message = `<p>No selected (1 proactive & 1 reactive) tasks to display for ${simplifiedFileName}.`;
-        if (window.allTasksDataFromCurrentFile.length > 0) {
-            message += ` This file contains ${window.allTasksDataFromCurrentFile.length} tasks in total. Check proactive_score values if you expected tasks here.`;
-        } else {
-            message += ` The file appears to contain no tasks.`;
-        }
-        message += `</p>`;
-        container.innerHTML = message;
-
+        let msg = `<p>No selected tasks (1 proactive & 1 reactive) for ${simplifiedName}.`;
+        msg += window.allTasksDataFromCurrentFile.length > 0 ? ` This file has ${window.allTasksDataFromCurrentFile.length} total tasks.` : ` This file has no tasks.`;
+        msg += `</p>`;
+        container.innerHTML = msg;
         if (window.allTasksDataFromCurrentFile.length > 0 && window.displayedTasksData.length < window.allTasksDataFromCurrentFile.length) {
-            const viewAllButton = document.createElement('button');
-            viewAllButton.textContent = `View All ${window.allTasksDataFromCurrentFile.length} Tasks Instead`;
-            viewAllButton.classList.add('selection-button');
-            viewAllButton.style.backgroundColor = '#ffc107';
-            viewAllButton.style.color = '#000';
-            viewAllButton.onclick = () => {
-                window.displayedTasksData = [...window.allTasksDataFromCurrentFile];
-                if(window.completedStatus[window.currentTaskFileName]) { // Update if status object exists
-                    window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
+            const btn = Object.assign(document.createElement('button'), {
+                textContent: `View All ${window.allTasksDataFromCurrentFile.length} Tasks Instead`,
+                className: 'selection-button',
+                style: 'background-color: #ffc107; color: #000;',
+                onclick: () => {
+                    window.displayedTasksData = [...window.allTasksDataFromCurrentFile];
+                    if(window.completedStatus[window.currentTaskFileName]) window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
+                    showTaskSelectionScreenForCase();
                 }
-                showTaskSelectionScreenForCase();
-            };
-            container.appendChild(viewAllButton);
+            });
+            container.appendChild(btn);
         }
-        updateProgressBarForCurrentCase(); // Update progress even if no tasks shown initially
-        document.getElementById('backToSelectionBtn').disabled = false;
-        document.getElementById('backToSelectionBtn').onclick = showTaskFileSelectionScreen;
-        return;
+    } else {
+        window.displayedTasksData.forEach((task, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'selection-button';
+            const type = task.proactive_score >= 0.6 ? "Proactive" : "Reactive";
+            btn.textContent = `Task ${index + 1} (${type}): ${task.question.substring(0,50)}... (Type: ${task.task_type})`;
+            btn.onclick = () => loadTaskEvaluation(index);
+            if (window.completedStatus[window.currentTaskFileName]?.completedDisplayedTasks.has(task.task_id)) {
+                btn.classList.add('completed');
+            }
+            container.appendChild(btn);
+        });
     }
-
-    window.displayedTasksData.forEach((task, index) => {
-        const button = document.createElement('button');
-        button.classList.add('selection-button');
-        const taskTypeDisplay = task.proactive_score >= 0.6 ? "Proactive" : "Reactive";
-        button.textContent = `Task ${index + 1} (${taskTypeDisplay}): ${task.question.substring(0, 50)}${task.question.length > 50 ? '...' : ''} (Type: ${task.task_type})`;
-        button.onclick = () => loadTaskEvaluation(index);
-        if (window.completedStatus[window.currentTaskFileName] && window.completedStatus[window.currentTaskFileName].completedDisplayedTasks.has(task.task_id)) {
-            button.classList.add('completed');
-        }
-        container.appendChild(button);
-    });
-
     document.getElementById('backToSelectionBtn').disabled = false;
     document.getElementById('backToSelectionBtn').onclick = showTaskFileSelectionScreen;
     updateProgressBarForCurrentCase();
 }
 
 function loadTaskEvaluation(indexInDisplayedTasks) {
-    console.log("Attempting to load task evaluation for displayed task index:", indexInDisplayedTasks);
-    if (indexInDisplayedTasks < 0 || indexInDisplayedTasks >= window.displayedTasksData.length) {
-        console.error("Invalid task index for display:", indexInDisplayedTasks);
-        alert("Error: Invalid task index.");
-        return;
-    }
     window.currentTaskIndexInDisplayed = indexInDisplayedTasks;
     window.currentTaskData = window.displayedTasksData[indexInDisplayedTasks];
-
     if (!window.currentTaskData) {
-        console.error("CRITICAL: currentTaskData is null or undefined for index:", indexInDisplayedTasks);
-        alert("Error: Could not load task data. `currentTaskData` is null. Check console.");
+        alert("Error: Could not load task data. `currentTaskData` is null.");
         return;
     }
-    console.log("Current task data for evaluation (task_id: " + window.currentTaskData.task_id + "):", JSON.stringify(window.currentTaskData));
-
     showScreen('taskDisplayScreen');
 
-    let taskInfoHTML = `
-        <h4>Task Context Provided to AI (File: ${window.currentTaskFileName.split('/').pop()}):</h4>
-        <div class="context-display">${window.currentTaskData.llm_input_context || "No AI context provided."}</div>
-        <h5>Context Hint for AI:</h5>
-        <div class="context-display" style="background-color: #f0f8ff;">${window.currentTaskData.context_hint || "No context hint."}</div>
-        <h4>Question Posed to AI:</h4>
-        <div class="question-display">${window.currentTaskData.question || "Question not found."}</div>
-    `;
+    let taskInfoHTML = '';
 
-    let fullConversationDisplayHTML = '';
-    if (window.fullConversationData && window.fullConversationData.conversation && typeof window.fullConversationData.conversation === 'object') {
-        fullConversationDisplayHTML += `<h4>Full Conversation Context (for Annotator Reference):</h4>`;
-        fullConversationDisplayHTML += `<div class="conversation-turns-display">`;
-        
-        const turnKeys = Object.keys(window.fullConversationData.conversation);
-        turnKeys.sort((a, b) => {
-            const numA = parseInt(a.replace('turn_', ''), 10);
-            const numB = parseInt(b.replace('turn_', ''), 10);
-            if (!isNaN(numA) && !isNaN(numB)) {
-                return numA - numB;
+    // --- START: PDF Download Link ---
+    let caseIdForPdf = null;
+    if (window.fullConversationData?.case_metadata?.case_id) {
+        caseIdForPdf = window.fullConversationData.case_metadata.case_id;
+    } else if (window.currentTaskFileName) {
+        // Fallback: try to extract from task filename (e.g., refined_10111_tasks.json -> 10111)
+        const match = window.currentTaskFileName.match(/(?:refined_)?(\d+)(?:_tasks)?/i);
+        if (match && match[1]) {
+            caseIdForPdf = match[1];
+        }
+    }
+
+    // if (caseIdForPdf) {
+    //     const pdfPath = `${window.PDFS_DIR}${caseIdForPdf}.pdf`;
+    //     taskInfoHTML += `<a href="${pdfPath}" target="_blank" class="pdf-download-link">Download Original Case</a>`;
+    // } else {
+    //     taskInfoHTML += `<p class="text-warning" style="margin-bottom:15px;">Could not determine Case ID for PDF link.</p>`;
+    // }
+    // --- END: PDF Download Link ---
+
+
+    // --- Build Task Information HTML (Continued) ---
+    taskInfoHTML += `
+        <h4>Task Context Provided to AI:</h4>
+        <div class="context-display">${window.currentTaskData.llm_input_context || "N/A"}</div>`;
+
+    if (window.currentTaskData.context_hint) {
+        taskInfoHTML += `<h4>Context Hint:</h4>
+        <div class="context-hint-display">${window.currentTaskData.context_hint}</div>`;
+    }
+
+    taskInfoHTML += `<h4>Question Posed to AI:</h4>
+        <div class="question-display">${window.currentTaskData.question || "N/A"}</div>`;
+
+    if (window.currentTaskData.options && typeof window.currentTaskData.options === 'object') {
+        taskInfoHTML += `<h4>Task Options:</h4><div class="options-display">`;
+        const correctAnswerKey = window.currentTaskData.correct_answer_key;
+        const goldStandardAnswerText = correctAnswerKey ? window.currentTaskData.options[correctAnswerKey] : (typeof window.currentTaskData.correct_answer === 'string' ? window.currentTaskData.correct_answer : null);
+
+        Object.entries(window.currentTaskData.options).forEach(([key, optionText]) => {
+            taskInfoHTML += `<div class="option-item"><strong>${key}:</strong> ${optionText}`;
+            if (goldStandardAnswerText && optionText === goldStandardAnswerText) {
+                taskInfoHTML += ` <span class="correct-option">(Correct Answer)</span>`;
             }
-            return a.localeCompare(b);
+            taskInfoHTML += `</div>`;
         });
+        taskInfoHTML += `</div>`;
+    }
+    
+    const localFormatKeyToTitle = (key) => key.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
-        if (turnKeys.length > 0) {
-            turnKeys.forEach(turnKey => {
-                const turn = window.fullConversationData.conversation[turnKey];
-                if (turn && typeof turn === 'object') {
-                    const turnNumberDisplay = turnKey.replace('turn_', '') || 'N/A';
-                    const speaker = turn.speaker || 'Unknown Speaker';
-                    const message = turn.message || 'No message content.';
-                    fullConversationDisplayHTML += `<div class="conversation-turn"><strong>${speaker} (Turn ${turnNumberDisplay}):</strong> ${message}</div>`;
-                } else if (turnKey === 'turn_5' && turn === 'turn_5') { // Specific handling for the placeholder
-                     console.warn(`Skipping display for placeholder string turnKey '${turnKey}'`);
-                } else if (turn && typeof turn !== 'object'){
-                    console.warn(`Skipping display for turnKey '${turnKey}' as its value is not a valid turn object:`, turn);
-                } else if (!turn) {
-                    console.warn(`Turn data for turnKey '${turnKey}' is null or undefined.`);
+    let caseDetailsContent = '';
+    if (window.fullConversationData) {
+        ['case_metadata', 'patient_info', 'participants'].forEach(key => {
+            if (window.fullConversationData[key]) {
+                caseDetailsContent += `<h5>${localFormatKeyToTitle(key)}:</h5><div class="context-display"><pre>${JSON.stringify(window.fullConversationData[key], null, 2)}</pre></div>`;
+            }
+        });
+        if (window.fullConversationData.clinical_data) {
+            caseDetailsContent += `<h5>Clinical Data Summary:</h5>`;
+            Object.entries(window.fullConversationData.clinical_data).forEach(([subKey, data]) => {
+                if (data && (Object.keys(data).length > 0 || (Array.isArray(data) && data.length > 0) || typeof data !== 'object')) {
+                     caseDetailsContent += `<h6>${localFormatKeyToTitle(subKey)}:</h6><div class="context-display"><pre>${JSON.stringify(data, null, 2)}</pre></div>`;
                 }
             });
-        } else {
-            fullConversationDisplayHTML += `<p class="text-warning">The 'conversation' object in the loaded data is empty or does not contain valid turns.</p>`;
         }
-        fullConversationDisplayHTML += `</div>`;
-    } else {
-        fullConversationDisplayHTML = `<h4 class="text-danger">Full Conversation Context (for Annotator Reference):</h4>
-                             <p class="text-danger">Full conversation data not loaded or the 'conversation' object within it is missing/invalid. Cannot display conversation.</p>`;
-        console.error("fullConversationData or fullConversationData.conversation is null, undefined, or not an object.", window.fullConversationData);
     }
-    taskInfoHTML += fullConversationDisplayHTML;
+    if (caseDetailsContent) {
+        taskInfoHTML += createCollapsibleSection("Full Case Details (Click to Expand/Collapse)", caseDetailsContent);
+    }
+
+    let conversationContent = '<p class="text-warning">Conversation data not available.</p>';
+    if (window.fullConversationData?.conversation && typeof window.fullConversationData.conversation === 'object') {
+        const turns = Object.entries(window.fullConversationData.conversation)
+            .sort(([keyA], [keyB]) => (parseInt(keyA.split('_')[1]) || 0) - (parseInt(keyB.split('_')[1]) || 0))
+            .map(([key, turn]) => `<div class="conversation-turn"><strong>${turn.speaker || 'N/A'} (Turn ${key.split('_')[1] || 'N/A'}):</strong> ${turn.message || ''}</div>`)
+            .join('');
+        if (turns) conversationContent = `<div class="conversation-turns-display">${turns}</div>`;
+    }
+    taskInfoHTML += createCollapsibleSection("Full Conversation Transcript (Click to Expand/Collapse)", conversationContent);
 
     document.getElementById('taskInfoContentGlobal').innerHTML = taskInfoHTML;
-    const simplifiedFileName = getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName));
-    document.getElementById('evalTaskTitle').textContent = `Task ${window.currentTaskIndexInDisplayed + 1} of ${window.displayedTasksData.length} (from ${simplifiedFileName} - Type: ${window.currentTaskData.task_type || 'N/A'})`;
-    
-    document.getElementById('agentsDisplayContainer').innerHTML = '';
-    document.getElementById('rank_container').innerHTML = '';
-    document.getElementById('safetyCheckboxesContainer').innerHTML = '';
-    document.getElementById('proactivityRatingsContainer').innerHTML = '';
-    document.getElementById('feedbackForm').reset(); // Resets form fields to default
-    document.getElementById('safety_details').value = ''; // Explicitly clear textarea
+    addCollapsibleEventListeners();
 
-    // Preserve annotator ID if already entered in this session for this file
-    const annotatorIdField = document.getElementById('annotator_id');
-    if (window.sessionAnnotatorId) {
-        annotatorIdField.value = window.sessionAnnotatorId;
-    }
-
+    document.getElementById('evalTaskTitle').textContent = `Task ${window.currentTaskIndexInDisplayed + 1} (${getSimplifiedCaseName(window.currentTaskFileName,0)} - Type: ${window.currentTaskData.task_type || 'N/A'})`;
+    ['agentsDisplayContainer', 'rank_container', 'safetyCheckboxesContainer', 'proactivityRatingsContainer'].forEach(id => document.getElementById(id).innerHTML = '');
+    document.getElementById('feedbackForm').reset();
+    document.getElementById('safety_details').value = '';
+    if (window.sessionAnnotatorId) document.getElementById('annotator_id').value = window.sessionAnnotatorId;
 
     document.getElementById('evaluationFormContainer').classList.remove('hidden');
     document.getElementById('backToSelectionBtn').disabled = false;
@@ -670,262 +560,176 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
     updateProgressBarForCurrentCase();
 }
 
+function createCollapsibleSection(title, contentHTML, initiallyOpen = false) {
+    return `
+        <div class="collapsible-section">
+            <div class="collapsible-header ${initiallyOpen ? 'open' : ''}">
+                ${title}
+                <span class="collapsible-arrow">${initiallyOpen ? '▼' : '►'}</span>
+            </div>
+            <div class="collapsible-content ${initiallyOpen ? 'show' : ''}">
+                ${contentHTML}
+            </div>
+        </div>`;
+}
+
+function addCollapsibleEventListeners() {
+    document.querySelectorAll('.collapsible-header').forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('open');
+            const content = this.nextElementSibling;
+            content.classList.toggle('show');
+            this.querySelector('.collapsible-arrow').textContent = content.classList.contains('show') ? '▼' : '►';
+        });
+    });
+}
 
 function updateProgressBarForCurrentCase() {
-    if (!window.currentTaskFileName || !window.completedStatus[window.currentTaskFileName]) {
+    const status = window.completedStatus[window.currentTaskFileName];
+    if (!status) {
         document.getElementById('progressBarFill').style.width = '0%';
         document.getElementById('progressBarFill').textContent = 'N/A';
         return;
     }
-    const { totalTasksToDisplay, completedDisplayedTasks } = window.completedStatus[window.currentTaskFileName];
+    const { totalTasksToDisplay, completedDisplayedTasks } = status;
     const percentage = totalTasksToDisplay > 0 ? (completedDisplayedTasks.size / totalTasksToDisplay) * 100 : 0;
     const progressBarFill = document.getElementById('progressBarFill');
     progressBarFill.style.width = `${percentage}%`;
-    const simplifiedFileName = getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName));
-    progressBarFill.textContent = `${Math.round(percentage)}% (${simplifiedFileName} - ${completedDisplayedTasks.size}/${totalTasksToDisplay} tasks)`;
-
-    document.getElementById('allTasksInFileCompletedMessage').textContent = `All selected tasks in ${simplifiedFileName} have been evaluated!`;
+    progressBarFill.textContent = `${Math.round(percentage)}% (${getSimplifiedCaseName(window.currentTaskFileName,0)} - ${completedDisplayedTasks.size}/${totalTasksToDisplay} tasks)`;
     document.getElementById('allTasksInFileCompletedMessage').classList.toggle('hidden', !(totalTasksToDisplay > 0 && percentage >= 100));
 }
 
 function updateOverallProgressAndDownloadButton() {
-    let totalFiles = window.availableTaskFiles.length;
+    const totalFiles = window.availableTaskFiles.length;
     if (totalFiles === 0) {
         document.getElementById('allCaseFilesCompletedMessage').classList.add('hidden');
         document.getElementById('downloadAllResultsBtn').classList.add('hidden');
-        const progressBarFill = document.getElementById('progressBarFill');
-        progressBarFill.style.width = `0%`;
-        progressBarFill.textContent = `Load Manifest`;
+        document.getElementById('progressBarFill').style.width = `0%`;
+        document.getElementById('progressBarFill').textContent = `Load Manifest`;
         return;
     }
-
-    let completedFilesCount = 0;
-    window.availableTaskFiles.forEach(fileName => {
-        if (window.completedStatus[fileName] &&
-            window.completedStatus[fileName].totalTasksToDisplay > 0 &&
-            window.completedStatus[fileName].completedDisplayedTasks.size === window.completedStatus[fileName].totalTasksToDisplay) {
-            completedFilesCount++;
-        }
-    });
-
+    const completedFilesCount = window.availableTaskFiles.filter(f => window.completedStatus[f]?.completedDisplayedTasks.size === window.completedStatus[f]?.totalTasksToDisplay && window.completedStatus[f]?.totalTasksToDisplay > 0).length;
     const allFilesDone = totalFiles > 0 && completedFilesCount === totalFiles;
     document.getElementById('allCaseFilesCompletedMessage').classList.toggle('hidden', !allFilesDone);
     document.getElementById('downloadAllResultsBtn').classList.toggle('hidden', !allFilesDone);
 
-    if (document.getElementById('caseFileSelectionScreen').classList.contains('hidden') === false) {
+    if (!document.getElementById('caseFileSelectionScreen').classList.contains('hidden')) {
         const overallPercentage = totalFiles > 0 ? (completedFilesCount / totalFiles) * 100 : 0;
-        const progressBarFill = document.getElementById('progressBarFill');
-        progressBarFill.style.width = `${overallPercentage}%`;
-        progressBarFill.textContent = `Overall: ${Math.round(overallPercentage)}% Case Files Completed`;
+        document.getElementById('progressBarFill').style.width = `${overallPercentage}%`;
+        document.getElementById('progressBarFill').textContent = `Overall: ${Math.round(overallPercentage)}% Case Files Completed`;
     }
 }
 
 function presentAgentInteractions() {
-    console.log("Presenting agent interactions. Current task ID:", window.currentTaskData ? window.currentTaskData.task_id : "N/A");
-
-    const shuffledInternalAgentKeys = shuffleArray([...window.AGENT_INTERNAL_KEYS]);
+    const shuffledKeys = shuffleArray([...window.AGENT_INTERNAL_KEYS]);
     window.currentAgentDisplaySetup = [];
-    const displayColumnLabels = ["A", "B", "C"];
+    const displayLabels = ["A", "B", "C"];
+    const containers = {
+        agents: document.getElementById('agentsDisplayContainer'),
+        rank: document.getElementById('rank_container'),
+        safety: document.getElementById('safetyCheckboxesContainer'),
+        proactivity: document.getElementById('proactivityRatingsContainer')
+    };
+    Object.values(containers).forEach(c => c.innerHTML = ''); // Clear previous
 
-    const agentsDisplayContainer = document.getElementById('agentsDisplayContainer');
-    const rankContainer = document.getElementById('rank_container');
-    const safetyCheckboxesContainer = document.getElementById('safetyCheckboxesContainer');
-    const proactivityRatingsContainer = document.getElementById('proactivityRatingsContainer');
-
-    agentsDisplayContainer.innerHTML = ''; rankContainer.innerHTML = '';
-    safetyCheckboxesContainer.innerHTML = ''; proactivityRatingsContainer.innerHTML = '';
-
-    if (!window.currentTaskData || !window.currentTaskData.llm_responses_refined) {
-        agentsDisplayContainer.innerHTML = "<p class='text-danger'>Error: Agent responses (`llm_responses_refined`) are missing for this task.</p>";
-        console.error("CRITICAL: `llm_responses_refined` is missing in `currentTaskData`:", window.currentTaskData);
-        document.getElementById('evaluationFormContainer').classList.remove('hidden');
+    if (!window.currentTaskData?.llm_responses_refined) {
+        containers.agents.innerHTML = "<p class='text-danger'>Error: Agent responses (`llm_responses_refined`) are missing for this task.</p>";
         return;
     }
 
-    shuffledInternalAgentKeys.forEach((internalKey, index) => {
-        const actualResponseTypeKey = window.AGENT_RESPONSE_KEYS_MAP[internalKey];
-        const displayColumnLabelText = displayColumnLabels[index];
-        const positionalDisplayLabelForEval = `Agent ${displayColumnLabelText}`;
+    shuffledKeys.forEach((internalKey, index) => {
+        const displayLabel = `Agent ${displayLabels[index]}`;
+        window.currentAgentDisplaySetup.push({ actualKey: internalKey, actualType: window.AGENT_RESPONSE_KEYS_MAP[internalKey], displayColumnLabel: displayLabels[index], displayColumnIndex: index + 1 });
 
-        window.currentAgentDisplaySetup.push({
-            actualKey: internalKey, actualType: actualResponseTypeKey,
-            displayColumnLabel: displayColumnLabelText, displayColumnIndex: index + 1
-        });
-
-        const agentColumnDiv = document.createElement('div');
-        agentColumnDiv.classList.add('agent-column');
-        agentColumnDiv.innerHTML = `<div class="agent-column-header">Agent ${displayColumnLabelText}</div><div class="conversation-area" id="conv${index + 1}"></div>`;
-        agentsDisplayContainer.appendChild(agentColumnDiv);
-
-        const rankItemDiv = document.createElement('div');
-        rankItemDiv.classList.add('rank-item');
-        rankItemDiv.setAttribute('draggable', 'true');
-        rankItemDiv.id = `rank_item_key_${internalKey}`;
-        rankItemDiv.dataset.actualAgentKey = internalKey;
-        rankItemDiv.dataset.displayLabel = positionalDisplayLabelForEval;
-        rankItemDiv.innerHTML = `<span class="rank-handle">☰</span> ${positionalDisplayLabelForEval}`;
-        rankContainer.appendChild(rankItemDiv);
-
-        const safetyLabel = document.createElement('label');
-        safetyLabel.classList.add('form-check-inline');
-        safetyLabel.innerHTML = `<input class="form-check-input" type="checkbox" name="safety_issue_agents_actual" value="${internalKey}"> ${positionalDisplayLabelForEval}`;
-        safetyCheckboxesContainer.appendChild(safetyLabel);
-
-        const proactivityDiv = document.createElement('div');
-        proactivityDiv.classList.add('proactivity-rating-item');
-        proactivityDiv.innerHTML = `<strong>${positionalDisplayLabelForEval}:</strong>
-            <div class="radio-group radio-options-inline" style="margin-left: 10px;">
-                <label><input type="radio" name="proactivity_${internalKey}" value="1" required> 1 (Very Inapp.)</label>
-                <label><input type="radio" name="proactivity_${internalKey}" value="2" required> 2</label>
-                <label><input type="radio" name="proactivity_${internalKey}" value="3" required> 3 (Neutral)</label>
-                <label><input type="radio" name="proactivity_${internalKey}" value="4" required> 4</label>
-                <label><input type="radio" name="proactivity_${internalKey}" value="5" required> 5 (Very Approp.)</label>
-            </div>`;
-        proactivityRatingsContainer.appendChild(proactivityDiv);
+        containers.agents.insertAdjacentHTML('beforeend', `<div class="agent-column"><div class="agent-column-header">${displayLabel}</div><div class="conversation-area" id="conv${index + 1}"></div></div>`);
+        containers.rank.insertAdjacentHTML('beforeend', `<div class="rank-item" draggable="true" id="rank_item_key_${internalKey}" data-actual-agent-key="${internalKey}" data-display-label="${displayLabel}"><span class="rank-handle">☰</span> ${displayLabel}</div>`);
+        containers.safety.insertAdjacentHTML('beforeend', `<label class="form-check-inline"><input class="form-check-input" type="checkbox" name="safety_issue_agents_actual" value="${internalKey}"> ${displayLabel}</label>`);
+        containers.proactivity.insertAdjacentHTML('beforeend', `<div class="proactivity-rating-item"><strong>${displayLabel}:</strong><div class="radio-group radio-options-inline" style="margin-left:10px;">${[1,2,3,4,5].map(v => `<label><input type="radio" name="proactivity_${internalKey}" value="${v}" required> ${v}${v===1?' (Very Inapp.)':v===3?' (Neutral)':v===5?' (Very Approp.)':''}</label>`).join('')}</div></div>`);
 
         displaySingleAgentResponseStatic(internalKey, index + 1);
     });
-
-    document.getElementById('evaluationFormContainer').classList.remove('hidden');
     setupDragAndDrop();
 }
 
 function displaySingleAgentResponseStatic(internalAgentKey, displayColumnIndex) {
     const agentResponseTypeKey = window.AGENT_RESPONSE_KEYS_MAP[internalAgentKey];
-    let responseText = `<span class="text-danger">Response not found for agent type key '${agentResponseTypeKey}' in JSON.</span>`;
-
-    if (window.currentTaskData?.llm_responses_refined?.hasOwnProperty(agentResponseTypeKey)) {
-        responseText = window.currentTaskData.llm_responses_refined[agentResponseTypeKey];
-        if (responseText === null || typeof responseText === 'undefined') {
-            responseText = `<span class="text-warning">Response for '${agentResponseTypeKey}' is null or undefined.</span>`;
-        }
-    } else {
-        console.warn(`Response for key '${agentResponseTypeKey}' (internal key '${internalAgentKey}') not found in llm_responses_refined for task ${window.currentTaskData ? window.currentTaskData.task_id : 'UNKNOWN_TASK'}.`);
+    let responseText = window.currentTaskData.llm_responses_refined?.[agentResponseTypeKey];
+    if (responseText === undefined || responseText === null) {
+        responseText = `<span class="text-warning">Response for '${agentResponseTypeKey}' is null or undefined.</span>`;
     }
 
     const convArea = document.getElementById(`conv${displayColumnIndex}`);
-    if (!convArea) {
-        console.error(`Conversation area for column ${displayColumnIndex} not found.`);
-        return;
-    }
-    convArea.innerHTML = '';
+    if (!convArea) return;
 
-    const messageContainer = document.createElement('div');
-    messageContainer.classList.add('message', 'agent');
-    const emojiSpan = document.createElement('span');
-    emojiSpan.classList.add('message-emoji');
-    emojiSpan.textContent = '🤖';
-    const bubbleDiv = document.createElement('div');
-    bubbleDiv.classList.add('message-bubble');
-
-    let formattedText = typeof responseText === 'string' ? responseText : JSON.stringify(responseText);
-    formattedText = formattedText
-        .replace(/&/g, "&")
-        .replace(/</g, "<")
-        .replace(/>/g, ">")
-        .replace(/'/g, "'");
-    formattedText = formattedText
+    let formattedText = (typeof responseText === 'string' ? responseText : JSON.stringify(responseText))
+        .replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">").replace(/'/g, "'")
         .replace(/<answer>/gi, '<strong>').replace(/<\/answer>/gi, '</strong>')
-        .replace(/<rationale>/gi, '<hr style="margin: 5px 0; border-top: 1px dashed #ccc;"><em>').replace(/<\/rationale>/gi, '</em>')
+        .replace(/<rationale>/gi, '<hr style="margin:5px 0;border-top:1px dashed #ccc;"><em>').replace(/<\/rationale>/gi, '</em>')
         .replace(/\n/g, '<br>');
-    
-    const allowedTags = /<strong>|<\/strong><em>|<\/em><hr style="[^"]*">|<br>/gi;
-    let safeHTML = "";
-    let lastIndex = 0;
-    formattedText.replace(allowedTags, (match, offset) => {
-        safeHTML += formattedText.substring(lastIndex, offset) + match;
-        lastIndex = offset + match.length;
-        return match;
-    });
-    safeHTML += formattedText.substring(lastIndex);
 
-    bubbleDiv.innerHTML = safeHTML;
-    messageContainer.appendChild(emojiSpan);
-    messageContainer.appendChild(bubbleDiv);
-    convArea.appendChild(messageContainer);
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = formattedText;
+    Array.from(tempDiv.getElementsByTagName('*')).forEach(el => {
+        if (!['STRONG', 'EM', 'HR', 'BR'].includes(el.tagName)) {
+            el.outerHTML = el.innerHTML;
+        }
+    });
+
+    convArea.innerHTML = `<div class="message agent"><span class="message-emoji">🤖</span><div class="message-bubble">${tempDiv.innerHTML}</div></div>`;
     convArea.scrollTop = convArea.scrollHeight;
 }
 
 function setupDragAndDrop() {
     const rankContainer = document.getElementById('rank_container');
     if (!rankContainer) return;
-    const rankItems = rankContainer.querySelectorAll('.rank-item');
     window.draggedItem = null;
-    rankItems.forEach(item => {
-        item.removeEventListener('dragstart', handleDragStart);
-        item.removeEventListener('dragend', handleDragEnd);
-        item.addEventListener('dragstart', handleDragStart);
-        item.addEventListener('dragend', handleDragEnd);
+    rankContainer.querySelectorAll('.rank-item').forEach(item => {
+        item.addEventListener('dragstart', e => {
+            window.draggedItem = e.target.closest('.rank-item');
+            setTimeout(() => window.draggedItem?.classList.add('dragging'), 0);
+        });
+        item.addEventListener('dragend', () => {
+            window.draggedItem?.classList.remove('dragging');
+            window.draggedItem = null;
+            updateRankingOrderInputs();
+        });
     });
-    rankContainer.removeEventListener('dragover', handleDragOver);
-    rankContainer.addEventListener('dragover', handleDragOver);
+    rankContainer.addEventListener('dragover', e => {
+        e.preventDefault();
+        if (!window.draggedItem) return;
+        const afterElement = [...rankContainer.querySelectorAll('.rank-item:not(.dragging)')]
+            .reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = e.clientX - box.left - box.width / 2;
+                return (offset < 0 && offset > closest.offset) ? { offset: offset, element: child } : closest;
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        if (afterElement == null) rankContainer.appendChild(window.draggedItem);
+        else rankContainer.insertBefore(window.draggedItem, afterElement);
+    });
 }
-function handleDragStart(e) {
-    window.draggedItem = e.target.closest('.rank-item');
-    if (!window.draggedItem) return;
-    setTimeout(() => { if(window.draggedItem) window.draggedItem.classList.add('dragging'); }, 0);
-}
-function handleDragEnd() {
-    if (window.draggedItem) { window.draggedItem.classList.remove('dragging'); }
-    window.draggedItem = null;
-    updateRankingOrderInputs();
-}
-function handleDragOver(e) {
-    e.preventDefault();
-    if (!window.draggedItem) return;
-    const rankContainer = e.currentTarget;
-    const afterElement = getDragAfterElement(rankContainer, e.clientX);
-    if (afterElement == null) { rankContainer.appendChild(window.draggedItem); }
-    else { rankContainer.insertBefore(window.draggedItem, afterElement); }
-}
-function getDragAfterElement(container, x) {
-    const draggableElements = [...container.querySelectorAll('.rank-item:not(.dragging)')];
-    return draggableElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect();
-        const offset = x - box.left - box.width / 2;
-        if (offset < 0 && offset > closest.offset) { return { offset: offset, element: child }; }
-        else { return closest; }
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
-}
+
 function updateRankingOrderInputs() {
-    const rankContainer = document.getElementById('rank_container');
-    if (!rankContainer) return;
-    const rankedItems = [...rankContainer.querySelectorAll('.rank-item')];
-    const actualAgentKeysRanking = rankedItems.map(item => item.dataset.actualAgentKey);
-    document.getElementById('ranking_order_actual_keys_input').value = actualAgentKeysRanking.join(',');
-    const displayedPositionsRanking = rankedItems.map(item => item.dataset.displayLabel);
-    document.getElementById('ranking_order_displayed_positions_input').value = displayedPositionsRanking.join(' > ');
+    const rankedItems = [...document.querySelectorAll('#rank_container .rank-item')];
+    document.getElementById('ranking_order_actual_keys_input').value = rankedItems.map(item => item.dataset.actualAgentKey).join(',');
+    document.getElementById('ranking_order_displayed_positions_input').value = rankedItems.map(item => item.dataset.displayLabel).join(' > ');
 }
 
 async function submitFeedback() {
     updateRankingOrderInputs();
-    const actualRankingValue = document.getElementById('ranking_order_actual_keys_input').value;
-    if (!actualRankingValue || actualRankingValue.split(',').length !== 3 || new Set(actualRankingValue.split(',')).size !== 3) {
-        alert("Please rank all three Agent interactions uniquely by dragging them.");
-        return;
+    if (document.getElementById('ranking_order_actual_keys_input').value.split(',').length !== 3) {
+        alert("Please rank all three Agent interactions uniquely by dragging them."); return;
     }
-    let proactivityValid = true;
-    window.AGENT_INTERNAL_KEYS.forEach(internalKey => {
-        if (!document.querySelector(`input[name="proactivity_${internalKey}"]:checked`)) {
-            proactivityValid = false;
-        }
-    });
-    if (!proactivityValid) {
-        alert("Please rate the proactivity/reactivity for all displayed agents.");
-        return;
+    if (!window.AGENT_INTERNAL_KEYS.every(key => document.querySelector(`input[name="proactivity_${key}"]:checked`))) {
+        alert("Please rate the proactivity/reactivity for all displayed agents."); return;
     }
-
-    const annotatorIdInput = document.getElementById('annotator_id');
-    const annotatorId = annotatorIdInput.value.trim();
+    const annotatorId = document.getElementById('annotator_id').value.trim();
     if (!annotatorId) {
-        alert("Please enter your Annotator ID.");
-        annotatorIdInput.focus();
-        return;
+        alert("Please enter your Annotator ID."); document.getElementById('annotator_id').focus(); return;
     }
-    window.sessionAnnotatorId = annotatorId; // Store for the session
+    window.sessionAnnotatorId = annotatorId;
 
     const formData = new FormData(document.getElementById('feedbackForm'));
-    let feedbackForThisTask = {
+    let feedback = {
         annotator_id: annotatorId,
         submission_timestamp: new Date().toISOString(),
         task_file_evaluated: window.currentTaskFileName,
@@ -934,97 +738,67 @@ async function submitFeedback() {
         task_type: window.currentTaskData.task_type,
         task_llm_input_context: window.currentTaskData.llm_input_context,
         task_context_hint: window.currentTaskData.context_hint,
-        task_complexity_level: window.currentTaskData.complexity_level,
-        task_proactive_score_target: window.currentTaskData.proactive_score,
-        task_evaluation_guide: window.currentTaskData.evaluation_guide,
-        initial_agent_display_order_info: window.currentAgentDisplaySetup.map(agent =>
-            `${agent.displayColumnLabel} (Actual Type: ${agent.actualType}, Internal Key: ${agent.actualKey})`
-        ).join('; '),
-        annotator_ranking_actual_agent_keys: actualRankingValue,
-        annotator_ranking_displayed_labels: document.getElementById('ranking_order_displayed_positions_input').value,
+        task_options_provided: window.currentTaskData.options || null,
+        task_correct_answer_as_per_json: window.currentTaskData.correct_answer || null,
+        task_correct_answer_key_as_per_json: window.currentTaskData.correct_answer_key || null,
+        initial_agent_display_order_info: window.currentAgentDisplaySetup.map(a => `${a.displayColumnLabel} (Actual: ${a.actualType}, Key: ${a.actualKey})`).join('; '),
+        annotator_ranking_actual_agent_keys: formData.get('ranking_order_actual_keys'),
+        annotator_ranking_displayed_labels: formData.get('ranking_order_displayed_positions'),
         safety_details: formData.get('safety_details'),
         safety_issue_for_internal_keys: formData.getAll('safety_issue_agents_actual'),
         agent_responses_evaluated: {},
-        full_conversation_data_snapshot: {}
+        proactivity_ratings: {},
+        full_conversation_data_snapshot: window.fullConversationData?.conversation || {}
     };
-
-    if (window.fullConversationData && window.fullConversationData.conversation && typeof window.fullConversationData.conversation === 'object') {
-        const turnKeys = Object.keys(window.fullConversationData.conversation);
-        turnKeys.forEach(turnKey => {
-            const turn = window.fullConversationData.conversation[turnKey];
-             if (turn && typeof turn === 'object') {
-                feedbackForThisTask.full_conversation_data_snapshot[turnKey] = turn;
-            }
-        });
-    }
-
-     window.AGENT_INTERNAL_KEYS.forEach(internalKey => {
-        const agentResponseTypeKey = window.AGENT_RESPONSE_KEYS_MAP[internalKey];
-        feedbackForThisTask.agent_responses_evaluated[internalKey] = (window.currentTaskData.llm_responses_refined && window.currentTaskData.llm_responses_refined[agentResponseTypeKey])
-             ? window.currentTaskData.llm_responses_refined[agentResponseTypeKey]
-             : "Response not found";
-
-        const proactivityValue = formData.get(`proactivity_${internalKey}`);
-        feedbackForThisTask[`proactivity_rating_for_${internalKey}`] = proactivityValue ? parseInt(proactivityValue) : null;
+    window.AGENT_INTERNAL_KEYS.forEach(key => {
+        feedback.agent_responses_evaluated[key] = window.currentTaskData.llm_responses_refined?.[window.AGENT_RESPONSE_KEYS_MAP[key]] || "Response not found";
+        feedback.proactivity_ratings[key] = formData.get(`proactivity_${key}`) ? parseInt(formData.get(`proactivity_${key}`)) : null;
     });
 
-    window.allFeedbackData[window.currentTaskFileName].tasksFeedback[window.currentTaskData.task_id] = feedbackForThisTask;
+    window.allFeedbackData[window.currentTaskFileName].tasksFeedback[window.currentTaskData.task_id] = feedback;
     window.completedStatus[window.currentTaskFileName].completedDisplayedTasks.add(window.currentTaskData.task_id);
 
-    console.log(`Feedback Submitted for Task ID ${window.currentTaskData.task_id} in ${window.currentTaskFileName} by Annotator ${annotatorId}`);
-    
-    if (window.globalFirebase && typeof window.globalFirebase.sendFeedbackToFirebase === 'function') {
-        await window.globalFirebase.sendFeedbackToFirebase(feedbackForThisTask, annotatorId);
+    if (window.globalFirebase?.sendFeedbackToFirebase) {
+        await window.globalFirebase.sendFeedbackToFirebase(feedback, annotatorId);
     } else {
-        console.warn("Firebase sending function not available on window.globalFirebase");
+        console.warn("Firebase sending function not available.");
     }
-
-    alert(`Feedback for Task ${window.currentTaskIndexInDisplayed + 1} in ${getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName))} submitted by ${annotatorId}!`);
+    alert(`Feedback for Task ${window.currentTaskIndexInDisplayed + 1} submitted by ${annotatorId}!`);
     showTaskSelectionScreenForCase();
 }
 
 function downloadAllFeedback() {
     if (Object.keys(window.allFeedbackData).length === 0) {
-        alert("No feedback has been submitted yet for any task file.");
-        return;
+        alert("No feedback submitted yet."); return;
     }
-    // Ensure annotator ID is included in the download if it was set for the session
-    let annotatorForFilename = window.sessionAnnotatorId || "UNKNOWN_ANNOTATOR";
-    
-    const dataToDownload = {
+    const data = {
         evaluationMetadata: {
-            evaluationToolVersion: "1.9.2_Final",
-            evaluationTimestamp: new Date().toISOString(),
-            annotator_id_for_this_submission_file: annotatorForFilename,
-            sourceDirectoryTasks: window.TASKS_OUTPUTS_DIR,
-            sourceDirectoryConversations: window.CONVERSATIONS_DIR,
-            manifestFile: window.MANIFEST_FILE,
-            evaluatedTaskFiles: Object.keys(window.allFeedbackData)
+            toolVersion: "1.9.4_PDF_Link",
+            timestamp: new Date().toISOString(),
+            annotator_id: window.sessionAnnotatorId || "UNKNOWN_ANNOTATOR",
         },
         allTaskFilesFeedback: window.allFeedbackData
     };
-
-    const jsonData = JSON.stringify(dataToDownload, null, 2);
-    const blob = new Blob([jsonData], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `evaluations_${annotatorForFilename}_${new Date().toISOString().slice(0,16).replace(/:/g,'')}.json`;
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const a = Object.assign(document.createElement('a'), {
+        href: URL.createObjectURL(blob),
+        download: `evaluations_${data.evaluationMetadata.annotator_id}_${new Date().toISOString().slice(0,16).replace(/:/g,'')}.json`
+    });
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    URL.revokeObjectURL(a.href);
 }
 
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
     return array;
 }
-// Ensure UI functions are callable after DOM is ready
-// The window.onload in the module script will call the first functions.
 </script>
 </body>
 </html>
