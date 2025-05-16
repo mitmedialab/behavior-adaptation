@@ -1,0 +1,478 @@
+{
+    "case_metadata": {
+        "case_id": "10171",
+        "title": "CASE 10171 An unmarried American cook of forty entered October 1 in coma.",
+        "source": {
+            "journal": "Massachusetts General Hospital Case Records",
+            "publication_date": "Unknown",
+            "volume": "Unknown",
+            "issue": "Unknown",
+            "pages": "Unknown",
+            "doi": "Unknown"
+        }
+    },
+    "patient_info": {
+        "age": 40,
+        "gender": "F",
+        "demographics": {
+            "ethnicity": "American",
+            "occupation": "Cook",
+            "living_arrangement": "Unmarried, lives alone (friends visit monthly)"
+        },
+        "social_history": {
+            "alcohol_use": "Good habits mentioned, implying no excessive alcohol use",
+            "tobacco_use": "Not mentioned, likely non-smoker based on 'Good habits'",
+            "substance_use": "Not mentioned",
+            "other": "Obese"
+        },
+        "medical_history": {
+            "allergies": "Not mentioned",
+            "past_medical_conditions": "No complaints until ten days before admission",
+            "medications": "Not mentioned"
+        },
+        "surgical_history": {}
+    },
+    "participants": {
+        "clinicians": {
+            "Doctor A": {
+                "specialty": "Internal Medicine/Pathology",
+                "role": "Presenter/Discussant",
+                "real_name": "Richard C. Cabot, M.D.",
+                "source_name": "Richard C. Cabot, M.D."
+            },
+            "Doctor B": {
+                "specialty": "Internal Medicine/Pathology",
+                "role": "Editor",
+                "real_name": "Hugh Cabot, M.D.",
+                "source_name": "Hugh Cabot, M.D."
+            },
+            "Doctor C": {
+                "specialty": "Pathology",
+                "role": "Anatomical Diagnosis Presenter",
+                "real_name": "Dr. Richardson",
+                "source_name": "Dr. Richardson"
+            },
+            "Doctor D": {
+                "specialty": "Unknown",
+                "role": "Physician Discussant",
+                "real_name": "A Physician",
+                "source_name": "A Physician"
+            },
+            "Doctor E": {
+                "specialty": "Unknown",
+                "role": "Physician Discussant",
+                "real_name": "Another Physician",
+                "source_name": "A Physician"
+            },
+            "Doctor F": {
+                "specialty": "Unknown",
+                "role": "Physician Discussant",
+                "real_name": "Yet Another Physician",
+                "source_name": "A Physician"
+            }
+        },
+        "others": {
+            "Caregiver A": {
+                "role": "Friend",
+                "identifier": "Friend 1"
+            },
+            "Caregiver B": {
+                "role": "Friend",
+                "identifier": "Friend 2"
+            },
+            "Patient": {
+                "role": "Patient",
+                "identifier": "Patient 1"
+            }
+        }
+    },
+    "conversation": {
+        "turn_1": {
+            "speaker": "Caregiver A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": null,
+            "timestamp": "Admission, October 1, before examination",
+            "message": "Doctor, we are friends of hers. We haven't seen her in about a month, but she was fine then.  She hasn't complained about anything until recently, as far as we know.",
+            "intention": "Providing patient history",
+            "context": "Patient admitted in coma, friends providing history",
+            "source_reference": "Page 1: 'The history was given by friends who saw her about once a month.' Page 1: 'She had had no complaints up to the time her friends last saw her, ten days before admission.'"
+        },
+        "turn_2": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Caregiver A",
+                "Caregiver B"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Admission, October 1, before examination",
+            "message": "Thank you.  Can you tell me anything about her family history or past health?",
+            "intention": "Gathering family and past medical history",
+            "context": "Taking history from patient's friends",
+            "source_reference": "Page 1: 'The history was given by friends...'"
+        },
+        "turn_3": {
+            "speaker": "Caregiver B",
+            "listeners": [
+                "Doctor A",
+                "Caregiver A"
+            ],
+            "real_name": null,
+            "timestamp": "Admission, October 1, before examination",
+            "message": "Her parents, they both died in old age, possibly from apoplexy.  No heart or kidney problems in the family that we know of. And she's always been healthy, good habits, you know.",
+            "intention": "Providing family and past medical history",
+            "context": "Patient's friends providing history",
+            "source_reference": "Page 1: 'Both parents died in old age, possibly of apoplexy. There was no heart or kidney trouble in the family. Habits. Good.'"
+        },
+        "turn_4": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor B",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Admission, October 1, during initial examination",
+            "message": "We have a 40-year-old woman, cook, admitted in coma. Friends say she was fine ten days ago. Found unconscious in her kitchen. Obese, stertorous breathing, Cheyne-Stokes at times. Pale mucous membranes, no teeth. No facial or ocular paralysis.",
+            "intention": "Presenting patient case and initial findings",
+            "context": "Initial clinical presentation and physical exam",
+            "source_reference": "Page 1: 'An unmarried American cook of forty entered October 1 in coma.' Page 1: 'After showing no signs of previous trouble she was found lying unconscious on the kitchen floor.' Page 1: 'An obese woman in coma, with stertorous breathing, at times Cheyne-Stokes. Mucous membranes pale. Teeth all gone. No evidence of facial or ocular paralysis.'"
+        },
+        "turn_5": {
+            "speaker": "Doctor B",
+            "listeners": [
+                "Doctor A",
+                "Nurse A"
+            ],
+            "real_name": "Hugh Cabot, M.D.",
+            "timestamp": "Admission, October 1, during initial examination",
+            "message": "Any abnormal movements or reflexes?",
+            "intention": "Asking about neurological examination findings",
+            "context": "Initial clinical presentation and physical exam",
+            "source_reference": "Page 1: 'P. E.'"
+        },
+        "turn_6": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor B",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Admission, October 1, during initial examination",
+            "message": "Yes, left arm raised to her head constantly. Right arm flexed and rigid, but she moves it sometimes, also her legs. Responds to pain with moans and extremity movement. Double Babinski, lively knee-jerks, equal. No clonus or Kernig. Pupils small, unreactive, left slightly larger.",
+            "intention": "Reporting neurological examination findings",
+            "context": "Neurological exam findings",
+            "source_reference": "Page 1: 'The left arm was raised constantly to her head. The right arm was flexed at the elbow and the hand at the wrist, and was held rigid ; she moved it, however, at times. She also moved her legs. When pinched or otherwise irritated she moaned and at times moved her extremities.' Page 1: 'Pupils very small, regular, left somewhat larger than right. No reactions. Reflexes. Knee-jerks lively and equal. Double Babinski. No clonus or Kernig.'"
+        },
+        "turn_7": {
+            "speaker": "Doctor B",
+            "listeners": [
+                "Doctor A",
+                "Nurse A"
+            ],
+            "real_name": "Hugh Cabot, M.D.",
+            "timestamp": "Admission, October 1, during initial examination",
+            "message": "Heart and lungs?",
+            "intention": "Asking about cardiovascular and respiratory exam",
+            "context": "Physical examination",
+            "source_reference": "Page 1: 'P. E.'"
+        },
+        "turn_8": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor B",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Admission, October 1, during initial examination",
+            "message": "Apex impulse displaced, 16 cm from midsternum. Heart sounds normal, A2 accentuated, pulses high tension, BP 240. Lungs and abdomen normal. Temp initially 96.9, now 101.5. Pulse 63-85, respirations 24-29.",
+            "intention": "Reporting cardiovascular, respiratory, and vital signs",
+            "context": "Cardiovascular and respiratory examination, vital signs",
+            "source_reference": "Page 1: 'Apex impulse of the heart indefinitely felt in the fifth space outside the nipple line, 6% inches to left of midsternum, corresponding with the dullness. Action normal. First sound at apex short and sharp. A2 a little accentuated and ringing. Pulses very high tension. B, P. 240. Nothing abnormal found in lungs or abdomen. T. 96.9\u00b0-101.5\u00b0. P. 63-85. R. 24-29.'"
+        },
+        "turn_9": {
+            "speaker": "Doctor B",
+            "listeners": [
+                "Doctor A",
+                "Nurse A"
+            ],
+            "real_name": "Hugh Cabot, M.D.",
+            "timestamp": "Admission, October 1, during initial examination",
+            "message": "Urine?",
+            "intention": "Asking about urine analysis",
+            "context": "Initial examination",
+            "source_reference": "Page 1: 'P. E.'"
+        },
+        "turn_10": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor B",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Admission, October 1, during initial examination",
+            "message": "Sp. gr. 1.014, trace albumin, strong Fehling's, no sediment.  She\u2019s continued to deepen into coma and died from respiratory failure later today.",
+            "intention": "Reporting urine analysis and patient outcome",
+            "context": "Urine analysis results and patient's clinical course",
+            "source_reference": "Page 1: 'Urine. Amount not recorded, sp. gr. 1.014, a trace of albumin, strong reaction to Fehling's; no sediment obtained on centrifugalization.' Page 1: 'The patient continued in deepening coma. The extremities became flaccid and motionless. She died from respiratory failure the day of admission.'"
+        },
+        "turn_11": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor D",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Discussion, after patient's death",
+            "message": "So, we had an obese woman, coma, stertorous and Cheyne-Stokes breathing, no teeth, no paralysis. Left arm raised, right arm flexed and rigid. Big heart, hypertension, sudden coma, normal urine except for sugar.  Cerebral hemorrhage or uremia?",
+            "intention": "Summarizing case for differential diagnosis",
+            "context": "Differential diagnosis discussion",
+            "source_reference": "Page 2: 'The essential facts here are : an obese woman in coma, sterterous breathing, Cheyne-Stokes breathing, teeth all gone, no evidence of facial or ocular paralysis. The left arm was raised constantly to the head, the right arm flexed at the elbow and the hand at the wrist, and both held rigid. She moved it however at times, also her legs.' Page 2: 'The main facts are: hypertension, big heart, sudden coma, with normal urine aside from the Fehling test...'"
+        },
+        "turn_12": {
+            "speaker": "Doctor D",
+            "listeners": [
+                "Doctor A",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "A Physician",
+            "timestamp": "Discussion, during differential diagnosis",
+            "message": "Could it be brain tumor with hemorrhage?",
+            "intention": "Suggesting brain tumor as differential diagnosis",
+            "context": "Differential diagnosis discussion",
+            "source_reference": "Page 2: 'A brain tumor might have remained wholly latent until there came a hemorrhage into its' substance, as we get so often in the gliomata; that might give all the evidence of hemorrhage with a high blood pressure as well.'"
+        },
+        "turn_13": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor D",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Discussion, during differential diagnosis",
+            "message": "Possible, but the heart enlargement argues against that and points more towards hypertension due to nephritis.  Though we can\u2019t rule out the coma itself causing the high blood pressure.",
+            "intention": "Evaluating brain tumor and nephritis in differential diagnosis",
+            "context": "Differential diagnosis discussion",
+            "source_reference": "Page 2: 'But that would not account for the enlargement of the heart, and I think we have evidence of enlargement of the heart. Therefore the blood pressure is not due to cerebral conditions, therefore it is, probably, due to nephritis. We cannot swear of course that it is not produced by the coma itself.'"
+        },
+        "turn_14": {
+            "speaker": "Doctor E",
+            "listeners": [
+                "Doctor A",
+                "Doctor D",
+                "Doctor F"
+            ],
+            "real_name": "Another Physician",
+            "timestamp": "Discussion, during differential diagnosis",
+            "message": "Is nephritis common in obese patients like this?",
+            "intention": "Questioning the association of nephritis and obesity",
+            "context": "Differential diagnosis discussion",
+            "source_reference": "Page 2: 'Isn't it unusual to have that kind of nephritis in the obese?'"
+        },
+        "turn_15": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor D",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Discussion, during differential diagnosis",
+            "message": "I think so. Hypertension is actually more common in obese people.  And sugar in urine can be from any coma, not necessarily diabetes.",
+            "intention": "Clarifying the association of nephritis, obesity, and glycosuria",
+            "context": "Differential diagnosis discussion",
+            "source_reference": "Page 2: 'I think not.' Page 2: 'Certainly hypertension is commoner in fat people than it is in thin.' Page 2: 'Any coma, so far as I know, often gives sugar in the urine. All the books on diabetes call attention to that.'"
+        },
+        "turn_16": {
+            "speaker": "Doctor C",
+            "listeners": [
+                "Doctor A",
+                "Doctor D",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "Dr. Richardson",
+            "timestamp": "Post-mortem findings discussion",
+            "message": "Autopsy showed hemorrhage in the basal ganglia, left side, and multiple hemorrhages in the pons. Cerebral arteriosclerosis. Heart was slightly dilated, 440 grams. Lungs had hemorrhages and edema. Kidneys congested. Spleen enlarged.",
+            "intention": "Presenting anatomical diagnosis findings",
+            "context": "Post-mortem findings",
+            "source_reference": "Page 3: 'Hemorrhage (spontaneous) of the brain, (basal ganglia, left). Multiple focal hemorrhages of the pons. Sclerosis of the cerebral arteries. Slight dilatation of the heart. Multiple hemorrhages of the lungs (parenchymatous). Slight edema of the lungs. Enlargement of the spleen. Acute passive congestion of the kidneys.' Page 3: 'The heart weighed 440\u00a1 grams. The kidneys showed congestion. The organs in the trunk were otherwise negative. In the head was well marked arteriosclerosis of the vessels of Willis and an extensive hemorrhage on the left, with marked hemorrhagic disintegration of the basal ganglia on that side, and multiple focal hemorrhages in the pons.'"
+        },
+        "turn_17": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor C",
+                "Doctor D",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Post-mortem findings discussion",
+            "message": "Kidneys just congested, no nephritis? Interesting.  So, essential hypertension causing hemorrhage, not kidney disease primarily.  Is 440 grams a moderate or considerable heart enlargement for her size?",
+            "intention": "Interpreting anatomical findings and questioning hypertension etiology",
+            "context": "Post-mortem findings interpretation",
+            "source_reference": "Page 3: 'There is nothing wrong in the kidneys except congestion. That seems to me very interesting, because this is one of the cases where we can say, This is Allbutt's hyperpiesia or essential hypertension which has not affected the kidneys... For her size would you say that that enlargement of the heart was moderate or considerable?'"
+        },
+        "turn_18": {
+            "speaker": "Doctor C",
+            "listeners": [
+                "Doctor A",
+                "Doctor D",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "Dr. Richardson",
+            "timestamp": "Post-mortem findings discussion",
+            "message": "Moderately enlarged, for her height of five feet seven inches and obesity.",
+            "intention": "Describing heart enlargement as moderate",
+            "context": "Post-mortem findings interpretation",
+            "source_reference": "Page 3: 'For her height, five feet seven inches, and her obesity I should say it was moderately enlarged.'"
+        },
+        "turn_19": {
+            "speaker": "Doctor F",
+            "listeners": [
+                "Doctor A",
+                "Doctor C",
+                "Doctor D",
+                "Doctor E"
+            ],
+            "real_name": "Yet Another Physician",
+            "timestamp": "Post-mortem findings discussion",
+            "message": "Was syphilis considered? Wassermann test done?",
+            "intention": "Raising question about syphilis as a cause and Wassermann test",
+            "context": "Differential diagnosis and investigations",
+            "source_reference": "Page 3: 'Was a Wassermann done in this case?'"
+        },
+        "turn_20": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor C",
+                "Doctor D",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Post-mortem findings discussion",
+            "message": "Not recorded, and probably not routine then.  But arteriosclerosis itself, we think, doesn't directly cause hypertension.",
+            "intention": "Answering about Wassermann and commenting on arteriosclerosis and hypertension",
+            "context": "Discussion on etiology of hypertension",
+            "source_reference": "Page 3: 'It is not recorded here, and I think it is usually recorded when it is done. This case was probably before Wassermanns were done as a matter of routine.' Page 3: 'That question of whether arteriosclerosis itself causes hypertension has been discussed a good deal. I think the best evidence is that it does not.'"
+        },
+        "turn_21": {
+            "speaker": "Doctor D",
+            "listeners": [
+                "Doctor A",
+                "Doctor C",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "A Physician",
+            "timestamp": "Post-mortem findings discussion",
+            "message": "Of course, the hypertension could be just from the hemorrhage itself.",
+            "intention": "Suggesting hypertension as a consequence of hemorrhage",
+            "context": "Discussion on etiology of hypertension",
+            "source_reference": "Page 3: 'Of course the hypertension could be associated with the hemorrhage.'"
+        },
+        "turn_22": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor C",
+                "Doctor D",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Post-mortem findings discussion",
+            "message": "Possibly, but then the heart enlargement is still unexplained.  We don't know diastolic pressure, but likely high.  So, essential hypertension leading to cerebral hemorrhage, in the absence of kidney disease.",
+            "intention": "Concluding diagnosis based on findings",
+            "context": "Final diagnostic conclusion",
+            "source_reference": "Page 3: 'Perfectly, all of it. But then we should not have accounted for the heart. We do not know the diastolic blood-pressure. I have no doubt it was high.'"
+        }
+    },
+    "clinical_data": {
+        "presentation": {
+            "chief_complaint": "Coma",
+            "history_of_present_illness": "Found unconscious on kitchen floor, no prior complaints for at least ten days.",
+            "physical_exam": "Obese woman in coma, stertorous and Cheyne-Stokes breathing, pale mucous membranes, no teeth, no facial or ocular paralysis. Left arm raised to head, right arm flexed and rigid. Moves limbs to pain. Apex impulse displaced, heart sounds normal, A2 accentuated, pulses high tension, BP 240. Lungs and abdomen normal. Pupils small, unreactive, left larger. Double Babinski, lively knee-jerks.",
+            "vital_signs": {
+                "initial": {
+                    "temperature": "96.9-101.5\u00b0F",
+                    "pulse": "63-85 bpm",
+                    "blood_pressure": "240 mmHg (systolic, diastolic not recorded)",
+                    "respiratory_rate": "24-29 breaths/min"
+                }
+            }
+        },
+        "diagnostics": {
+            "laboratory_data": [
+                {
+                    "test": "Urine specific gravity",
+                    "value": "1.014",
+                    "units": "sp. gr.",
+                    "reference_range": "Not specified"
+                },
+                {
+                    "test": "Urine albumin",
+                    "value": "Trace",
+                    "units": "Qualitative",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Urine glucose",
+                    "value": "Strong positive",
+                    "units": "Fehling's reaction",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Urine sediment",
+                    "value": "No sediment",
+                    "units": "Microscopic",
+                    "reference_range": "None"
+                }
+            ]
+        },
+        "procedures": [],
+        "timeline_events": [
+            {
+                "time": "Ten days before admission",
+                "event": "Last seen by friends, patient was well with no complaints."
+            },
+            {
+                "time": "Day of admission, October 1",
+                "event": "Patient found unconscious on kitchen floor."
+            },
+            {
+                "time": "Day of admission, October 1",
+                "event": "Patient admitted to Massachusetts General Hospital in coma."
+            },
+            {
+                "time": "Day of admission, October 1",
+                "event": "Patient's condition worsens, extremities become flaccid."
+            },
+            {
+                "time": "Day of admission, October 1",
+                "event": "Patient dies from respiratory failure."
+            },
+            {
+                "time": "Post-mortem",
+                "event": "Anatomical diagnosis performed."
+            },
+            {
+                "time": "After post-mortem",
+                "event": "Discussion of clinical and anatomical findings."
+            }
+        ],
+        "final_diagnoses": [
+            "Clinical Diagnosis: Cerebral hemorrhage, Chronic nephritis.",
+            "Dr. Richard C. Cabot's Diagnosis: Chronic nephritis, Hypertrophy and dilatation of the heart, Cerebral hemorrhage.",
+            "Anatomical Diagnosis: Hemorrhage of the brain (basal ganglia, left), Multiple focal hemorrhages of the pons, Sclerosis of the cerebral arteries, Slight dilatation of the heart, Multiple hemorrhages of the lungs, Slight edema of the lungs, Enlargement of the spleen, Acute passive congestion of the kidneys, Historical Landmarks: Hydrosalpinx, Corpus hemorrhagicum (unruptured), Obesity."
+        ]
+    },
+    "setting": "Inpatient Clinic",
+    "case_id": "NEJM192404241901710",
+    "original_case_number": "NEJM192404241901710",
+    "final_diagnosis": "N/A"
+}

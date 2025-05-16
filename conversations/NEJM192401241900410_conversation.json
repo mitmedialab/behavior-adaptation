@@ -1,0 +1,482 @@
+{
+    "case_metadata": {
+        "case_id": "10042",
+        "title": "Case 10042: Cardiac Failure in a Young Woman",
+        "source": {
+            "journal": "Medical Text",
+            "publication_date": "Unknown",
+            "volume": "Unknown",
+            "issue": "Unknown",
+            "pages": "Unknown",
+            "doi": "Unknown"
+        }
+    },
+    "patient_info": {
+        "age": 17,
+        "gender": "F",
+        "demographics": {
+            "ethnicity": "Austrian",
+            "occupation": "Seamstress",
+            "living_arrangement": "Unknown"
+        },
+        "social_history": {
+            "alcohol_use": "Not recorded",
+            "tobacco_use": "Not recorded",
+            "substance_use": "Not recorded",
+            "other": "Nationality may have been a communication barrier"
+        },
+        "medical_history": {
+            "allergies": "Not recorded",
+            "past_medical_conditions": "None explicitly mentioned",
+            "medications": "None reported"
+        },
+        "surgical_history": {
+            "None": "mentioned"
+        }
+    },
+    "participants": {
+        "clinicians": {
+            "Doctor A": {
+                "specialty": "Internal Medicine/General Practice",
+                "role": "Admitting Doctor"
+            },
+            "Nurse A": {
+                "specialty": "Nursing",
+                "role": "Floor Nurse"
+            },
+            "Doctor B": {
+                "specialty": "Internal Medicine/Cardiology",
+                "role": "Consulting Doctor (Dr. Cabot - derived from text)"
+            },
+            "Doctor C": {
+                "specialty": "Pathology",
+                "role": "Pathologist (Dr. Richardson - derived from text)"
+            }
+        },
+        "others": {
+            "Patient": {
+                "role": "Patient"
+            }
+        }
+    },
+    "conversation": {
+        "turn_1": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th",
+            "message": "Hello, welcome to the hospital. I'm Nurse [Nurse A's Name]. Can you tell me your name and date of birth, please?",
+            "intention": "Patient registration and initial greeting.",
+            "context": "Patient entering the hospital.",
+            "source_reference": "Medical Text: 'An Austrian seamstress of seventeen entered November 19.'"
+        },
+        "turn_2": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - immediately after Nurse A's greeting",
+            "message": "[Patient speaks with a slight accent] My name is [Patient's Name]. I am seventeen years old.",
+            "intention": "Providing personal details.",
+            "context": "Responding to nurse's registration questions.",
+            "source_reference": "Medical Text: 'An Austrian seamstress of seventeen...'"
+        },
+        "turn_3": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - immediately after Patient's response",
+            "message": "Thank you. What brought you in today? I understand you haven't been feeling well.",
+            "intention": "Gathering chief complaint.",
+            "context": "Initial assessment during admission.",
+            "source_reference": "Medical Text: 'She was well until three weeks ago, when her legs and arms began to swell.'"
+        },
+        "turn_4": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - shortly after Nurse A's question",
+            "message": "Yes, for about three weeks my legs and arms have been swelling.  And for the last day or so, I have a cough and trouble breathing.",
+            "intention": "Explaining chief complaints: swelling and respiratory symptoms.",
+            "context": "Patient describing symptoms at admission.",
+            "source_reference": "Medical Text: 'She was well until three weeks ago, when her legs and arms began to swell. ... Then she began to have cough with sputum and dyspnea.'"
+        },
+        "turn_5": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - during physical examination",
+            "message": "Hello [Patient's Name], I'm Dr. [Doctor A's Name]. Let's take a listen to your lungs.  You mentioned cough and breathing difficulty?",
+            "intention": "Introducing self and beginning physical examination, focusing on respiratory symptoms.",
+            "context": "Starting physical exam.",
+            "source_reference": "Medical Text: 'P. E. A well-developed girl with extreme brawny edema of the legs and arms, rapid, grunting and labored respiration, cough...'"
+        },
+        "turn_6": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - during physical examination, after listening to lungs",
+            "message": "Your breathing is quite labored and rapid. I hear a lot of fluid in your lungs.  And there's significant swelling in your arms and legs, as we can see. Your face looks swollen too.",
+            "intention": "Describing physical exam findings: respiratory distress, pulmonary edema, general edema.",
+            "context": "Physical exam findings.",
+            "source_reference": "Medical Text: 'rapid, grunting and labored respiration... bright pinkish-red frothy sputum... Face pale, cyanotic and swollen. Hands very cyanotic. Lungs. Dullness at both bases behind... Very moist bubbling r\u00e2les... Extreme brawny edema of the lower extremities and arms.'"
+        },
+        "turn_7": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - after initial physical exam",
+            "message": "Nurse, please get a set of vital signs, including temperature, pulse, respirations, and blood pressure. And let's get a urine sample for analysis and blood work drawn right away.  Stat.",
+            "intention": "Ordering initial investigations: vital signs, urinalysis, blood work.",
+            "context": "Immediate next steps after initial assessment.",
+            "source_reference": "Medical Text: 'T. 99.8\u00b0. P. 140. R. 36. Urine. Sp. gr. 1.014. Albumin %%> a few red blood cells and leucocytes, many hyalin, granular and cellular casts. Blood. Hgb. 80%. Leucocytes 27,000; polynuclear leucocytosis.'"
+        },
+        "turn_8": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - shortly after Doctor A's orders",
+            "message": "Doctor, vital signs are in: Temperature 99.8\u00b0F, pulse 140, respirations 36.  Urine and blood samples sent to the lab.",
+            "intention": "Reporting initial vital signs.",
+            "context": "Reporting back to the doctor.",
+            "source_reference": "Medical Text: 'T. 99.8\u00b0. P. 140. R. 36.'"
+        },
+        "turn_9": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - after receiving vital signs",
+            "message": "[To Patient]  [Patient's Name], your pulse is very fast and your breathing is rapid. We need to help you breathe easier. We're going to do a procedure called venesection to remove some blood to try and relieve some of the fluid overload. It might make you feel a bit better.",
+            "intention": "Explaining and preparing for venesection.",
+            "context": "Initiating treatment.",
+            "source_reference": "Medical Text: 'Pulses very rapid, of greatly increased tension (180-200, estimated without instrument). ... Venesection was immediately done...'"
+        },
+        "turn_10": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - during venesection",
+            "message": "Let's remove ten ounces of blood, Nurse.",
+            "intention": "Directing venesection procedure.",
+            "context": "Performing venesection.",
+            "source_reference": "Medical Text: 'Venesection was immediately done and ten ounces of blood removed...'"
+        },
+        "turn_11": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - after venesection",
+            "message": "Ten ounces removed, Doctor. Patient seems a little less distressed, and the lung sounds are slightly clearer now.",
+            "intention": "Reporting outcome of venesection.",
+            "context": "Post-venesection assessment.",
+            "source_reference": "Medical Text: 'ten ounces of blood removed with considerable temporary relief. The r\u00e2les cleared up to a large extent for a time.'"
+        },
+        "turn_12": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - after temporary relief from venesection",
+            "message": "Good, some temporary relief. But she's still very restless.  Let's give her a sixth of a grain of morphine to help her rest and calm down.",
+            "intention": "Prescribing morphine for restlessness.",
+            "context": "Managing patient restlessness.",
+            "source_reference": "Medical Text: 'The patient was so restless that a sixth of a grain of morphia was given.'"
+        },
+        "turn_13": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - after morphine administration, shortly after",
+            "message": "Doctor, her breathing has become very slow and shallow after the morphine. She's also becoming unresponsive.",
+            "intention": "Reporting adverse reaction to morphine - respiratory depression and unconsciousness.",
+            "context": "Patient deteriorating after morphine.",
+            "source_reference": "Medical Text: 'After this the respirations became very slow, of the air-hunger type, and she was unconscious.'"
+        },
+        "turn_14": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - immediately after Nurse A's report of deterioration",
+            "message": "Quick, get strophanthin ready for intravenous injection.  Point zero zero zero five milligrams, stat!",
+            "intention": "Ordering strophanthin to counter cardiac issue.",
+            "context": "Attempting to reverse deterioration.",
+            "source_reference": "Medical Text: '.0005 strophanthin was given intravenously without effect.'"
+        },
+        "turn_15": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - after strophanthin administration",
+            "message": "Strophanthin given, Doctor.  But there's no response. She is still unresponsive and her breathing is very shallow.",
+            "intention": "Reporting no effect of strophanthin and continued deterioration.",
+            "context": "Strophanthin ineffective.",
+            "source_reference": "Medical Text: '.0005 strophanthin was given intravenously without effect.'"
+        },
+        "turn_16": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - shortly before midnight",
+            "message": "Doctor, I'm losing a pulse... she's stopped breathing...",
+            "intention": "Reporting cardiac arrest and respiratory arrest.",
+            "context": "Patient experiencing cardiac and respiratory arrest.",
+            "source_reference": "Medical Text: 'Soon after midnight she died.'"
+        },
+        "turn_17": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - midnight",
+            "message": "Start chest compressions and call for resuscitation team!  Let's get the crash cart here now!",
+            "intention": "Initiating resuscitation efforts.",
+            "context": "Cardiac arrest management.",
+            "source_reference": "Implied from the context of sudden death and standard medical response in such situations. While not explicitly stated, resuscitation attempts are the standard of care."
+        },
+        "turn_18": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A",
+                "Resuscitation Team"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - during resuscitation attempt",
+            "message": "Continue compressions, check rhythm, administer epinephrine!  Are we getting any response?",
+            "intention": "Directing resuscitation efforts - CPR and ACLS protocols.",
+            "context": "Continuing resuscitation.",
+            "source_reference": "Implied from the context of cardiac arrest and standard ACLS protocols.  While not explicitly stated, these are standard procedures in cardiac arrest."
+        },
+        "turn_19": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A",
+                "Resuscitation Team"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - after resuscitation attempt",
+            "message": "No pulse, no respirations, pupils are fixed and dilated.  No response after several rounds of epinephrine and compressions, Doctor.",
+            "intention": "Reporting unsuccessful resuscitation.",
+            "context": "Resuscitation efforts failed.",
+            "source_reference": "Medical Text: 'Soon after midnight she died.' - Implies unsuccessful resuscitation."
+        },
+        "turn_20": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A",
+                "Resuscitation Team"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Admission - November 19th - after confirming unsuccessful resuscitation",
+            "message": "Time of death, midnight [or shortly after midnight].  Let's note the time and circumstances.",
+            "intention": "Pronouncing death and documenting time of death.",
+            "context": "Patient death.",
+            "source_reference": "Medical Text: 'Soon after midnight she died.'"
+        },
+        "turn_21": {
+            "speaker": "Doctor B",
+            "listeners": [],
+            "real_name": "Richard C. Cabot",
+            "timestamp": "Epicrisis - After Necropsy",
+            "message": "Now and then in a young or middle-aged woman we see a case like this\u2014cardiac failure without an identifiable cardiac lesion in life, but showing fibrous myocarditis at necropsy. My guess is that it was the thrombi and their results rather than the myocarditis that produced most of the physical signs here.",
+            "intention": "Providing expert opinion and summarizing case findings (Epicrisis).",
+            "context": "Post-mortem analysis and clinical summary.",
+            "source_reference": "Medical Text: 'EPICRISIS (DR. CABOT) ... My guess is that it was the thrombi and their results rather than the myocarditis that produced most of the physical signs here.'"
+        },
+        "turn_22": {
+            "speaker": "Doctor C",
+            "listeners": [],
+            "real_name": "Dr. Richardson",
+            "timestamp": "Anatomical Diagnosis - Post Necropsy",
+            "message": "The anatomical findings are consistent with subacute glomerulonephritis, hypertrophy and dilatation of the heart, and chronic passive congestion. We also found hydropericardium, hydrothorax, slight ascites, and edema of the lower extremities.  Kidneys showed congested glomeruli and a reduced cortex. The heart showed slight hypertrophy and dilatation.  Culture from heart blood yielded streptococci.",
+            "intention": "Reporting anatomical diagnosis based on necropsy findings.",
+            "context": "Pathology report after necropsy.",
+            "source_reference": "Medical Text: 'ANATOMICAL DIAGNOSIS 1. Primary fatal lesion Subacute glomerulonephritis. # 2. Secondary Or Terminal Lesions Hypertrophy and dilatation of the heart. Chronic passive congestion, general. Hydropericardium. Hydrothorax. Slight ascites. Edema of the lower extremities... The combined weight of the kidneys was 250 grams... The section surfaces showed congestion and the glomeruli generally were very prominent... The heart weighed 280 grams, slight hypertrophy. The cavities showed moderate dilatation... The culture from the heart blood yielded streptococci.'"
+        }
+    },
+    "clinical_data": {
+        "presentation": {
+            "chief_complaint": "Swelling of legs and arms, cough, and dyspnea.",
+            "history_of_present_illness": "Patient was well until three weeks prior to admission when legs and arms began to swell. Cough and dyspnea started the day before admission.",
+            "physical_exam": "Well-developed girl with extreme brawny edema of legs and arms, rapid, grunting, labored respiration, cough with pinkish-red frothy sputum, cyanotic and swollen face and hands, dullness at lung bases, moist bubbling r\u00e2les, rapid heart rate, enlarged liver, increased pulse tension.",
+            "vital_signs": {
+                "initial": {
+                    "temperature": "99.8\u00b0F",
+                    "pulse": "140 bpm",
+                    "respiratory_rate": "36 breaths/min",
+                    "blood_pressure": "Estimated very high tension (not instrument recorded)",
+                    "oxygen_saturation": "Not recorded",
+                    "weight": "Not recorded"
+                },
+                "subsequent": {
+                    "temperature": "Not recorded",
+                    "pulse": "180-200 bpm (estimated)",
+                    "respiratory_rate": "Slow, air-hunger type after morphine",
+                    "blood_pressure": "Not recorded",
+                    "oxygen_saturation": "Not recorded",
+                    "weight": "Not recorded"
+                }
+            }
+        },
+        "diagnostics": {
+            "laboratory_data": [
+                {
+                    "test": "Urine Specific Gravity",
+                    "value": "1.014",
+                    "units": "Sp. gr.",
+                    "reference_range": "Not available"
+                },
+                {
+                    "test": "Urine Albumin",
+                    "value": "%%>",
+                    "units": "Qualitative",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Urine Red Blood Cells",
+                    "value": "Few",
+                    "units": "Cells",
+                    "reference_range": "None"
+                },
+                {
+                    "test": "Urine Leucocytes",
+                    "value": "Few",
+                    "units": "Cells",
+                    "reference_range": "None"
+                },
+                {
+                    "test": "Urine Casts",
+                    "value": "Many hyalin, granular and cellular",
+                    "units": "Casts",
+                    "reference_range": "None/Few hyaline"
+                },
+                {
+                    "test": "Blood Hemoglobin",
+                    "value": "80%",
+                    "units": "%",
+                    "reference_range": "Normal range varies"
+                },
+                {
+                    "test": "White Blood Cell Count",
+                    "value": "27,000",
+                    "units": "/mm\u00b3",
+                    "reference_range": "4,500-11,000/mm\u00b3"
+                },
+                {
+                    "test": "Differential",
+                    "value": "Polynuclear leucocytosis",
+                    "units": "Qualitative",
+                    "reference_range": "Normal differential"
+                },
+                {
+                    "test": "Heart Blood Culture",
+                    "value": "Streptococci",
+                    "units": "Organisms",
+                    "reference_range": "Negative"
+                }
+            ],
+            "imaging": []
+        },
+        "procedures": [
+            {
+                "procedure": "Venesection",
+                "description": "Removal of 10 ounces of blood.",
+                "time": "Immediately after admission"
+            },
+            {
+                "procedure": "Morphine Administration",
+                "description": "Sixth of a grain of morphine given.",
+                "time": "After venesection for restlessness"
+            },
+            {
+                "procedure": "Strophanthin Administration",
+                "description": ".0005 strophanthin given intravenously.",
+                "time": "After morphine induced respiratory depression and unconsciousness"
+            },
+            {
+                "procedure": "Resuscitation Efforts",
+                "description": "CPR and ACLS likely attempted (though not explicitly detailed).",
+                "time": "After cardiac arrest"
+            }
+        ],
+        "timeline_events": [
+            {
+                "time": "3 weeks prior to admission",
+                "event": "Onset of leg and arm swelling."
+            },
+            {
+                "time": "1 day prior to admission",
+                "event": "Onset of cough with sputum and dyspnea."
+            },
+            {
+                "time": "November 19th",
+                "event": "Admission to hospital."
+            },
+            {
+                "time": "Shortly after admission",
+                "event": "Venesection performed with temporary relief."
+            },
+            {
+                "time": "Shortly after venesection",
+                "event": "Morphine administered for restlessness."
+            },
+            {
+                "time": "Shortly after morphine",
+                "event": "Respiratory depression, unconsciousness, strophanthin administered."
+            },
+            {
+                "time": "Shortly after midnight",
+                "event": "Patient death."
+            },
+            {
+                "time": "Post-mortem",
+                "event": "Necropsy performed, anatomical diagnosis made."
+            }
+        ],
+        "final_diagnoses": [
+            "Subacute glomerulonephritis (Anatomical & Dr. Cabot's Diagnosis)",
+            "Hypertrophy and dilatation of the heart (Anatomical & Dr. Cabot's Diagnosis)",
+            "Chronic passive congestion, general (Anatomical & Dr. Cabot's Diagnosis)",
+            "Acute nephritis (Clinical Diagnosis - Hospital Record)",
+            "Acute pulmonary edema (Clinical Diagnosis - Hospital Record)",
+            "General passive congestion (Clinical Diagnosis - Hospital Record)",
+            "Fibrous myocarditis (Necropsy finding - Dr. Cabot's interpretation)"
+        ]
+    },
+    "case_id": "NEJM192401241900410",
+    "original_case_number": "NEJM192401241900410",
+    "final_diagnosis": "N/A"
+}

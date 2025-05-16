@@ -1,0 +1,546 @@
+{
+    "case_metadata": {
+        "case_id": "10071",
+        "title": "Case 10071",
+        "source": {
+            "journal": "Massachusetts General Hospital Case Records",
+            "publication_date": "Unknown",
+            "volume": "Unknown",
+            "issue": "Unknown",
+            "pages": "Unknown",
+            "doi": "Unknown"
+        }
+    },
+    "patient_info": {
+        "age": 55,
+        "gender": "M",
+        "demographics": {
+            "ethnicity": "American",
+            "occupation": "Formerly a dancing master",
+            "living_arrangement": "Unknown"
+        },
+        "social_history": {
+            "alcohol_use": "Occasionally drinks",
+            "tobacco_use": "Heavy smoker",
+            "substance_use": "None mentioned",
+            "other": "Eats meals at restaurants at irregular hours"
+        },
+        "medical_history": {
+            "allergies": "None mentioned",
+            "past_medical_conditions": "Bronchopneumonia 7 years prior, influenza 10 months prior, possible earaches in childhood",
+            "medications": "Quinine, whiskey and hot lemonade for influenza symptoms"
+        },
+        "surgical_history": {}
+    },
+    "participants": {
+        "clinicians": {
+            "Doctor A": {
+                "specialty": "General Medicine/Pathology",
+                "role": "Clinician",
+                "real_name": "Richard C. Cabot, M.D. (Source: Edited By)"
+            },
+            "Doctor B": {
+                "specialty": "General Medicine/Pathology",
+                "role": "Clinician",
+                "real_name": "Hugh Cabot, M.D. (Source: Edited By)"
+            },
+            "Doctor C": {
+                "specialty": "Assistant Editor",
+                "role": "Assistant Editor",
+                "real_name": "F. M. Painter (Source: Assistant Editor)"
+            },
+            "Doctor D": {
+                "specialty": "Internal Medicine",
+                "role": "Physician (mentioned in discussion)"
+            },
+            "Doctor E": {
+                "specialty": "Radiology",
+                "role": "Radiologist",
+                "real_name": "Dr. Merrill (Source: Discussion section)"
+            },
+            "Doctor F": {
+                "specialty": "Pathology",
+                "role": "Pathologist",
+                "real_name": "Dr. Richardson (Source: Anatomical Diagnosis section)"
+            },
+            "Interne A": {
+                "specialty": "General Medicine",
+                "role": "Interne (mentioned in discussion)"
+            },
+            "Nurse A": {
+                "specialty": "Nursing",
+                "role": "Nurse"
+            }
+        },
+        "others": {
+            "Patient": {
+                "role": "Patient"
+            }
+        }
+    },
+    "conversation": {
+        "turn_1": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Nurse A",
+            "timestamp": "November 9, Upon Admission",
+            "message": "Good morning, sir. Welcome to Massachusetts General Hospital. I am Nurse A. What brought you in today?",
+            "intention": "Greeting and initial assessment of chief complaint.",
+            "context": "Patient entering hospital.",
+            "source_reference": "Page 1: 'An American of fifty-five, formerly a dancing master, entered November 9 complaining of a feeling of general failure and weakness.'"
+        },
+        "turn_2": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Patient",
+            "timestamp": "November 9, Upon Admission, immediately after Nurse A's greeting",
+            "message": "I've just been feeling generally weak and like a failure for a while now.",
+            "intention": "Stating chief complaints.",
+            "context": "Responding to nurse's question upon admission.",
+            "source_reference": "Page 1: 'complaining of a feeling of general failure and weakness.'"
+        },
+        "turn_3": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "November 9, Initial Examination, shortly after admission",
+            "message": "Hello, I'm Dr. Cabot.  Can you tell me more about this weakness you've been feeling? How long has it been going on?",
+            "intention": "Gathering history of present illness.",
+            "context": "Starting patient examination.",
+            "source_reference": "Page 1: 'entered November 9 complaining of a feeling of general failure and weakness.'"
+        },
+        "turn_4": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A",
+                "Nurse A"
+            ],
+            "real_name": "Patient",
+            "timestamp": "November 9, Initial Examination, immediately after Doctor A's question",
+            "message": "Well, it's been getting worse for about ten months, I'd say. Started with what I thought was the flu, then this cough just wouldn't go away. And then, about six months ago, this strange fluttering and awful pain started in my chest, near my... xiphoid thingy. It\u2019s been on and off since then.",
+            "intention": "Describing symptom timeline and nature of chest pain and cough.",
+            "context": "Answering doctor's question about symptom duration.",
+            "source_reference": "Page 1: 'From this time he was symptom-free until ten months ago, when he had an attack of influenza...Six months ago he weighed 183 pounds, his usual weight. Then in less than a month a 'fluttering' sensation suddenly developed in the region of the xiphoid...'"
+        },
+        "turn_5": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "November 9, Initial Examination, after patient describes chest symptoms",
+            "message": "This chest pain, can you describe it more? What does it feel like?",
+            "intention": "Clarifying the nature of chest pain.",
+            "context": "Further probing into patient's symptoms.",
+            "source_reference": "Page 1: 'sharply limited and associated with excruciating 'contracting, griping, tearing' pain.'"
+        },
+        "turn_6": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A",
+                "Nurse A"
+            ],
+            "real_name": "Patient",
+            "timestamp": "November 9, Initial Examination, immediately after Doctor A's question about chest pain",
+            "message": "It's like... contracting, griping, tearing. Just awful.  And it comes and goes, but it's been pretty constant lately. Makes me cough more, and I\u2019ve lost my appetite, and I\u2019m constipated. Oh, and my spit is brownish sometimes.",
+            "intention": "Detailing chest pain characteristics and associated symptoms.",
+            "context": "Describing pain sensation and related symptoms.",
+            "source_reference": "Page 1: 'excruciating 'contracting, griping, tearing' pain. This remained more or less constant with remissions and relapses associated with increase of the cough, loss of appetite and constipation. At this time and later he noticed that the sputum was brownish...'"
+        },
+        "turn_7": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "November 9, Initial Examination, after patient describes sputum and appetite loss",
+            "message": "Brownish sputum... and you mentioned cough. How long have you had this cough?",
+            "intention": "Focusing on cough and sputum characteristics and duration.",
+            "context": "Investigating respiratory symptoms.",
+            "source_reference": "Page 1: 'cough persisted with small amounts of sputum... he noticed that the sputum was brownish...'"
+        },
+        "turn_8": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A",
+                "Nurse A"
+            ],
+            "real_name": "Patient",
+            "timestamp": "November 9, Initial Examination, responding to Doctor A's question about cough duration",
+            "message": "Well, the cough started after that flu ten months ago. It cleared up mostly, but a little cough stuck around, even when I felt better.  It's gotten worse again recently, though, with this chest stuff.",
+            "intention": "Explaining cough timeline in relation to influenza.",
+            "context": "Clarifying cough history.",
+            "source_reference": "Page 1: 'Although the attack cleared up quickly and he felt perfectly well the cough persisted with small amounts of sputum...Six weeks ago he again began to lose weight, to feel weak, and to have increasing dyspnea and persistent slight cough.'"
+        },
+        "turn_9": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "November 9, Initial Examination, after patient mentions previous physician visit",
+            "message": "You mentioned seeing a doctor before? What did they say and do?",
+            "intention": "Gathering information about prior medical care.",
+            "context": "Exploring previous diagnoses and treatments.",
+            "source_reference": "Page 1: 'Five months ago he went to a physician, who made a diagnosis of pleurisy...'"
+        },
+        "turn_10": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A",
+                "Nurse A"
+            ],
+            "real_name": "Patient",
+            "timestamp": "November 9, Initial Examination, responding to Doctor A's question about previous doctor's visit",
+            "message": "Yeah, about five months ago. He said it was pleurisy. He put me to bed and drained fluid from my chest twice. Three quarts the first time, then a quart a week later. It helped a lot at first, but then it came back.",
+            "intention": "Describing previous diagnosis and treatment for pleurisy.",
+            "context": "Explaining past medical interventions.",
+            "source_reference": "Page 1: 'Five months ago he went to a physician, who made a diagnosis of pleurisy, put him to bed, and withdrew three quarts of clear yellowish fluid from his chest with great relief...At a second tap a quart of fluid similar to the first was withdrawn, with great relief.'"
+        },
+        "turn_11": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "November 9, Physical Examination, after history taking",
+            "message": "Alright, let's have a listen to your chest now. Just breathe normally.",
+            "intention": "Initiating physical examination - lung auscultation.",
+            "context": "Proceeding to physical exam.",
+            "source_reference": "Page 2: 'Lung signs as shown in the diagram.'"
+        },
+        "turn_12": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "November 9, Physical Examination, after lung auscultation",
+            "message": "(To Nurse A, whispering) Note the flattened right back of the chest and the lung signs as indicated here [referring to diagram]. Also, check for reflexes and Kernig's and Brudzinski's signs.",
+            "intention": "Directing nurse for specific examination findings.",
+            "context": "Documenting physical exam findings.",
+            "source_reference": "Page 2: 'Chest flattened in the right back. Lung signs as shown in the diagram...Suggestion of Kernig and definite Brudzinsky.'"
+        },
+        "turn_13": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Nurse A",
+            "timestamp": "November 9, Physical Examination, after performing reflex and meningeal sign checks.",
+            "message": "Doctor, reflexes are present, and there is a suggestion of Kernig and a definite Brudzinski sign.",
+            "intention": "Reporting neurological exam findings.",
+            "context": "Communicating physical exam results to the doctor.",
+            "source_reference": "Page 2: 'Suggestion of Kernig and definite Brudzinsky.'"
+        },
+        "turn_14": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "November 9, Physical Examination, after neurological exam.",
+            "message": "We're going to do a few tests, including a chest X-ray and a spinal tap, to get a better idea of what's going on. We'll also get some blood and urine samples.",
+            "intention": "Informing patient about diagnostic tests.",
+            "context": "Explaining plan for further investigation.",
+            "source_reference": "Page 2: 'Urine. Normal amount...Blood...Sputum...Chest tap...Lumbar punctures...X-ray.'"
+        },
+        "turn_15": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "November 9, after initial tests, reviewing lumbar puncture results",
+            "message": "Lumbar puncture fluid is clear, colorless, normal hydrodynamics, only 3 cells, protein 100, sugar 0.047, negative for alcohol, globulin, Wassermann and gold. Not much to see here initially.",
+            "intention": "Interpreting initial lumbar puncture results.",
+            "context": "Reviewing diagnostic findings.",
+            "source_reference": "Page 2: 'Lumbar punctures. November 9. 10 cc. of clear colorless fluid. No pellicle formed. Hydrodynamics normal. Rapid rise and fall...3 cells. Total protein 100. Sugar 0.047. November 9.'"
+        },
+        "turn_16": {
+            "speaker": "Doctor E",
+            "listeners": [
+                "Doctor A",
+                "Doctor D"
+            ],
+            "real_name": "Dr. Merrill",
+            "timestamp": "Around November 12-18, during X-ray review meeting",
+            "message": "Doctor Cabot, take a look at this chest X-ray. Notice the diaphragm is higher on the left.  There's extensive fine mottling throughout both lung fields, especially around the left hilus and mid-chest. It looks miliary.",
+            "intention": "Presenting and interpreting chest X-ray findings.",
+            "context": "Radiology consultation and review of imaging.",
+            "source_reference": "Page 3: 'Dr. Merrill: The first thing noticed is the inequality in the height of the diaphragm...The lungs show, as we see here, extensive fine mottling of both sides...'"
+        },
+        "turn_17": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor E",
+                "Doctor D"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Around November 12-18, during X-ray review meeting, after Dr. Merrill's interpretation",
+            "message": "Miliary... tuberculosis or a septic process, then?  Interesting, this plate really changes things.",
+            "intention": "Considering differential diagnoses based on X-ray findings.",
+            "context": "Formulating differential diagnosis based on radiology.",
+            "source_reference": "Page 4: 'So I should think from the picture that the two most probable conditions which would give this appearance would be miliary tuberculosis or a septic process...It turns my ideas right around.'"
+        },
+        "turn_18": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor D"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Around November 18, after second lumbar puncture",
+            "message": "The second lumbar puncture on the 18th shows 250 cells, mostly large mononuclears, high protein at 211, and positive for alcohol and ammonium sulphate.  This is more suggestive of meningitis now.",
+            "intention": "Interpreting second lumbar puncture results.",
+            "context": "Reviewing follow-up diagnostic findings.",
+            "source_reference": "Page 2: 'Lumbar punctures. November 18. 25 cc of slightly opalescent colorless fluid...250 cells, large mononuclears (large cells with pseudopodic processes) 60%, lymphocytes 39%, polynuclears 1%...Total protein 211...Alcohol and ammonium sulphate strongly positive.'"
+        },
+        "turn_19": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor D",
+                "Doctor E",
+                "Interne A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Around November 20-22, during discussion with colleagues",
+            "message": "So, putting it all together - miliary lung findings on X-ray, now meningeal irritation and changes in the spinal fluid...  It really points to miliary tuberculosis, doesn't it?",
+            "intention": "Synthesizing clinical and diagnostic findings to reach a diagnosis.",
+            "context": "Differential diagnosis and clinical reasoning.",
+            "source_reference": "Page 4: 'Differential Diagnosis...We have evidence pointing to two groups of lesions, in the lungs and in the spinal cord...I know of but one type of meningitis that links itself up with pulmonary symptoms, and that is tuberculous...leaning very heavily, as I do, on this x-ray plate, I do not see how we can make any diagnosis save miliary tuberculosis.'"
+        },
+        "turn_20": {
+            "speaker": "Doctor D",
+            "listeners": [
+                "Doctor A",
+                "Doctor E",
+                "Interne A"
+            ],
+            "real_name": "Doctor D",
+            "timestamp": "Around November 20-22, during discussion with colleagues, responding to Dr. Cabot",
+            "message": "Yes, miliary tuberculosis seems most likely. The history of 'influenza' ten months ago could have been the start of it, even though the lung lesions don't look chronic.",
+            "intention": "Supporting miliary tuberculosis diagnosis and considering symptom timeline.",
+            "context": "Agreeing with the primary diagnosis.",
+            "source_reference": "Page 4: 'Looking back I suppose we may say his 'influenza' attack of ten months ago was probably connected with his tuberculosis and that he has had it ever since...Yet if we say that, it is hard to say why there are not more chronic lesions in the lung.'"
+        },
+        "turn_21": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Nurse A",
+            "timestamp": "November 22, Reporting patient's worsening condition",
+            "message": "Doctor, the patient is much worse today. He seems irrational, isn't responding properly, and his breathing is very labored \u2013 Cheyne-Stokes respiration.",
+            "intention": "Reporting deterioration in patient's condition.",
+            "context": "Patient's clinical decline.",
+            "source_reference": "Page 2: 'November 22 he was much worse, with Cheyne-Stokes respiration.'"
+        },
+        "turn_22": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "November 22, after Nurse A reports worsening condition",
+            "message": "Pupils not reacting to light, bilateral Kernig, Oppenheim and Gordon signs... This is consistent with advancing meningitis and neurological decline. Continue comfort measures.",
+            "intention": "Assessing neurological status and confirming poor prognosis.",
+            "context": "Neurological assessment in deteriorating patient.",
+            "source_reference": "Page 2: 'The pupils did not react to light. There was definite bilateral Kernig, Oppenheim and Gordon...He became delirious.'"
+        },
+        "turn_23": {
+            "speaker": "Nurse A",
+            "listeners": [],
+            "real_name": "Nurse A",
+            "timestamp": "November 23, Reporting patient's death",
+            "message": "Doctor, the patient passed away this morning.",
+            "intention": "Reporting patient's death.",
+            "context": "Patient's demise.",
+            "source_reference": "Page 2: 'The following day he died.'"
+        },
+        "turn_24": {
+            "speaker": "Doctor F",
+            "listeners": [
+                "Doctor A",
+                "Doctor D",
+                "Doctor E"
+            ],
+            "real_name": "Dr. Richardson",
+            "timestamp": "Post-mortem discussion",
+            "message": "The autopsy confirms miliary tuberculosis, affecting the lungs, liver, spleen, and kidneys, and tuberculous meningitis. We also found a chronic TB focus at the apex of the right lung.",
+            "intention": "Presenting anatomical diagnosis.",
+            "context": "Post-mortem conference and results.",
+            "source_reference": "Page 5: 'Dr. Richardson : The tuberculosis in this case manifested itself as tuberculous meningitis and miliary tuberculosis of the lungs, liver, spleen, and rather well marked in the kidneys...There was a focus of tuberculosis in one of the bronchial glands and an area of chronic tuberculosis in the apical region of the right lung.'"
+        },
+        "turn_25": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor D",
+                "Doctor E",
+                "Doctor F"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Post-mortem discussion, after Dr. Richardson's report",
+            "message": "So, our clinical diagnosis was correct. Miliary tuberculosis and tuberculous meningitis. The X-ray and spinal fluid findings were key in pointing us in the right direction, despite my initial cardiac misinterpretation.",
+            "intention": "Reflecting on the clinical diagnostic process and accuracy.",
+            "context": "Concluding remarks on the case.",
+            "source_reference": "Page 4: 'CLINICAL DIAGNOSIS (FROM HOSPITAL RECORD) Miliary tuberculosis. Tuberculous meningitis...DR. RICHARD C. CABOT's DIAGNOSIS Miliary tuberculosis of the lungs, brain, spinal cord, liver, spleen, kidneys. Tuberculous meningitis...ANATOMICAL DIAGNOSIS 1. Primary fatal lesions Chronic tuberculosis of the apex of the right lung. Miliary tuberculosis of the lungs, liver, spleen and kidneys. Tuberculous meningitis.'"
+        }
+    },
+    "clinical_data": {
+        "presentation": {
+            "chief_complaint": "Feeling of general failure and weakness",
+            "history_of_present_illness": "10 months of progressive symptoms starting with influenza-like illness, persistent cough, chest fluttering and pain, loss of appetite, constipation, dyspnea, weight loss, and neurological symptoms towards the end.",
+            "physical_exam": "Emaciated elderly man, dyspneic, orthopneic, weak, cachectic, dull chest pain on sudden movement, stiff neck, bad teeth, pyorrhea, red throat, flattened right back chest, abnormal lung sounds, abdominal tenderness and spasm in right upper quadrant, enlarged liver, coarse tremor of hands and tongue, Kernig and Brudzinski signs, hemorrhoids.",
+            "vital_signs": {
+                "initial": {
+                    "blood_pressure": "140/90",
+                    "pulse": "Variable, 18-40",
+                    "respiratory_rate": "18-40"
+                },
+                "subsequent": {}
+            }
+        },
+        "diagnostics": {
+            "laboratory_data": [
+                {
+                    "test": "Urine",
+                    "value": "Sp. gr. 1.022-1.026, cloudy at times, occasional leucocytes, 5-10 RBCs/HPF",
+                    "units": "Sp. gr., cells/HPF",
+                    "reference_range": "Normal amount"
+                },
+                {
+                    "test": "Blood Hgb",
+                    "value": "80%",
+                    "units": "%",
+                    "reference_range": "Normal range unknown for context"
+                },
+                {
+                    "test": "Leucocytes",
+                    "value": "8,000-18,600",
+                    "units": "/mm3",
+                    "reference_range": "Normal range unknown for context"
+                },
+                {
+                    "test": "Polynuclears",
+                    "value": "71%",
+                    "units": "%",
+                    "reference_range": "Normal range unknown for context"
+                },
+                {
+                    "test": "Platelets",
+                    "value": "Greatly increased",
+                    "units": "Qualitative",
+                    "reference_range": "Normal range unknown for context"
+                },
+                {
+                    "test": "CSF (Nov 9)",
+                    "value": "Clear, colorless, 3 cells, Total protein 100 mg/dL, Sugar 0.047 g/dL",
+                    "units": "cells, mg/dL, g/dL",
+                    "reference_range": "Normal hydrodynamics, negative for Alcohol, globulin, Wassermann, gold solution"
+                },
+                {
+                    "test": "CSF (Nov 18)",
+                    "value": "Slightly opalescent, 250 cells (60% large mononuclears, 39% lymphocytes, 1% polynuclears), Total protein 211 mg/dL, Sugar 0.0295 g/dL",
+                    "units": "cells, mg/dL, g/dL",
+                    "reference_range": "Normal hydrodynamics, positive for Alcohol and ammonium sulphate, negative Wassermann, gold solution, no TB found"
+                }
+            ],
+            "imaging": [
+                {
+                    "modality": "Chest X-ray",
+                    "description": "Diaphragm high on both sides, higher on the left, irregular outline, fine mottled dullness throughout both lung fields, most marked around left hilus and midchest, no evidence of old TB at apex.",
+                    "figures": [
+                        "Image 1",
+                        "Image 2"
+                    ]
+                }
+            ]
+        },
+        "procedures": [
+            {
+                "procedure": "Chest tap",
+                "description": "Attempted in eighth right interspace below scapula and midaxillary line, yielded bloody fluid (2cc, not from cavity) in first attempt, no fluid in second.",
+                "time": "November 9"
+            },
+            {
+                "procedure": "Lumbar puncture",
+                "description": "Two lumbar punctures performed.",
+                "time": "November 9 and November 18"
+            },
+            {
+                "procedure": "Rectal taps",
+                "description": "5% glucose \u00a7 vi every six hours.",
+                "time": "November 12"
+            }
+        ],
+        "timeline_events": [
+            {
+                "time": "7 years before admission",
+                "event": "Bronchopneumonia"
+            },
+            {
+                "time": "10 months before admission",
+                "event": "Influenza-like illness with persistent cough"
+            },
+            {
+                "time": "6 months before admission",
+                "event": "Fluttering sensation and chest pain, change in sputum color, dyspnea, constipation, loss of appetite, peculiar food cravings"
+            },
+            {
+                "time": "5 months before admission",
+                "event": "Physician visit, diagnosis of pleurisy, two chest taps with fluid removal"
+            },
+            {
+                "time": "6 weeks before admission",
+                "event": "Weight loss, weakness, increasing dyspnea, persistent cough"
+            },
+            {
+                "time": "1 week before admission",
+                "event": "Bedridden, drowsiness, excessive sleep, feeling cold"
+            },
+            {
+                "time": "November 9",
+                "event": "Admission to hospital, initial examination, chest tap, lumbar puncture"
+            },
+            {
+                "time": "November 10-12",
+                "event": "Aspirin and Veronal orders, rectal glucose taps"
+            },
+            {
+                "time": "November 18",
+                "event": "Second lumbar puncture, patient much worse, irrational, pupils non-reactive, Kernig, Oppenheim, Gordon signs"
+            },
+            {
+                "time": "November 22",
+                "event": "Cheyne-Stokes respiration, further deterioration"
+            },
+            {
+                "time": "November 23",
+                "event": "Death"
+            }
+        ],
+        "final_diagnoses": [
+            "Miliary tuberculosis",
+            "Tuberculous meningitis",
+            "Chronic tuberculosis of the apex of the right lung (Anatomical)",
+            "Miliary tuberculosis of the lungs, liver, spleen and kidneys (Anatomical)",
+            "Tuberculous meningitis (Anatomical)"
+        ]
+    },
+    "setting": "Inpatient Clinic",
+    "case_id": "NEJM192402141900714",
+    "original_case_number": "NEJM192402141900714",
+    "final_diagnosis": "N/A"
+}

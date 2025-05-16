@@ -1,0 +1,693 @@
+{
+    "case_metadata": {
+        "case_id": "10181",
+        "title": "Case 10181",
+        "source": {
+            "journal": "Massachusetts General Hospital Case Records",
+            "publication_date": "Unknown",
+            "volume": "Unknown",
+            "issue": "Unknown",
+            "pages": "Unknown",
+            "doi": "Unknown"
+        }
+    },
+    "patient_info": {
+        "age": 46,
+        "gender": "M",
+        "demographics": {
+            "ethnicity": "American",
+            "occupation": "Shoe cutter",
+            "living_arrangement": "Unknown"
+        },
+        "social_history": {
+            "alcohol_use": "Not mentioned",
+            "tobacco_use": "Not mentioned",
+            "substance_use": "Not mentioned",
+            "other": "Patient thought he was rather nervous."
+        },
+        "medical_history": {
+            "allergies": "None known",
+            "past_medical_conditions": "Minor diseases of childhood, abscess in rectum lanced a year ago.",
+            "medications": "Licorice powder (given by physician for bowels)"
+        },
+        "surgical_history": {
+            "rectal_abscess_lanced": "A year ago, by a physician without ether."
+        }
+    },
+    "participants": {
+        "clinicians": {
+            "Doctor A": {
+                "specialty": "Internal Medicine/Pulmonology",
+                "role": "Attending Physician",
+                "real_name": "Richard C. Cabot, M.D."
+            },
+            "Doctor B": {
+                "specialty": "Neurology",
+                "role": "Consultant",
+                "real_name": "James B. Ayer"
+            },
+            "Doctor C": {
+                "specialty": "Pathology",
+                "role": "Pathologist",
+                "real_name": "Dr. Richardson"
+            },
+            "Doctor D": {
+                "specialty": "General Practice",
+                "role": "Referring Physician",
+                "real_name": "Unknown"
+            },
+            "Nurse A": {
+                "specialty": "Nursing",
+                "role": "Floor Nurse"
+            },
+            "Nurse B": {
+                "specialty": "Nursing",
+                "role": "Floor Nurse"
+            }
+        },
+        "others": {
+            "Patient": {
+                "role": "Patient",
+                "real_name": "Unknown (American shoe cutter)"
+            }
+        }
+    },
+    "conversation": {
+        "turn_1": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Day of Admission, February 2, Morning",
+            "message": "Good morning, sir. Welcome to Massachusetts General Hospital. I'm Nurse A. What brought you in today?",
+            "intention": "Greeting and initial patient intake.",
+            "context": "Patient admitted to the hospital.",
+            "source_reference": "Page 1: '# Massachusetts Generalhospital'"
+        },
+        "turn_2": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Day of Admission, February 2, Morning, immediately after Nurse greeting",
+            "message": "I'm feeling really weak and I've got this pain in my chest, right here in my lower back ribs on the right side.",
+            "intention": "Describing chief complaints.",
+            "context": "Patient reporting symptoms at admission.",
+            "source_reference": "Page 1: 'An American shoe cutter of forty-six entered February 2 complaining of prostration and pain in the chest in the region of the lower four ribs in the right back.'"
+        },
+        "turn_3": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Day of Admission, February 2, Morning, after patient describes symptoms",
+            "message": "Okay, pain in the chest and prostration. Can you tell me a bit about your health history? Any known medical conditions or surgeries?",
+            "intention": "Gathering past medical and surgical history.",
+            "context": "Initial patient assessment.",
+            "source_reference": "Page 1: 'F. H. Unimportant as far as known. P. H. He had always had good health.'"
+        },
+        "turn_4": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Day of Admission, February 2, Morning, immediately after Nurse's question",
+            "message": "Well, as far as I know, family history is unimportant.  I\u2019ve always been healthy, really. Had the usual childhood illnesses, I think. About a year ago, I had an abscess in my rectum that was lanced. And just before this started, a dentist drilled a tooth because it was painful and full of pus.",
+            "intention": "Providing past medical and surgical history.",
+            "context": "Patient recalling medical history.",
+            "source_reference": "Page 1: 'F. H. Unimportant as far as known. P. H. He had always had good health. He thought he had had all the minor diseases of childhood. A year ago an abscess in the rectum was lanced by a physician without ether. Two days before the onset of the present illness a dentist drilled a hole in a painful tooth to let out pus.'"
+        },
+        "turn_5": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Day of Admission, February 2, Morning, after patient describes past history",
+            "message": "Alright, and what about this current illness? When did it start and what symptoms have you been experiencing?",
+            "intention": "Inquiring about the present illness.",
+            "context": "Gathering history of present illness.",
+            "source_reference": "Page 1: 'P. I. Six days ago he had malaise and \"a feeling of congestion in his bronchi\"'"
+        },
+        "turn_6": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Day of Admission, February 2, Morning, immediately after Nurse's question",
+            "message": "It started about six days ago. Just felt unwell, kind of congested in my chest, like a cold, but no cough then.  Then my hands got sore. Then I threw up and had a chill. Next day, pain under my right shoulder blade, started coughing up thick white stuff. Doctor gave me some powder, made my pee red. Cough got worse, rusty sputum, pain moved to my side when I move.  Haven't eaten much, just milk, and the doctor gave me something for my bowels. Been peeing like crazy, every hour.  And it's hard to breathe now, especially this morning.",
+            "intention": "Describing the history of present illness.",
+            "context": "Patient detailing symptom progression.",
+            "source_reference": "Page 1: 'P. I. Six days ago he had malaise and \"a feeling of congestion in his bronchi\"... Two days later his hands were lame and sore... That evening he vomited and had a chill... The next morning he had pain under his right shoulder blade and began to cough and raise small amounts of thick white sputum... A physician gave him some brick colored powder which the patient thought made his urine red the next morning... It had been high colored ever since... January 31 and February 1 the cough became worse and he had rusty sputum... The pain under the right shoulder blade persisted until the morning of February 1, when it stopped... Since then he had had pain in the right costovertebral region only when he moved about in bed... He had taken nothing but an occasional glass of milk for four days... His bowels had been kept open by \"licorice powder\" given by his physician. For fortyeight hours he had urinated about once an hour... He had had some difficulty in breathing. The morning of admission his prostration was increased.'"
+        },
+        "turn_7": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Day of Admission, February 2, Morning, after patient describes illness",
+            "message": "Okay, I understand. Let's get you settled in. Doctor will be here shortly to examine you. Please lie flat on your back for now.",
+            "intention": "Concluding initial intake and preparing for physician examination.",
+            "context": "Preparing patient for physical examination.",
+            "source_reference": "Page 1: 'A thin, ptotic man lying flat on his back, breathing rather rapidly.'"
+        },
+        "turn_8": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Day of Admission, February 2, Morning, shortly after Nurse A",
+            "message": "Good morning, I'm Dr. Cabot. I understand you've been having chest pain and feeling unwell.  Nurse A has given me a brief history. Let\u2019s take a listen to your lungs. You mentioned pain in your right back?",
+            "intention": "Introducing self and initiating physical examination.",
+            "context": "Starting physician assessment.",
+            "source_reference": "Page 1: 'EDITED BY Richard C. Cabot, M.D., and Hugh Cabot, M.D... An American shoe cutter of forty-six entered February 2 complaining of prostration and pain in the chest in the region of the lower four ribs in the right back.'"
+        },
+        "turn_9": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Day of Admission, February 2, Morning, during physical exam",
+            "message": "(After examining the chest) Your breathing is quite rapid, and it seems your left chest expands more than the right.  Hmm, left side and front of the chest are clear. But on the right back... dullness, bronchial breathing sounds, increased vocal and tactile fremitus, and whispered voice is very clear.  And some r\u00e2les... mostly on the right back.  Heart sounds seem okay, P2 louder than A2, no murmurs. Abdomen... slight spasm in the right upper part. Liver edge palpable. ",
+            "intention": "Describing physical examination findings.",
+            "context": "Reporting lung and abdominal examination results.",
+            "source_reference": "Page 1: 'P. E. A thin, ptotic man lying flat on his back, breathing rather rapidly. Chest expansion much greater on the left. Lungs. Entire front chest and left back clear. Dullness, loud bronchial breathing, increased vocal and tactile fremitus, much increased whispered voice, and rare consonating r\u00e2les throughout the right back. Apex impulse of the heart not found. No enlargement to percussion. P2 greater than A2. No murmurs. Abdomen. Slight spasm in the right upper quadrant. Liver dullness from the sixth rib; edge felt below the costal margin.'"
+        },
+        "turn_10": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Day of Admission, February 2, Morning, after physical exam",
+            "message": "Rectal exam showed some external hemorrhoids, but otherwise, genitals, extremities, pupils, and reflexes seem normal.  We'll need to run some tests - urine, blood, and sputum. Nurse, please order these.",
+            "intention": "Concluding physical exam and ordering initial investigations.",
+            "context": "Planning diagnostic workup.",
+            "source_reference": "Page 1: 'Rectal examination. Small external hemorrhoids. Genitals, extremities, pupils and reflexes normal... Urine. Normal amount... Blood. Hgb. 80%, leucocytes 28,000-10,000, polynuclears 89%-96%, platelets markedly increased... Sputum.'"
+        },
+        "turn_11": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Day of Admission, February 2, Afternoon, after initial tests are back",
+            "message": "Alright, Mr. [Patient's Name]. Your urine tests show some protein and casts, but nothing too alarming right now.  Blood work, however, shows low hemoglobin, high white blood cell count with lots of neutrophils, and increased platelets. And\u2026 two Wassermann tests are strongly positive.  Also, your sputum sample... it looks like pneumonia, possibly pneumococcal type II. We're waiting on culture results.",
+            "intention": "Explaining initial lab results to the patient.",
+            "context": "Sharing preliminary diagnostic findings.",
+            "source_reference": "Page 1-2: 'Urine. Normal amount, sp. gr. 1.020-1.026, the slightest possible trace of albumin at two of four examinations, rare hyalin casts, once with cells attached. Blood. Hgb. 80%, leucocytes 28,000-10,000, polynuclears 89%-96%, platelets markedly increased at one examination, slightly at another ; moderate achromia at the first examiiiation. Two Wassermanns strongly positive... Sputum. February 2. Mucoid material with several small areas of red brownish purulent material. Smith stain showed polynuclears, occasional phagocytes, rare red blood corpuscles, occasional Gram-positive spindle-shaped diplococci and rare streptococci in a short chain ;no intracellular organisms. By mouse test type II pneumococcus, atypical. Agglutination and precipitation only in type II serum undiluted.'"
+        },
+        "turn_12": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Day of Admission, February 2, Afternoon, after explaining initial results",
+            "message": "Based on everything, it looks like you have pneumonia. We'll start you on treatment for that. Also, the positive Wassermann suggests syphilis, but we'll need to investigate that further, it might not be related to your current illness. For now, we\u2019ll focus on getting you better from this infection.  We\u2019ll start you on antibiotics, keep you hydrated, and manage your pain.",
+            "intention": "Providing preliminary diagnosis and treatment plan.",
+            "context": "Informing patient about pneumonia and syphilis finding.",
+            "source_reference": "Page 2: 'Two Wassermanns strongly positive... Agglutination and precipitation only in type II serum undiluted... Orders. February 2. Individual precautions. Soft solid diet. To be fed. Force fluids. Russian oil 5 ss t. i. d. Veronal gr. x, repeat once if necessary if restless. If not effectual morphia gr. 1/6 s. c. and every three hours p. r. n. for comfort unless respirations below 18. Aspirin gr. x. Veronal gr. x.'"
+        },
+        "turn_13": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Day of Admission, February 2, Evening",
+            "message": "Mr. [Patient's Name], here are your medications for tonight - Veronal for restlessness and Morphine for pain if you need it, but please let us know if your breathing gets too slow. Also, here's some Russian oil. We\u2019ll also get you some soft food and plenty of fluids as Dr. Cabot ordered.",
+            "intention": "Administering initial medications and treatment.",
+            "context": "Implementing doctor's orders.",
+            "source_reference": "Page 2: 'Orders. February 2... Veronal gr. x, repeat once if necessary if restless. If not effectual morphia gr. 1/6 s. c. and every three hours p. r. n. for comfort unless respirations below 18. Russian oil 5 ss t. i. d. Soft solid diet. To be fed. Force fluids.'"
+        },
+        "turn_14": {
+            "speaker": "Nurse B",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 1, February 3, Night",
+            "message": "Mr. [Patient's Name], you seem a bit restless tonight. Are you feeling alright?",
+            "intention": "Checking on patient's condition.",
+            "context": "Patient showing signs of delirium.",
+            "source_reference": "Page 2: 'The night of February 3 the patient was slightly delirious and tried to get out of bed.'"
+        },
+        "turn_15": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse B"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 1, February 3, Night, in response to Nurse",
+            "message": "Just\u2026 a little confused, I think.  Where am I?",
+            "intention": "Expressing confusion and disorientation.",
+            "context": "Patient exhibiting delirium.",
+            "source_reference": "Page 2: 'The night of February 3 the patient was slightly delirious and tried to get out of bed.'"
+        },
+        "turn_16": {
+            "speaker": "Nurse B",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 2, February 4, Morning",
+            "message": "Good morning, Mr. [Patient's Name]. You were a bit restless last night. How are you feeling now?",
+            "intention": "Checking on patient's condition after delirium.",
+            "context": "Morning assessment on Hospital Day 2.",
+            "source_reference": "Page 2: 'The following night the pulse and general condition were good, although the temperature was higher.'"
+        },
+        "turn_17": {
+            "speaker": "Patient",
+            "listeners": [
+                "Nurse B"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 2, February 4, Morning, in response to Nurse",
+            "message": "Better, I think. Still tired.  And still got this chest pain.",
+            "intention": "Reporting current symptoms.",
+            "context": "Patient's subjective report.",
+            "source_reference": "Page 1: 'complaining of prostration and pain in the chest'"
+        },
+        "turn_18": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse B"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Hospital Day 4, February 6, Morning",
+            "message": "How are we feeling today? I see your temperature is still up.  Let's listen to your chest again.",
+            "intention": "Checking patient's progress and reassessing.",
+            "context": "Follow-up examination.",
+            "source_reference": "Page 2: 'February 6 there was a pleural friction rub in the right axilla and at the right hase.'"
+        },
+        "turn_19": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse B"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Hospital Day 4, February 6, Morning, during physical exam",
+            "message": "(After examining) Okay, I hear a pleural friction rub now on the right side.  And you're still having pain?",
+            "intention": "Describing new physical findings.",
+            "context": "Identifying pleural friction rub.",
+            "source_reference": "Page 2: 'February 6 there was a pleural friction rub in the right axilla and at the right hase. He complained of pain.'"
+        },
+        "turn_20": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 4, February 6, Morning, in response to Doctor A",
+            "message": "Yes, it\u2019s still there.",
+            "intention": "Confirming continued pain.",
+            "context": "Patient reporting pain.",
+            "source_reference": "Page 2: 'He complained of pain.'"
+        },
+        "turn_21": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse B"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Hospital Day 5, February 7, Morning",
+            "message": "Good morning. Let\u2019s check your lungs again. How's the pain today?",
+            "intention": "Reassessing patient and checking for changes.",
+            "context": "Daily follow-up.",
+            "source_reference": "Page 2: 'February 7 the right lower lobe was resolving. The friction rub persisted. The right chest anteriorly to the level of the third rib showed dullness, bronchia] breathing, increased vocal and tactile fremitus. a few coarse inspiratory r\u00e2les.'"
+        },
+        "turn_22": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse B"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Hospital Day 5, February 7, Morning, after physical exam",
+            "message": "(After examining)  It seems the right lower lobe might be starting to resolve, which is good. But the friction rub is still there. And there's still dullness and bronchial breathing in the right upper chest.  A few coarse r\u00e2les too. We\u2019ll continue the treatment.",
+            "intention": "Describing changes in lung findings.",
+            "context": "Lung condition showing partial improvement but still concerning.",
+            "source_reference": "Page 2: 'February 7 the right lower lobe was resolving. The friction rub persisted. The right chest anteriorly to the level of the third rib showed dullness, bronchia] breathing, increased vocal and tactile fremitus. a few coarse inspiratory r\u00e2les.'"
+        },
+        "turn_23": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 7, February 9, Night",
+            "message": "Are you feeling alright, Mr. [Patient's Name]? You seem a little confused again.",
+            "intention": "Observing and reporting patient's mental status.",
+            "context": "Recurrence of delirium.",
+            "source_reference": "Page 2: 'The night of February 9 he was slightly delirious.'"
+        },
+        "turn_24": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Hospital Day 10, February 12, Morning",
+            "message": "Good morning. How are you feeling today?",
+            "intention": "Routine morning checkup.",
+            "context": "Assessing patient's condition.",
+            "source_reference": "Page 2: 'The morning of the 12th the condition was very poor.'"
+        },
+        "turn_25": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 10, February 12, Morning, before Doctor speaks to patient",
+            "message": "Doctor, the patient's condition seems much worse this morning. He\u2019s not responding to questions.  Lung signs are unchanged, but he is now incontinent of urine and feces.",
+            "intention": "Reporting significant decline in patient's condition.",
+            "context": "Patient's condition worsening dramatically.",
+            "source_reference": "Page 2: 'The morning of the 12th the condition was very poor. He did not respond to questions. There was no change in the lung signs. He was incontinent of urine and feces.'"
+        },
+        "turn_26": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient",
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Hospital Day 10, February 12, Morning, after Nurse A's report",
+            "message": "Mr. [Patient's Name]? Can you hear me?  (To Nurse) Let\u2019s check for neurological signs. Any stiffness in the neck?",
+            "intention": "Assessing patient's responsiveness and neurological status.",
+            "context": "Suspecting neurological complication.",
+            "source_reference": "Page 2: 'The morning of the 12th the condition was very poor. He did not respond to questions.'"
+        },
+        "turn_27": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Hospital Day 10, February 12, Morning, after neurological exam",
+            "message": "Slight bilateral Kernig's sign and ankle clonus, and lively knee-jerks.  This is concerning. Could be meningitis.  We need to repeat blood culture immediately.",
+            "intention": "Interpreting neurological findings and ordering further tests.",
+            "context": "Strong suspicion of meningitis.",
+            "source_reference": "Page 2: 'That night the condition was much worse. There was slight bilateral Kernig and double sustained ankle clonus. The knee-jerks were lively and equal. A blood culture showed pneumococci.'"
+        },
+        "turn_28": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 10, February 12, Afternoon",
+            "message": "Doctor, the blood pressure is dropping. It's now 120 over 70.",
+            "intention": "Reporting vital signs deterioration.",
+            "context": "Patient's condition worsening further.",
+            "source_reference": "Page 2: 'A blood culture showed pneumococci. The blood pressure fell from 120/70 February 12 to 80/50 February 13.'"
+        },
+        "turn_29": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 11, February 13, Morning",
+            "message": "Doctor, the blood pressure is even lower now, 80 over 50.",
+            "intention": "Reporting further decline in vital signs.",
+            "context": "Patient approaching critical state.",
+            "source_reference": "Page 2: 'The blood pressure fell from 120/70 February 12 to 80/50 February 13.'"
+        },
+        "turn_30": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Nurse A"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "Hospital Day 11, February 13, Day, after Nurse A's report",
+            "message": "This is not good. Continue supportive care, monitor vitals closely.",
+            "intention": "Ordering supportive care.",
+            "context": "Patient in critical condition.",
+            "source_reference": "Page 2: 'That day the patient died.'"
+        },
+        "turn_31": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Unknown",
+            "timestamp": "Hospital Day 11, February 13, Night",
+            "message": "Doctor, the patient has passed away.",
+            "intention": "Reporting patient's death.",
+            "context": "Patient expired.",
+            "source_reference": "Page 2: 'That day the patient died.'"
+        },
+        "turn_32": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor C"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "After Patient's Death, Discussion",
+            "message": "Dr. Richardson, the anatomical diagnosis confirms septicemia, pneumococcal, with focal pneumonia, lung abscess, acute leptomeningitis, pleuritis, and endocarditis. And luetic aortitis, as indicated by the Wassermann.",
+            "intention": "Reviewing anatomical diagnosis.",
+            "context": "Post-mortem findings discussion.",
+            "source_reference": "Page 3: 'ANATOMICAL DIAGNOSIS 1. Primary Fatal Lesion Septicemia, pneumococcus. 2. Secondary Or Terminal Lesions Focal pneumonia and abscess of right lung. Acute leptomeningitis. Edema of lungs. Acute pleuritis, right lung. Acute endocarditis of mitral valve. Soft hyperplastic spleen. Infarct of spleen. 3. Historical Landmarks Chronic pleuritis. Obsolete area of tuberculosis, apex of left lung. Luetic aortitis. Arteriosclerotic degeneration of the kidneys.'"
+        },
+        "turn_33": {
+            "speaker": "Doctor C",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Dr. Richardson",
+            "timestamp": "After Patient's Death, Discussion, immediately after Dr. Cabot",
+            "message": "Yes, the leptomeningitis was interesting, mainly frontal and parietal, not much at the base.  And the lungs showed pneumonia and abscesses as you suspected. We also found acute endocarditis of the mitral valve and luetic aortitis.",
+            "intention": "Detailing specific anatomical findings.",
+            "context": "Pathology report highlights.",
+            "source_reference": "Page 3: 'Dr. Richardson : Was a Wassermann done ?... There was an acute leptomeningitis present, and rather peculiarly distributed. It was spread over the frontal lobes and the parietal, ceasing abruptly in the region of the anterior margins of the occipital lobes, and with but little .good evidence of any meningitis at the base... A short distance below the apex of the right lung there was a focus of gray-red to gray pneumonia with ex\u00fadate on the pleura. In the lower part of the lobe just beneath the pleura there was another area of consolidation in which there was a small abscess... The mitral valve... showed scattered along it several small brownish soft vegetations. There was no definite evidence of chronic endocarditis, and the microscope showed the vegetations to be recent. That is, acute endocarditis of the mitral valve... In the ascending thoracic portion of the aorta there was a strip of definite luetic aortitis.'"
+        },
+        "turn_34": {
+            "speaker": "Doctor B",
+            "listeners": [
+                "Doctor A",
+                "Doctor C"
+            ],
+            "real_name": "James B. Ayer",
+            "timestamp": "After Patient's Death, Discussion, after Dr. Richardson's comments",
+            "message": "The meningitis distribution is quite unusual for such an acute case. It's interesting regarding the paths of septicemias in hematogenous meningitis, suggesting convexity involvement first.",
+            "intention": "Discussing unusual meningitis distribution and its implications.",
+            "context": "Neurological perspective on meningitis.",
+            "source_reference": "Page 3: 'Dr. James B. Ayer: This is the only clinical case I have seen in which the meningitis is apparently so early that we do not already have generalized distribution of the ex\u00fadate... This case, then, seems to check up from the clinical point of view the hypothesis that the infection of the meninges in septicemias is over the convexity.'"
+        },
+        "turn_35": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Doctor B",
+                "Doctor C"
+            ],
+            "real_name": "Richard C. Cabot, M.D.",
+            "timestamp": "After Patient's Death, Discussion, after Dr. Ayer's comments",
+            "message": "So, you think the infection reached the meninges via the blood stream, possibly through the arachnoid villi on the convexities?",
+            "intention": "Seeking clarification on meningitis pathogenesis hypothesis.",
+            "context": "Questioning hematogenous meningitis route.",
+            "source_reference": "Page 4: 'Dr. Cabot : When you say \"infection coming through the choroid plexus\"\u2014how does it get there?... Dr. Ayer: ...One hypothesis is that the route is the reverse of what we think we know about the method of absorption from the subarachnoid space, namely, that the fluid leaves by the arachnoidal villi... Here we have to assume that there is a back pressure in some way... and that the organisms in some way go through with this back pressure... Dr. Ayer: Apparently there are more arachnoid villi there, and these villi are of course very thin membranes between the blood and the spinal fluid; if organisms pass through these villi the convexities near the longitudinal sinus should show the first traces of infection.'"
+        }
+    },
+    "clinical_data": {
+        "presentation": {
+            "chief_complaint": "Prostration and pain in the chest in the region of the lower four ribs in the right back.",
+            "history_of_present_illness": "Six days prior to admission, malaise and 'feeling of congestion in bronchi'. Progressed to sore hands, vomiting, chill, pain under right shoulder blade, cough with white sputum, then rusty sputum. Pain shifted to costovertebral region. Decreased oral intake, frequent urination, difficulty breathing, increased prostration.",
+            "physical_exam": "Thin, ptotic man, rapid breathing. Chest expansion greater on left. Right back: dullness, bronchial breathing, increased vocal/tactile fremitus, increased whispered voice, rare r\u00e2les. Abdomen: slight spasm RUQ, liver edge palpable.",
+            "vital_signs": {
+                "initial": {
+                    "respiratory_rate": "33-60/min"
+                }
+            }
+        },
+        "diagnostics": {
+            "laboratory_data": [
+                {
+                    "test": "Urine",
+                    "value": "sp. gr. 1.020-1.026, trace albumin (twice), rare hyaline casts (once with cells)",
+                    "units": "sp. gr.",
+                    "reference_range": "Normal amount"
+                },
+                {
+                    "test": "Blood - Hemoglobin",
+                    "value": "80%",
+                    "units": "%",
+                    "reference_range": "Unknown"
+                },
+                {
+                    "test": "Blood - Leucocytes",
+                    "value": "28,000-10,000/mm3",
+                    "units": "/mm3",
+                    "reference_range": "Unknown"
+                },
+                {
+                    "test": "Blood - Polynuclears",
+                    "value": "89%-96%",
+                    "units": "%",
+                    "reference_range": "Unknown"
+                },
+                {
+                    "test": "Blood - Platelets",
+                    "value": "Markedly increased (once), slightly increased (another)",
+                    "units": "Unknown",
+                    "reference_range": "Unknown"
+                },
+                {
+                    "test": "Blood - Wassermann",
+                    "value": "Strongly positive (twice)",
+                    "units": "Qualitative",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Blood culture",
+                    "value": "Negative (at entrance), Positive for pneumococci (later)",
+                    "units": "Qualitative",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Sputum - Smith stain",
+                    "value": "Polynuclears, occasional phagocytes, rare RBCs, occasional Gram-positive spindle-shaped diplococci, rare streptococci (short chain), no intracellular organisms",
+                    "units": "Microscopic examination",
+                    "reference_range": "Normal flora"
+                },
+                {
+                    "test": "Sputum - Mouse test",
+                    "value": "Type II pneumococcus, atypical",
+                    "units": "Qualitative",
+                    "reference_range": "Negative"
+                },
+                {
+                    "test": "Sputum - Later specimens",
+                    "value": "Streptococcus mucosus capsulatus (one specimen)",
+                    "units": "Qualitative",
+                    "reference_range": "Negative"
+                }
+            ],
+            "imaging": []
+        },
+        "procedures": [
+            {
+                "procedure": "Medication Administration",
+                "description": "Russian oil, Veronal, Morphine, Aspirin, Digitalis, Digifolin, Pituitrin, Castor oil",
+                "time": "February 2-13"
+            },
+            {
+                "procedure": "Blood culture",
+                "description": "Taken at entrance and later.",
+                "time": "February 2 and later"
+            },
+            {
+                "procedure": "Sputum culture",
+                "description": "Multiple specimens collected.",
+                "time": "February 2 and later"
+            },
+            {
+                "procedure": "Urine analysis",
+                "description": "Multiple examinations performed.",
+                "time": "February 2 onwards"
+            },
+            {
+                "procedure": "Rectal Exam",
+                "description": "Performed on admission.",
+                "time": "February 2"
+            },
+            {
+                "procedure": "Neurological Exam",
+                "description": "Kernig's sign, ankle clonus, knee-jerks assessed.",
+                "time": "February 12"
+            }
+        ],
+        "timeline_events": [
+            {
+                "time": "6 days before admission",
+                "event": "Malaise and 'feeling of congestion in bronchi'."
+            },
+            {
+                "time": "4 days before admission",
+                "event": "Sore hands."
+            },
+            {
+                "time": "4 days before admission, evening",
+                "event": "Vomiting and chill."
+            },
+            {
+                "time": "3 days before admission",
+                "event": "Pain under right shoulder blade, cough with white sputum."
+            },
+            {
+                "time": "January 31 - February 1",
+                "event": "Cough worsened, rusty sputum."
+            },
+            {
+                "time": "February 1, morning",
+                "event": "Pain under right shoulder blade stopped, pain in costovertebral region with movement."
+            },
+            {
+                "time": "February 2",
+                "event": "Admission to hospital, physical examination, initial labs, treatment started."
+            },
+            {
+                "time": "Night of February 3",
+                "event": "Slight delirium, tried to get out of bed."
+            },
+            {
+                "time": "Night of February 4",
+                "event": "Pulse and general condition good, temperature higher."
+            },
+            {
+                "time": "February 6",
+                "event": "Pleural friction rub in right axilla and base."
+            },
+            {
+                "time": "February 7",
+                "event": "Right lower lobe resolving, friction rub persists, dullness and bronchial breathing anteriorly."
+            },
+            {
+                "time": "Night of February 9",
+                "event": "Slight delirium."
+            },
+            {
+                "time": "Morning of February 12",
+                "event": "Condition very poor, unresponsive, incontinent, neurological signs (Kernig, clonus)."
+            },
+            {
+                "time": "February 12",
+                "event": "Blood pressure 120/70."
+            },
+            {
+                "time": "February 13",
+                "event": "Blood pressure 80/50, patient died."
+            }
+        ],
+        "final_diagnoses": [
+            "Septicemia, pneumococcus",
+            "Focal pneumonia and abscess of right lung",
+            "Acute leptomeningitis",
+            "Acute pleuritis, right lung",
+            "Acute endocarditis of mitral valve",
+            "Luetic aortitis",
+            "Arteriosclerotic degeneration of the kidneys",
+            "Obsolete area of tuberculosis, apex of left lung",
+            "Chronic pleuritis"
+        ]
+    },
+    "case_id": "NEJM192405011901807",
+    "original_case_number": "NEJM192405011901807",
+    "final_diagnosis": "N/A"
+}

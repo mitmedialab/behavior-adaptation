@@ -1,0 +1,752 @@
+{
+    "case_metadata": {
+        "case_id": "10131",
+        "title": "Case 10131: An unmarried Irish laundress of twenty-nine",
+        "source": {
+            "journal": "Case Records Of the General Massachusetts Hospital",
+            "publication_date": "N/A",
+            "volume": "N/A",
+            "issue": "N/A",
+            "pages": "N/A",
+            "doi": "N/A"
+        }
+    },
+    "patient_info": {
+        "age": 29,
+        "gender": "F",
+        "demographics": {
+            "ethnicity": "Irish",
+            "occupation": "Laundress",
+            "living_arrangement": "Unmarried"
+        },
+        "social_history": {
+            "alcohol_use": "Whiskey once a day, beer once or twice a day, gin occasionally. For seven years before second admission, lived a dissolute life and rarely sober. For four months before second admission, intoxicated all the time.",
+            "tobacco_use": "Not mentioned",
+            "substance_use": "Not mentioned",
+            "other": "Admitted opportunity for pregnancy during first admission."
+        },
+        "medical_history": {
+            "allergies": "Not mentioned",
+            "past_medical_conditions": "Measles in childhood, otherwise well and strong until first admission. Subject to headache. Catamenia followed by much pain.",
+            "medications": "Phenacetin and caffein for back pain (first admission), Sodium salicylate gr. xv 4 i. d. for ten days (discharged after first admission)."
+        },
+        "surgical_history": {
+            "None": "mentioned"
+        }
+    },
+    "participants": {
+        "clinicians": {
+            "Doctor A": {
+                "specialty": "General Medicine",
+                "role": "Attending Physician (Dr. F. H. Good)",
+                "real_name": "F. H. Good"
+            },
+            "Doctor B": {
+                "specialty": "Pathology",
+                "role": "Editor (Dr. Richard C. Cabot)",
+                "real_name": "Richard C. Cabot"
+            },
+            "Doctor C": {
+                "specialty": "Pathology",
+                "role": "Editor (Dr. Hugh Cabot)",
+                "real_name": "Hugh Cabot"
+            },
+            "Doctor D": {
+                "specialty": "Pathology",
+                "role": "Assistant Editor (Dr. F. M. Painter)",
+                "real_name": "F. M. Painter"
+            },
+            "Doctor E": {
+                "specialty": "Pathology",
+                "role": "Physician presenting anatomical diagnosis (Dr. Richardson)",
+                "real_name": "Dr. Richardson"
+            }
+        },
+        "others": {
+            "Patient": {
+                "role": "Patient",
+                "real_name": "Patient (Irish laundress)"
+            },
+            "Family Member": {
+                "role": "Family Member",
+                "identifier": "Brother",
+                "real_name": "Patient's Brother"
+            }
+        }
+    },
+    "conversation": {
+        "turn_1": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Initial Interview - February 20th",
+            "message": "Good morning. I understand you've been feeling unwell for about three weeks?",
+            "intention": "Gathering history of present illness.",
+            "context": "Patient's first admission to the hospital.",
+            "source_reference": "#### Case 10131 First entry."
+        },
+        "turn_2": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient (Irish laundress)",
+            "timestamp": "First Admission - Initial Interview - February 20th - Following Doctor's question",
+            "message": "Yes, doctor. I've been run down and weak. My appetite is poor, and I feel nauseous and bloated in my abdomen.",
+            "intention": "Describing symptoms.",
+            "context": "Patient describing her symptoms to the doctor during initial interview.",
+            "source_reference": "P. I. For three weeks she had been run down and weak, with poor appetite, nausea, and bloating of the abdomen."
+        },
+        "turn_3": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Initial Interview - February 20th - Continuing history taking",
+            "message": "And have you had any other symptoms? I see here you've had chills?",
+            "intention": "Probing for specific symptoms.",
+            "context": "Doctor inquiring about specific symptoms based on pre-admission notes.",
+            "source_reference": "P. I. Twice last week she had shaking chills in the morning and afternoon."
+        },
+        "turn_4": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient (Irish laundress)",
+            "timestamp": "First Admission - Initial Interview - February 20th - Responding to Doctor's question",
+            "message": "Yes, twice last week. And four days ago, my legs started swelling and got covered in itchy red spots. And sharp pain woke me up over my left ribs three nights ago, then it moved to my back.",
+            "intention": "Describing progression of symptoms.",
+            "context": "Patient elaborating on her symptoms, mentioning chills, skin rash, leg swelling, and back pain.",
+            "source_reference": "P. I. Four days ago her legs became swollen and covered with itching red spots. Three nights ago she was wakened from sleep with sharp pain over the lower left ribs. This soon went to the small of her back, where it had remained localized ever since."
+        },
+        "turn_5": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Initial Interview - February 20th - Further questioning",
+            "message": "Back pain, and nausea you mentioned. Anything else? Feverishness, urine color, bowel movements?",
+            "intention": "Exploring related symptoms.",
+            "context": "Doctor asking about associated symptoms like fever, urine color, and bowel changes.",
+            "source_reference": "P. I. Since the day before admission she had felt feverish. Her urine had been dark red. She had frequent and urgent micturition. Her bowels moved for the last time two days ago, black stools."
+        },
+        "turn_6": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient (Irish laundress)",
+            "timestamp": "First Admission - Initial Interview - February 20th - Responding to Doctor's question",
+            "message": "Yes, doctor, I have felt feverish since yesterday. My urine is dark red, and I'm going to the bathroom all the time. My last bowel movement was two days ago, and it was black.",
+            "intention": "Confirming and elaborating on symptoms.",
+            "context": "Patient confirming fever, dark urine, frequent urination, and black stools.",
+            "source_reference": "P. I. Since the day before admission she had felt feverish. Her urine had been dark red. She had frequent and urgent micturition. Her bowels moved for the last time two days ago, black stools."
+        },
+        "turn_7": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Physical Examination - February 20th - Starting physical exam",
+            "message": "Alright, let's take a look at you. You seem well-nourished. Open your mouth for me... your teeth are quite foul. Heart and lungs sound normal. Now, let's check your abdomen.",
+            "intention": "Performing physical examination.",
+            "context": "Doctor starting the physical examination, noting general appearance, oral hygiene, and initial findings on heart, lungs, and abdomen.",
+            "source_reference": "P. E. Well nourished. Teeth foul. Heart and lungs normal. Abdomen."
+        },
+        "turn_8": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Physical Examination - February 20th - Abdominal Exam",
+            "message": "Your abdomen is full below and tympanitic. There's tenderness in both sides of your lower abdomen, more on the left. Any pain here?",
+            "intention": "Palpating and assessing abdomen.",
+            "context": "Doctor examining the abdomen, noting distension, tympany, and tenderness in iliac fossae.",
+            "source_reference": "P. E. Full below. Tympanitic everywhere. Well marked tenderness in the right and left iliac fossae, more in the left."
+        },
+        "turn_9": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Physical Examination - February 20th - Back and Leg Exam",
+            "message": "And your back... yes, very tender here, and extending to your sides. Now, your legs... slight edema and tenderness, and these blotches... erythematous, thickened, hot and tender. We'll check your vaginal area as well.",
+            "intention": "Examining back and extremities.",
+            "context": "Doctor examining the back and legs, noting tenderness and skin findings. Mentioning vaginal exam.",
+            "source_reference": "P. E. Great tenderness in the back at the level of the twelfth dorsal and first lumbar vertebrae extending to the flanks, the same on both sides. Extremities. Slight edema of the lower legs with tenderness over the shins and many faded erythematous blotches, slightly elevated and thickened, hot and tender. Vaginal examination."
+        },
+        "turn_10": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Physical Examination - February 20th - Vaginal and Rectal Exam Findings",
+            "message": "Vaginal exam shows a small cervix with a slight tear. Rectal exam, tenderness in front. Nothing clearly abnormal felt in either.  Let's get your vitals and some lab work done.",
+            "intention": "Reporting findings of pelvic and rectal exams and ordering further investigations.",
+            "context": "Doctor summarizing vaginal and rectal exam findings and planning for vitals and lab tests.",
+            "source_reference": "P. E. Vaginal examination. Cervix small, firm, in axis of vagina, with slight tear. Fundus not felt. Tenderness in both culs-desac and behind, rendering examination unsatisfactory. Rectal examination. Tenderness in front, not localized. Nothing abnormal felt."
+        },
+        "turn_11": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Nurse A (created)",
+            "timestamp": "First Admission - After Physical Exam - February 20th",
+            "message": "Doctor, patient's temperature is 102.5\u00b0F, pulse 113, respirations 37.",
+            "intention": "Reporting initial vital signs.",
+            "context": "Nurse reporting initial vital signs taken after physical examination.",
+            "source_reference": "T. 102.5\u00b0-98\u00b0. P. 113-80. R. 37-22."
+        },
+        "turn_12": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Day 1 - February 21st - Follow-up",
+            "message": "How are you feeling this morning? Still much pain in your back?",
+            "intention": "Checking on patient's condition and pain levels.",
+            "context": "Doctor following up on the patient the day after admission.",
+            "source_reference": "The patient had no symptoms except much pain in the back, relieved by phenacetin and caffein."
+        },
+        "turn_13": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient (Irish laundress)",
+            "timestamp": "First Admission - Day 1 - February 21st - Responding to Doctor's question",
+            "message": "The pain is a bit better with the medicine, yes.",
+            "intention": "Reporting pain relief with medication.",
+            "context": "Patient indicating pain relief from phenacetin and caffein.",
+            "source_reference": "The patient had no symptoms except much pain in the back, relieved by phenacetin and caffein."
+        },
+        "turn_14": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Day 2 - February 22nd - Follow-up",
+            "message": "Good morning. We did another vaginal exam today. It's negative now, and no tenderness in your abdomen either. How are the blotches on your legs?",
+            "intention": "Reporting exam findings and inquiring about rash.",
+            "context": "Doctor updating patient on repeat vaginal and abdominal exam and checking on skin rash.",
+            "source_reference": "The day after admission vaginal examination was negative, and there was no tenderness in the abdomen."
+        },
+        "turn_15": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient (Irish laundress)",
+            "timestamp": "First Admission - Day 2 - February 22nd - Responding to Doctor's question",
+            "message": "They seem a little better, I think.",
+            "intention": "Subjective assessment of rash.",
+            "context": "Patient's subjective assessment of the skin blotches.",
+            "source_reference": "She had had no symptoms for the past few days."
+        },
+        "turn_16": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Nurse A (created)",
+            "timestamp": "First Admission - Day 3 - February 23rd - Reporting new findings",
+            "message": "Doctor, there's a small tender node on the patient's left thigh and enlarged glands in her neck, both sides.",
+            "intention": "Reporting new physical findings.",
+            "context": "Nurse reporting new findings of a thigh node and enlarged supraclavicular glands.",
+            "source_reference": "February 23 there was a small tender node on the left thigh, and a supraclavicular gland on the left and one on the right were enlarged, painful and tender."
+        },
+        "turn_17": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Day 6 - February 26th - Follow-up and medication review",
+            "message": "We gave you salicylates for the erythema. How have you been feeling since?",
+            "intention": "Checking medication effects and patient status.",
+            "context": "Doctor inquiring about the effect of salicylates and overall patient status.",
+            "source_reference": "She was given salicylates because one often sees such erythema in rheumatism, I suppose, and so she was made toxic from salicylates."
+        },
+        "turn_18": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Nurse A (created)",
+            "timestamp": "First Admission - Day 6 - February 26th - Reporting patient's toxicity",
+            "message": "Doctor, the patient seems toxic from the salicylates now.",
+            "intention": "Reporting adverse drug reaction.",
+            "context": "Nurse reporting signs of salicylate toxicity.",
+            "source_reference": "February 26 the patient was toxic from salicylates."
+        },
+        "turn_19": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Day 7 - February 27th - Follow-up after salicylate toxicity",
+            "message": "How are your legs feeling today? I understand you were up and about yesterday.",
+            "intention": "Assessing leg symptoms after activity and salicylate toxicity.",
+            "context": "Doctor checking on leg symptoms after patient was active and experienced salicylate toxicity.",
+            "source_reference": "Next evening, after she had been up all day, her legs pained."
+        },
+        "turn_20": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient (Irish laundress)",
+            "timestamp": "First Admission - Day 7 - February 27th - Responding to Doctor's question",
+            "message": "My legs pained after being up. The blotches are smaller and purplish now, but new ones appeared last night.",
+            "intention": "Describing leg pain and changes in rash.",
+            "context": "Patient describing leg pain after activity and changes in the appearance of the rash, including new lesions.",
+            "source_reference": "Next evening, after she had been up all day, her legs pained. The blotches were smaller, less well defined, and purplish. That night there were several new ones."
+        },
+        "turn_21": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Day 8 - February 28th - Pre-discharge assessment",
+            "message": "And today? How are the blotches now?",
+            "intention": "Assessing rash before discharge.",
+            "context": "Doctor assessing skin condition before patient's discharge.",
+            "source_reference": "February 28 the blotches were tender but not hot. There was still slight edema over the shins and ankles."
+        },
+        "turn_22": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient (Irish laundress)",
+            "timestamp": "First Admission - Day 8 - February 28th - Responding to Doctor's question",
+            "message": "They are still tender, but not hot anymore. Legs are still a bit swollen.",
+            "intention": "Describing current rash and edema status.",
+            "context": "Patient describing the current state of the rash and edema.",
+            "source_reference": "February 28 the blotches were tender but not hot. There was still slight edema over the shins and ankles."
+        },
+        "turn_23": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "F. H. Good",
+            "timestamp": "First Admission - Discharge - February 28th - Discharge instructions",
+            "message": "Alright. We are going to discharge you today with a prescription for sodium salicylate. Take it as directed. Come back if things worsen.",
+            "intention": "Providing discharge instructions and medication prescription.",
+            "context": "Doctor providing discharge instructions, including medication prescription for sodium salicylate.",
+            "source_reference": "She was discharged with a prescription for sodium salicylate gr. xv 4 i. d. for ten days."
+        },
+        "turn_24": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient's Brother"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Accident Room - October 31st - Gathering history from brother",
+            "message": "Hello, I understand you brought your sister in? Can you tell me what happened?",
+            "intention": "Gathering history from family member during second admission.",
+            "context": "Initial interaction with the patient's brother upon second admission to the accident room.",
+            "source_reference": "Second entry. October 31, nine years later, she was brought to the Accident Room."
+        },
+        "turn_25": {
+            "speaker": "Family Member",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient's Brother",
+            "timestamp": "Second Admission - Accident Room - October 31st - Providing history",
+            "message": "Doctor, for the last seven years, she's been living very poorly, rarely sober. And for the last four months, she's been drunk all the time.",
+            "intention": "Providing social history relevant to second admission.",
+            "context": "Brother describing patient's recent lifestyle and alcohol abuse history.",
+            "source_reference": "For seven years she had lived a dissolute life and according to her brother had rarely been sober. For four months she had been intoxicated all the time."
+        },
+        "turn_26": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Family Member"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Accident Room - October 31st - Past medical history",
+            "message": "And her health? Any serious illnesses since her last hospital stay here?",
+            "intention": "Inquiring about past medical history since previous admission.",
+            "context": "Doctor asking about any significant illnesses since the patient's first admission nine years prior.",
+            "source_reference": "P. H. She had had no serious illnesses since her previous stay."
+        },
+        "turn_27": {
+            "speaker": "Family Member",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient's Brother",
+            "timestamp": "Second Admission - Accident Room - October 31st - Recent symptoms",
+            "message": "No serious illnesses, but she's had an itchy rash on her legs and body since summer, though it got better with some cream. And she's been losing weight for years.",
+            "intention": "Describing recent and chronic symptoms.",
+            "context": "Brother mentioning recent skin rash and chronic weight loss.",
+            "source_reference": "P. H. Since early summer she had had an itching eruption over the legs, body and hands. This had improved much under local treatment. For seven years she had been losing weight."
+        },
+        "turn_28": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Accident Room - October 31st - Interviewing Patient",
+            "message": "Hello, how are you feeling now? I understand you've been unwell for about a month?",
+            "intention": "Starting interview with patient during second admission.",
+            "context": "Doctor starting interview with patient, inquiring about recent symptoms.",
+            "source_reference": "P. I. For the past month she had had anorexia, some eructations and nausea, piles with considerable bleeding, gradually increasing swelling of the abdomen, and slight cough with a little sputum, once or twice blood streaked."
+        },
+        "turn_29": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient (Irish laundress)",
+            "timestamp": "Second Admission - Accident Room - October 31st - Describing symptoms",
+            "message": "Doctor, I haven't been eating, keep burping and feeling sick. My piles are bleeding a lot. My belly's been swelling up, and I've got a cough. Sometimes there's blood in what I cough up.",
+            "intention": "Describing current symptoms during second admission.",
+            "context": "Patient describing anorexia, nausea, eructations, bleeding piles, abdominal swelling, and cough with blood-streaked sputum.",
+            "source_reference": "P. I. For the past month she had had anorexia, some eructations and nausea, piles with considerable bleeding, gradually increasing swelling of the abdomen, and slight cough with a little sputum, once or twice blood streaked."
+        },
+        "turn_30": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Accident Room - October 31st - Further questioning about symptoms",
+            "message": "Weakness, feet swelling, breathing trouble? How long have you been in bed?",
+            "intention": "Probing for weakness, edema, dyspnea and activity level.",
+            "context": "Doctor inquiring about weakness, feet swelling, dyspnea, and duration of being bedridden.",
+            "source_reference": "P. I. Since the onset she had felt weak and had been in bed most of the time, for ten days all the time. For the past few days she had been dyspneic when sitting up, and the swelling of the feet and the cough had been much worse. She had been losing flesh."
+        },
+        "turn_31": {
+            "speaker": "Patient",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Patient (Irish laundress)",
+            "timestamp": "Second Admission - Accident Room - October 31st - Responding about symptoms",
+            "message": "I've felt weak for a month, been in bed most of the time, all the time for ten days now. Lately, I get really breathless sitting up, and my feet and cough are much worse. I've lost weight too.",
+            "intention": "Confirming and elaborating on weakness, edema, dyspnea, and weight loss.",
+            "context": "Patient confirming weakness, prolonged bed rest, worsening dyspnea and edema, and weight loss.",
+            "source_reference": "P. I. Since the onset she had felt weak and had been in bed most of the time, for ten days all the time. For the past few days she had been dyspneic when sitting up, and the swelling of the feet and the cough had been much worse. She had been losing flesh."
+        },
+        "turn_32": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Physical Examination - October 31st - Starting physical exam",
+            "message": "Alright, let's have a look. You are fairly nourished but seem to have lost weight. Your skin is dry and yellowish, and so are your eyes. I see dilated vessels on your face and veins prominent on your chest, abdomen, arms, and legs.",
+            "intention": "Performing general physical examination.",
+            "context": "Doctor beginning physical examination, noting general appearance, skin and sclera color, and superficial venous prominence.",
+            "source_reference": "P. E. Fairly nourished, showing evidence of some loss of weight. Skin dry, harsh, scaly, and moderately yellow, as were the sclerae. Superficial vessels of face dilated. Superficial veins over chest, abdomen, arms and legs prominent."
+        },
+        "turn_33": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Physical Examination - October 31st - Oral and Cardiac Exam",
+            "message": "Mouth... gums are inflamed, tongue is dry, cracked, and red. Let's listen to your heart. Apex beat is shifted, sounds are fast but fair. No murmurs. Pulse is okay. Blood pressure is 135.",
+            "intention": "Examining oral cavity and cardiovascular system.",
+            "context": "Doctor examining oral mucosa and performing cardiac auscultation and pulse and blood pressure measurement.",
+            "source_reference": "P. E. Mucous membranes of fair color. Marked pyorrhea. Tongue dry, cracked, bright red. Apex impulse of the heart in the fourth space 5y2 inches to the left of midsternum, 2 inches outside the nipple line. Action rapid. Sounds of fair quality. First sound at the apex a little sharp. P, accentuated. No murmurs. Pulses of fair volume and tension. Walls not felt. B.P. 135."
+        },
+        "turn_34": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Physical Examination - October 31st - Lung Exam",
+            "message": "Now, your lungs... sounds are reduced at the bases, especially on the right, with some crackling noises. Elsewhere, lungs are hyper-resonant. Breathing out is a bit prolonged. Some squeaks and crackles here and there.",
+            "intention": "Auscultating lungs.",
+            "context": "Doctor examining lungs, noting reduced breath sounds, r\u00e2les, hyperresonance, prolonged expiration, and scattered adventitious sounds.",
+            "source_reference": "P. E. Lungs. Dullness from the inferior angle of the scapula to the base on the right and at the extreme base on the left. Over these areas diminished to almost absent breath accompanied by a few coarse moist r\u00e2les. Dullness in the right chest in front from the fourth space down, in the right axilla from the fifth space. Elsewhere lungs hyperresonant. Expiration somewhat prolonged and feeble, and accompanied by scattered squeaks and medium moist r\u00e2les. A few fine crackles at the right apex and a shower of crackles in the left axilla."
+        },
+        "turn_35": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Physical Examination - October 31st - Abdominal Exam",
+            "message": "Your abdomen is very swollen and tight, making it hard to breathe. Bulging in your upper belly. It's tympanitic except in the flanks and nipple line where it's dull. This dullness shifts when you move, indicating fluid. Liver edge... can't feel it clearly because of the chest dullness.",
+            "intention": "Examining abdomen.",
+            "context": "Doctor examining abdomen, noting distension, tension, bulging, tympany, shifting dullness suggesting ascites, and difficulty in liver palpation.",
+            "source_reference": "P. E. Abdomen enormously distended, tense, glistening, interfering seriously with respiration. Marked bulging in the epigastrium. Wall held rigid. Tympanitic except in flanks and in nipple line, where there was dullness, shifting definitely with change in position. Upper border of liver not determined because of dullness in right chest beginning at the fourth space. Edge not felt."
+        },
+        "turn_36": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Physical Examination - October 31st - Extremities and Neurological Exam",
+            "message": "Legs have brownish spots, some sunken in the middle. Slight swelling over your shins. Pupils are normal. Knee reflexes... can't get them.",
+            "intention": "Examining extremities and neurological reflexes.",
+            "context": "Doctor examining legs, noting skin lesions and edema, and performing neurological exam, noting absent knee reflexes.",
+            "source_reference": "P. E. Extremities. Many small brownish macules and papules on the legs, some depressed in the center. Very slight edema over both shins. Pupils normal. Knee-jerks not obtained."
+        },
+        "turn_37": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Nurse A (created)",
+            "timestamp": "Second Admission - After Physical Exam - October 31st",
+            "message": "Doctor, patient's temperature is 99.3\u00b0F, pulse is fluctuating between 105 and 140, respirations are 33 to 37.",
+            "intention": "Reporting vital signs during second admission.",
+            "context": "Nurse reporting vital signs taken after physical examination during second admission.",
+            "source_reference": "T. 99.3\u00b0-99.6\u00b0. P. 105-140. R. 33-37."
+        },
+        "turn_38": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Procedure - October 31st - Explaining Abdominal Tap",
+            "message": "Your abdomen is very distended with fluid. We need to drain some of this fluid to help you breathe easier. We're going to do an abdominal tap.",
+            "intention": "Explaining need for and procedure of abdominal paracentesis.",
+            "context": "Doctor explaining the need for abdominal paracentesis to relieve respiratory distress caused by ascites.",
+            "source_reference": "The abdomen was immediately tapped with the recovery of two and a half quarts of light greenish-yellow fluid, slightly cloudy, alkaline, sp. gr. 1.005, 88 per cent, endothelial cells, 11 per cent, lymphocytes, 1 per cent, polynuelears, some fresh red cells, numerous intracellular bacteria which looked like pneumococci; culture negative."
+        },
+        "turn_39": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Post-Procedure - October 31st - After Abdominal Tap",
+            "message": "You should feel much better now after draining the fluid. Let's check your liver again.",
+            "intention": "Assessing patient's condition after paracentesis and re-examining liver.",
+            "context": "Doctor assessing patient's post-paracentesis status and re-examining the liver.",
+            "source_reference": "She was greatly relieved after the tap, and the respiration and heart action were much better. A rounded stony hard liver edge was now palpable four inches below the ensiform."
+        },
+        "turn_40": {
+            "speaker": "Doctor A",
+            "listeners": [
+                "Patient"
+            ],
+            "real_name": "Doctor A (created)",
+            "timestamp": "Second Admission - Post-Procedure - October 31st - Liver Palpation Findings",
+            "message": "Yes, I can feel your liver edge now, it's hard and bumpy, about four inches below your sternum. And it feels granular. The dullness from your liver extends up to the fourth rib. Your abdomen will likely refill with fluid.",
+            "intention": "Reporting liver palpation findings after paracentesis.",
+            "context": "Doctor reporting findings of liver palpation, noting hardness, granularity, enlargement, and expectation of ascites recurrence.",
+            "source_reference": "A rounded stony hard liver edge was now palpable four inches below the ensiform. The surface was granular. The upper border of dullness extended to the fourth rib. The abdomen rapidly refilled."
+        },
+        "turn_41": {
+            "speaker": "Nurse A",
+            "listeners": [
+                "Doctor A"
+            ],
+            "real_name": "Nurse A (created)",
+            "timestamp": "Second Admission - Evening of November 1st - Reporting patient death",
+            "message": "Doctor, the patient was found dead at nine o'clock this evening.",
+            "intention": "Reporting patient's death.",
+            "context": "Nurse reporting patient's death during the evening of November 1st.",
+            "source_reference": "The evening of November 1 she seemed in no worse condition than usual. At nine o'clock she was found dead."
+        },
+        "turn_42": {
+            "speaker": "Doctor B",
+            "listeners": [
+                "Doctor C",
+                "Doctor D",
+                "Doctor E"
+            ],
+            "real_name": "Richard C. Cabot",
+            "timestamp": "Discussion - Post-mortem findings",
+            "message": "So, clinically we suspected alcoholic cirrhosis. Let's discuss the findings.",
+            "intention": "Initiating discussion on clinical and pathological findings.",
+            "context": "Dr. Cabot starting the discussion on the case, focusing on the clinical suspicion of alcoholic cirrhosis.",
+            "source_reference": "Discussion By Dr. Richard C. Cabot"
+        },
+        "turn_43": {
+            "speaker": "Doctor E",
+            "listeners": [
+                "Doctor B",
+                "Doctor C",
+                "Doctor D"
+            ],
+            "real_name": "Dr. Richardson",
+            "timestamp": "Discussion - Post-mortem findings - Anatomical Diagnosis",
+            "message": "The skin and eyes were yellowish. Abdomen distended with straw-colored fluid. Peritoneum thickened and engorged. Diaphragm was high. Lungs showed old TB foci. Liver was enlarged, tough, granular, yellowish-green, showing typical cirrhosis microscopically.",
+            "intention": "Presenting anatomical diagnosis.",
+            "context": "Dr. Richardson presenting the anatomical findings from the post-mortem examination, confirming cirrhosis and other related findings.",
+            "source_reference": "Dr. Richardson : The skin and conjunctivae showed a yellowish tinge. The abdomen was distended and the wall was tense; the cavity contained a large amount of straw-colored clear fluid. The parietal peritoneum rather generally and the peritoneum of the cecum and ascending colon on the right side and of the colon on the left side showed thickening, glistening, and were beautifully marked with engorged blood vessels. The diaphragm was at the third rib on the right. That is high. On the left it was at the fifth rib. There were only a few pleural adhesions. The lungs were negative except for a focus on each side of obsolete tuberculosis, one of which, on the left, was near the apex. The liver weighed 2895 grams,\u2014considerably enlarged, yet its anterior margin was only a little below the costal border. It had extended upward and pushed up the diaphragm on the right and crowded the lung on that side. It showed atypical picture of cirrhosis of the liver. The tissue was tough, leathery, granular, and showed a yellowish tint with a greenish tinge,\u2014bile stained. The microscopic examination showed typical cirrhosis of the liver. The cirrhosis in this case was associated with icterus and ascites."
+        },
+        "turn_44": {
+            "speaker": "Doctor E",
+            "listeners": [
+                "Doctor B",
+                "Doctor C",
+                "Doctor D"
+            ],
+            "real_name": "Dr. Richardson",
+            "timestamp": "Discussion - Post-mortem findings - Additional findings",
+            "message": "Gallbladder and bile ducts were clear. Spleen slightly enlarged. Stomach and intestines showed congestion. Heart blood culture was negative.",
+            "intention": "Presenting additional anatomical findings.",
+            "context": "Dr. Richardson continuing to present post-mortem findings, including gallbladder, bile ducts, spleen, gastrointestinal tract, and blood culture results.",
+            "source_reference": "The gall-bladder was negative, the bile ducts free, no stones. The spleen was slightly enlarged, weighing 215 grams. This goes, of course, with the cirrhosis of the liver. The stomach and intestines showed nothing for record except that the mucosa of the stomach and intestines showed areas and streaks of reddening,\u2014congestion, associated with the cirrhosis of the liver. I was unable to get any growth from the heart blood."
+        },
+        "turn_45": {
+            "speaker": "Doctor B",
+            "listeners": [
+                "Doctor C",
+                "Doctor D",
+                "Doctor E"
+            ],
+            "real_name": "Richard C. Cabot",
+            "timestamp": "Discussion - Post-mortem findings - Concluding remarks",
+            "message": "So, it confirms our clinical diagnosis of cirrhosis. Interesting to note the palpable hobnail liver during life, which is rare.",
+            "intention": "Concluding the discussion and highlighting a rare clinical finding.",
+            "context": "Dr. Cabot concluding the discussion, confirming the clinical diagnosis and noting the rare finding of palpable hobnail liver.",
+            "source_reference": "Make note of one case in which the hobnails of the hobnail liver were felt in life."
+        }
+    },
+    "clinical_data": {
+        "presentation": {
+            "chief_complaint_first_entry": "Run down and weak, poor appetite, nausea, bloating, shaking chills, swollen legs with itching red spots, sharp pain over lower left ribs moving to back, dark red urine, frequent and urgent micturition, black stools.",
+            "history_of_present_illness_first_entry": "For three weeks run down and weak, with poor appetite, nausea, and bloating of the abdomen. Twice last week shaking chills. Four days ago legs became swollen and covered with itching red spots. Three nights ago sharp pain over the lower left ribs moving to back. Dark red urine, frequent and urgent micturition, black stools.",
+            "physical_exam_first_entry": "Well nourished. Teeth foul. Heart and lungs normal. Abdomen full below, tympanitic, tenderness in iliac fossae, more left. Great back tenderness. Vaginal exam: cervix small, firm, slight tear. Rectal exam: tenderness in front. Extremities: slight edema, tender shins, erythematous blotches.",
+            "vital_signs_first_entry": {
+                "initial": {
+                    "temperature": "102.5\u00b0F",
+                    "pulse": "113 bpm",
+                    "respiratory_rate": "37/min"
+                },
+                "later": {
+                    "temperature": "98\u00b0F",
+                    "pulse": "80 bpm",
+                    "respiratory_rate": "22/min"
+                }
+            },
+            "chief_complaint_second_entry": "Anorexia, eructations, nausea, bleeding piles, abdominal swelling, slight cough with blood-streaked sputum, weakness, dyspnea, feet swelling.",
+            "history_of_present_illness_second_entry": "For past month anorexia, eructations, nausea, piles with bleeding, abdominal swelling, slight cough with blood-streaked sputum. Weakness, bedridden for ten days. Dyspnea when sitting, worsening feet swelling and cough.",
+            "physical_exam_second_entry": "Fairly nourished, weight loss. Dry, yellow skin and sclerae. Dilated facial vessels, prominent veins. Pyorrhea, dry, cracked, red tongue. Displaced apex beat, rapid heart, accentuated P2. Dullness at lung bases with diminished breath sounds and r\u00e2les. Enormously distended abdomen, tense, shifting dullness. Liver edge palpable, hard and granular. Brownish macules on legs, slight edema. Absent knee-jerks.",
+            "vital_signs_second_entry": {
+                "initial": {
+                    "temperature": "99.3\u00b0F",
+                    "pulse": "105 bpm",
+                    "respiratory_rate": "33/min"
+                },
+                "later": {
+                    "temperature": "99.6\u00b0F",
+                    "pulse": "140 bpm",
+                    "respiratory_rate": "37/min"
+                }
+            }
+        },
+        "diagnostics": {
+            "laboratory_data_first_entry": [
+                {
+                    "test": "Urine",
+                    "value": "sp. gr. 1.025, slight trace of albumin, few leucocytes"
+                },
+                {
+                    "test": "Blood Hgb",
+                    "value": "75%",
+                    "units": "%"
+                },
+                {
+                    "test": "Blood Leucocytes",
+                    "value": "20,400-12,900/mm\u00b3",
+                    "units": "/mm\u00b3"
+                }
+            ],
+            "laboratory_data_second_entry": [
+                {
+                    "test": "Urine",
+                    "value": "sp. gr. 1.018, slight trace of albumin, rare leucocytes, few hyalin casts"
+                },
+                {
+                    "test": "Blood Leucocytes",
+                    "value": "16,000/mm\u00b3",
+                    "units": "/mm\u00b3"
+                },
+                {
+                    "test": "Ascitic Fluid",
+                    "value": "light greenish-yellow, slightly cloudy, alkaline, sp. gr. 1.005, 88% endothelial cells, 11% lymphocytes, 1% polynuclears, some fresh red cells, numerous intracellular bacteria like pneumococci, culture negative."
+                }
+            ],
+            "imaging": []
+        },
+        "procedures": [
+            {
+                "procedure": "Vaginal Examination",
+                "description": "Performed during first entry, negative on day after admission."
+            },
+            {
+                "procedure": "Rectal Examination",
+                "description": "Performed during first entry."
+            },
+            {
+                "procedure": "Abdominal Paracentesis",
+                "description": "Performed during second entry, 2.5 quarts of fluid removed."
+            }
+        ],
+        "timeline_events": [
+            {
+                "time": "First Entry - February 20th",
+                "event": "Admission for run down condition, abdominal pain, skin rash."
+            },
+            {
+                "time": "First Entry - February 21st",
+                "event": "Vaginal examination negative, abdominal tenderness resolved."
+            },
+            {
+                "time": "First Entry - February 23rd",
+                "event": "Small tender node on left thigh, enlarged supraclavicular glands."
+            },
+            {
+                "time": "First Entry - February 26th",
+                "event": "Toxic from salicylates."
+            },
+            {
+                "time": "First Entry - February 28th",
+                "event": "Discharged with sodium salicylate prescription."
+            },
+            {
+                "time": "Second Entry - October 31st (Nine years later)",
+                "event": "Admission for worsening abdominal swelling, jaundice, cough, weakness."
+            },
+            {
+                "time": "Second Entry - October 31st",
+                "event": "Abdominal paracentesis performed, 2.5 quarts fluid removed. Liver edge palpable."
+            },
+            {
+                "time": "Second Entry - November 1st Evening",
+                "event": "Patient found dead at 9 PM."
+            }
+        ],
+        "final_diagnoses": [
+            "clinical diagnosis, first entry: Erythema nodosum.",
+            "clinical diagnosis, second entry: Cirrhosis of liver, alcoholic. Chronic alcoholism.",
+            "DR. RICHARD C. CABOT's DIAGNOSIS: Chronic interstitial hepatitis. Chronic passive congestion.",
+            "ANATOMICAL DIAGNOSIS: 1. Primary Fatal Lesion: Chronic interstitial hepatitis with fatty metamorphosis of the liver. 2. Secondary or terminal lesions: Ascites. Icterus. Slight hyperplasia of the spleen. Compression atelectasis of the right lung. 3. Historical Landmarks: Foci of obsolete tuberculosis of the lungs. Chronic pleuritis."
+        ]
+    },
+    "case_id": "NEJM192403271901320",
+    "original_case_number": "NEJM192403271901320",
+    "final_diagnosis": "N/A"
+}
