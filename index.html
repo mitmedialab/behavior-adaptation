@@ -252,6 +252,8 @@
            }
     }
 
+    // In the <script type="module">
+
     async function sendFeedbackToFirebase(feedbackData, annotatorId) {
         if (!db) {
             console.error("Firestore DB not initialized. Cannot send feedback.");
@@ -262,18 +264,36 @@
             console.error("Missing currentTaskFileName or task_id for Firebase document ID.");
             return;
         }
-
+    
         const docId = `${window.currentTaskFileName.replace('.json', '')}_${feedbackData.task_id_from_json}_${annotatorId}_${new Date().getTime()}`;
-        const collectionPath = "task_evaluations_prod"; // Consider a distinct collection name
-
-        console.log(`Attempting to save to Firebase: Collection='${collectionPath}', DocID='${docId}'`);
-        console.log("Feedback data being sent:", feedbackData);
-
+        const collectionPath = "task_evaluations_prod";
+    
+        // --- NEW: Sanitize the feedbackData object ---
+        let sanitizedFeedbackData;
         try {
-            await setDoc(doc(db, collectionPath, docId), feedbackData);
+            // This will convert the object to a JSON string and back to a plain JS object,
+            // removing any functions, undefined properties in nested objects, or custom class instances.
+            sanitizedFeedbackData = JSON.parse(JSON.stringify(feedbackData));
+            console.log("Sanitized feedback data for Firebase:", sanitizedFeedbackData);
+        } catch (e) {
+            console.error("Error sanitizing feedback data:", e, "Original data:", feedbackData);
+            alert("Error preparing data for Firebase. Feedback not saved. Check console.");
+            return;
+        }
+        // --- END NEW ---
+    
+    
+        console.log(`Attempting to save to Firebase: Collection='${collectionPath}', DocID='${docId}'`);
+        // console.log("Feedback data being sent (original):", feedbackData); // Keep for debugging if needed
+    
+        try {
+            // Use the sanitized data
+            await setDoc(doc(db, collectionPath, docId), sanitizedFeedbackData);
             console.log("Feedback successfully sent to Firebase with ID:", docId, "by Annotator:", annotatorId);
         } catch (error) {
-            console.error("Error sending feedback to Firebase:", error);
+            console.error("Error sending feedback to Firebase:", error); // This is where your error is likely originating
+            console.error("Firebase error details:", error.code, error.message);
+            if (error.details) console.error("Firebase error additional details:", error.details);
             alert("Error: Could not save feedback to Firebase. Please check console. Your feedback is still available for download locally.");
         }
     }
