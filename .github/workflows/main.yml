@@ -1,0 +1,47 @@
+# .github/workflows/main.yml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # 또는 배포하려는 브랜치
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Replace Firebase Config Placeholders in index.html
+        run: |
+          # 운영체제에 따라 sed 명령어 옵션이 다를 수 있습니다. Linux (ubuntu-latest) 기준입니다.
+          sed -i 's|__FIREBASE_API_KEY__|${{ secrets.API_KEY }}|g' index.html
+          sed -i 's|__FIREBASE_AUTH_DOMAIN__|${{ secrets.FIREBASE_AUTH_DOMAIN }}|g' index.html
+          sed -i 's|__FIREBASE_PROJECT_ID__|${{ secrets.FIREBASE_PROJECT_ID }}|g' index.html
+          sed -i 's|__FIREBASE_STORAGE_BUCKET__|${{ secrets.FIREBASE_STORAGE_BUCKET }}|g' index.html
+          sed -i 's|__FIREBASE_MESSAGING_SENDER_ID__|${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}|g' index.html
+          sed -i 's|__FIREBASE_APP_ID__|${{ secrets.FIREBASE_APP_ID }}|g' index.html
+          sed -i 's|__FIREBASE_MEASUREMENT_ID__|${{ secrets.FIREBASE_MEASUREMENT_ID }}|g' index.html
+        # env: # secrets는 run 스텝에서 바로 사용 가능합니다.
+        #   API_KEY_FROM_SECRET: ${{ secrets.API_KEY }} # 이런 식으로 환경변수로 넘겨서 사용할 수도 있습니다.
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # index.html 포함한 현재 디렉토리 업로드
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
