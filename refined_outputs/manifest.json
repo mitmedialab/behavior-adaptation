@@ -1,14 +1,9 @@
 {
     "case_files": [
-      "refined_9482_tasks_with_llm_responses.json",
-      "refined_10111_tasks_with_llm_responses.json",
-      "refined_10032_tasks_with_llm_responses.json",
-      "refined_10131_tasks_with_llm_responses.json",
-      "refined_10033_tasks_with_llm_responses.json",
-      "refined_10171_tasks_with_llm_responses.json",
-      "refined_10042_tasks_with_llm_responses.json",
-      "refined_10181_tasks_with_llm_responses.json",
-      "refined_10071_tasks_with_llm_responses.json",
-      "refined_10072_tasks_with_llm_responses.json"
-    ]
+        "refined_10111_tasks_with_llm_responses.json",
+        "refined_10131_tasks_with_llm_responses.json",
+        "refined_10171_tasks_with_llm_responses.json",
+        "refined_10181_tasks_with_llm_responses.json",
+        "refined_10072_tasks_with_llm_responses.json"
+      ]
 }
