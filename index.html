@@ -411,12 +411,23 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
 function showTaskSelectionScreenForCase() {
     showScreen('taskSelectionScreen');
     const simplifiedName = getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName));
-    document.getElementById('taskSelectionTitle').textContent = `Select Task (from ${simplifiedName})`;
+    document.getElementById('taskSelectionTitle').textContent = `Task List (from ${simplifiedName})`; // Keep case name for context
     const container = document.getElementById('taskButtonsContainer');
     container.innerHTML = '';
 
-    if (!window.displayedTasksData || window.displayedTasksData.length === 0) {
-        let msg = `<p>No selected tasks (1 proactive & 1 reactive) for ${simplifiedName}.`;
+    // --- START: Optional Randomization of displayed tasks ---
+    // Create a copy to shuffle so the original order in displayedTasksData (if needed elsewhere) is preserved
+    // Or, if displayedTasksData is only used for this screen, you can shuffle it in place.
+    // For this example, let's assume we shuffle a copy for display purposes.
+    let tasksToDisplayOnScreen = [...window.displayedTasksData];
+    if (tasksToDisplayOnScreen.length > 1) { // Only shuffle if there's more than one task
+        tasksToDisplayOnScreen = shuffleArray(tasksToDisplayOnScreen);
+    }
+    // --- END: Optional Randomization ---
+
+
+    if (!tasksToDisplayOnScreen || tasksToDisplayOnScreen.length === 0) {
+        let msg = `<p>No selected tasks (typically 1 proactive & 1 reactive, or all if chosen) for ${simplifiedName}.`;
         msg += window.allTasksDataFromCurrentFile.length > 0 ? ` This file has ${window.allTasksDataFromCurrentFile.length} total tasks.` : ` This file has no tasks.`;
         msg += `</p>`;
         container.innerHTML = msg;
@@ -427,19 +438,45 @@ function showTaskSelectionScreenForCase() {
                 style: 'background-color: #ffc107; color: #000;',
                 onclick: () => {
                     window.displayedTasksData = [...window.allTasksDataFromCurrentFile];
-                    if(window.completedStatus[window.currentTaskFileName]) window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
-                    showTaskSelectionScreenForCase();
+                    // No need to shuffle here as the screen will re-render and shuffle the new full list
+                    if(window.completedStatus[window.currentTaskFileName]) {
+                        window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
+                    }
+                    showTaskSelectionScreenForCase(); // Re-render the screen
                 }
             });
             container.appendChild(btn);
         }
     } else {
-        window.displayedTasksData.forEach((task, index) => {
+        tasksToDisplayOnScreen.forEach((task, displayIndex) => { // Use displayIndex for button label
             const btn = document.createElement('button');
             btn.className = 'selection-button';
-            const type = task.proactive_score >= 0.6 ? "Proactive" : "Reactive";
-            btn.textContent = `Task ${index + 1} (${type}): ${task.question.substring(0,50)}... (Type: ${task.task_type})`;
-            btn.onclick = () => loadTaskEvaluation(index);
+
+            // --- Modified Button Text ---
+            // Using task.task_type for a bit more context if available, otherwise just the question.
+            let taskDescription = task.question.substring(0, 50);
+            if (task.task_type) {
+                taskDescription += `... (Type: ${task.task_type})`;
+            } else {
+                taskDescription += "...";
+            }
+            btn.textContent = `Task ${displayIndex + 1}: ${taskDescription}`;
+            // --- End Modified Button Text ---
+
+            btn.onclick = () => {
+                // Find the original index of this task in window.displayedTasksData
+                // This is important if tasksToDisplayOnScreen was shuffled
+                const originalIndexInDisplayedTasks = window.displayedTasksData.findIndex(
+                    originalTask => originalTask.task_id === task.task_id
+                );
+                if (originalIndexInDisplayedTasks !== -1) {
+                    loadTaskEvaluation(originalIndexInDisplayedTasks);
+                } else {
+                    console.error("Could not find the selected task in the original displayedTasksData array. This should not happen.");
+                    alert("Error selecting task. Please try again.");
+                }
+            };
+
             if (window.completedStatus[window.currentTaskFileName]?.completedDisplayedTasks.has(task.task_id)) {
                 btn.classList.add('completed');
             }
