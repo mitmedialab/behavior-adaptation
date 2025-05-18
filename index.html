@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent Interaction Evaluation (v1.9.4 - PDF Link)</title>
+    <title>AI Agent Interaction Evaluation (v1.9.5 - Simplified Titles)</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
     <style>
         body {
@@ -55,25 +55,6 @@
         .collapsible-arrow { font-size: 0.8em; transition: transform 0.2s ease-in-out; margin-left: auto; padding-left: 10px; }
         .collapsible-header.open .collapsible-arrow { transform: rotate(90deg); }
         .collapsible-content .context-display { margin-top: 10px; } /* Spacing for pre tags inside collapsibles */
-
-        /* PDF Download Link */
-        .pdf-download-link {
-            display: block;
-            margin: 10px 0 15px 0;
-            padding: 8px 12px;
-            background-color: #007bff;
-            color: white !important; /* Important to override default link color */
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 0.9em;
-            font-weight: bold;
-            max-width: 250px; /* Adjust as needed */
-        }
-        .pdf-download-link:hover {
-            background-color: #0056b3;
-        }
-
 
         /* Agent Interaction Area */
         .situation-prompt { text-align: center; font-style: italic; color: #606770; margin-bottom: 20px; padding: 10px; background-color: #e9f5ff; border: 1px solid #cfe2ff; border-radius: 6px; }
@@ -131,7 +112,6 @@
 </head>
 <body>
 
-    <!-- ... (rest of your HTML structure: main-container, navigation-header, firebaseStatus, screens etc.) ... -->
     <div class="main-container">
 
     <div class="navigation-header">
@@ -168,7 +148,6 @@
             <!-- Agent columns and responses will be loaded here -->
         </div>
         <div class="evaluation-section hidden" id="evaluationFormContainer">
-<!--             <h3>Evaluation Questions for <span id="evalTaskTitle">Current Task</span></h3> -->
             <h3>Evaluation Questions</h3>
             <form id="feedbackForm">
                  <div class="evaluation-question">
@@ -206,7 +185,7 @@
 
     // IMPORTANT: Replace with your actual Firebase configuration
     const firebaseConfig = {
-      apiKey: "__FIREBASE_API_KEY__",
+      apiKey: "__FIREBASE_API_KEY__", // Replace with your actual API key
       authDomain: "behavior-adaptation.firebaseapp.com",
       projectId: "behavior-adaptation",
       storageBucket: "behavior-adaptation.firebasestorage.app",
@@ -245,6 +224,7 @@
             console.error("Missing currentTaskFileName or task_id for Firebase document ID.");
             return;
         }
+        // Construct a unique document ID
         const docId = `${window.currentTaskFileName.replace('.json', '')}_${feedbackData.task_id_from_json}_${annotatorId}_${new Date().getTime()}`;
         const collectionPath = "task_evaluations_prod_v2"; // Use a versioned collection if schema changes
 
@@ -254,6 +234,7 @@
         } catch (error) {
             console.error("Error sending feedback to Firebase:", error);
             alert("Error: Could not save feedback to Firebase. Please check console. Your feedback is still available for download locally.");
+            // Optionally, trigger a local save here as a fallback
         }
     }
 
@@ -269,28 +250,28 @@
     window.AGENT_INTERNAL_KEYS = ['agentA', 'agentB', 'agentC'];
     window.TASKS_OUTPUTS_DIR = "./refined_outputs/";
     window.CONVERSATIONS_DIR = "./conversations/";
-    window.PDFS_DIR = "./pdfs/"; // Added PDF directory
+    // window.PDFS_DIR = "./pdfs/"; // PDF directory - commented out as not used in current display
     window.MANIFEST_FILE = window.TASKS_OUTPUTS_DIR + "manifest.json";
 
     window.availableTaskFiles = [];
     window.currentTaskFileName = null;
     window.taskFileMetadata = {};
     window.allTasksDataFromCurrentFile = [];
-    window.displayedTasksData = []; // Filtered tasks (1 proactive, 1 reactive, or all)
+    window.displayedTasksData = []; // Filtered tasks (e.g., 1 proactive, 1 reactive)
     window.currentTaskIndexInDisplayed = -1;
     window.currentTaskData = null; // Holds the data for the currently evaluated task
     window.fullConversationData = null; // Holds the parsed _conversation.json
     window.currentAgentDisplaySetup = []; // For tracking shuffled agent display
     window.allFeedbackData = {}; // Stores all feedback for local download
-    window.completedStatus = {}; // Tracks completed tasks/files
+    window.completedStatus = {}; // Tracks completed tasks/files: { [fileName]: { totalTasksInFile: X, totalTasksToDisplay: Y, completedDisplayedTasks: Set() } }
     window.draggedItem = null; // For drag-and-drop ranking
     window.sessionAnnotatorId = ''; // Persists annotator ID for the session
 
     window.onload = async () => {
-        console.log("Evaluation Tool v1.9.4 (PDF Link) Initializing...");
+        console.log("Evaluation Tool v1.9.5 (Simplified Titles) Initializing...");
         await window.loadManifestAndListTaskFiles();
         window.showTaskFileSelectionScreen();
-        document.getElementById('backToSelectionBtn').disabled = true;
+        document.getElementById('backToSelectionBtn').disabled = true; // Initially disabled
     };
 </script>
 
@@ -309,7 +290,7 @@ async function loadManifestAndListTaskFiles() {
     } catch (error) {
         console.error("Error loading manifest file:", error);
         alert(`Could not load the list of task files from manifest.json. Please ensure it exists at '${window.MANIFEST_FILE}' and is correctly formatted. Error: ${error.message}`);
-        window.availableTaskFiles = [];
+        window.availableTaskFiles = []; // Ensure it's an empty array on error
     }
 }
 
@@ -321,14 +302,15 @@ function showScreen(screenId) {
 }
 
 function getSimplifiedCaseName(fileName, index) {
+    // Try to extract case number more robustly
     const match = fileName.match(/refined_(\d+)_tasks/i) || fileName.match(/case_?(\d+)/i) || fileName.match(/(\d+)/);
-    return match && match[1] ? `Case ${match[1]}` : `File ${index + 1}`;
+    return match && match[1] ? `Case ${match[1]}` : `File ${index + 1}`; // Fallback to File X
 }
 
 function showTaskFileSelectionScreen() {
     showScreen('caseFileSelectionScreen');
     const container = document.getElementById('caseFileButtonsContainer');
-    container.innerHTML = '';
+    container.innerHTML = ''; // Clear previous buttons
     if (window.availableTaskFiles.length === 0) {
         container.innerHTML = `<p>No task files available. Check manifest.json in ${window.TASKS_OUTPUTS_DIR} or console for errors.</p>`;
         return;
@@ -338,13 +320,14 @@ function showTaskFileSelectionScreen() {
         button.className = 'selection-button';
         button.textContent = getSimplifiedCaseName(fileName, index);
         button.onclick = () => loadTaskFileAndAssociatedConversation(fileName);
+        // Check completion status
         if (window.completedStatus[fileName]?.completedDisplayedTasks.size === window.completedStatus[fileName]?.totalTasksToDisplay && window.completedStatus[fileName]?.totalTasksToDisplay > 0) {
             button.classList.add('completed');
         }
         container.appendChild(button);
     });
     document.getElementById('backToSelectionBtn').disabled = true;
-    document.getElementById('backToSelectionBtn').onclick = null;
+    document.getElementById('backToSelectionBtn').onclick = null; // No action from this screen
     updateOverallProgressAndDownloadButton();
 }
 
@@ -360,18 +343,20 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
         window.allTasksDataFromCurrentFile = taskJsonData.tasks || [];
         window.taskFileMetadata = taskJsonData.metadata || {};
 
+        // Attempt to load conversation data
         let conversationFileId = taskJsonData.metadata?.conversation_source_details?.filename ||
                                  (taskJsonData.metadata?.conversation_source_details?.source_file_metadata?.case_id ? `${taskJsonData.metadata.conversation_source_details.source_file_metadata.case_id}_conversation.json` : null) ||
                                  (taskJsonData.metadata?.case_id?.match(/^([^_]+)/)?.[1] ? `${taskJsonData.metadata.case_id.match(/^([^_]+)/)[1]}_conversation.json` : null);
 
         if (!conversationFileId && taskJsonData.metadata?.conversation_source_details?.extracted_text) {
+            // Try parsing embedded conversation if filename is missing
             try { window.fullConversationData = JSON.parse(taskJsonData.metadata.conversation_source_details.extracted_text); }
             catch (e) { console.error("Error parsing embedded conversation text:", e); }
         } else if (!conversationFileId) {
              console.warn("Could not determine conversation file ID from task file metadata.", taskJsonData.metadata);
         }
 
-        if (conversationFileId && !window.fullConversationData) {
+        if (conversationFileId && !window.fullConversationData) { // If ID found and not already parsed from embedded
             try {
                 const convResponse = await fetch(window.CONVERSATIONS_DIR + conversationFileId);
                 if (convResponse.ok) window.fullConversationData = await convResponse.json();
@@ -379,14 +364,17 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
             } catch (e) { console.warn(`Error loading conversation file ${conversationFileId}:`, e); }
         }
 
+        // Filter tasks to display (e.g., 1 proactive, 1 reactive)
         const proactiveTask = window.allTasksDataFromCurrentFile.find(t => t.proactive_score >= 0.6);
         const reactiveTask = window.allTasksDataFromCurrentFile.find(t => t.proactive_score < 0.6);
         window.displayedTasksData = [];
         if (proactiveTask) window.displayedTasksData.push(proactiveTask);
-        if (reactiveTask && (!proactiveTask || reactiveTask.task_id !== proactiveTask.task_id)) {
+        if (reactiveTask && (!proactiveTask || reactiveTask.task_id !== proactiveTask.task_id)) { // Ensure reactive is different if proactive exists
             window.displayedTasksData.push(reactiveTask);
         }
+        // If no specific tasks found, or to show all: window.displayedTasksData = [...window.allTasksDataFromCurrentFile];
 
+        // Initialize or update completion status for this file
         if (!window.completedStatus[taskFileName]) {
             window.completedStatus[taskFileName] = {
                 totalTasksInFile: window.allTasksDataFromCurrentFile.length,
@@ -394,8 +382,10 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
                 completedDisplayedTasks: new Set()
             };
         } else {
+            // Update totalTasksToDisplay if it changed (e.g., user chose to view all)
             window.completedStatus[taskFileName].totalTasksToDisplay = window.displayedTasksData.length;
         }
+        // Initialize feedback storage for this file if not already present
         if (!window.allFeedbackData[taskFileName]) {
             window.allFeedbackData[taskFileName] = {
                 taskFileMetadata: { ...window.taskFileMetadata, originalTaskFileName: taskFileName },
@@ -412,34 +402,28 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
 function showTaskSelectionScreenForCase() {
     showScreen('taskSelectionScreen');
     const simplifiedName = getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName));
-    document.getElementById('taskSelectionTitle').textContent = `Task List from ${simplifiedName}`; // Keep case name for context
+    document.getElementById('taskSelectionTitle').textContent = `Task List from ${simplifiedName}`;
     const container = document.getElementById('taskButtonsContainer');
     container.innerHTML = '';
 
-    // --- START: Optional Randomization of displayed tasks ---
-    // Create a copy to shuffle so the original order in displayedTasksData (if needed elsewhere) is preserved
-    // Or, if displayedTasksData is only used for this screen, you can shuffle it in place.
-    // For this example, let's assume we shuffle a copy for display purposes.
     let tasksToDisplayOnScreen = [...window.displayedTasksData];
-    if (tasksToDisplayOnScreen.length > 1) { // Only shuffle if there's more than one task
-        tasksToDisplayOnScreen = shuffleArray(tasksToDisplayOnScreen);
+    if (tasksToDisplayOnScreen.length > 1) { 
+        tasksToDisplayOnScreen = shuffleArray(tasksToDisplayOnScreen); // Shuffle for display order
     }
-    // --- END: Optional Randomization ---
-
 
     if (!tasksToDisplayOnScreen || tasksToDisplayOnScreen.length === 0) {
         let msg = `<p>No selected tasks (typically 1 proactive & 1 reactive, or all if chosen) for ${simplifiedName}.`;
         msg += window.allTasksDataFromCurrentFile.length > 0 ? ` This file has ${window.allTasksDataFromCurrentFile.length} total tasks.` : ` This file has no tasks.`;
         msg += `</p>`;
         container.innerHTML = msg;
+        // Option to view all tasks if not all are currently selected for display
         if (window.allTasksDataFromCurrentFile.length > 0 && window.displayedTasksData.length < window.allTasksDataFromCurrentFile.length) {
             const btn = Object.assign(document.createElement('button'), {
                 textContent: `View All ${window.allTasksDataFromCurrentFile.length} Tasks Instead`,
                 className: 'selection-button',
-                style: 'background-color: #ffc107; color: #000;',
+                style: 'background-color: #ffc107; color: #000;', // Warning color
                 onclick: () => {
-                    window.displayedTasksData = [...window.allTasksDataFromCurrentFile];
-                    // No need to shuffle here as the screen will re-render and shuffle the new full list
+                    window.displayedTasksData = [...window.allTasksDataFromCurrentFile]; // Load all tasks
                     if(window.completedStatus[window.currentTaskFileName]) {
                         window.completedStatus[window.currentTaskFileName].totalTasksToDisplay = window.displayedTasksData.length;
                     }
@@ -449,24 +433,14 @@ function showTaskSelectionScreenForCase() {
             container.appendChild(btn);
         }
     } else {
-        tasksToDisplayOnScreen.forEach((task, displayIndex) => { // Use displayIndex for button label
+        tasksToDisplayOnScreen.forEach((task, displayIndex) => { // displayIndex is 0-based for button label
             const btn = document.createElement('button');
             btn.className = 'selection-button';
-
-            // --- Modified Button Text ---
-            // Using task.task_type for a bit more context if available, otherwise just the question.
-            let taskDescription = task.question.substring(0, 50);
-            if (task.task_type) {
-                taskDescription += `... (Type: ${task.task_type})`;
-            } else {
-                taskDescription += "...";
-            }
-            btn.textContent = `Task ${displayIndex + 1}`;
-            // --- End Modified Button Text ---
+            btn.textContent = `Task ${displayIndex + 1}`; // Simple "Task X"
 
             btn.onclick = () => {
                 // Find the original index of this task in window.displayedTasksData
-                // This is important if tasksToDisplayOnScreen was shuffled
+                // This is important because tasksToDisplayOnScreen was shuffled
                 const originalIndexInDisplayedTasks = window.displayedTasksData.findIndex(
                     originalTask => originalTask.task_id === task.task_id
                 );
@@ -500,28 +474,7 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
 
     let taskInfoHTML = '';
 
-    // --- START: PDF Download Link ---
-    let caseIdForPdf = null;
-    if (window.fullConversationData?.case_metadata?.case_id) {
-        caseIdForPdf = window.fullConversationData.case_metadata.case_id;
-    } else if (window.currentTaskFileName) {
-        // Fallback: try to extract from task filename (e.g., refined_10111_tasks.json -> 10111)
-        const match = window.currentTaskFileName.match(/(?:refined_)?(\d+)(?:_tasks)?/i);
-        if (match && match[1]) {
-            caseIdForPdf = match[1];
-        }
-    }
-
-    // if (caseIdForPdf) {
-    //     const pdfPath = `${window.PDFS_DIR}${caseIdForPdf}.pdf`;
-    //     taskInfoHTML += `<a href="${pdfPath}" target="_blank" class="pdf-download-link">Download Original Case</a>`;
-    // } else {
-    //     taskInfoHTML += `<p class="text-warning" style="margin-bottom:15px;">Could not determine Case ID for PDF link.</p>`;
-    // }
-    // --- END: PDF Download Link ---
-
-
-    // --- Build Task Information HTML (Continued) ---
+    // --- Build Task Information HTML ---
     taskInfoHTML += `
         <h4>Task Context Provided to AI:</h4>
         <div class="context-display">${window.currentTaskData.llm_input_context || "N/A"}</div>`;
@@ -537,6 +490,7 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
     if (window.currentTaskData.options && typeof window.currentTaskData.options === 'object') {
         taskInfoHTML += `<h4>Task Options:</h4><div class="options-display">`;
         const correctAnswerKey = window.currentTaskData.correct_answer_key;
+        // Handle cases where correct_answer might be the text itself or a key
         const goldStandardAnswerText = correctAnswerKey ? window.currentTaskData.options[correctAnswerKey] : (typeof window.currentTaskData.correct_answer === 'string' ? window.currentTaskData.correct_answer : null);
 
         Object.entries(window.currentTaskData.options).forEach(([key, optionText]) => {
@@ -549,19 +503,23 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
         taskInfoHTML += `</div>`;
     }
     
+    // --- Collapsible Case Details ---
     const localFormatKeyToTitle = (key) => key.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
     let caseDetailsContent = '';
     if (window.fullConversationData) {
+        // Display key metadata sections
         ['case_metadata', 'patient_info', 'participants'].forEach(key => {
             if (window.fullConversationData[key]) {
                 caseDetailsContent += `<h5>${localFormatKeyToTitle(key)}:</h5><div class="context-display"><pre>${JSON.stringify(window.fullConversationData[key], null, 2)}</pre></div>`;
             }
         });
+        // Display clinical data sub-sections
         if (window.fullConversationData.clinical_data) {
             caseDetailsContent += `<h5>Clinical Data Summary:</h5>`;
             Object.entries(window.fullConversationData.clinical_data).forEach(([subKey, data]) => {
-                if (data && (Object.keys(data).length > 0 || (Array.isArray(data) && data.length > 0) || typeof data !== 'object')) {
+                // Ensure data is not empty before displaying
+                if (data && (Object.keys(data).length > 0 || (Array.isArray(data) && data.length > 0) || typeof data !== 'object')) { // Check for non-empty objects/arrays or primitive types
                      caseDetailsContent += `<h6>${localFormatKeyToTitle(subKey)}:</h6><div class="context-display"><pre>${JSON.stringify(data, null, 2)}</pre></div>`;
                 }
             });
@@ -571,8 +529,10 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
         taskInfoHTML += createCollapsibleSection("Full Case Details (Click to Expand/Collapse)", caseDetailsContent);
     }
 
+    // --- Collapsible Conversation Transcript ---
     let conversationContent = '<p class="text-warning">Conversation data not available.</p>';
     if (window.fullConversationData?.conversation && typeof window.fullConversationData.conversation === 'object') {
+        // Sort turns by turn number if keys are like "turn_1", "turn_10"
         const turns = Object.entries(window.fullConversationData.conversation)
             .sort(([keyA], [keyB]) => (parseInt(keyA.split('_')[1]) || 0) - (parseInt(keyB.split('_')[1]) || 0))
             .map(([key, turn]) => `<div class="conversation-turn"><strong>${turn.speaker || 'N/A'} (Turn ${key.split('_')[1] || 'N/A'}):</strong> ${turn.message || ''}</div>`)
@@ -582,15 +542,15 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
     taskInfoHTML += createCollapsibleSection("Full Conversation Transcript (Click to Expand/Collapse)", conversationContent);
 
     document.getElementById('taskInfoContentGlobal').innerHTML = taskInfoHTML;
-    addCollapsibleEventListeners();
+    addCollapsibleEventListeners(); // Re-attach listeners for new collapsible sections
 
-    // document.getElementById('evalTaskTitle').textContent = `Task ${window.currentTaskIndexInDisplayed + 1} (${getSimplifiedCaseName(window.currentTaskFileName,0)} - Type: ${window.currentTaskData.task_type || 'N/A'})`;
-
-    // document.getElementById('evalTaskTitle').textContent = ''; // Or "Evaluation Questions" if you prefer that text
-    // ['agentsDisplayContainer', 'rank_container', 'safetyCheckboxesContainer', 'proactivityRatingsContainer'].forEach(id => document.getElementById(id).innerHTML = '');
-    document.getElementById('feedbackForm').reset();
-    document.getElementById('safety_details').value = '';
-    if (window.sessionAnnotatorId) document.getElementById('annotator_id').value = window.sessionAnnotatorId;
+    // The line that was setting evalTaskTitle.textContent has been removed as the element is gone.
+    
+    // Clear and reset evaluation form elements
+    ['agentsDisplayContainer', 'rank_container', 'safetyCheckboxesContainer', 'proactivityRatingsContainer'].forEach(id => document.getElementById(id).innerHTML = '');
+    document.getElementById('feedbackForm').reset(); // Resets form fields
+    document.getElementById('safety_details').value = ''; // Explicitly clear textarea
+    if (window.sessionAnnotatorId) document.getElementById('annotator_id').value = window.sessionAnnotatorId; // Pre-fill annotator ID
 
     document.getElementById('evaluationFormContainer').classList.remove('hidden');
     document.getElementById('backToSelectionBtn').disabled = false;
@@ -615,7 +575,12 @@ function createCollapsibleSection(title, contentHTML, initiallyOpen = false) {
 
 function addCollapsibleEventListeners() {
     document.querySelectorAll('.collapsible-header').forEach(header => {
-        header.addEventListener('click', function() {
+        // Remove old listener before adding a new one to prevent duplicates if this function is called multiple times
+        // This is a simple way; a more robust way might involve checking if a listener already exists.
+        const newHeader = header.cloneNode(true);
+        header.parentNode.replaceChild(newHeader, header);
+        
+        newHeader.addEventListener('click', function() {
             this.classList.toggle('open');
             const content = this.nextElementSibling;
             content.classList.toggle('show');
@@ -653,24 +618,26 @@ function updateOverallProgressAndDownloadButton() {
     document.getElementById('allCaseFilesCompletedMessage').classList.toggle('hidden', !allFilesDone);
     document.getElementById('downloadAllResultsBtn').classList.toggle('hidden', !allFilesDone);
 
-    if (!document.getElementById('caseFileSelectionScreen').classList.contains('hidden')) {
+    // Update progress bar based on current screen
+    if (!document.getElementById('caseFileSelectionScreen').classList.contains('hidden')) { // If on case selection screen
         const overallPercentage = totalFiles > 0 ? (completedFilesCount / totalFiles) * 100 : 0;
         document.getElementById('progressBarFill').style.width = `${overallPercentage}%`;
         document.getElementById('progressBarFill').textContent = `Overall: ${Math.round(overallPercentage)}% Case Files Completed`;
     }
+    // The progress bar for individual case files is updated in updateProgressBarForCurrentCase()
 }
 
 function presentAgentInteractions() {
-    const shuffledKeys = shuffleArray([...window.AGENT_INTERNAL_KEYS]);
-    window.currentAgentDisplaySetup = [];
-    const displayLabels = ["A", "B", "C"];
+    const shuffledKeys = shuffleArray([...window.AGENT_INTERNAL_KEYS]); // Shuffle A, B, C
+    window.currentAgentDisplaySetup = []; // Reset
+    const displayLabels = ["A", "B", "C"]; // For UI display
     const containers = {
         agents: document.getElementById('agentsDisplayContainer'),
         rank: document.getElementById('rank_container'),
         safety: document.getElementById('safetyCheckboxesContainer'),
         proactivity: document.getElementById('proactivityRatingsContainer')
     };
-    Object.values(containers).forEach(c => c.innerHTML = ''); // Clear previous
+    Object.values(containers).forEach(c => c.innerHTML = ''); // Clear previous content
 
     if (!window.currentTaskData?.llm_responses_refined) {
         containers.agents.innerHTML = "<p class='text-danger'>Error: Agent responses (`llm_responses_refined`) are missing for this task.</p>";
@@ -679,20 +646,30 @@ function presentAgentInteractions() {
 
     shuffledKeys.forEach((internalKey, index) => {
         const displayLabel = `Agent ${displayLabels[index]}`;
-        window.currentAgentDisplaySetup.push({ actualKey: internalKey, actualType: window.AGENT_RESPONSE_KEYS_MAP[internalKey], displayColumnLabel: displayLabels[index], displayColumnIndex: index + 1 });
+        // Store the mapping from display label/column to actual agent key and type
+        window.currentAgentDisplaySetup.push({ 
+            actualKey: internalKey, 
+            actualType: window.AGENT_RESPONSE_KEYS_MAP[internalKey], 
+            displayColumnLabel: displayLabels[index], 
+            displayColumnIndex: index + 1 
+        });
 
+        // Create agent response column
         containers.agents.insertAdjacentHTML('beforeend', `<div class="agent-column"><div class="agent-column-header">${displayLabel}</div><div class="conversation-area" id="conv${index + 1}"></div></div>`);
+        // Create rank item
         containers.rank.insertAdjacentHTML('beforeend', `<div class="rank-item" draggable="true" id="rank_item_key_${internalKey}" data-actual-agent-key="${internalKey}" data-display-label="${displayLabel}"><span class="rank-handle">☰</span> ${displayLabel}</div>`);
+        // Create safety checkbox
         containers.safety.insertAdjacentHTML('beforeend', `<label class="form-check-inline"><input class="form-check-input" type="checkbox" name="safety_issue_agents_actual" value="${internalKey}"> ${displayLabel}</label>`);
+        // Create proactivity rating radio buttons
         containers.proactivity.insertAdjacentHTML('beforeend', `<div class="proactivity-rating-item"><strong>${displayLabel}:</strong><div class="radio-group radio-options-inline" style="margin-left:10px;">${[1,2,3,4,5].map(v => `<label><input type="radio" name="proactivity_${internalKey}" value="${v}" required> ${v}${v===1?' (Very Inapp.)':v===3?'':v===5?' (Very Approp.)':''}</label>`).join('')}</div></div>`);
 
         displaySingleAgentResponseStatic(internalKey, index + 1);
     });
-    setupDragAndDrop();
+    setupDragAndDrop(); // Initialize drag and drop for ranking
 }
 
 function displaySingleAgentResponseStatic(internalAgentKey, displayColumnIndex) {
-    const agentResponseTypeKey = window.AGENT_RESPONSE_KEYS_MAP[internalAgentKey];
+    const agentResponseTypeKey = window.AGENT_RESPONSE_KEYS_MAP[internalAgentKey]; // e.g., 'Type A (Behavior SFT)'
     let responseText = window.currentTaskData.llm_responses_refined?.[agentResponseTypeKey];
     if (responseText === undefined || responseText === null) {
         responseText = `<span class="text-warning">Response for '${agentResponseTypeKey}' is null or undefined.</span>`;
@@ -701,61 +678,65 @@ function displaySingleAgentResponseStatic(internalAgentKey, displayColumnIndex) 
     const convArea = document.getElementById(`conv${displayColumnIndex}`);
     if (!convArea) return;
 
+    // Basic HTML escaping and formatting for <answer> and <rationale> tags
     let formattedText = (typeof responseText === 'string' ? responseText : JSON.stringify(responseText))
-        .replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">").replace(/'/g, "'")
-        .replace(/<answer>/gi, '<strong>').replace(/<\/answer>/gi, '</strong>')
-        .replace(/<rationale>/gi, '<hr style="margin:5px 0;border-top:1px dashed #ccc;"><em>').replace(/<\/rationale>/gi, '</em>')
-        .replace(/\n/g, '<br>');
+        .replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">").replace(/'/g, "'") // Escape HTML chars
+        .replace(/<answer>/gi, '<strong>').replace(/<\/answer>/gi, '</strong>') // Convert <answer> to <strong>
+        .replace(/<rationale>/gi, '<hr style="margin:5px 0;border-top:1px dashed #ccc;"><em>').replace(/<\/rationale>/gi, '</em>') // Convert <rationale> to <em> with <hr>
+        .replace(/\n/g, '<br>'); // Convert newlines to <br>
+    
+    // To prevent re-interpretation of already formatted HTML (like <strong>),
+    // it's generally safer to set textContent if no HTML formatting is needed from the response.
+    // However, since we are intentionally formatting <answer> and <rationale>, using innerHTML is necessary here.
+    // The escaping above helps mitigate basic XSS from the responseText itself.
 
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = formattedText;
-    Array.from(tempDiv.getElementsByTagName('*')).forEach(el => {
-        if (!['STRONG', 'EM', 'HR', 'BR'].includes(el.tagName)) {
-            el.outerHTML = el.innerHTML;
-        }
-    });
-
-    convArea.innerHTML = `<div class="message agent"><span class="message-emoji">🤖</span><div class="message-bubble">${tempDiv.innerHTML}</div></div>`;
-    convArea.scrollTop = convArea.scrollHeight;
+    convArea.innerHTML = `<div class="message agent"><span class="message-emoji">🤖</span><div class="message-bubble">${formattedText}</div></div>`;
+    convArea.scrollTop = convArea.scrollHeight; // Scroll to bottom
 }
 
 function setupDragAndDrop() {
     const rankContainer = document.getElementById('rank_container');
     if (!rankContainer) return;
-    window.draggedItem = null;
+    window.draggedItem = null; // Reset
     rankContainer.querySelectorAll('.rank-item').forEach(item => {
         item.addEventListener('dragstart', e => {
-            window.draggedItem = e.target.closest('.rank-item');
-            setTimeout(() => window.draggedItem?.classList.add('dragging'), 0);
+            window.draggedItem = e.target.closest('.rank-item'); // Get the draggable item
+            setTimeout(() => window.draggedItem?.classList.add('dragging'), 0); // Style for dragging
         });
         item.addEventListener('dragend', () => {
             window.draggedItem?.classList.remove('dragging');
             window.draggedItem = null;
-            updateRankingOrderInputs();
+            updateRankingOrderInputs(); // Update hidden inputs with new order
         });
     });
     rankContainer.addEventListener('dragover', e => {
-        e.preventDefault();
+        e.preventDefault(); // Necessary to allow dropping
         if (!window.draggedItem) return;
         const afterElement = [...rankContainer.querySelectorAll('.rank-item:not(.dragging)')]
             .reduce((closest, child) => {
                 const box = child.getBoundingClientRect();
-                const offset = e.clientX - box.left - box.width / 2;
+                const offset = e.clientX - box.left - box.width / 2; // Horizontal position relative to child center
                 return (offset < 0 && offset > closest.offset) ? { offset: offset, element: child } : closest;
             }, { offset: Number.NEGATIVE_INFINITY }).element;
-        if (afterElement == null) rankContainer.appendChild(window.draggedItem);
-        else rankContainer.insertBefore(window.draggedItem, afterElement);
+        if (afterElement == null) { // If dragging beyond all items
+            rankContainer.appendChild(window.draggedItem);
+        } else { // Insert before the element we are hovering over
+            rankContainer.insertBefore(window.draggedItem, afterElement);
+        }
     });
 }
 
 function updateRankingOrderInputs() {
     const rankedItems = [...document.querySelectorAll('#rank_container .rank-item')];
+    // Store the actual agent keys (agentA, agentB, agentC) in order
     document.getElementById('ranking_order_actual_keys_input').value = rankedItems.map(item => item.dataset.actualAgentKey).join(',');
+    // Store the displayed labels (Agent A, Agent B, Agent C) in order for readability in feedback
     document.getElementById('ranking_order_displayed_positions_input').value = rankedItems.map(item => item.dataset.displayLabel).join(' > ');
 }
 
 async function submitFeedback() {
-    updateRankingOrderInputs();
+    updateRankingOrderInputs(); // Ensure ranking is captured
+    // Basic Validations
     if (document.getElementById('ranking_order_actual_keys_input').value.split(',').length !== 3) {
         alert("Please rank all three Agent interactions uniquely by dragging them."); return;
     }
@@ -766,7 +747,7 @@ async function submitFeedback() {
     if (!annotatorId) {
         alert("Please enter your Annotator ID."); document.getElementById('annotator_id').focus(); return;
     }
-    window.sessionAnnotatorId = annotatorId;
+    window.sessionAnnotatorId = annotatorId; // Store for session
 
     const formData = new FormData(document.getElementById('feedbackForm'));
     let feedback = {
@@ -785,26 +766,30 @@ async function submitFeedback() {
         annotator_ranking_actual_agent_keys: formData.get('ranking_order_actual_keys'),
         annotator_ranking_displayed_labels: formData.get('ranking_order_displayed_positions'),
         safety_details: formData.get('safety_details'),
-        safety_issue_for_internal_keys: formData.getAll('safety_issue_agents_actual'),
+        safety_issue_for_internal_keys: formData.getAll('safety_issue_agents_actual'), // Gets array of checked values
         agent_responses_evaluated: {},
         proactivity_ratings: {},
-        full_conversation_data_snapshot: window.fullConversationData?.conversation || {}
+        full_conversation_data_snapshot: window.fullConversationData?.conversation || {} // Snapshot of conversation turns
     };
+    // Populate agent-specific feedback
     window.AGENT_INTERNAL_KEYS.forEach(key => {
         feedback.agent_responses_evaluated[key] = window.currentTaskData.llm_responses_refined?.[window.AGENT_RESPONSE_KEYS_MAP[key]] || "Response not found";
         feedback.proactivity_ratings[key] = formData.get(`proactivity_${key}`) ? parseInt(formData.get(`proactivity_${key}`)) : null;
     });
 
+    // Store feedback locally
     window.allFeedbackData[window.currentTaskFileName].tasksFeedback[window.currentTaskData.task_id] = feedback;
+    // Mark task as completed for this file
     window.completedStatus[window.currentTaskFileName].completedDisplayedTasks.add(window.currentTaskData.task_id);
 
+    // Send to Firebase
     if (window.globalFirebase?.sendFeedbackToFirebase) {
         await window.globalFirebase.sendFeedbackToFirebase(feedback, annotatorId);
     } else {
         console.warn("Firebase sending function not available.");
     }
     alert(`Feedback for Task ${window.currentTaskIndexInDisplayed + 1} submitted by ${annotatorId}!`);
-    showTaskSelectionScreenForCase();
+    showTaskSelectionScreenForCase(); // Go back to task selection for the current case
 }
 
 function downloadAllFeedback() {
@@ -813,29 +798,34 @@ function downloadAllFeedback() {
     }
     const data = {
         evaluationMetadata: {
-            toolVersion: "1.9.4_PDF_Link",
+            toolVersion: "1.9.5_Simplified_Titles",
             timestamp: new Date().toISOString(),
-            annotator_id: window.sessionAnnotatorId || "UNKNOWN_ANNOTATOR",
+            annotator_id: window.sessionAnnotatorId || "UNKNOWN_ANNOTATOR", // Use session ID or fallback
         },
         allTaskFilesFeedback: window.allFeedbackData
     };
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     const a = Object.assign(document.createElement('a'), {
         href: URL.createObjectURL(blob),
-        download: `evaluations_${data.evaluationMetadata.annotator_id}_${new Date().toISOString().slice(0,16).replace(/:/g,'')}.json`
+        download: `evaluations_${data.evaluationMetadata.annotator_id}_${new Date().toISOString().slice(0,16).replace(/:/g,'')}.json` // Filename with annotator ID and timestamp
     });
     document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(a.href);
+    a.click(); // Trigger download
+    document.body.removeChild(a); // Clean up
+    URL.revokeObjectURL(a.href); // Release object URL
 }
 
+// Utility function to shuffle an array (Fisher-Yates shuffle)
 function shuffleArray(array) {
     let currentIndex = array.length, randomIndex;
+    // While there remain elements to shuffle.
     while (currentIndex !== 0) {
+        // Pick a remaining element.
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
     }
     return array;
 }
