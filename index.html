@@ -583,7 +583,9 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
     document.getElementById('taskInfoContentGlobal').innerHTML = taskInfoHTML;
     addCollapsibleEventListeners();
 
-    document.getElementById('evalTaskTitle').textContent = `Task ${window.currentTaskIndexInDisplayed + 1} (${getSimplifiedCaseName(window.currentTaskFileName,0)} - Type: ${window.currentTaskData.task_type || 'N/A'})`;
+    // document.getElementById('evalTaskTitle').textContent = `Task ${window.currentTaskIndexInDisplayed + 1} (${getSimplifiedCaseName(window.currentTaskFileName,0)} - Type: ${window.currentTaskData.task_type || 'N/A'})`;
+
+    document.getElementById('evalTaskTitle').textContent = ''; // Or "Evaluation Questions" if you prefer that text
     ['agentsDisplayContainer', 'rank_container', 'safetyCheckboxesContainer', 'proactivityRatingsContainer'].forEach(id => document.getElementById(id).innerHTML = '');
     document.getElementById('feedbackForm').reset();
     document.getElementById('safety_details').value = '';
