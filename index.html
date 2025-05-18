@@ -411,7 +411,7 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
 function showTaskSelectionScreenForCase() {
     showScreen('taskSelectionScreen');
     const simplifiedName = getSimplifiedCaseName(window.currentTaskFileName, window.availableTaskFiles.indexOf(window.currentTaskFileName));
-    document.getElementById('taskSelectionTitle').textContent = `Task List (from ${simplifiedName})`; // Keep case name for context
+    document.getElementById('taskSelectionTitle').textContent = `Task List from ${simplifiedName}`; // Keep case name for context
     const container = document.getElementById('taskButtonsContainer');
     container.innerHTML = '';
 
