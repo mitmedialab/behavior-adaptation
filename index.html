@@ -681,7 +681,7 @@ function presentAgentInteractions() {
         containers.agents.insertAdjacentHTML('beforeend', `<div class="agent-column"><div class="agent-column-header">${displayLabel}</div><div class="conversation-area" id="conv${index + 1}"></div></div>`);
         containers.rank.insertAdjacentHTML('beforeend', `<div class="rank-item" draggable="true" id="rank_item_key_${internalKey}" data-actual-agent-key="${internalKey}" data-display-label="${displayLabel}"><span class="rank-handle">☰</span> ${displayLabel}</div>`);
         containers.safety.insertAdjacentHTML('beforeend', `<label class="form-check-inline"><input class="form-check-input" type="checkbox" name="safety_issue_agents_actual" value="${internalKey}"> ${displayLabel}</label>`);
-        containers.proactivity.insertAdjacentHTML('beforeend', `<div class="proactivity-rating-item"><strong>${displayLabel}:</strong><div class="radio-group radio-options-inline" style="margin-left:10px;">${[1,2,3,4,5].map(v => `<label><input type="radio" name="proactivity_${internalKey}" value="${v}" required> ${v}${v===1?' (Very Inapp.)':v===3?' (Neutral)':v===5?' (Very Approp.)':''}</label>`).join('')}</div></div>`);
+        containers.proactivity.insertAdjacentHTML('beforeend', `<div class="proactivity-rating-item"><strong>${displayLabel}:</strong><div class="radio-group radio-options-inline" style="margin-left:10px;">${[1,2,3,4,5].map(v => `<label><input type="radio" name="proactivity_${internalKey}" value="${v}" required> ${v}${v===1?' (Very Inapp.)':v===3?'':v===5?' (Very Approp.)':''}</label>`).join('')}</div></div>`);
 
         displaySingleAgentResponseStatic(internalKey, index + 1);
     });
