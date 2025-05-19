@@ -24,8 +24,8 @@
     },
     "evaluation_instructions_summary": "For evaluation: Use the 'evaluation_guide' within each task.\n        1. 'llm_input_template': Provides the prompt structure.\n        2. 'data_extraction_guidance': Suggests how to get necessary context (use 'context_source_provided' for basic eval, or retrieve original data based on 'required_turns'/'required_sections' for advanced eval).\n        3. 'evaluation_criteria': Contains correct answer, rationale keywords, etc.\n        4. 'evaluation_prompt_template': Pre-filled prompt using the originally provided context snippet (for convenience).",
     "conversation_source_details": {
-      "filename": "NEJM192404241901710_conversation_MODERNIZED.json",
-      "full_path": "./conversations/NEJM192404241901710_conversation_MODERNIZED.json",
+      "filename": "NEJM192404241901710_conversation.json",
+      "full_path": "./conversations/NEJM192404241901710_conversation.json",
       "extracted_text": "conversation text from NEJM192404241901710_conversation_MODERNIZED.json would be loaded here.",
       "source_file_metadata": {
         "case_metadata": {
