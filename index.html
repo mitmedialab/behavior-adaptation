@@ -250,7 +250,7 @@
     window.AGENT_INTERNAL_KEYS = ['agentA', 'agentB', 'agentC'];
     window.TASKS_OUTPUTS_DIR = "./refined_outputs/";
     window.CONVERSATIONS_DIR = "./conversations/";
-    // window.PDFS_DIR = "./pdfs/"; // PDF directory - commented out as not used in current display
+    window.PDFS_DIR = "./pdfs/"; // PDF directory - commented out as not used in current display
     window.MANIFEST_FILE = window.TASKS_OUTPUTS_DIR + "manifest.json";
 
     window.availableTaskFiles = [];
@@ -277,6 +277,18 @@
 
 <script>
 // This non-module script block contains the main UI logic.
+
+function downloadSpecificPdf(pdfPath, downloadFileName) {
+    const a = document.createElement('a');
+    a.href = pdfPath;
+    a.download = downloadFileName || pdfPath.split('/').pop(); // Use provided name or extract from path
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    // For direct file links, URL.revokeObjectURL is not typically needed unless you were creating a blob URL.
+}
+// Make it globally accessible if not already (it should be if defined in the global script block)
+window.downloadSpecificPdf = downloadSpecificPdf;
 
 async function loadManifestAndListTaskFiles() {
     try {
@@ -365,14 +377,30 @@ async function loadTaskFileAndAssociatedConversation(taskFileName) {
         }
 
         // Filter tasks to display (e.g., 1 proactive, 1 reactive)
-        const proactiveTask = window.allTasksDataFromCurrentFile.find(t => t.proactive_score >= 0.6);
-        const reactiveTask = window.allTasksDataFromCurrentFile.find(t => t.proactive_score < 0.6);
         window.displayedTasksData = [];
-        if (proactiveTask) window.displayedTasksData.push(proactiveTask);
-        if (reactiveTask && (!proactiveTask || reactiveTask.task_id !== proactiveTask.task_id)) { // Ensure reactive is different if proactive exists
-            window.displayedTasksData.push(reactiveTask);
+        const allTasks = [...window.allTasksDataFromCurrentFile]; // Work with a copy
+
+        const proactiveTask = allTasks.find(t => t.proactive_score >= 0.6);
+        if (proactiveTask) {
+            window.displayedTasksData.push(proactiveTask);
+            // Remove it so it's not picked again if we need a second task
+            allTasks.splice(allTasks.indexOf(proactiveTask), 1);
         }
-        // If no specific tasks found, or to show all: window.displayedTasksData = [...window.allTasksDataFromCurrentFile];
+
+        const reactiveTask = allTasks.find(t => t.proactive_score < 0.6);
+        if (reactiveTask) {
+            window.displayedTasksData.push(reactiveTask);
+            allTasks.splice(allTasks.indexOf(reactiveTask), 1);
+        }
+
+        // If we still have less than 2 tasks and there are more tasks available
+        if (window.displayedTasksData.length < 2 && allTasks.length > 0) {
+            // Add the next available task (could be another proactive if no reactive was found, or vice-versa)
+            // This ensures you get up to two tasks if they exist.
+            window.displayedTasksData.push(allTasks[0]);
+        }
+        
+        window.displayedTasksData = [...window.allTasksDataFromCurrentFile];
 
         // Initialize or update completion status for this file
         if (!window.completedStatus[taskFileName]) {
@@ -504,29 +532,26 @@ function loadTaskEvaluation(indexInDisplayedTasks) {
     }
     
     // --- Collapsible Case Details ---
-    const localFormatKeyToTitle = (key) => key.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-
-    let caseDetailsContent = '';
-    if (window.fullConversationData) {
-        // Display key metadata sections
-        ['case_metadata', 'patient_info', 'participants'].forEach(key => {
-            if (window.fullConversationData[key]) {
-                caseDetailsContent += `<h5>${localFormatKeyToTitle(key)}:</h5><div class="context-display"><pre>${JSON.stringify(window.fullConversationData[key], null, 2)}</pre></div>`;
-            }
-        });
-        // Display clinical data sub-sections
-        if (window.fullConversationData.clinical_data) {
-            caseDetailsContent += `<h5>Clinical Data Summary:</h5>`;
-            Object.entries(window.fullConversationData.clinical_data).forEach(([subKey, data]) => {
-                // Ensure data is not empty before displaying
-                if (data && (Object.keys(data).length > 0 || (Array.isArray(data) && data.length > 0) || typeof data !== 'object')) { // Check for non-empty objects/arrays or primitive types
-                     caseDetailsContent += `<h6>${localFormatKeyToTitle(subKey)}:</h6><div class="context-display"><pre>${JSON.stringify(data, null, 2)}</pre></div>`;
-                }
-            });
-        }
+        // --- PDF Download Button for Full Case Details ---
+        let caseIdForPdf = null;
+    if (window.fullConversationData?.case_metadata?.case_id) {
+        caseIdForPdf = window.fullConversationData.case_metadata.case_id;
+    } else if (window.taskFileMetadata?.case_id) { // Fallback to task file metadata
+        caseIdForPdf = window.taskFileMetadata.case_id;
+    } else if (window.currentTaskFileName) { // Fallback: try to extract from task file name
+        const match = window.currentTaskFileName.match(/refined_(\d+)_tasks/i) || window.currentTaskFileName.match(/case_?(\d+)/i) || window.currentTaskFileName.match(/(\d+)/);
+        if (match && match[1]) caseIdForPdf = match[1];
     }
-    if (caseDetailsContent) {
-        taskInfoHTML += createCollapsibleSection("Full Case Details (Click to Expand/Collapse)", caseDetailsContent);
+
+
+    if (caseIdForPdf) {
+        const pdfPath = `${window.PDFS_DIR}${caseIdForPdf}.pdf`;
+        taskInfoHTML += `
+            <button class="nav-button" style="margin-top: 15px; margin-bottom: 10px; background-color: #007bff; display: inline-block;" onclick="window.downloadSpecificPdf('${pdfPath}', 'Case_${caseIdForPdf}_Details.pdf')">
+                Download Full Case PDF (Case ${caseIdForPdf})
+            </button>`;
+    } else {
+        taskInfoHTML += `<p class="text-warning" style="margin-top: 15px; margin-bottom: 10px;">Full Case PDF: Case ID not found for download.</p>`;
     }
 
     // --- Collapsible Conversation Transcript ---
