@@ -1,562 +1,2550 @@
 {
     "case_metadata": {
-        "case_id": "10111",
-        "title": "Case 10111: An American automobile mechanic of thirty-seven",
+        "case_id": "CASE 19481 & CASE 19482",
+        "title": "Clinical Case Discussion: Renal and Pancreatic Infections & Anginal Pain Following Jaundice",
         "source": {
-            "journal": "Massachusetts General Hospital Case Records",
-            "publication_date": "Unknown",
-            "volume": "Unknown",
-            "issue": "Unknown",
-            "pages": "Unknown",
-            "doi": "Unknown"
+            "journal": "New England Journal of Medicine",
+            "publication_date": "Unspecified",
+            "volume": "Unspecified",
+            "issue": "Unspecified",
+            "pages": "Unspecified",
+            "doi": "Unspecified"
         }
     },
     "patient_info": {
-        "age": 37,
-        "gender": "M",
-        "demographics": {
-            "ethnicity": "American",
-            "occupation": "Automobile mechanic",
-            "living_arrangement": "Married"
+        "patient_19481": {
+            "age": "Unspecified",
+            "gender": "Unspecified",
+            "demographics": {
+                "ethnicity": "Unspecified",
+                "occupation": "Unspecified",
+                "living_arrangement": "Unspecified"
+            },
+            "social_history": {
+                "alcohol_use": "Unspecified",
+                "tobacco_use": "Unspecified",
+                "substance_use": "Unspecified",
+                "other": "Unspecified"
+            },
+            "medical_history": {
+                "allergies": "Unspecified",
+                "past_medical_conditions": "Renal abscesses, Acute hemorrhagic pancreatitis, Perirectal abscess",
+                "medications": "Unspecified"
+            },
+            "surgical_history": {
+                "X": "None mentioned"
+            }
         },
-        "social_history": {
-            "alcohol_use": "Good habits (implied moderate/no alcohol use)",
-            "tobacco_use": "Good habits (implied non-smoker)",
-            "substance_use": "Not mentioned",
-            "other": "Not mentioned"
-        },
-        "medical_history": {
-            "allergies": "None mentioned",
-            "past_medical_conditions": "Pleurisy (7 years ago), frequent 'colds', physiological glycosuria (1.5 years ago), stiffness of the neck and pain in the back of head (1.5 years ago), dry hacking cough (6 months ago), muscle pains in legs and back (1 week ago), slight chills (1 week ago), frontal headache (6 weeks ago), weight loss.",
-            "medications": "Diet for glycosuria (1.5 years ago), Collar (for neck stiffness)"
-        },
-        "surgical_history": {
-            "childhood": "Broke leg as a boy",
-            "7 years ago": "Pleurisy",
-            "1.5 years ago": "Physiological glycosuria"
+        "patient_19482": {
+            "age": 26,
+            "gender": "Male",
+            "demographics": {
+                "ethnicity": "American born",
+                "occupation": "Radio operator",
+                "living_arrangement": "Single"
+            },
+            "social_history": {
+                "alcohol_use": "Unspecified",
+                "tobacco_use": "Unspecified",
+                "substance_use": "Unspecified",
+                "other": "Unspecified"
+            },
+            "medical_history": {
+                "allergies": "None mentioned",
+                "past_medical_conditions": "Gonorrhea (9 years prior), Jaundice (8 years prior), Motorcycle accident with ankylosed knee (8 years prior), Childhood illnesses (measles, scarlet fever, whooping cough, diphtheria, pneumonia)",
+                "medications": "Potassium iodide, Codeine, Pyramidon, Digitalis, Blaud's pills"
+            },
+            "surgical_history": {
+                "X": "Cholecystectomy in mother"
+            }
         }
     },
     "participants": {
         "clinicians": {
-            "Doctor A": {
-                "specialty": "General Medicine/Internal Medicine",
-                "role": "Attending Physician (Richard C. Cabot, M.D.)",
-                "real_name": "Richard C. Cabot, M.D."
-            },
-            "Doctor B": {
+            "Dr. Mallory": {
                 "specialty": "Pathology",
-                "role": "Pathologist (Dr. Richardson)",
-                "real_name": "Dr. Richardson"
+                "role": "Presenter of Autopsy Findings",
+                "real_name": "Mallory"
             },
-            "Doctor C": {
-                "specialty": "Unknown",
-                "role": "Physician",
-                "real_name": "A Physician"
+            "Dr. Jones": {
+                "specialty": "Internal Medicine/Gastroenterology",
+                "role": "Discussant",
+                "real_name": "Jones"
             },
-            "Doctor D": {
-                "specialty": "Unknown",
-                "role": "Physician (Dr. Young)",
-                "real_name": "Dr. Young"
+            "Dr. Means": {
+                "specialty": "Internal Medicine",
+                "role": "Discussant, Differential Diagnosis",
+                "real_name": "Means"
             },
-            "Doctor E": {
-                "specialty": "Unknown",
-                "role": "Physician (Dr. Lord)",
-                "real_name": "Dr. Lord"
+            "Dr. Crone": {
+                "specialty": "Internal Medicine",
+                "role": "Presenter of Case 19482",
+                "real_name": "Crone"
             },
-            "Nurse A": {
-                "specialty": "Nursing",
-                "role": "Floor Nurse",
-                "real_name": "Nurse"
+            "Dr. Hampton": {
+                "specialty": "Radiology",
+                "role": "Discussant, Radiology Findings",
+                "real_name": "Hampton"
+            },
+            "Dr. Cabot": {
+                "specialty": "Internal Medicine",
+                "role": "Discussant, General Clinical Perspective",
+                "real_name": "Cabot"
+            },
+            "Dr. White": {
+                "specialty": "Cardiology",
+                "role": "Discussant, Cardiology Perspective",
+                "real_name": "White"
+            },
+            "Physician A": {
+                "specialty": "Unspecified",
+                "role": "Questioning Physician",
+                "real_name": "Unspecified"
+            },
+            "Physician B": {
+                "specialty": "Surgery",
+                "role": "Surgeon",
+                "real_name": "Unspecified"
+            },
+            "Student": {
+                "specialty": "Medical Student",
+                "role": "Questioning Student",
+                "real_name": "Unspecified"
+            },
+            "Surgeon": {
+                "specialty": "Surgery",
+                "role": "Surgeon",
+                "real_name": "Unspecified"
             }
         },
-        "others": {
-            "Patient": {
-                "role": "Patient",
-                "real_name": "Patient"
-            },
-            "Caregiver": {
-                "role": "Wife",
-                "real_name": "Patient's Wife",
-                "identifier": "Wife"
-            }
-        }
+        "others": {}
     },
     "conversation": {
         "turn_1": {
-            "speaker": "Caregiver",
+            "speaker": "Dr. Mallory",
             "listeners": [
-                "Nurse A"
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Patient's Wife",
-            "timestamp": "December 9th, Day of Admission, Upon Arrival",
-            "message": "He hasn't been himself for a few days. He's been so drowsy, and today he just became irrational. He's forgetting words and using the wrong ones. I think his speech is slurred.",
-            "intention": "Providing chief complaint and recent symptom onset",
-            "context": "Patient's wife describing the patient's condition upon arrival at the hospital.",
-            "source_reference": "# Case 10111, Paragraph 2: 'For the past three days he had grown increasingly drowsy. The day of admission he became irrational. He seemed to forget words and to use incorrect words. His wife thought his speech was thick and his articulation poor.'"
+            "real_name": "Mallory",
+            "timestamp": "Beginning of discussion for Case 19481 autopsy findings",
+            "message": "In the first case, concerning the kidney, we found a significant infection. It presented as numerous small abscesses throughout the kidney tissue, ranging from two to three millimeters in diameter. I honestly don't see how those could be effectively drained.",
+            "intention": "Presenting autopsy findings and initial interpretation.",
+            "context": "Describing kidney pathology in Case 19481.",
+            "source_reference": "Page 1: 'There was also a marked infection of the kidney which showed innumerable small abscesses ranging from two to three millimeters in diameter,\u2014a type of lesion which I should think could not possibly be effectively drained.'"
         },
         "turn_2": {
-            "speaker": "Nurse A",
+            "speaker": "Dr. Mallory",
             "listeners": [
-                "Caregiver",
-                "Patient"
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Nurse",
-            "timestamp": "December 9th, Day of Admission, Initial Assessment",
-            "message": "Okay, I understand. We'll get him checked in right away. Can you tell me a bit more about what's been going on?",
-            "intention": "Acknowledging caregiver's concern and initiating history taking",
-            "context": "Nurse beginning the admission process and gathering initial information.",
-            "source_reference": "Implied from clinical setting - admission and initial patient assessment."
+            "real_name": "Mallory",
+            "timestamp": "Immediately after presenting kidney findings",
+            "message": "The terminal event was acute hemorrhagic pancreatitis. The pancreas was essentially swimming in blood, all contained within its capsule.",
+            "intention": "Presenting autopsy findings related to pancreas.",
+            "context": "Describing pancreatic pathology in Case 19481.",
+            "source_reference": "Page 1: 'The final terminal event was apparently an acute hemorrhagic pancreatitis. The entire pancreas was floating in a lake of blood which was all enclosed within the capsule of the pancreas.'"
         },
         "turn_3": {
-            "speaker": "Caregiver",
+            "speaker": "Dr. Mallory",
             "listeners": [
-                "Nurse A"
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Patient's Wife",
-            "timestamp": "December 9th, Day of Admission, Providing History",
-            "message": "Well, for about a year and a half, he's had a stiff neck and head pain. It got so bad he couldn't turn his head and had to change jobs. Sometimes he'd be bedridden because of it. And for the past week, he's had a bad headache, muscle pains, chills\u2026 like the flu.  He's been coughing too, but not much coming up.",
-            "intention": "Describing the patient's history of present illness",
-            "context": "Patient's wife elaborating on the patient's symptoms and timeline.",
-            "source_reference": "# Case 10111, Paragraph 2: 'For the past year and a half he had had stiffness of the neck and pain in the back of his head... Six weeks before admission he began to have severe frontal headache, worse toward evening. A week ago he began to have severe muscle pains in the legs and back... He also had slight chills... During the week he had had unproductive cough.'"
+            "real_name": "Mallory",
+            "timestamp": "Continuing pancreas findings",
+            "message": "Interestingly, the pancreatic tissue itself showed minimal necrosis. We only saw a few flecks of fat necrosis, both grossly and microscopically.",
+            "intention": "Further detailing pancreas pathology.",
+            "context": "Describing necrosis level in pancreas in Case 19481.",
+            "source_reference": "Page 1: 'The pancreatic tissue itself showed very little necrosis, although a few flecks of fat necrosis could be made out grossly and microscopically.'"
         },
         "turn_4": {
-            "speaker": "Nurse A",
+            "speaker": "Dr. Mallory",
             "listeners": [
-                "Caregiver"
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Nurse",
-            "timestamp": "December 9th, Day of Admission, Gathering Past Medical History",
-            "message": "Has he had any other health problems in the past?",
-            "intention": "Gathering past medical history",
-            "context": "Standard medical history taking.",
-            "source_reference": "Implied from clinical setting - standard medical history questions."
+            "real_name": "Mallory",
+            "timestamp": "After describing pancreas necrosis level",
+            "message": "I must say, I don't recall ever seeing such acute pancreatic hemorrhage at autopsy before. Usually, by the time these cases come to us, the pancreas is largely destroyed. Dr. Jones, you saw this autopsy, didn't you? You mentioned it looked like what surgeons see in very early acute pancreatitis cases.",
+            "intention": "Seeking confirmation and comparison from Dr. Jones.",
+            "context": "Seeking Dr. Jones's perspective based on his autopsy observation in Case 19481.",
+            "source_reference": "Page 1: 'I do nol remember having seen before at autopsy such an acule hemorrhage in the pancreas as this. Ordinarily by the time the cases reach us the greater part of the pancreatic tissue has been totally destroyed. Dr. .Iones saw the autopsy and told me the appearance was very much like that of the extremely acute pancreatitis which the surgeon sees when he op\u00e9rales within a few hours of the first symptoms.'"
         },
-        "turn_5": {
-            "speaker": "Caregiver",
-            "listeners": [
-                "Nurse A"
-            ],
-            "real_name": "Patient's Wife",
-            "timestamp": "December 9th, Day of Admission, Providing Past Medical History",
-            "message": "He broke his leg as a kid, and about seven years ago he had pleurisy. He gets colds often. Oh, and about a year and a half ago, they found sugar in his urine. He was on a diet and lost weight, but then it went away. He's gained some weight back since then, but he's still not his normal weight.",
-            "intention": "Providing past medical history details",
-            "context": "Patient's wife providing details about past medical conditions and weight changes.",
-            "source_reference": "# Case 10111, Paragraph 1: 'He broke his leg when a boy. Seven years ago he had pleurisy. Since that time he had been subject to frequent \"colds.\" A year and a half ago sugar was found in his urine and he was placed on a diet upon which he had lost weight... On returning to ordinary diet he gained ten pounds, but never regained his normal weight. His best weight, eight years ago, was 200 pounds; his present weight 162.'"
-        },
+        "turn_5": "turn_5",
         "turn_6": {
-            "speaker": "Doctor E",
+            "speaker": "Dr. Mallory",
             "listeners": [
-                "Patient",
-                "Nurse A"
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Dr. Lord",
-            "timestamp": "December 9th, Day of Admission, Physical Examination",
-            "message": "Hello, I'm Dr. Lord.  Can you tell me what's been bothering you?",
-            "intention": "Introducing himself and initiating patient interaction for physical examination",
-            "context": "Dr. Lord starting the physical exam.",
-            "source_reference": "# Case 10111, Last Paragraph Before Discussion: 'The day of admission Dr. Lord found...'"
+            "real_name": "Mallory",
+            "timestamp": "Continuing discussion on Case 19481, after mentioning pancreas and kidney",
+            "message": "Connecting all these findings is quite difficult. The history suggests the renal abscesses were primary. We found no evidence of downward extension to the anal region, though I've seen pancreatitis do that, even present in the pelvis. A perirenal abscess could theoretically do the same. But there's no evidence here. ",
+            "intention": "Discussing possible disease progression and primary lesion.",
+            "context": "Exploring possible pathways of infection spread in Case 19481.",
+            "source_reference": "Page 1: 'If is obviously difficult to connect all these various things. The history would certainly suggest that (he renal abscesses were the primary lesion. There was no evidence of any extension downward through the rotropcritonoal tissues to the anal region. I have seen a pancreatitis do that and finally present in the pelvis and 1 think it is perfectly possible that a perirenal abscess might work downward and do the same thing; but there is no evidence thai either of them had done if here.'"
         },
         "turn_7": {
-            "speaker": "Patient",
+            "speaker": "Dr. Mallory",
             "listeners": [
-                "Doctor E"
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Patient",
-            "timestamp": "December 9th, Day of Admission, Physical Examination - Patient Response (Confused)",
-            "message": "(Confused and drowsy) My\u2026 eyes\u2026 headache\u2026 hurts\u2026",
-            "intention": "Expressing chief complaint but with confusion",
-            "context": "Patient's drowsy and confused state during physical examination.",
-            "source_reference": "# Case 10111, P.E. Paragraph: 'A stalwart man, drowsy and mentally clouded, confusing his mouth with his eyes, and confused when asked to move his extremities. He complained of headache...'"
+            "real_name": "Mallory",
+            "timestamp": "Immediately after discussing possible disease progression",
+            "message": "I believe the perirectal abscess must be metastatic, bloodborne. The pancreatitis, too, likely infectious, though we can't be certain. Dr. Jones, any thoughts?",
+            "intention": "Proposing metastatic origin for perirectal abscess and infectious etiology for pancreatitis, prompting Dr. Jones for input.",
+            "context": "Seeking differential diagnosis and further insights from Dr. Jones in Case 19481.",
+            "source_reference": "Page 1: 'I think the perirectal abscess must be considered metastatic via the blood stream. Very probably Hie pancreatitis was also infectious in origin, although we cannot be very sure of that. Have you any further ideas about, the case, Dr. ,1 oik's !'"
         },
         "turn_8": {
-            "speaker": "Doctor E",
+            "speaker": "Dr. Jones",
             "listeners": [
-                "Patient",
-                "Nurse A"
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Dr. Lord",
-            "timestamp": "December 9th, Day of Admission, Physical Examination - Findings",
-            "message": "Okay, I see.  Nurse, his neck is very stiff and painful. He's also having trouble following commands.  I hear some dullness and r\u00e2les in his left lung apex when I listen to his chest.",
-            "intention": "Describing physical examination findings",
-            "context": "Dr. Lord noting key findings during the physical exam.",
-            "source_reference": "# Case 10111, P.E. Paragraph: 'Neck stiff and painful on motion... Lungs. Dullness, bronchial breathing and coarse r\u00e2les at the left apex in front... The day of admission Dr. Lord found dullness and medium consonating and sonorous r\u00e2les at the left apex.'"
+            "real_name": "Jones",
+            "timestamp": "Responding to Dr. Mallory's question",
+            "message": "No, it\u2019s certainly complex. With perinephric abscess, one could expect certain findings, but the kidney wasn't perinephric at all.",
+            "intention": "Acknowledging complexity and correcting initial impression about perinephric abscess.",
+            "context": "Clarifying kidney abscess type in Case 19481.",
+            "source_reference": "Page 1: 'Dr. .Iones: No. It is extremely complicated. Of course with perinephric abscess you could not very well have anything else with the findings; but when we came to see the kidney it was quite evident that it was not a perinephric. abscess.'"
         },
         "turn_9": {
-            "speaker": "Doctor A",
+            "speaker": "Dr. Jones",
             "listeners": [
-                "Doctor E"
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Richard C. Cabot, M.D.",
-            "timestamp": "December 9th, Day of Admission, Reviewing Initial Findings",
-            "message": "So, thirty-seven-year-old mechanic, admitted today with drowsiness, confusion, stiff neck, and lung findings. History of neck stiffness for a while, recent headache, muscle pains, and cough.  Lumbar puncture was done, fluid is clear with high cell count, mostly lymphocytes.  Wassermann negative. We also have the old orthopedic records mentioning a possible tuberculous abscess in the neck and spinal tuberculosis.",
-            "intention": "Summarizing patient's presentation and initial findings",
-            "context": "Dr. Cabot reviewing the case details.",
-            "source_reference": "# Case 10111, Discussion - Notes on the History and P.E., Lumbar puncture results paragraph: 'An American automobile mechanic of thirty-seven entered December 9 for study... For the past year and a half he had had stiffness of the neck... Lumbar punctures. December 9. 10 c.c. clear colorless fluid... 280 cells, 3% polynuelears, 77% lymphocytes, 20% mononuclears. Wassermann and gold solution negative.'"
+            "real_name": "Jones",
+            "timestamp": "Continuing after clarifying kidney abscess type",
+            "message": "The pancreatitis, probably a metastatic infection, like those seen in infectious diseases. Though, this type usually causes interstitial, not hemorrhagic pancreatitis.",
+            "intention": "Suggesting metastatic infection for pancreatitis but noting atypical presentation.",
+            "context": "Discussing possible etiology of pancreatitis in Case 19481.",
+            "source_reference": "Page 1: 'The pancreatitis is probably due to a. metas tatic infection such as occurs in infectious diseases occasionally. This type of infection usually causes an Interstitial pancreatitis rather than a hemorrhagic pancreatitis.'"
         },
         "turn_10": {
-            "speaker": "Doctor A",
+            "speaker": "Dr. Jones",
             "listeners": [
-                "Doctor E"
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Richard C. Cabot, M.D.",
-            "timestamp": "December 9th, Day of Admission, Differential Diagnosis Discussion",
-            "message": "Pulmonary tuberculosis and tuberculous meningitis seem like the most likely possibilities given the lung findings, spinal fluid, and history of possible neck tuberculosis. What do you think about the spine involvement?",
-            "intention": "Proposing a differential diagnosis and questioning spine involvement",
-            "context": "Dr. Cabot considering possible diagnoses.",
-            "source_reference": "# Case 10111, Discussion - Differential Diagnosis Paragraph: 'This reads like a perfectly straight ease of pulmonary tuberculosis with tuberculous meningitis. Whether there is anything in the spine or not I do not feel clear.'"
+            "real_name": "Jones",
+            "timestamp": "Continuing discussion on abscess origin",
+            "message": "I agree about the perirectal abscess being metastatic. Autopsy showed no communication between the right kidney and pelvis.",
+            "intention": "Concurring with metastatic origin of perirectal abscess based on autopsy.",
+            "context": "Confirming perirectal abscess origin in Case 19481.",
+            "source_reference": "Page 1: 'I agree with you that the perirectal abscess must have beim met astatic, because at the time of the autopsy you could find no communication between the right kidney and the pelvis.'"
         },
         "turn_11": {
-            "speaker": "Doctor C",
+            "speaker": "Dr. Jones",
             "listeners": [
-                "Doctor A",
-                "Doctor E"
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "A Physician",
-            "timestamp": "December 9th, Day of Admission, Questioning Meningitis Timeline",
-            "message": "Doctor, do you think the meningitis started when the neck stiffness began, or is it more recent?",
-            "intention": "Questioning the onset of meningitis in relation to neck stiffness",
-            "context": "Physician seeking clarification on the timeline of meningitis.",
-            "source_reference": "# Case 10111, Discussion - Physician's question: 'A Physician : Do you believe he had meningitis all the time he had stiff neck?'"
+            "real_name": "Jones",
+            "timestamp": "Describing abscess progression",
+            "message": "It was a very extensive, rapidly progressing abscess. Must've been a virulent organism spreading quickly in soft tissues. The edema around the anus developed very fast.",
+            "intention": "Characterizing abscess progression and organism virulence.",
+            "context": "Describing clinical course of perirectal abscess in Case 19481.",
+            "source_reference": "Page 1: 'It was a very extensive and rapidly increasing abscess; that is. it must have been a very virulent organism and spread about in the soft tissues very rapidly, because the edema about the anus developed in a very short time.'"
         },
         "turn_12": {
-            "speaker": "Doctor A",
+            "speaker": "Dr. Mallory",
             "listeners": [
-                "Doctor C",
-                "Doctor E"
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Richard C. Cabot, M.D.",
-            "timestamp": "December 9th, Day of Admission, Responding to Meningitis Timeline Question",
-            "message": "No, I don't think so. The neck stiffness could be from that abscess they found in his neck earlier.",
-            "intention": "Differentiating cause of neck stiffness from meningitis onset",
-            "context": "Dr. Cabot explaining the likely cause of neck stiffness.",
-            "source_reference": "# Case 10111, Discussion - Dr. Cabot's response: 'Dr. Cabot : No. I think that was due to his abscess.'"
+            "real_name": "Mallory",
+            "timestamp": "Adding further detail about Case 19481",
+            "message": "Oh, and I should add, there was no evidence of injury to the ureter.",
+            "intention": "Providing additional negative finding from autopsy.",
+            "context": "Excluding ureteral injury in Case 19481.",
+            "source_reference": "Page 1: 'Du. MalloRY : 1 neglected to say that there was no evidence of any injury to the ureter.'"
         },
         "turn_13": {
-            "speaker": "Doctor C",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Doctor A",
-                "Doctor E"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "A Physician",
-            "timestamp": "December 9th, Day of Admission, Questioning Abscess Tuberculosis",
-            "message": "But they didn't find tuberculosis in that neck abscess, did they?",
-            "intention": "Questioning the tuberculous nature of the abscess based on negative findings",
-            "context": "Physician questioning the diagnosis of tuberculous abscess.",
-            "source_reference": "# Case 10111, Discussion - Physician's question: 'A Physician : And in that abscess no tuberculosis was found?'"
+            "real_name": "Crone",
+            "timestamp": "Beginning presentation of Case 19482",
+            "message": "Now, moving to Case 19482: Anginal pain following jaundice in a young man. This is a 26-year-old radio operator, first admission six weeks before his second, presenting with three weeks of jaundice.",
+            "intention": "Introducing Case 19482.",
+            "context": "Starting presentation of new case.",
+            "source_reference": "Page 1: 'CASE 19482 ANGINAL PAIN FOLLOWING JAUNDICE IN A YOUNG MAN Medical Department 1 Mi lOSKN TATION OF CASE Dr. Neil L. 1'. Crone:* First admission. A twenty-six year old single American born radio operator entered for the first finie six weeks before his second admission with a complaint of jaundice of three weeks' duration.'"
         },
         "turn_14": {
-            "speaker": "Doctor A",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Doctor C",
-                "Doctor E"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Richard C. Cabot, M.D.",
-            "timestamp": "December 9th, Day of Admission, Responding about Abscess Tuberculosis",
-            "message": "We wouldn't necessarily expect to find it in pus drained from an abscess like that. Especially if it was opened in the Out-Patient Department.",
-            "intention": "Explaining why tuberculosis might not have been found in the abscess",
-            "context": "Dr. Cabot explaining the difficulty of finding TB in drained pus.",
-            "source_reference": "# Case 10111, Discussion - Dr. Cabot's response: 'Dr. Cabot : We should expect that... It was opened in the Out-Patient Department, and I never knew them to find tuberculosis in the pus so obtained.'"
+            "real_name": "Crone",
+            "timestamp": "Describing patient's symptoms before jaundice",
+            "message": "Five weeks prior to his first admission, he had a mild head cold. Fatigue, anorexia, nausea, and vomiting started four weeks prior, typically an hour after meals. Jaundice appeared three weeks before admission, deepening steadily, but he continued working until the day before entry.",
+            "intention": "Detailing patient's symptom timeline.",
+            "context": "Presenting history of present illness for Case 19482.",
+            "source_reference": "Page 1: 'Five weeks before entry the patient had a moderate head cold. Four weeks before entry he began to fee] constantly fatigued, to notice anorexia and nausea and to vomit, usually about an hour after meals. Three weeks before entry jaundice appeared. During the subsequent period the nausea and vomiting gradually improved, though the jaundice steadily deepened. The patient, however, remained up and at work until the day before entry.'"
         },
         "turn_15": {
-            "speaker": "Doctor D",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Doctor A",
-                "Doctor C",
-                "Doctor E"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Dr. Young",
-            "timestamp": "December 9th, Day of Admission, Sterile Abscess Suggestion",
-            "message": "A sterile abscess often points towards tuberculosis, doesn't it?",
-            "intention": "Suggesting sterile abscess as indicative of tuberculosis",
-            "context": "Dr. Young suggesting the nature of sterile abscess.",
-            "source_reference": "# Case 10111, Discussion - Dr. Young's comment: 'Dr. Young: It was a sterile abscess, which usually means tuberculosis.'"
+            "real_name": "Crone",
+            "timestamp": "Presenting family history",
+            "message": "Family history is negative, except his mother had gallstone colic and a cholecystectomy.",
+            "intention": "Providing relevant family medical history.",
+            "context": "Family history for Case 19482.",
+            "source_reference": "Page 1: 'The family history was negative except for attacks of gall stone colic and a cholecysfccloniy in t he patient 's mot her.'"
         },
         "turn_16": {
-            "speaker": "Nurse A",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Patient"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Nurse",
-            "timestamp": "December 9th, Day of Admission, After Lumbar Puncture",
-            "message": "How are you feeling now after the lumbar puncture? Is your headache any better?",
-            "intention": "Assessing patient comfort and pain level after procedure",
-            "context": "Nurse checking on the patient post lumbar puncture.",
-            "source_reference": "# Case 10111, Last Paragraph Before Discussion: 'The patient was much more comfortable after the first lumbar puncture.'"
+            "real_name": "Crone",
+            "timestamp": "Presenting past medical history",
+            "message": "Past medical history includes gonorrhea nine years ago, inadequately treated. He denies penile sore. No skin manifestations. He had a similar jaundice episode 8 years prior, lasting 2-3 weeks. Motorcycle accident eight years prior with an ankylosed knee. Childhood illnesses: measles, scarlet fever, whooping cough, diphtheria, and multiple pneumonias.",
+            "intention": "Detailing patient's past medical history.",
+            "context": "Past medical history for Case 19482.",
+            "source_reference": "Page 1: 'Nine years before admission the patient had gonorrhea, with inadequate treatment. Penile sore was denied. There were no skin manifestations. About five or eight years before admission the patient had a similar attack of jaundice lasting two to three weeks. Eight years before entry he was in a severe motorcycle accident, which left: him with a. partially a.nkylosed knee. As a child he had measles, scarlet fever, whooping cough, diphtheria and two or three attacks of pneumonia.'"
         },
         "turn_17": {
-            "speaker": "Patient",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Nurse A"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Patient",
-            "timestamp": "December 9th, Day of Admission, Patient's Response after Lumbar Puncture",
-            "message": "Yes, actually, the headache is a bit better right now.",
-            "intention": "Reporting improvement in headache after lumbar puncture",
-            "context": "Patient reporting subjective improvement.",
-            "source_reference": "# Case 10111, Last Paragraph Before Discussion: 'The patient was much more comfortable after the first lumbar puncture.'"
+            "real_name": "Crone",
+            "timestamp": "Presenting physical exam findings on first admission",
+            "message": "Physical exam on first admission: moderately nourished, deeply jaundiced, not acutely ill appearing. Carious teeth. BP 130/80. Heart normal. Lungs clear. Abdomen negative except palpable liver edge 2cm below costal margin. Left knee scar and limited flexion.",
+            "intention": "Describing physical examination at first admission.",
+            "context": "Physical exam findings for Case 19482's first admission.",
+            "source_reference": "Page 1: 'Physical examinai ion showed a moderately well developed and nourished man, deeply jaundiced, not appearing acutely ill. The teeth were markedly carious. The blood pressure was 130/80. The hear! measurements were within normal limits, the sounds of normal quality, no murmurs. The lungs were negative. The abdomen was negative except for a palpable liver edge .'! centimeters below the right costal margin. The left knee showed a scar and limitation of flexion to forty-five degrees.'"
         },
         "turn_18": {
-            "speaker": "Nurse A",
-            "listeners": [],
-            "real_name": "Nurse",
-            "timestamp": "December 12th, Hospital Day 3, Medication Order",
-            "message": "Doctor's orders are for Morphine 1/6 grain subcutaneously twice each night as needed for pain.",
-            "intention": "Administering medication as per doctor's order",
-            "context": "Nursing staff implementing treatment plan.",
-            "source_reference": "# Case 10111, Orders - December 12: 'December 12. Morphia gr. 1/6 s.c. twice each night p.r.n.'"
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Presenting vital signs during first admission",
+            "message": "During his 23 days in the hospital, temperature didn't exceed 99.3\u00b0F. Pulse 75-100, averaging 85. Respirations constant at 20.",
+            "intention": "Providing vital signs during first admission.",
+            "context": "Vital signs during first hospitalization for Case 19482.",
+            "source_reference": "Page 1: 'His temperature during the twenty-three days that he was in the hospital did not rise above 99.3\u00b0. The pulse varied from 75 to 100, averaging 85. The respirations were constant at 20.'"
         },
         "turn_19": {
-            "speaker": "Nurse A",
-            "listeners": [],
-            "real_name": "Nurse",
-            "timestamp": "December 13th, Hospital Day 4, Medication Order",
-            "message": "Doctor also ordered Pyramidon 5 grains today.",
-            "intention": "Administering medication as per doctor's order",
-            "context": "Nursing staff implementing treatment plan.",
-            "source_reference": "# Case 10111, Orders - December 13: 'December 13. Pyramidon gr. v.'"
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Presenting urine and blood test results from first admission",
+            "message": "Urinalysis: gravity 1.012-1.022, no albumin, sugar, or acetone. Bile present initially, decreasing then absent. Blood: Hemoglobin 80%, RBC 4.68 million, WBC 10,850-6,800. Differential: 68 polys, 30 lymphs, 2 eos, no monos or basos.",
+            "intention": "Presenting initial lab results.",
+            "context": "Lab findings on first admission for Case 19482.",
+            "source_reference": "Page 1: 'Five urine examin\u00e2t ions showed gravities ranging from 1.012 to 1.022, no albumin, sugar. or acetone bodies. Bile was present in large amounts in the first examination, gradually decreasing, and was absent in the final specimen. The blood hemoglobin was 80 per cent, the red count 4,680,000, the white count 10,850 to 6,800. The differential count was 68 polymorphonuc I ears, 30 lymphocytes, no mononuclcars, 2 eosin- opliils, no basophils.'"
         },
         "turn_20": {
-            "speaker": "Nurse A",
-            "listeners": [],
-            "real_name": "Nurse",
-            "timestamp": "December 14th, Hospital Day 5, Medication Order Change",
-            "message": "Doctor has changed the morphine order. Now it's 1/6 to 1/4 grain every two hours as needed.",
-            "intention": "Administering medication as per updated doctor's order",
-            "context": "Nursing staff implementing treatment plan.",
-            "source_reference": "# Case 10111, Orders - December 14: 'December 14, 15 and 16. Morphia gr. 1/6 to 1/4 once to every two hours p.r.n.'"
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Presenting stool and serology results from first admission",
+            "message": "Stool: first two clay-colored, then light brown, then normal. Serology: Hinton strongly positive, Wassermann weakly positive, confirmed positive in another lab. Icteric index 75. Van den Bergh direct, quantitative 22.5mg dropping to 6.15mg. Liver function test 100% retention.",
+            "intention": "Continuing lab result presentation.",
+            "context": "Stool, serology, and liver function tests on first admission for Case 19482.",
+            "source_reference": "Page 2: 'Of five stool specimens examined the first two were clay colored, the third light brown, the last two normal in color. The Hinton tost was strongly positive, the Wassermann weakly positive. A control examination in another laboratory showed both tests positive. The icteric index was 75 on two occasions. The van den Bergh gave a direct reaction on entry and a quantitative value of 22.5 milligrams, gradually dropping to 6.15 milligrams immediately before discharge. A liver function test on admission showed 100 per cent retention.'"
         },
         "turn_21": {
-            "speaker": "Nurse A",
-            "listeners": [],
-            "real_name": "Nurse",
-            "timestamp": "December 16th, Hospital Day 7, Medication Order Change for Delirium",
-            "message": "For tonight, the doctor has ordered Chloral hydrate and sodium bromide by rectum at 3 AM and 9 PM for his delirium.",
-            "intention": "Administering medication for delirium as per doctor's order",
-            "context": "Nursing staff implementing treatment plan for nighttime delirium.",
-            "source_reference": "# Case 10111, Orders - December 16: 'December 16. Chloral hydrate gr. xxx with sodium bromide gr. 50 by rectum at 3 a.m. and 9 p.m.'"
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Presenting imaging results from first admission",
+            "message": "X-ray: Flat plate of gallbladder negative for stones.",
+            "intention": "Presenting imaging findings.",
+            "context": "Imaging results from first admission for Case 19482.",
+            "source_reference": "Page 2: 'X-ray examination : A flat plate of the gallbladder (not a Graham test) was negative for stones.'"
         },
         "turn_22": {
-            "speaker": "Nurse A",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Doctor A"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Nurse",
-            "timestamp": "December 17th, Hospital Day 8, Morning Report",
-            "message": "Doctor Cabot, the patient had a very restless night despite the medications. His delirium is worsening, and his headache is much worse again. He passed away this morning.",
-            "intention": "Reporting patient's condition deterioration and death",
-            "context": "Nurse reporting patient's condition and outcome to Dr. Cabot.",
-            "source_reference": "# Case 10111, Last Paragraph Before Discussion: 'He had marked delirium at night, somewhat controlled by morphia, but gradually increasing after the second lumbar puncture. The headache grew rapidly worse. December 17 he died.'"
+            "real_name": "Crone",
+            "timestamp": "Describing patient's clinical course and discharge after first admission",
+            "message": "On a high-carb, low-fat diet, he slowly improved. Jaundice lessened but persisted, liver still enlarged on day 23 when discharged.",
+            "intention": "Summarizing clinical course during first admission and discharge status.",
+            "context": "Patient's response to treatment and condition at discharge after first admission for Case 19482.",
+            "source_reference": "Page 2: 'On a high carbohydrate, low fat diet the patient slowly but steadily improved. The skin cleared somewhat, but the yellow color had not entirely disappeared and the liver was still enlarged on the twenty-third day, when he was discharged.'"
         },
         "turn_23": {
-            "speaker": "Doctor A",
-            "listeners": [],
-            "real_name": "Richard C. Cabot, M.D.",
-            "timestamp": "December 17th, Day of Death, Post-mortem Diagnosis Consideration",
-            "message": "So, he died. Clinically, it strongly pointed to tuberculous meningitis and pulmonary tuberculosis. Let's see what the post-mortem examination reveals.",
-            "intention": "Reflecting on clinical diagnosis and anticipating post-mortem findings",
-            "context": "Dr. Cabot considering the case after patient's death.",
-            "source_reference": "# Case 10111, Discussion - Differential Diagnosis and Clinical Diagnosis: 'I think he died of phthisis with tuberculosis of the meninges... CLINICAL DIAGNOSIS (FROM HOSPITAL RECORD) Tuberculous meningitis. Chief cause of death, disseminated tuberculosis (spine and lungs).' "
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Presenting interval history before second admission",
+            "message": "Interval history: Felt well for two weeks post-discharge. Then, four days before readmission, sudden severe midsternal pain, shortness of breath, cold sweats. Soda and hot water bag no relief. Pain persisted until readmission. Slight jaundice unchanged.",
+            "intention": "Detailing symptoms leading to second admission.",
+            "context": "Interval history and symptoms before second admission for Case 19482.",
+            "source_reference": "Page 2: 'History of interval. He had felt quite well for two weeks. Then, four days before his return, he had a sudden very severe pain deep in the midsternal region. It made him feel short of breath and brought out a cold sweat upon his forehead. Soda and a hot water bag gave no relief. The pain persisted more or less constantly up to the time of entry. The slight jaundice present at his previous discharge remained unchanged in intensitv.'"
         },
         "turn_24": {
-            "speaker": "Doctor B",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Doctor A"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Dr. Richardson",
-            "timestamp": "Post-mortem Examination, Reporting Meninges Findings",
-            "message": "Dr. Cabot, in the post-mortem, the meninges showed a slight granular exudate, suggestive of tuberculosis but not very pronounced macroscopically. However, microscopically, it is indeed tuberculous meningitis.",
-            "intention": "Reporting post-mortem findings confirming tuberculous meningitis",
-            "context": "Dr. Richardson reporting pathological findings from post-mortem examination.",
-            "source_reference": "# Case 10111, Anatomical Diagnosis - Dr. Richardson's Report: 'Dr. Richardson : The pia showed a thin slightly granular ex\u00fadate along the upper part of the medulla and extending up along the pons... Macroscopically it was suggestive of tuberculosis of the meninges, but not very well marked. Microscopical examination showed that it was tuberculous meningitis.'"
+            "real_name": "Crone",
+            "timestamp": "Presenting physical exam and labs on second admission",
+            "message": "Second admission: 18 days post-discharge. Physical exam: Liver further enlarged, almost to umbilicus, spleen now palpable. BP 140/65. Urine no bile. Stools normal color. Blood unchanged. Serology positive. Icteric index down to 25 then 10. Van den Bergh 1.5-2, direct.",
+            "intention": "Describing findings on second admission.",
+            "context": "Physical exam and lab findings on second admission for Case 19482.",
+            "source_reference": "Page 2: 'Second admission. The patient re\u00ebntered eighteen days after discharge. Physical examination showed no change except still greater enlargement of the liver, which was now felt almost at the level of the umbilicus. The spleen was now just palpable. The blood pressure was 140/65. The urine was free from bile. The stools were normal in color. The blood findings were unchanged. Three more Hinton and Wassermann reactions were all positive. The icteric index gradually dropped from 25 to 10. The van den Bergh was 1.5 to 2, direct reaction.'"
         },
         "turn_25": {
-            "speaker": "Doctor B",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Doctor A"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Dr. Richardson",
-            "timestamp": "Post-mortem Examination, Reporting Lung Findings",
-            "message": "The left lung has a large cavity in the apex with purulent material and tubercle bacilli.  There's also evidence of older tuberculosis in the bronchial glands and right lung apex.",
-            "intention": "Reporting post-mortem findings confirming pulmonary tuberculosis",
-            "context": "Dr. Richardson continuing to report pathological findings.",
-            "source_reference": "# Case 10111, Anatomical Diagnosis - Dr. Richardson's Report: 'In the apex of the right lung was a small fibrocaseous pigmented mass... In the apical region there was a cavity 5y2 by 4 cm. containing much purulent material. The cover glass from this material showed innumerable typical tubercle bacilli. Some of the bronchial glands showed obsolete tuberculosis.'"
+            "real_name": "Crone",
+            "timestamp": "Presenting imaging and ECG on second admission",
+            "message": "X-ray: No heart or chest disease. ECG: Normal rhythm, rate 110, inverted T1 and T2, low voltage.",
+            "intention": "Presenting imaging and ECG findings.",
+            "context": "Imaging and ECG results on second admission for Case 19482.",
+            "source_reference": "Page 2: 'X-ray examination showed no evidence of disease in the heart or chest. Electrociirdiogram showed normal rhythm, rate 110, deeply inverted Ti and T2, rather low voltage.'"
         },
         "turn_26": {
-            "speaker": "Doctor A",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Doctor B"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Richard C. Cabot, M.D.",
-            "timestamp": "Post-mortem Examination, Confirming Absence of Spinal Tuberculosis",
-            "message": "And what about the spine, any evidence of tuberculosis in the axis or cervical vertebrae?",
-            "intention": "Questioning about spinal tuberculosis based on earlier suspicions",
-            "context": "Dr. Cabot inquiring about spinal involvement.",
-            "source_reference": "# Case 10111, Discussion after Anatomical Diagnosis - Dr. Cabot's question: 'Dr. Cabot : You have no evidence on the question whether he may have had tuberculosis of the axis or any of the upper cervical vertebrae?'"
+            "real_name": "Crone",
+            "timestamp": "Describing clinical course during second admission",
+            "message": "Second admission course: One month stay. Fever to 100\u00b0F daily for three weeks. Pulse 90-120. Respirations 20. Chest pain subsided in 10 days, new dorsal spine pain appeared, shifted to right scapula. Codeine and pyramidon for pain relief. Syphilologist against arsenic. Potassium iodide started day 16, continued until discharge.",
+            "intention": "Summarizing clinical course during second admission.",
+            "context": "Clinical course and treatment during second hospitalization for Case 19482.",
+            "source_reference": "Page 2: 'He remained in the hospital one month, running for the first three weeks a temperature that reached 100\u00b0 nearly every day. The pulse varied from 90 to 120. The respirations were fairly constant at 20. The chest pain slowly disappeared in the course of ten days, but a new pain appeared in the region of the fourth dorsal vertebra which gradually seemed to shift to an area behind the right scapula. Codein and pyramidon were given with relief from his pain. A syphilologist advised against arsenical treatment. Potassium iodide was started on the sixteenth day and continued until his discharge.'"
         },
         "turn_27": {
-            "speaker": "Doctor B",
+            "speaker": "Dr. Crone",
             "listeners": [
-                "Doctor A"
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
             ],
-            "real_name": "Dr. Richardson",
-            "timestamp": "Post-mortem Examination, Negative Spinal Findings",
-            "message": "No, Dr. Cabot, we couldn't find any evidence of tuberculosis in the vertebrae.",
-            "intention": "Reporting negative findings for spinal tuberculosis",
-            "context": "Dr. Richardson responding to Dr. Cabot's question.",
-            "source_reference": "# Case 10111, Anatomical Diagnosis - Dr. Richardson's Report: 'Dr. Richardson : There was nothing that we could make out.'"
+            "real_name": "Crone",
+            "timestamp": "Describing discharge and interval history before third admission",
+            "message": "Discharged home after a month, high-carb diet, rest. Interval history: Felt well for three weeks, except palpitations. Five weeks before third admission, weak upon waking. Cold sweats, chills for days. Physician diagnosed pneumonia, but temp never over 100\u00b0F, no severe breathing pain. Orthopnea most prominent symptom, improved. Sputum blood-tinged for a week, then again day before readmission. Chest pain with deep inspiration 3.5 weeks before admission. Soreness near right ear, shifted to TMJ, severe jaw pain. Forceful heartbeats 2.5 weeks before readmission. Dizziness week before readmission.",
+            "intention": "Detailing interval symptoms leading to third admission.",
+            "context": "Interval history and symptoms before third admission for Case 19482.",
+            "source_reference": "Page 2 & 3: 'One month after entry the patient went home, to continue on a high carbohydrate diet and rest. History of interval. For the first three weeks after his discharge he felt well except for frequent attacks of palpitation. Five weeks before his reentry on awakening in the morning he felt too weak to get up. During the next two days he frequently noticed cold sweats and twice had definite chilly sensations for a few hours. His physician, who was called in after three days, made a diagnosis of pneumonia, though the patient's temperature was never above 100\u00b0 and he had no severe pain on breathing. During this period his most definite symptom was severe orthopnea, which gradually improved. Four weeks before reentry his sputum became blood tinged and remained so for a week. The clay before admission the sputum was again blood tinged. Three and a half weeks before reentry moderate rather generalized pain was noted across the chest at the end of full inspiration. This gradually grew less severe. Three weeks before reentry soreness was noted about the right ear, gradually shifting to the right temporomandibular joint and gradually becoming so severe that he could not open his jaw. Two and a half weeks before reentry he became conscious of very forceful heart beats. This sensation continued until entry. During the week before entry three attacks of dizziness occurred.'"
+        },
+        "turn_28": {
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Presenting physical exam findings on third admission",
+            "message": "Third admission: Approx. two months after last discharge. Physical exam: Orthopnea, marked pallor, cyanosis. Small cervical, supraclavicular, epitrochlear, inguinal glands palpable. Lungs dull bases bilaterally, worse right, diminished breath/voice sounds right base. No rales. Neck vein pulsation, capillary pulse. Bounding radial pulse, forceful rapid apex beat 128, tremor with each beat. Heart slightly enlarged, sounds obscured by murmurs. P2>A2, accentuated. Systolic and diastolic murmurs left 2nd/3rd intercostal spaces, neck and apex. BP 130/44. Liver 3 fingerbreadths below costal margin, tender, smooth edge. Spleen palpable on deep inspiration, tender. TMJ tenderness and swelling.",
+            "intention": "Describing physical examination at third admission.",
+            "context": "Physical exam findings on third admission for Case 19482.",
+            "source_reference": "Page 3: 'Third admission, approximately two months after his previous discharge. Physical examination showed definite orthopnea, marked pallor of the skin and mucous membranes and slight' cyanosis. There were small palpable cervical, supraclavicular, epitrochlear and inguinal glands. The lungs showed dullness at both bases, greater on the right, with some diminution of breath sounds, spoken voice and whispered voice on the right. Tactile fremitus was normal. There were no r\u00e2les. There was visible pulsation of the vessels of the neck, and capillary pulse in the lips and nail beds. The radial pulse was full and bounding. The apex beat was forceful, rapid, rate 128. A tremor could be felt with each beat. The heart was slightly enlarged. The sounds were of good quality, but somewhat obscured by murmurs. The pulmonic second sound was greater than the aortic second sound and much accentuated. In the second and third left intercostal spaces a systolic and a diastolic murmur were heard which were transmitted to the vessels of the neck and also to the apex. The blood pressure was 130/44. The liver was three fingerbreadths below the costal margin, tender, its edge smooth. The spleen descended two fingerbreadths with deep inspiration and was tender. There were tenderness and slight swelling of the right temporomandibular joint. The parotid area was not tender.'"
+        },
+        "turn_29": {
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Presenting lab results from third admission",
+            "message": "Third admission labs: Urine gravity 1.010-1.028, no albumin or sugar, bile once. Blood: Hemoglobin 55-60%, RBC 3.2-4.1 million, WBC 9,150-16,400. Stools normal color. Serology positive. Icteric index 8, liver function 0-5% retention. Gonococcus fixation test positive. Prostatic smear: pus cells with intracellular Gram-negative diplococci. Blood cultures negative.",
+            "intention": "Presenting lab findings on third admission.",
+            "context": "Lab results on third admission for Case 19482.",
+            "source_reference": "Page 3: 'Laboratory examination of the urine showed the specific gravity 1.010 to 1.028, no albumin or sugar, bile on one occasion. Blood: hemoglobin 55 to 60 per cent. The red cell count was 3,200,000 to 4,100,000. The white cell count was 9,150 to 16,400. The stools were normal in color. The Hinton and Wassermann reactions were positive. The icteric index was 8, the liver function 0-5 per cent retention. A gonococcus fixation test was positive. A prostatic smear showed numerous pus cells, nearly all of which contained intracellular Gram-negative diplococci. Three blood cultures were negative.'"
+        },
+        "turn_30": {
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Presenting ECG and X-ray results from third admission",
+            "message": "ECG: Sino-auricular tachycardia, rate 110-120, inverted T1 and T2, low voltage tendency. X-ray TMJ: widened joint space, anterior mandibular displacement. Heart plate: marked enlargement, base and auricles prominent, left bronchus elevated, pulmonary conus visible, increased hilus shadows, lung mottling. Aorta normal. Compared to January films, marked heart and hilus changes. Interpreted as rheumatic heart disease with pulmonary congestion, then mitral stenosis and congestion.",
+            "intention": "Presenting ECG and imaging findings.",
+            "context": "ECG and imaging results on third admission for Case 19482.",
+            "source_reference": "Page 3: 'An electrocardiogram on April 11 showed a sino-auricular tachycardia, rate 110, slightly inverted Ti and T2, tendency to low voltage. A second electrocardiogram on the twenty-ninth showed again a sino-auricular tachycardia, rate 120, inverted T2 and T8. X-ray examinations of the temporomandibular joint showed widening of the joint space and anterior displacement of the articular surface of the mandible. The dislocation however was not complete. A heart plate showed considerable enlargement, most marked across the base, in the region of the auricles. The shadow of the left auricle was particularly prominent. The left bronchus appeared elevated. The pulmonary conus was visible. There was marked increase in the hilus shadows on both sides with some mottling in the mid and lower lung fields extending well out toward the periphery. The aorta appeared normal. Comparison with films taken in January showed marked change in the size and shape of the heart and also in the size and density of the hilus shadows. The findings were interpreted as rheumatic heart disease with pulmonary congestion. Another chest plate taken on June 2 showed an evident increase in the size of the heart since the last examination. The shape still suggested mitral disease. The aortic knob was nQt visible. There was prominence in the region of both auricles. The hilus shadows and larger lung markings were still more prominent. The findings were interpreted as mitral stenosis and congestion of the lung.'"
+        },
+        "turn_31": {
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Describing clinical course and terminal event during third admission",
+            "message": "Third admission course: Two months hospital stay. Digitalis, Blaud's pills, potassium iodide. Rapid downhill course. Frequent air hunger. Poor appetite, nausea with meds. Transient URIs. Temp to 100-101\u00b0F with URIs. Presystolic murmur and thrill apex noted May 29, possibly Austin Flint. End of May, vomiting worsened, liver larger, tender, continuous vomiting and hiccups. June 6, sudden death, gasping in bed.",
+            "intention": "Summarizing clinical course and terminal event during third admission.",
+            "context": "Clinical course and death during third hospitalization for Case 19482.",
+            "source_reference": "Page 3: 'During the two months that the patient remained in the hospital he was treated with digitalis, Bl\u00e1ud's pills and potassium iodide. The patient went rather rapidly downhill. Attacks of air hunger were frequent. His appetite was often poor, and medication occasionally had to be withdrawn because of nausea. He had several transient acute upper respiratory infections. His temperature, which had ranged about 99\u00b0 at admission, rose with some of these attacks to 100\u00b0 and 101\u00b0. The physical findings did not change until May 29, when a presystolic murmur and thrill were noted at the apex, thought to be an Austin Flint murmur. Towards the end of May the vomiting became more and more frequent, the liver appeared to grow larger and more tender, vomiting and hiccoughing became almost continuous. On June 6 the patient suddenly sat up in bed gasping for breath, then dropped back dead as the nurse started to hand him some smelling salts.'"
+        },
+        "turn_32": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Starting differential diagnosis discussion for Case 19482",
+            "message": "So, a young man, three hospital admissions in under five months, death about eight months after illness onset. First admission: acute parenchymatous liver disease, like acute infectious jaundice. Second admission: acute abdominal condition, severe upper abdominal pain, low fever. Third: fulminating heart disease, rapid aortic valve involvement, left ventricular failure, sudden death.",
+            "intention": "Summarizing the clinical picture and initiating differential diagnosis.",
+            "context": "Beginning differential diagnosis discussion for Case 19482.",
+            "source_reference": "Page 3: 'Dr. James II. Means : Here we have a young man entering the hospital three times in less than five months and dying there about eight months after the apparent onset of his illness. The picture on the first entry is that of an acute parenchymatous liver disease, indistinguishable from acute infections (so-called catarrhal) jaundice. On the second entry the picture is that of an acute abdominal condition characterized chiefly by severe upper abdominal pain and low grade fever. The picture on the final entry is that of afulminating type of heart disease with rapid development of aortic valve involvement, left ventricular failure and sudden death.'"
+        },
+        "turn_33": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Highlighting the rapid heart disease progression",
+            "message": "Crucially, no heart evidence on first or second admission \u2013 no symptoms, normal exam, normal x-ray. This narrows the possibilities. Not many heart diseases progress this fast.",
+            "intention": "Emphasizing rapid progression of heart disease.",
+            "context": "Pointing out the rapid onset of cardiac symptoms in Case 19482.",
+            "source_reference": "Page 3: 'From the point of view of diagnosis it is very significant that on neither the first nor the second entry was any evidence obtained of any sort of lesion of the heart. Not only were there no symptoms pointing to the heart, unless the pain on the second might possibly be coronary, but both physical examination and x-ray showed complete cardiac normality. This narrows the diagnostic, search considerably, for there are not many sorts of heart disease that can proceed at the pace which the facts here indicate.'"
+        },
+        "turn_34": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Suggesting possible etiologies",
+            "message": "I'm thinking malignant endocarditis, syphilis, or maybe a coronary thrombosis complication. We need one etiology for everything. Bacterial infection could cause hepatitis then endocarditis. Syphilis could affect both heart and liver rapidly.",
+            "intention": "Proposing possible differential diagnoses.",
+            "context": "Considering etiologies that could explain the entire clinical picture in Case 19482.",
+            "source_reference": "Page 3: 'Indeed, I can think of nothing save malignant endocarditis, syphilis or some complication of coronary thrombosis. It is our duty to attempt to explain the entire picture by one etiological diagnosis. A bacterial infection might conceivably produce first a hepatitis, later an ulcerative endocarditis. Syphilis might involve both heart and liver with rapidly progressive lesions.'"
+        },
+        "turn_35": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Dismissing coronary thrombosis as likely",
+            "message": "Coronary thrombosis? Unlikely. Age against it, blood pressure trend against it, and it doesn't explain aortic valve disease or the liver lesion. Let's dismiss that.",
+            "intention": "Ruling out coronary thrombosis as primary diagnosis.",
+            "context": "Justifying the dismissal of coronary thrombosis in Case 19482.",
+            "source_reference": "Page 3: 'I can think of no other etiologies which would account for all we have here. The coronary possibility is, Ithink, unlikely. His age is against it, the behavior of the blood pressure is against it, and as a diagnosis it fails to account for the development of aortic valve disease and the type of liver lesion that seems to be present. I feel that we can dismiss it.'"
+        },
+        "turn_36": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Considering gonococcal infection",
+            "message": "Gonococcus? History of urethritis, positive fixation test, prostatic smear. Jaw arthritis could be Neisserian. Gonococcus could cause fulminating endocarditis. But, blaming it for the liver lesion too? And gonococcal endocarditis is rare. I'm leaning away from primary gonococcal etiology.",
+            "intention": "Evaluating and partially dismissing gonococcal infection as primary etiology.",
+            "context": "Considering and then downplaying gonococcal infection in Case 19482.",
+            "source_reference": "Page 3: 'Gonococcus infection is to be thought of; indeed, apparently he has it. There is the positive history of urethritis, positive gonococcus fixation test and prostatic smear showing organisms with gonococcus morphology and staining properties. The acute arthritis of his jaw, noted on the third entry, could easily be Neisserian. The gonococcus could also produce a fulminating endocarditis of the sort which may be present here. I do not see how, however, by the wildest stretch of the imagination the gonococcus could be blamed for this lesion, and for that reason and because of the extreme rarity of gonococcus endocarditis I feel justified in dropping a gonococcus infection as the primary etiology.'"
+        },
+        "turn_37": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Focusing on syphilis as a strong possibility",
+            "message": "Several things point to syphilis: consistently positive serology, lymphadenopathy, aortic valve heart lesion location.",
+            "intention": "Highlighting features suggestive of syphilis.",
+            "context": "Focusing on syphilis as a leading diagnostic consideration in Case 19482.",
+            "source_reference": "Page 3: 'There are several things present that smack of syphilis: Ilinton and Wassermann always positive, development of a generalized lymph adenopathy and location of the heart lesion in the aortic valve.'"
+        },
+        "turn_38": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Discussing initial diagnosis and liver involvement",
+            "message": "What was the discharge diagnosis after the first admission? Symptoms and labs fit catarrhal jaundice. Dye retention and obstructive jaundice suggest diffuse liver lesion. Course consistent with catarrhal jaundice. But, he wasn't fully well upon discharge. Arsphenamine jaundice possible, but no history of that drug. Infectious cirrhosis beginning? Second admission \u2013 epigastric pain, enlarged liver \u2013 confirms more than catarrhal jaundice. No cardiac failure to explain liver, neoplasm unlikely. ",
+            "intention": "Analyzing initial diagnosis and liver pathology.",
+            "context": "Discussing the liver disease progression and initial diagnostic considerations in Case 19482.",
+            "source_reference": "Page 3 & 4: 'It 1 should be interested to know with what diagnosis the patient was discharged the first time. If seems to me that the symptoms, signs and laboratory work could all be explained on the basis of catarrhal jaundice. The marked dye retention, combined with obstructive jaundice, indicates a diffuse liver lesion with intrahepatic obstruction. The course of the disease is consistent, with catarrhal jaundice. It is to be noted, however, that he was not quite well on leaving the hospital. Arsphenamin jaundice is to be 1 bought of. but there is no story that he had had that drug. The beginning of an infectious cirrhosis is a possibility. The picture on the second entry, that of epigastric pain and considerable increase in the size of Hie liver, practically proves that a diffuse liver disease of more formidable sort than catarrhal jaundice is present. There is no cardiac, congestive failure to explain the liver and of course neoplasm is not in the least suggested.'"
+        },
+        "turn_39": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Considering cirrhosis and response to potassium iodide",
+            "message": "I see no way out of some form of cirrhosis. Could be syphilitic or other. Pain fits cirrhosis. Potassium iodide and improvement is diagnostically important, suggestive of syphilis. Understandable they avoided arsenic.",
+            "intention": "Further considering cirrhosis and the significance of potassium iodide response.",
+            "context": "Linking cirrhosis, pain, and treatment response to syphilis in Case 19482.",
+            "source_reference": "Page 4: 'I see no escape, at this time, from some kind of cirrhosis, which could be syphilitic, or other. The pain could be quite well explained on the basis of cirrhosis. We have seen it not infrequently. If is of diagnostic importance that he was started on potassium iodide and that coincident with the taking of this there was some improvement; that also smacks of syphilis. Of course, they were afraid to give arsenic. Who wouldn't be?'"
+        },
+        "turn_40": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Analyzing third admission and heart lesion",
+            "message": "Third admission, new heart lesion. Double murmur, Corrigan pulse \u2013 aortic valve. X-ray suggests rheumatic, but I doubt it. Rapid heart changes, sudden strain, little hypertrophy, left ventricular failure, air hunger, pulmonary congestion. Liver disease progressing, not secondary to heart failure. Liver disease primary, not heart. Syphilis fits it all better than anything.",
+            "intention": "Analyzing heart lesion development and overall clinical picture in light of syphilis.",
+            "context": "Interpreting third admission findings and favoring syphilis as unifying diagnosis in Case 19482.",
+            "source_reference": "Page 4: 'On the third entry he liirns up with a brand new heart lesion. The double murmur and Corrigan pulse seem to me to point unmistakably to the aortic valve. Although the x-ray people suggest rheumatic heart disease, I feel that this is most, unlikely. My interpretation would be that with rapid anatomical change in the heart, great strain had rather suddenly been thrown on the organ with but little time for hypertrophy and consequent left ventricular failure (note the attack of air hunger) and pulmonary congestion. At the same time Hie liver lesion is progressing without any sufficient evidence of right sided failure to explain it. The liver disease seems certainly primary, not secondary to the heart. All this hangs together on a syphilitic basis better than on any other.'"
+        },
+        "turn_41": {
+            "speaker": "Dr. Means",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Means",
+            "timestamp": "Dismissing malignant endocarditis",
+            "message": "If malignant bacterial endocarditis, why negative blood cultures? No embolic phenomena either.",
+            "intention": "Ruling out malignant bacterial endocarditis.",
+            "context": "Justifying dismissal of malignant endocarditis in Case 19482.",
+            "source_reference": "Page 4: 'If he had a malignant bacterial endocarditis, I cannot understand why the organism could not be easily found on blood culture, also why there were no embolie phenomena.'"
+        },
+        "turn_42": {
+            "speaker": "Dr. Means",
+            "listeners": [],
+            "real_name": "Means",
+            "timestamp": "Concluding diagnostic impression",
+            "message": "My diagnoses: Diffuse syphilis of the liver (syphilitic cirrhosis). Syphilitic heart disease \u2013 aortic valve involvement. Jaw arthritis, probably gonorrheal. Chronic gonorrheal prostatitis. Sudden death, primarily heart-related.",
+            "intention": "Stating final diagnostic impressions.",
+            "context": "Providing final diagnoses for Case 19482.",
+            "source_reference": "Page 4: 'DR. MEANS' DIAGNOSIS Diffuse syphilis of Hie liver (syphilitic cirrhosis). Syphilitic heart disease\u2014with chiefly aortic valve involvement. Arthritis of the jaw, probably gonorrheal. Chronic gonorrheal prostatitis. Sudden death, occasioned chiefly by the heart lesion.'"
+        },
+        "turn_43": {
+            "speaker": "Dr. Crone",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Crone",
+            "timestamp": "Confirming discharge diagnoses",
+            "message": "Discharge diagnoses were: luetic heart disease, aortic lues, and liver lues.",
+            "intention": "Confirming previous clinical diagnoses.",
+            "context": "Stating discharge diagnoses for Case 19482.",
+            "source_reference": "Page 4: 'Dr. CRONE: The diagnosis at discharge was luetic heart disease, lues of the aorta and lues of the liver.'"
+        },
+        "turn_44": {
+            "speaker": "Dr. Hampton",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Hampton",
+            "timestamp": "Discussing initial radiology findings",
+            "message": "Initial x-ray: heart normal size. Cardiothoracic ratio normal. Maybe we missed pulmonary vessel size, oblique view with barium might have shown left atrial prominence. Increase in pulmonary pressure should be visible in oblique view.",
+            "intention": "Reviewing initial radiographic interpretation and potential oversights.",
+            "context": "Radiological interpretation of initial heart films in Case 19482.",
+            "source_reference": "Page 4: 'Dr. Aubrey 0. Hampton: When our first examination was made we said the heart was normal in size and the cardiothoracic ratio was within normal limits. We did not perhaps pay as much attention to the size of the pulmonary blood vessels as we should have done, and possibly if we had examined the heart in the oblique view with barium in the esophagus we should have found prominence of the left auricle: since, increase in the pulmonary blood pressure is obvious in the anteroposterior view it should be obvious in the oblique view.'"
+        },
+        "turn_45": {
+            "speaker": "Dr. Hampton",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Hampton",
+            "timestamp": "Describing changes in heart size on subsequent imaging",
+            "message": "Second x-ray, three months later: Heart size increased from 11.6 to 12.6 cm, 1cm increase. Definite lung congestion. Possible consolidation on left. Left bronchus elevated, dilated left atrium.",
+            "intention": "Describing radiographic changes over time.",
+            "context": "Radiological progression of heart size and lung findings in Case 19482.",
+            "source_reference": "Page 4: 'On the second examin\u00e2t ion. three months later, the heart has changed from 11.6 centimeters in the Iransvoi'M\" diameter to 12.!l \"ontimoters, an increase of a, cent \u00a1meter, and there is definite evidence of passive congestion in Hie lung fields. It, is even possible thai that area of dullness thought to be due to edema, represents an area of consolidation on the left side. The left bronchus is well seen here, not so well there. It seems to have come up a little, as we see in the presence of a dilated left auricle.'"
+        },
+        "turn_46": {
+            "speaker": "Dr. Hampton",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Hampton",
+            "timestamp": "Describing rapid increase in heart size before death",
+            "message": "Third film: transverse diameter increased 3cm in one month. Sudden heart size increase usually pericardial effusion, but myocardial failure or disease can do this too.",
+            "intention": "Highlighting rapid heart enlargement and possible causes.",
+            "context": "Rapid increase in heart size on final imaging and differential for rapid enlargement in Case 19482.",
+            "source_reference": "Page 4: 'In the third film the transverse diameter has increased three centimeters within one month. We have been believing thai a sudden increase in the size of the heart is usually due to pericardial effusion. We have recently discovered that myocardial failure or disease will do almost the same thing.'"
+        },
+        "turn_47": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Recalling clinical impressions during patient's admissions",
+            "message": "I saw him four times. First, second admissions, and GI clinic before third admission. Urged him to readmit.",
+            "intention": "Recounting personal clinical encounters with the patient.",
+            "context": "Dr. Jones's involvement in Case 19482.",
+            "source_reference": "Page 4: 'Dr. Chester M. Jones: I saw this patient I think four times. I saw him at his first entry to the ward, at the second entry, and then in the (\u00a1astro-intestinal Clinic a day or so before he came into the ward, and I urged him to come in a third time.'"
+        },
+        "turn_48": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Discussing jaundice and syphilis association",
+            "message": "Intense jaundice with syphilis is unusual, except late-stage cirrhosis. He didn't suggest cirrhosis on first admission. Clinical picture like acute catarrhal jaundice, but he was sicker, jaundice lasted longer than typical. I noted at the time it might be more than catarrhal jaundice.",
+            "intention": "Recalling impressions about jaundice severity and differential.",
+            "context": "Dr. Jones's clinical impression of jaundice severity in Case 19482.",
+            "source_reference": "Page 4: 'There are one or two things that I recall about the case that interest me. I am not at all familiar with intense jaundice in association with syphilis except in the late stage of syphilitic cirrhosis. lie certainly did not suggest that when he came in. The clinical picture was not unlike an acute catarrhal jaundice. It seemed to me however that he was more sick and that the jaundice persisted longer than one would expect in catarrhal jaundice alone, and I remember, that I made a note at the time that I thought he had something else besides catarrhal jaundice.'"
+        },
+        "turn_49": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Adding to jaundice history",
+            "message": "He had a prior catarrhal jaundice episode five years earlier.",
+            "intention": "Adding relevant history regarding jaundice.",
+            "context": "Past history of jaundice in Case 19482.",
+            "source_reference": "Page 4: 'Dr. Tracy B. Mallory : Another point is that he had already had one attack of catarrhal jaundice five years previously.'"
+        },
+        "turn_50": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Discussing implications of prior jaundice episode",
+            "message": "Prior jaundice episode provides a basis for further liver damage, if we accept catarrhal jaundice as acute yellow atrophy in varying degrees.",
+            "intention": "Considering prior jaundice episode in context of liver damage.",
+            "context": "Considering past jaundice history and potential liver damage in Case 19482.",
+            "source_reference": "Page 4: 'Dr. Jones: That being true, he had a basis for further liver damage if one accepts the conviction that many people hold now that catarrhal jaundice is essentially acute yellow atrophy in greater or less degree.'"
+        },
+        "turn_51": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Recalling positive Hinton test and jaundice",
+            "message": "Strongly positive Hinton on first admission \u2013 we should have paid more attention. I was taught to disregard serology in deep jaundice, but my experience suggests positive Wassermann/Hinton in jaundice usually means syphilis. I'll pay more attention to positive Hintons with jaundice now. Antisyphilitic treatment wasn't pushed due to liver disease, discharged untreated for syphilis.",
+            "intention": "Reflecting on diagnostic oversight and serology interpretation.",
+            "context": "Re-evaluating serology results in the context of jaundice in Case 19482.",
+            "source_reference": "Page 4: 'The second thing that stood out\u2014and I think we made a mistake in not paying attention to it \u2014was the strongly positive Hinton on the first admission. I was taught that in the presence of deep jaundice one has a right to question and disregard serological evidence of syphilis. My own experience however is that it is a very rare thing to get a positive Wassermann or Hinton reaction with deep jaundice unless there is syphilis present. Whether that is true I do not know, but I do know that I am going to pay more attention to positive Hinton reactions with jaundice. It was felt that antisyphilitic treatment should not be pushed at this time because of the evidence of the liver disease and he was discharged without any attempt to treat his syphilis.'"
+        },
+        "turn_52": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Discussing second admission and pain",
+            "message": "Second admission: substernal pain, much larger liver, less jaundice. Perihepatic or mediastinal process considered for pain and fever. Fever persisted a month, then subsided. Pain improved with bed rest. Heart wasn't a focus then. Cautious antisyphilitic treatment started, then discharged.",
+            "intention": "Recalling diagnostic considerations on second admission.",
+            "context": "Clinical considerations during second admission regarding pain and fever in Case 19482.",
+            "source_reference": "Page 4: 'He came in later with a story of peculiar substernal pain. He had a much larger liver at that time without any evidence of jaundice, or with very slight jaundice. I think that I saw him once then and my recollection is that I felt that there might be a mediastinal or a perihepatic process which was responsible for his pain and fever. The fever persisted for a month, starting out in high swings and gradually coming down to a level. With rest in bed his pain disappeared. I did not think much about his heart at the time, and at that time antisyphilitic treatment was started cautiously. He was sent home.'"
+        },
+        "turn_53": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Describing third admission and aortic insufficiency",
+            "message": "Third admission: very bad shape, pale, weak, cyanotic, heart failure. Amazed to find clear aortic insufficiency signs. No diastolic murmur on second admission record. Striking heart failure signs, orthopneic, cyanotic. Liver enlargement partly cardiac, partly previous condition. Rapid syphilitic aortic involvement suspected, whole picture due to rapid syphilis involving liver and heart.",
+            "intention": "Describing critical presentation and aortic insufficiency discovery on third admission.",
+            "context": "Clinical presentation and diagnosis of aortic insufficiency on third admission for Case 19482.",
+            "source_reference": "Page 4: 'The next time I saw him was in a sense accidental. He. was discharged to the Gastro-intestinal Clinic. When he came in he was in extremely bad shape, very pale, weak, cyanotic, and obviously suffering from symptoms of heart failure. I examined him, and in listening to the heart I was amazed to find perfectly clear cut signs of aortic insufficiency, if one can make a diagnosis on murmurs alone. I think there was no record of a diastolic murmur at the second entry. He had signs of heart failure which were very striking. He was orthopneic and cyanotic. I thought at that time that the enlargement of the liver was in part due to cardiac failure and in part to his previous condition. I wondered if he had not had a rapid syphilitic involvement of the aorta and whether the whole picture could be due to unusually rapid syphilitic manifestations involving both the liver and later the heart.'"
+        },
+        "turn_54": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Discussing downhill course and liver pathology prediction",
+            "message": "Subsequent downhill course clearly cardiac failure. No response to treatment. Expect liver to show atrophy and repair, cirrhosis possibly exaggerated by cardiac failure. ",
+            "intention": "Predicting clinical course and expected liver pathology.",
+            "context": "Expected clinical trajectory and liver findings based on clinical picture in Case 19482.",
+            "source_reference": "Page 4: 'His subsequent downhill course was certainly fundamentally that of cardiac failure. He did not respond to treatment at all. I should expect that there might be evidence of previous atrophy and repair in the liver to some extent. I believe he probably had cirrhosis, exaggerated by his cardiac failure.'"
+        },
+        "turn_55": {
+            "speaker": "Physician A",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Unspecified",
+            "timestamp": "Questioning about gonococcal arthritis",
+            "message": "Was there any evidence of gonococcal arthritis?",
+            "intention": "Seeking information about gonococcal arthritis.",
+            "context": "Questioning about specific manifestation related to gonococcal infection in Case 19482.",
+            "source_reference": "Page 4: 'A Physician: Was there any evidence of gonococeal arthritis?'"
+        },
+        "turn_56": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Answering question about gonococcal arthritis",
+            "message": "No, unless the TMJ lesion was it.",
+            "intention": "Answering question regarding gonococcal arthritis evidence.",
+            "context": "Addressing question about gonococcal arthritis manifestation, suggesting TMJ involvement could be related in Case 19482.",
+            "source_reference": "Page 4: 'Dr. Mallory: No, unless the lesion of the temporomandibular joint was evidence of it.'"
+        },
+        "turn_57": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Asking for Dr. Cabot's overall impression",
+            "message": "Dr. Cabot, any thoughts on the diagnosis?",
+            "intention": "Seeking Dr. Cabot's diagnostic opinion.",
+            "context": "Requesting Dr. Cabot's perspective on the case diagnosis in Case 19482.",
+            "source_reference": "Page 4: 'Dr. Cabot, have you any feeling as to the diagnosis here?'"
+        },
+        "turn_58": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Expressing surprise at rapid heart enlargement",
+            "message": "Strikingly rapid heart enlargement on x-rays. Unusual to see such a large heart so soon after normal size. I've never seen that before.",
+            "intention": "Highlighting unusual rapid heart enlargement.",
+            "context": "Dr. Cabot's observation about rapid heart enlargement in Case 19482.",
+            "source_reference": "Page 4: 'Dr. Richard C. Cabot: The thing that strikes me is the extraordinarily rapid enlargement of the heart as shown in these x-ray films. So far as my experience goes it is very unusual to get a heart as large as that shown in the third film so very short a time after the small, indeed normal dimensions shown in the first. I have nothing to say as to explanation, except that it seems very queer. I have never seen it before.'"
+        },
+        "turn_59": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Commenting on rapid aortic regurgitation development",
+            "message": "Same with aortic regurgitation from syphilis. Never seen it develop this quickly. Usually a slow process.",
+            "intention": "Highlighting unusual rapid development of aortic regurgitation.",
+            "context": "Dr. Cabot's observation about rapid aortic regurgitation onset in Case 19482.",
+            "source_reference": "Page 4: 'The same remarks hold true of aortic r\u00e9gurgitation due to syphilis. I have never seen it develop quickly. It ought to be and is usually a slowly developing thing.'"
+        },
+        "turn_60": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Considering rheumatic versus syphilitic cause",
+            "message": "Need to consider rheumatic vs. syphilitic cause. Rheumatic more likely to involve mitral valve. X-ray suggested mitral disease, Dr. Hampton?",
+            "intention": "Considering differential diagnosis of rheumatic vs syphilitic heart disease.",
+            "context": "Weighing rheumatic heart disease against syphilis and questioning about mitral valve involvement in Case 19482.",
+            "source_reference": "Page 4: 'Another point that ought to be balanced here is the question between rheumatic and syphilitic cause. If the disease is rheumatic we should be much more likely to get something in the mitral. As I understand it, Dr. Hampton said the x-ray was suggestive of mitral disease?'"
+        },
+        "turn_61": {
+            "speaker": "Dr. Hampton",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Hampton",
+            "timestamp": "Confirming x-ray suggestion of mitral disease",
+            "message": "Yes, we leaned strongly towards mitral disease on x-ray.",
+            "intention": "Confirming radiological interpretation.",
+            "context": "Confirming x-ray interpretation suggesting mitral valve involvement in Case 19482.",
+            "source_reference": "Page 4: 'Dr. Hampton : I think we leaned very strongly towards mitral disease.'"
+        },
+        "turn_62": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Ruling out syphilitic mitral lesion",
+            "message": "Mitral lesion never syphilitic. If mitral, think rheumatic. Rheumatic cause not ruled out.",
+            "intention": "Emphasizing rheumatic etiology if mitral valve involved.",
+            "context": "Reinforcing rheumatic heart disease consideration if mitral valve involvement is confirmed in Case 19482.",
+            "source_reference": "Page 4: 'Dr. Cabot : A mitral lesion is never due to syphilis. If there is a mitral lesion I think we ought to suppose the commonest alternative, which is a rheumatic lesion. I do not see how this can be ruled out.'"
+        },
+        "turn_63": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Considering cardiac infarct",
+            "message": "Cardiac infarct considered. Pain suggestive, ECG suggestive. But aortic regurgitation from syphilis can cause similar epigastric/substernal pain, not infarction-related. Infarct should be considered, but not necessarily present.",
+            "intention": "Considering and discussing cardiac infarct as a differential.",
+            "context": "Weighing cardiac infarct against aortic regurgitation as pain etiology in Case 19482.",
+            "source_reference": "Page 4: 'So far we have heard nothing about cardiac infarct. He certainly had suggestive pain, and the electrocardiogram suggested it. On the other hand I have been struck all my life by the way in which aortic r\u00e9gurgitation of syphilitic origin causes epigastric and substernal pain which cannot be accounted for by infarction, although it is very much like that due to infarction. I should think infarction ought to be considered here, but need not be present.'"
+        },
+        "turn_64": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Expressing interest in liver pathology",
+            "message": "Interested to see liver findings. Not typical liver syphilis, unless syphilitic cirrhosis, rarely clinically recognized.",
+            "intention": "Expressing interest in autopsy liver findings.",
+            "context": "Anticipating liver pathology findings and discussing liver syphilis presentation in Case 19482.",
+            "source_reference": "Page 4: 'I shall be interested to see what the liver shows. It certainly is not the picture of liver syphilis unless it is the syphilitic form of cirrhosis, which I suppose we almost never recognize clinically.'"
+        },
+        "turn_65": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Discussing acute syphilitic hepatitis",
+            "message": "Last year, we saw possible acute syphilitic hepatitis with jaundice, patient died of middle ear infection/meningitis, allowing acute hepatitis observation. Doubt patient dies solely from acute syphilitic hepatitis. Jaundice not extremely rare in acute stage, usually benign course even untreated.",
+            "intention": "Sharing experience with acute syphilitic hepatitis.",
+            "context": "Discussing clinical course of acute syphilitic hepatitis and jaundice in Case 19482.",
+            "source_reference": "Page 4 & 5: 'Dr. Mallory : We had last year one case of what we believed was acute syphilitic hepatitis with jaundice, the patient dying, as I remember, of acute middle ear infection and meningitis, which allowed us to see the hepatitis in an acute stage. I doubt if a patient ever dies solely of syphilitic hepatitis in the acute stage. I think that jaundice is not extremely rare in the acute stage, although it usually runs a benign course even without treatment.'"
+        },
+        "turn_66": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Questioning jaundice intensity in acute syphilitic hepatitis",
+            "message": "This jaundice was very intense. Is it usually mild?",
+            "intention": "Questioning severity of jaundice in typical acute syphilitic hepatitis.",
+            "context": "Clarifying typical jaundice intensity in acute syphilitic hepatitis in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Jones: This was very intense jaundice. Is it not usually a rather mild affair?'"
+        },
+        "turn_67": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Discussing jaundice intensity and syphilis association in acute yellow atrophy",
+            "message": "In acute yellow atrophy stats, disease appears unduly frequent in luetics, but arsphenamine therapy might explain that.",
+            "intention": "Discussing jaundice intensity and syphilis in context of acute yellow atrophy.",
+            "context": "Connecting jaundice intensity, syphilis, and acute yellow atrophy, considering arsphenamine therapy influence in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Mallory : In the statistics of acute yellow atrophy, the disease appears to be unduly frequent in luetics, but of course arsphenamin therapy may explain the findings.'"
+        },
+        "turn_68": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Questioning about left bronchus and mitral disease radiology",
+            "message": "Dr. Hampton, left bronchus and mitral disease radiology \u2013 relation?",
+            "intention": "Seeking clarification on radiological relationship between left bronchus and mitral disease.",
+            "context": "Requesting radiological expertise on left bronchus displacement in mitral disease in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Cabot: May I ask Dr. Hampton about The New England Journal of Medicine is produced by NEJM Group, a division of the Massachusetts Medical Society. the point he brought out about the left bronchus? What is the relation, radiologically speaking, of the left bronchus to the auricle in mitral disease?'"
+        },
+        "turn_69": {
+            "speaker": "Dr. Hampton",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Hampton",
+            "timestamp": "Explaining left bronchus displacement in mitral disease",
+            "message": "Dilated left atrium pushes left main bronchus upward, sometimes obstructs lower lobe bronchus. Displacement in film less marked than chronic mitral disease, just suggestive. Diagnosis mainly based on pulmonary pressure increase without much LV enlargement. Enlargement across base and all diameters. Aorta not very large.",
+            "intention": "Explaining radiological findings related to left bronchus and mitral disease.",
+            "context": "Radiological explanation of left bronchus displacement and cardiac chamber enlargement in mitral disease in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Hampton: When the left auricle is dilated the left main bronchus is pushed upward and in some eases the bronchus to the lower lobe is obstructed by pressure. That displacement of the bronchus upward which we see in this film is not so marked as in chronic mitral disease. It is just suggestive. The thing upon which we chiefly based our diagnosis is the fairly positive evidence of increase in the pulmonary pressure without much left ventricular enlargement. You see the enlargement is in all diameters and across the base. You can hardly see the aorta; therefore it is not very large.'"
+        },
+        "turn_70": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Presenting anatomic diagnoses",
+            "message": "Anatomic diagnoses: Myocarditis, possibly luetic, with failure. Luetic aortitis with cusp rupture. Small sinus of Valsalva aneurysm. Pulmonary congestion. Hydropericardium. Cirrhosis of liver, unclassified.",
+            "intention": "Presenting autopsy-derived anatomic diagnoses.",
+            "context": "Anatomic diagnoses based on autopsy findings in Case 19482.",
+            "source_reference": "Page 5: 'clinical diagnosis Luetic heart disease. anatomic diagnoses Myocarditis, possibly luetic, with failure. Luetic aortitis with rupture of the attachment of one of the cusps. Small aneurysm of the sinus of Valsalva. Pulmonary congestion. Hydropericardium. Cirrhosis of the liver, unclassified.'"
+        },
+        "turn_71": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Beginning pathologic discussion, highlighting rapid symptom development",
+            "message": "Rapid cardiac symptom development is outstanding. Syphilis progressing this fast is unusual, but I believe that's all he had.",
+            "intention": "Starting pathologic discussion, emphasizing rapid clinical course.",
+            "context": "Beginning pathologic discussion and highlighting rapid symptom progression in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Mallory: The extraordinary rapidity of the development of the cardiac symptoms and findings is certainly the outstanding feature of this case. I think all of us would certainly agree that we have never seen a case of syphilis progress at this rate, yet I believe that is what he had and all that he had.'"
+        },
+        "turn_72": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Describing heart pathology",
+            "message": "Heart slightly hypertrophied, considerably dilated. Aortic valve abnormality \u2013 one cusp torn off aorta. Scar at rupture site, sinus of Valsalva pocket behind rupture, small aneurysm. Seen similar in acute endocarditis, but no vegetations here, negative blood cultures rule out acute endocarditis.",
+            "intention": "Describing macroscopic heart findings at autopsy.",
+            "context": "Pathological findings in heart and ruling out endocarditis in Case 19482.",
+            "source_reference": "Page 5: 'The heart was only slightly hypertrophied. Of course the duration of his cardiac symptoms was relatively short. The heart was, however, considerably dilated. The only valvular abnormality was in' the aortic valve. That was quite different from anything that I have ever seen. One of the cusps of the aortic valve was actually torn off the aorta. At the point where that rupture had occurred there was a scar, and behind that the sinus of Valsalva made a large pocket which could be described as a small aneurysm immediately behind the point at which the valve cusp had ruptured. I have seen that sort of thing in acute endocarditis but never in syphilis. In this case however there was no trace of a vegetation on any of the valves, so that we can add anatomical evidence to the clinical absence of positive blood cultures in ruling out acute endocarditis entirely.'"
+        },
+        "turn_73": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Describing liver pathology",
+            "message": "Liver smaller than expected, 1500g, deep colored, granular, tougher than normal. Marked cirrhosis, more than cardiac cirrhosis. Marked cirrhosis and passive congestion simultaneously. Minimal cirrhosis in chronic passive congestion, even extreme cases.",
+            "intention": "Describing macroscopic liver findings at autopsy.",
+            "context": "Pathological findings in liver and comparison to cardiac cirrhosis in Case 19482.",
+            "source_reference": "Page 5: 'The liver, which at all examinations had been considered very large, was slightly smaller than normal, weighing 1500 grams. It was very deep colored and had quite a granular surface. When we tried to break it or cut it, it was much tougher than normal. There was unquestionably a considerable degree of cirrhosis present, distinctly more than we can account for by the so-called cardiac cirrhosis. With chronic passive congestion, I think almost solely in rheumatic heart disease of many years' duration, we can get a contracted, cirrhotic scarred liver. Even in the most extreme eases of that sort, however, the degree of cirrhosis is still a relatively slight one. Here there was a marked cirrhosis and marked passive congestion simultaneously.'"
+        },
+        "turn_74": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Confirming coronary arteries were normal",
+            "message": "Coronary arteries entirely negative.",
+            "intention": "Stating coronary artery findings.",
+            "context": "Coronary artery findings in Case 19482.",
+            "source_reference": "Page 5: 'The coronary arteries were entirely negative.'"
+        },
+        "turn_75": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Mentioning lack of other significant gross findings",
+            "message": "No other significant gross findings.",
+            "intention": "Summarizing lack of other relevant macroscopic findings.",
+            "context": "Other gross findings in Case 19482.",
+            "source_reference": "Page 5: 'There were no other gross findings of much significance.'"
+        },
+        "turn_76": {
+            "speaker": "Dr. Hampton",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Hampton",
+            "timestamp": "Seeking clarification about valve cusp and coronary artery relation",
+            "message": "Didn't understand about cusp overlapping coronary orifice.",
+            "intention": "Seeking clarification on anatomical description.",
+            "context": "Request for clarification on valve cusp and coronary artery relation in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Hampton: I did not understand what you said about the cusp overlapping the coronary artery orifice.'"
+        },
+        "turn_77": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Explaining valve cusp rupture",
+            "message": "Two aortic cusps separated at commissure, attachment severed, but slightly adherent, bicuspid valve appearance, one huge cusp flapping, smaller cusp opposite. Acquired lesion, not congenital.",
+            "intention": "Clarifying valve cusp rupture and bicuspid valve appearance.",
+            "context": "Explanation of aortic valve cusp pathology in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Mallory : Where two of the aortic cusps normally come together at the commissure, their attachment to the aorta was completely severed, though they remained slightly adherent to each other, so that we had a sort of bicuspid valve, one huge cusp flapping, practically without \u2022attachment, and a smaller cusp opposed to it. The lesion however appeared plainly acquired, and was not at all of the congenital type.'"
+        },
+        "turn_78": {
+            "speaker": "Dr. Hampton",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Hampton",
+            "timestamp": "Asking about coronary artery location relative to rupture",
+            "message": "Where was the coronary artery?",
+            "intention": "Seeking clarification on coronary artery position.",
+            "context": "Request for clarification on coronary artery location relative to valve lesion in Case 19482.",
+            "source_reference": "Page 5: 'D\u00eet. Hampton: Where was the coronary artery ?'"
+        },
+        "turn_79": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Answering coronary artery location question",
+            "message": "Behind this area.",
+            "intention": "Answering coronary artery location.",
+            "context": "Answering about coronary artery location in relation to valve lesion in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Mallory : It was in behind this area.'"
+        },
+        "turn_80": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Confirming coronary artery was not obstructed",
+            "message": "Coronary not obstructed?",
+            "intention": "Confirming coronary artery patency.",
+            "context": "Confirming coronary artery patency in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Cabot : The coronary was not obstructed at all?'"
+        },
+        "turn_81": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Confirming coronary artery patency and moving to microscopic findings",
+            "message": "No. First section is myocardium. Changes slight.",
+            "intention": "Confirming coronary patency and transitioning to microscopic findings presentation.",
+            "context": "Moving to microscopic findings after confirming coronary artery patency in Case 19482.",
+            "source_reference": "Page 5: 'Dr. Mallory: No. The first section here is from the myocardium. The changes are rather slight, so that I shall be able to demonstrate only a portion of them.'"
+        },
+        "turn_82": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Describing myocardial microscopic findings",
+            "message": "Around vessels, increased fibrous tissue. Areas of muscle fiber hyaline degeneration, lymphocyte and plasma cell infiltration. Occasional coronary branch intima thickening, fibrous tissue, end result of endarteritis, consistent with luetic lesion. Progressive myocarditis.",
+            "intention": "Presenting microscopic myocardial findings.",
+            "context": "Microscopic findings in myocardium, suggesting luetic myocarditis in Case 19482.",
+            "source_reference": "Page 5: 'Around all the blood vessels there is a very considerable increase in fibrous tissue. There are numerous areas where occasional muscle fibers are undergoing a hyalin degeneration, and in those areas there is a certain amount of infiltration of lymphocytes and plasma cells. An occasional coronary branch shows marked thickening of the intima with fibrous tissue. The process is not an active one, but it can be the end result of an endarteritis and is perfectly consistent with a luetic lesion, so that I think we have the right to say there is a progressive myocarditis in this case.'"
+        },
+        "turn_83": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Describing aortic microscopic findings",
+            "message": "Aorta: typical marked lymphocyte collections around adventitia vessels, infiltration into media, media vascularization tendency. Reasonably specific for lues. Rheumatic aortitis possible but less likely given lack of other rheumatism evidence.",
+            "intention": "Presenting microscopic aortic findings.",
+            "context": "Microscopic findings in aorta, supporting luetic aortitis diagnosis in Case 19482.",
+            "source_reference": "Page 5 & 6: 'The aorta shows typical very marked collections of lymphocytes around the vessels of the adven titia, and in some places infiltration extending into the media with a tendency towards vascularization of the media. The lesion is reasonably specific for lues. It is not impossible that the same picture might be produced in a rheumatic aortitis, but it seems to me that if that were the case we should have much more definite evidence of rheumatism elsewhere in the body than we have found.'"
+        },
+        "turn_84": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Describing liver microscopic findings",
+            "message": "Liver section: portal area with fibrous tissue increase, bile duct increase. Narrow zone of liver tissue near portal area, liver cells disappeared in lobule center. Passive congestion and more definite cirrhosis than explained by congestion. Fits toxic cirrhosis predicted by Dr. Jones, but difficult to rule out syphilis.",
+            "intention": "Presenting microscopic liver findings.",
+            "context": "Microscopic findings in liver, indicating cirrhosis and considering etiology in Case 19482.",
+            "source_reference": "Page 6: 'This final section is from the liver. In the center of the field is a portal area with increase in fibrous tissue and increase in bile ducts. There is a very narrow zone of liver tissue on each side of it, and in the center of the lobules the liver cells have disappeared. The picture is in part that of passive congestion, but also of considerably more definite cirrhosis than can be so explained. It fits the toxic type of cirrhosis which Dr. Jones was predicting, but it would be difficult to rule out syphilis.'"
+        },
+        "turn_85": {
+            "speaker": "Student",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Surgeon"
+            ],
+            "real_name": "Unspecified",
+            "timestamp": "Questioning about whistling murmur",
+            "message": "Was a whistling or singing murmur ever heard?",
+            "intention": "Seeking information about specific murmur type.",
+            "context": "Questioning about specific murmur type in Case 19482.",
+            "source_reference": "Page 6: 'A Student : I should like to ask if at any time there was a whistling or a singing murmur heard ?'"
+        },
+        "turn_86": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Answering about whistling murmur",
+            "message": "I think not. Not noted in the record.",
+            "intention": "Answering question about whistling murmur.",
+            "context": "Answering no whistling murmur was documented in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Mallory : I think not. It was not noted in the record.'"
+        },
+        "turn_87": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Questioning about substernal pain etiology",
+            "message": "How do you account for the substernal pain?",
+            "intention": "Seeking explanation for substernal pain.",
+            "context": "Requesting explanation for substernal pain etiology in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Cabot : How do you account for the substernal pain?'"
+        },
+        "turn_88": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Explaining substernal pain in aortic valve involvement",
+            "message": "Many aortic valve involvement cases have it \u2013 rheumatic, luetic, senile calcified stenosis. Type of involvement doesn't seem to matter.",
+            "intention": "Providing explanation for substernal pain in aortic valve disease.",
+            "context": "Explaining substernal pain as common in aortic valve disease regardless of etiology in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Mallory: A considerable number of cases of aortic valve involvement have it, and so far as I have been able to make out, it makes very little difference as to the type of involvement. Rheumatic, luetic, and calcified senile stenosis\u2014all three show it.'"
+        },
+        "turn_89": {
+            "speaker": "Physician A",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Unspecified",
+            "timestamp": "Questioning pain relation to aortic dilatation",
+            "message": "Not related to aortic dilatation?",
+            "intention": "Questioning link between pain and aortic dilatation.",
+            "context": "Questioning if pain is related to aortic dilatation in Case 19482.",
+            "source_reference": "Page 6: 'A Physician : You do not think it is related to the dilatation of the aorta at all?'"
+        },
+        "turn_90": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Answering about aortic dilatation and pain",
+            "message": "Can't rule it out.",
+            "intention": "Acknowledging possibility of pain relation to aortic dilatation.",
+            "context": "Acknowledging possible relation between pain and aortic dilatation in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Mallory : I certainly cannot rule that out.'"
+        },
+        "turn_91": {
+            "speaker": "Physician A",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Unspecified",
+            "timestamp": "Questioning if aorta was enlarged",
+            "message": "Aorta distinctly enlarged?",
+            "intention": "Questioning aortic size.",
+            "context": "Asking about aorta size at autopsy in Case 19482.",
+            "source_reference": "Page 6: 'A Physician: Was the aorta distinctly enlarged?'"
+        },
+        "turn_92": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Answering about aortic enlargement",
+            "message": "Localized pocket, rest normal diameter.",
+            "intention": "Answering about aortic size.",
+            "context": "Answering about aorta size - localized aneurysm but rest normal diameter in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Mallory : There was one localized pocket. The rest was not above the normal diameter.'"
+        },
+        "turn_93": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Highlighting pain onset and aortic disease timing",
+            "message": "Strange thing: second admission, intense pain and fever, no aortic disease evidence. Only third admission aortic disease identifiable.",
+            "intention": "Highlighting temporal discrepancy between pain onset and aortic disease detection.",
+            "context": "Discussing temporal relationship between pain onset and aortic disease presentation in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Jones: The strange thing was that in the second entry, when he had his most intense pain,\u2014he came in on account of pain and fever,\u2014he showed absolutely no evidence of aortic disease. It was not until the third entry that one could identify such a condition.'"
+        },
+        "turn_94": {
+            "speaker": "Surgeon",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student"
+            ],
+            "real_name": "Unspecified",
+            "timestamp": "Suggesting pericardial stretching as pain cause",
+            "message": "Could abrupt aorta enlargement stretch pericardium, causing pain?",
+            "intention": "Suggesting pericardial stretching as pain mechanism.",
+            "context": "Proposing pericardial stretching as pain etiology for rapid aortic enlargement in Case 19482.",
+            "source_reference": "Page 6: 'A Surgeon : Could it be due to a stretching of the pericardium, this rather abrupt enlargement of the aorta?'"
+        },
+        "turn_95": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Agreeing with pericardial stretching possibility",
+            "message": "I think it might be.",
+            "intention": "Acknowledging pericardial stretching as potential pain cause.",
+            "context": "Acknowledging pericardial stretching as possible pain mechanism in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Mallory: I should think it might be.'"
+        },
+        "turn_96": {
+            "speaker": "Dr. Mallory",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Mallory",
+            "timestamp": "Considering pain fibers in aorta and anginal story",
+            "message": "Pain fibers in aorta itself? Pain onset timing fits aortic wall erosion start, but syphilis usually no anginal story.",
+            "intention": "Considering pain fibers in aorta and typical syphilis presentation.",
+            "context": "Discussing presence of pain fibers in aorta and typical anginal presentation in syphilis in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Mallory: I should think it might be. Are there any pain fibers actually in the aorta itself ? The time at which the pain began would fit very well with the time that process must have started to erode his aortic Avail, although certainly the usual case of syphilis does not give any anginal story.'"
+        },
+        "turn_97": {
+            "speaker": "Dr. Hampton",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Hampton",
+            "timestamp": "Sharing similar case experience",
+            "message": "Baker had similar case, rheumatic heart disease diagnosis, same picture, died of acute luetic aortitis, explored for pain.",
+            "intention": "Sharing comparable case experience.",
+            "context": "Sharing similar case experience of luetic aortitis mimicking other cardiac diagnoses in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Hampton : We have had one similar case at the Baker where the diagnosis was also rheumatic heart disease and there was quite the same picture, and the patient died of acute luetic aortitis, and was explored for pain.'"
+        },
+        "turn_98": {
+            "speaker": "Physician A",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Unspecified",
+            "timestamp": "Questioning valve rupture in similar case",
+            "message": "Ruptured valve in that case?",
+            "intention": "Seeking details about similar case.",
+            "context": "Questioning about valve rupture in similar case of luetic aortitis in Case 19482.",
+            "source_reference": "Page 6: 'A Physician: Was there a ruptured valve?'"
+        },
+        "turn_99": {
+            "speaker": "Dr. Hampton",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Hampton",
+            "timestamp": "Answering about valve rupture in similar case",
+            "message": "No. Process mainly lower aorta, abdominal aorta most affected. Pain was abdominal.",
+            "intention": "Answering question about valve rupture and detailing similar case.",
+            "context": "Answering about valve rupture and describing location of aortitis in similar case in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Hampton : No. In that case the process was largely in the lower aorta, most marked in the abdominal aorta. The pain had been abdominal.'"
+        },
+        "turn_100": {
+            "speaker": "Dr. White",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "White",
+            "timestamp": "Presenting theory on pain in aortic regurgitation",
+            "message": "Dr. Paul White assembled cases of aortic regurgitation in young people, destroyed aortic valve, marked regurgitation. Feels pain is from low coronary pressure during diastole, normal coronaries but insufficient flow.",
+            "intention": "Presenting theory on pain mechanism in aortic regurgitation.",
+            "context": "Presenting Dr. Paul White's theory on pain mechanism in aortic regurgitation related to coronary flow in Case 19482.",
+            "source_reference": "Page 6: 'Dr. James C. White: Dr. Paul White assembled three or four cases of aortic r\u00e9gurgitation in young people all of whom showed a destroyed aortic valve with very marked r\u00e9gurgitation, and he feels that most of the pain is caused by low pressure in the eoronaries during diastole. The coronary arteries themselves are normal, but insufficient blood flows into them.'"
+        },
+        "turn_101": {
+            "speaker": "Dr. White",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "White",
+            "timestamp": "Relating theory to present case",
+            "message": "This case illustrates that very markedly.",
+            "intention": "Connecting theory to current case.",
+            "context": "Relating Dr. Paul White's theory to the presented case of aortic regurgitation in Case 19482.",
+            "source_reference": "Page 6: 'This case illustrated that very markedly.'"
+        },
+        "turn_102": {
+            "speaker": "Dr. Jones",
+            "listeners": [
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. Cabot",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Jones",
+            "timestamp": "Questioning Dr. Cabot about Wassermann and jaundice experience",
+            "message": "Dr. Cabot, your experience with positive Wassermann in jaundice?",
+            "intention": "Seeking Dr. Cabot's experience with serology in jaundice.",
+            "context": "Seeking Dr. Cabot's clinical experience with Wassermann test positivity in jaundice cases in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Jones: May I ask Dr. Cabot one question? What is your experience with a positive Wassermann with jaundice?'"
+        },
+        "turn_103": {
+            "speaker": "Dr. Cabot",
+            "listeners": [
+                "Dr. Jones",
+                "Dr. Mallory",
+                "Dr. Means",
+                "Dr. Crone",
+                "Dr. Hampton",
+                "Dr. White",
+                "Physician A",
+                "Physician B",
+                "Student",
+                "Surgeon"
+            ],
+            "real_name": "Cabot",
+            "timestamp": "Answering about Wassermann and jaundice experience",
+            "message": "Just like yours. Recently disregarded it wrongly in several cases. I've reached the same conclusion: should not be disregarded.",
+            "intention": "Sharing experience and concurring on serology interpretation in jaundice.",
+            "context": "Sharing clinical experience and agreeing on the importance of positive Wassermann test even in presence of jaundice in Case 19482.",
+            "source_reference": "Page 6: 'Dr. Cabot: Just like yours. I have recently seen a number of cases where I have disregarded it wrongly, and I have come to exactly the same conclusion you have, that it should not be disregarded any longer.'"
         }
     },
     "clinical_data": {
-        "presentation": {
-            "chief_complaint": "Drowsiness, irrationality, headache, stiff neck, cough, muscle pains.",
-            "history_of_present_illness": "1.5 years of neck stiffness and head pain, 6 months of dry hacking cough, 6 weeks of frontal headache, 1 week of muscle pains, chills, unproductive cough, 3 days of increasing drowsiness, 1 day of irrationality, speech difficulties.",
-            "physical_exam": "Drowsy, mentally clouded, confused, stiff and painful neck, dullness and bronchial breathing in left lung apex with r\u00e2les, Kernig sign present, blurred fundi, temperature 101\u00b0-104.1\u00b0F, pulse 65-132 bpm, respiration 20-33/min.",
-            "vital_signs": {
-                "initial": {
-                    "temperature": "101-104.1\u00b0F",
-                    "pulse": "65-132 bpm",
-                    "respiratory_rate": "20-33/min"
-                }
+        "presentation_19481": {
+            "chief_complaint": "Marked infection of the kidney, Acute hemorrhagic pancreatitis",
+            "history_of_present_illness": "Patient presented with renal infection and developed acute hemorrhagic pancreatitis.",
+            "physical_exam": "Autopsy findings: innumerable small abscesses in kidney, entire pancreas in blood within capsule, minimal pancreatic necrosis, perirectal abscess",
+            "vital_signs": "Not applicable (autopsy case)"
+        },
+        "presentation_19482": {
+            "chief_complaint": "Jaundice, Anginal Pain",
+            "history_of_present_illness": "26-year-old male with jaundice, anorexia, nausea, vomiting, subsequent anginal pain, progressive heart failure.",
+            "physical_exam_admission_1": "Deep jaundice, palpable liver edge, ankylosed knee. Heart and lungs normal.",
+            "physical_exam_admission_2": "Greater liver enlargement, palpable spleen. Heart and lungs normal initially, later developing murmurs.",
+            "physical_exam_admission_3": "Orthopnea, pallor, cyanosis, lymphadenopathy, pulmonary congestion, aortic and mitral murmurs, enlarged liver and spleen, TMJ tenderness.",
+            "vital_signs_admission_1": {
+                "temperature": "Max 99.3\u00b0F",
+                "pulse": "75-100 bpm",
+                "respiratory_rate": "20/min"
+            },
+            "vital_signs_admission_2": {
+                "temperature": "Up to 100\u00b0F daily",
+                "pulse": "90-120 bpm",
+                "respiratory_rate": "20/min"
+            },
+            "vital_signs_admission_3": {
+                "pulse": "128 bpm (rapid)",
+                "blood_pressure": "130/44 mm Hg"
             }
-        },
-        "diagnostics": {
-            "laboratory_data": [
-                {
-                    "test": "Urine",
-                    "value": "30-40 leucocytes per high power field, Sp. gr. 1.018",
-                    "units": "per hpf, Sp. gr.",
-                    "reference_range": "Normal amount when recorded"
-                },
-                {
-                    "test": "Blood",
-                    "value": "Normal",
-                    "units": "N/A",
-                    "reference_range": "Normal"
-                },
-                {
-                    "test": "Wassermann test (blood)",
-                    "value": "Negative",
-                    "units": "N/A",
-                    "reference_range": "Negative"
-                },
-                {
-                    "test": "Non-protein nitrogen",
-                    "value": "38.1 mgm",
-                    "units": "mgm",
-                    "reference_range": "Unknown"
-                },
-                {
-                    "test": "Sputum",
-                    "value": "Stringy, no blood or tb",
-                    "units": "N/A",
-                    "reference_range": "No blood or tb"
-                },
-                {
-                    "test": "Stools",
-                    "value": "Negative",
-                    "units": "N/A",
-                    "reference_range": "Negative"
-                },
-                {
-                    "test": "Lumbar puncture (Dec 9)",
-                    "value": "Clear colorless fluid, 280 cells (77% lymphocytes, 20% mononuclears, 3% polynuelears), Albumin +++, Globulin ++, Sugar 0.031, Total protein 200, Wassermann and gold solution negative",
-                    "units": "cells, %, mg/dL",
-                    "reference_range": "Clear colorless fluid, Normal cell count, Albumin/Globulin/Sugar/Protein normal ranges"
-                },
-                {
-                    "test": "Lumbar puncture (Dec 14)",
-                    "value": "Very slightly turbid fluid, 255 cells (90% lymphocytes, 9% polynuelears, 1 large mononuclear), No tb bacilli found, Numerous paired cocci (contamination?)",
-                    "units": "cells, %, N/A",
-                    "reference_range": "Clear colorless fluid, Normal cell count, No tb bacilli, No contamination"
-                }
-            ],
-            "imaging": [
-                {
-                    "modality": "X-ray spine (April 28)",
-                    "description": "Lower cervical and upper dorsal spine normal. Appearance of first cervical vertebra abnormal, perhaps due to position. Two later plates gave no additional information.",
-                    "findings": "Lower cervical and upper dorsal spine normal, C1 abnormal appearance (positional)"
-                },
-                {
-                    "modality": "X-ray spine (Dec 14)",
-                    "description": "Upper dorsal and lower cervical spine showed no positive evidence of disease in the vertebrae. Slight abnormality in relation of sixth and seventh dorsal.",
-                    "findings": "No vertebral disease, slight D6-D7 abnormality"
-                },
-                {
-                    "modality": "X-ray chest (Dec 14)",
-                    "description": "Left lung field less radiant than right. Dullness at apex with obliteration of lung markings. Heart and mediastinal contents displaced to left. Diaphragm high on left, limited respiratory movements.",
-                    "findings": "Left lung opacity, apical dullness, mediastinal shift left, high left diaphragm"
-                }
-            ]
-        },
-        "procedures": [
+        }
+    },
+    "diagnostics": {
+        "laboratory_data_19482_admission_1": [
             {
-                "procedure": "Lumbar puncture",
-                "description": "Diagnostic lumbar puncture on December 9th and December 14th",
-                "time": "December 9th and 14th"
+                "test": "Urine Specific Gravity",
+                "value": "1.012-1.022",
+                "result": "No albumin, sugar, or acetone bodies. Bile present initially, then absent."
             },
             {
-                "procedure": "Abscess tapping",
-                "description": "Tapping of neck abscess at Tuberculosis Clinic",
-                "time": "May 9th (7 months before admission)"
+                "test": "Blood Hemoglobin",
+                "value": "80%",
+                "result": "Reduced"
             },
             {
-                "procedure": "Medication administration",
-                "description": "Morphine, Pyramidon, Chloral hydrate, Sodium bromide",
-                "time": "December 12th-16th"
+                "test": "Red Blood Count",
+                "value": "4,680,000",
+                "result": "Normal range"
+            },
+            {
+                "test": "White Blood Count",
+                "value": "10,850-6,800",
+                "result": "Initially elevated, then decreased"
+            },
+            {
+                "test": "Differential Count",
+                "value": "68% Polymorphonuclears, 30% Lymphocytes, 2% Eosinophils",
+                "result": "Normal differential"
+            },
+            {
+                "test": "Stool Specimens",
+                "value": "Clay colored initially, then light brown, then normal",
+                "result": "Suggestive of obstructive jaundice initially"
+            },
+            {
+                "test": "Hinton Test",
+                "value": "Strongly Positive",
+                "result": "Positive for syphilis"
+            },
+            {
+                "test": "Wassermann Test",
+                "value": "Weakly Positive, then Positive",
+                "result": "Positive for syphilis"
+            },
+            {
+                "test": "Icteric Index",
+                "value": "75",
+                "result": "Elevated, indicating jaundice"
+            },
+            {
+                "test": "Van den Bergh Test",
+                "value": "Direct Reaction, 22.5mg (then 6.15mg)",
+                "result": "Direct hyperbilirubinemia, decreasing over time"
+            },
+            {
+                "test": "Liver Function Test",
+                "value": "100% Retention",
+                "result": "Severe liver dysfunction"
             }
         ],
-        "timeline_events": [
+        "laboratory_data_19482_admission_2": [
             {
-                "time": "8 years before admission",
-                "event": "Best weight 200 pounds"
+                "test": "Hinton & Wassermann Reactions",
+                "value": "Positive",
+                "result": "Persistently positive for syphilis"
             },
             {
-                "time": "1.5 years before admission",
-                "event": "Sugar found in urine, diet started, weight loss, diagnosed with physiological glycosuria"
+                "test": "Icteric Index",
+                "value": "25 then 10",
+                "result": "Decreasing jaundice"
             },
             {
-                "time": "1.5 years before admission",
-                "event": "Onset of neck stiffness and head pain"
-            },
-            {
-                "time": "6 months before admission",
-                "event": "Dry hacking cough started"
-            },
-            {
-                "time": "6 weeks before admission",
-                "event": "Severe frontal headache started"
-            },
-            {
-                "time": "1 week before admission",
-                "event": "Severe muscle pains, chills, possible fever, unproductive cough"
-            },
-            {
-                "time": "3 days before admission",
-                "event": "Increasing drowsiness"
-            },
-            {
-                "time": "Day of admission (December 9th)",
-                "event": "Irrationality, speech difficulties, admission to hospital, lumbar puncture"
-            },
-            {
-                "time": "December 14th",
-                "event": "Second lumbar puncture, X-rays of spine and chest"
-            },
-            {
-                "time": "December 17th",
-                "event": "Death"
+                "test": "Van den Bergh Test",
+                "value": "1.5-2, Direct Reaction",
+                "result": "Low level direct hyperbilirubinemia"
             }
         ],
-        "final_diagnoses": [
-            "Tuberculous meningitis",
-            "Pulmonary tuberculosis",
-            "Chronic tuberculosis of bronchial glands and apices of lungs",
-            "Tuberculosis of lungs with cavity formation",
-            "Chronic pleuritis, left",
-            "Slight hypertrophy and dilatation of the heart"
+        "laboratory_data_19482_admission_3": [
+            {
+                "test": "Urine",
+                "value": "Specific Gravity 1.010-1.028, Bile on one occasion",
+                "result": "Generally normal, intermittent bile"
+            },
+            {
+                "test": "Blood Hemoglobin",
+                "value": "55-60%",
+                "result": "Anemia worsened"
+            },
+            {
+                "test": "Red Blood Count",
+                "value": "3,200,000-4,100,000",
+                "result": "Reduced"
+            },
+            {
+                "test": "White Blood Count",
+                "value": "9,150-16,400",
+                "result": "Variable, sometimes elevated"
+            },
+            {
+                "test": "Hinton & Wassermann Reactions",
+                "value": "Positive",
+                "result": "Persistently positive for syphilis"
+            },
+            {
+                "test": "Icteric Index",
+                "value": "8",
+                "result": "Low level jaundice"
+            },
+            {
+                "test": "Liver Function Test",
+                "value": "0-5% Retention",
+                "result": "Improved liver function"
+            },
+            {
+                "test": "Gonococcus Fixation Test",
+                "value": "Positive",
+                "result": "Positive for gonorrhea"
+            },
+            {
+                "test": "Prostatic Smear",
+                "value": "Pus cells with intracellular Gram-negative diplococci",
+                "result": "Consistent with gonococcal prostatitis"
+            },
+            {
+                "test": "Blood Cultures",
+                "value": "Negative (x3)",
+                "result": "No bacteremia detected"
+            }
+        ],
+        "imaging_19482_admission_1": [
+            {
+                "modality": "X-ray",
+                "description": "Flat plate of gallbladder negative for stones."
+            }
+        ],
+        "imaging_19482_admission_2": [
+            {
+                "modality": "X-ray",
+                "description": "No evidence of disease in heart or chest."
+            },
+            {
+                "modality": "Electrocardiogram",
+                "description": "Normal rhythm, rate 110, deeply inverted T1 and T2, rather low voltage."
+            }
+        ],
+        "imaging_19482_admission_3": [
+            {
+                "modality": "X-ray Temporomandibular Joint",
+                "description": "Widening of joint space and anterior displacement of the articular surface of the mandible."
+            },
+            {
+                "modality": "Heart Plate",
+                "description": "Considerable enlargement, most marked across the base, in the region of the auricles. The shadow of the left auricle was particularly prominent. The left bronchus appeared elevated. The pulmonary conus was visible. Marked increase in the hilus shadows on both sides with some mottling in the mid and lower lung fields extending well out toward the periphery."
+            },
+            {
+                "modality": "Chest Plate (June 2nd)",
+                "description": "Evident increase in the size of the heart since last examination. The shape still suggested mitral disease. The aortic knob was not visible. There was prominence in the region of both auricles. The hilus shadows and larger lung markings were still more prominent."
+            },
+            {
+                "modality": "Electrocardiogram",
+                "description": "Sino-auricular tachycardia, rate 110-120, inverted T1 and T2, tendency to low voltage."
+            }
         ]
     },
-    "case_id": "NEJM192403131901114",
-    "original_case_number": "NEJM192403131901114",
+    "procedures": [
+        {
+            "procedure": "Diet",
+            "description": "High carbohydrate, low fat diet (Case 19482)."
+        },
+        {
+            "procedure": "Medications",
+            "description": "Potassium iodide, Codeine, Pyramidon, Digitalis, Blaud's pills (Case 19482)."
+        },
+        {
+            "procedure": "Autopsy",
+            "description": "Post-mortem examination performed (Case 19481 & 19482)."
+        }
+    ],
+    "timeline_events": [
+        {
+            "time": "Case 19481 - Terminal Event",
+            "event": "Acute hemorrhagic pancreatitis leading to death."
+        },
+        {
+            "time": "Case 19482 - 5 weeks before first admission",
+            "event": "Moderate head cold."
+        },
+        {
+            "time": "Case 19482 - 4 weeks before first admission",
+            "event": "Fatigue, anorexia, nausea, vomiting."
+        },
+        {
+            "time": "Case 19482 - 3 weeks before first admission",
+            "event": "Jaundice appeared."
+        },
+        {
+            "time": "Case 19482 - First Admission",
+            "event": "Admission for jaundice."
+        },
+        {
+            "time": "Case 19482 - 23 days after First Admission",
+            "event": "Discharge, jaundice improved but still present, liver enlarged."
+        },
+        {
+            "time": "Case 19482 - 2 weeks after discharge from First Admission",
+            "event": "Felt well."
+        },
+        {
+            "time": "Case 19482 - 4 days before Second Admission",
+            "event": "Sudden severe midsternal pain."
+        },
+        {
+            "time": "Case 19482 - Second Admission",
+            "event": "Readmission for substernal pain and liver enlargement."
+        },
+        {
+            "time": "Case 19482 - 1 month after Second Admission",
+            "event": "Discharge, pain improved, potassium iodide treatment."
+        },
+        {
+            "time": "Case 19482 - 3 weeks after discharge from Second Admission",
+            "event": "Felt well except palpitations."
+        },
+        {
+            "time": "Case 19482 - 5 weeks before Third Admission",
+            "event": "Weakness upon waking."
+        },
+        {
+            "time": "Case 19482 - 4 weeks before Third Admission",
+            "event": "Sputum became blood tinged."
+        },
+        {
+            "time": "Case 19482 - 3.5 weeks before Third Admission",
+            "event": "Chest pain with deep inspiration."
+        },
+        {
+            "time": "Case 19482 - 3 weeks before Third Admission",
+            "event": "Soreness about right ear, shifted to TMJ."
+        },
+        {
+            "time": "Case 19482 - 2.5 weeks before Third Admission",
+            "event": "Forceful heart beats."
+        },
+        {
+            "time": "Case 19482 - 1 week before Third Admission",
+            "event": "Attacks of dizziness."
+        },
+        {
+            "time": "Case 19482 - Third Admission",
+            "event": "Readmission for worsening symptoms, heart failure."
+        },
+        {
+            "time": "Case 19482 - May 29 (during Third Admission)",
+            "event": "Presystolic murmur and thrill noted."
+        },
+        {
+            "time": "Case 19482 - June 6 (during Third Admission)",
+            "event": "Sudden death."
+        }
+    ],
+    "final_diagnoses": [
+        "Case 19481: Renal infection with abscesses, Acute hemorrhagic pancreatitis, Metastatic perirectal abscess",
+        "Case 19482: Luetic heart disease (aortic valve involvement), Syphilitic liver cirrhosis, Gonorrheal prostatitis, Gonococcal arthritis (possible TMJ), Myocarditis, Luetic Aortitis"
+    ],
+    "case_id": "NEJM193311302092210",
+    "original_case_number": "NEJM193311302092210",
     "final_diagnosis": "N/A"
 }
